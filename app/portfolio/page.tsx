@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import PortfolioBottomNavbar from "@/components/PortfolioBottomNavbar";
@@ -109,7 +109,7 @@ const generatePortfolioItems = (): PortfolioItem[] => {
 
 const portfolioItems = generatePortfolioItems();
 
-export default function PortfolioPage() {
+function PortfolioContent() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category") as Category | null;
   
@@ -290,5 +290,17 @@ export default function PortfolioPage() {
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+export default function PortfolioPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-brand-black">
+        <div className="text-brand-silver">Loading...</div>
+      </div>
+    }>
+      <PortfolioContent />
+    </Suspense>
   );
 }
