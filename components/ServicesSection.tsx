@@ -1,54 +1,58 @@
 "use client";
 
-import { Speaker, Camera, Video, Mic2, ArrowUpRight } from "lucide-react";
+import { Speaker, Camera, Video, Mic2, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const services = [
   {
-    title: "AV Systems",
+    title: "Audio Visual Systems",
     description: "Comprehensive audio-visual solutions including sound reinforcement, lighting design, and staging for events of any scale.",
     icon: Speaker,
+    href: "/services/av-systems",
   },
   {
     title: "Photography",
     description: "Professional event coverage, corporate headshots, and creative brand photography that captures the perfect moment.",
     icon: Camera,
+    href: "/services/photography",
   },
   {
     title: "Videography",
-    description: "Cinematic video production, highlight reels, and high-definition live streaming services to broadcast your message.",
+    description: "Cinematic event, video production, highlight reels, and corporate videos that tell your story.",
     icon: Video,
+    href: "/services/videography",
   },
   {
     title: "Talent",
     description: "Professional hosts, voiceover artists, and on-screen talent to elevate your production value and engage your audience.",
     icon: Mic2,
+    href: "/services/talent",
   },
 ];
 
 export default function Services() {
   return (
-    <section className="py-24 bg-brand-charcoal px-4 md:px-8">
+    <section className="pt-32 pb-12 bg-transparent px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-off-white mb-4">Our Services</h2>
-            <div className="w-20 h-1 bg-brand-silver/50 rounded-full" />
-          </div>
-          <p className="text-brand-silver/70 max-w-md font-sans text-right md:text-left">
+        <div className="flex flex-col items-center text-center mb-10 gap-6">
+            <h2 className="text-5xl md:text-7xl font-display font-bold text-brand-off-white">What we offer.</h2>
+          <p className="text-brand-off-white/90 max-w-2xl font-sans text-lg md:text-xl leading-relaxed">
             Comprehensive media solutions tailored to your unique requirements.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="group relative overflow-hidden bg-brand-black p-8 md:p-10 rounded-lg border border-white/5 hover:border-brand-silver/30 transition-all duration-300"
+            <motion.div
+              key={index}
+              whileTap={{ y: 4, scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ArrowUpRight className="w-6 h-6 text-brand-silver" />
-              </div>
-              
+              <Link 
+                href={service.href}
+                className="group relative overflow-hidden bg-gradient-to-br from-brand-charcoal/100 to-brand-black/40 p-8 md:p-10 rounded-2xl border border-white/10 hover:border-brand-silver/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(192,192,192,0.1)] hover:-translate-y-1 cursor-pointer block"
+              >
               <div className="mb-8 inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-charcoal text-brand-silver group-hover:bg-brand-silver group-hover:text-brand-black transition-colors duration-300">
                 <service.icon className="w-7 h-7" />
               </div>
@@ -57,10 +61,11 @@ export default function Services() {
                 {service.title}
               </h3>
               
-              <p className="text-brand-off-white/60 leading-relaxed font-sans group-hover:text-brand-off-white/80 transition-colors duration-300">
+              <p className="text-brand-off-white/80 leading-relaxed font-sans group-hover:text-brand-off-white/80 transition-colors duration-300">
                 {service.description}
               </p>
-            </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>

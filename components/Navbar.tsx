@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Services", href: "#services" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -46,18 +47,37 @@ export default function Navbar() {
 
   // Logo Component to reuse
   const Logo = () => (
-    <Link href="/" className="relative z-50">
-      <div className="w-8 h-8 border border-brand-silver rounded-full flex items-center justify-center group hover:bg-brand-silver transition-colors duration-300">
-         <span className="font-display font-bold text-brand-silver text-sm group-hover:text-brand-black transition-colors duration-300">P</span>
-      </div>
+    <Link href="/" onClick={() => setIsOpen(false)} className="relative z-50">
+      <motion.div 
+        className="w-8 h-8 relative group"
+        whileHover={{ 
+          rotate: 360
+        }}
+        whileTap={{ 
+          scale: 0.6
+        }}
+        transition={{ 
+          duration: 0.6, 
+          ease: [0.43, 0.13, 0.23, 0.96] // Custom easing for slow-fast-slow (ease-in-out variant)
+        }}
+      >
+         <Image 
+           src="/logos/pixelpro_logo_light.svg" 
+           alt="PixelPro Studios" 
+           fill
+           className="object-contain"
+         />
+      </motion.div>
     </Link>
   );
 
   // Central Text Component to reuse
   const BrandText = () => (
-    <Link href="/" className="font-display font-bold text-lg tracking-wide text-brand-off-white hover:text-brand-silver transition-colors">
-      pixelpro
-    </Link>
+    <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+      <Link href="/" onClick={() => setIsOpen(false)} className="font-display font-bold text-lg tracking-wide text-brand-off-white hover:text-brand-silver transition-colors cursor-pointer">
+        pixelpro
+      </Link>
+    </motion.div>
   );
 
   return (
@@ -138,11 +158,12 @@ export default function Navbar() {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
+                            whileTap={{ y: 2, scale: 0.98 }}
                           >
                             <Link
                               href={link.href}
                               onClick={toggleMenu}
-                              className="text-2xl md:text-3xl font-display font-medium text-brand-off-white transition-all duration-300 block w-fit
+                              className="text-2xl md:text-3xl font-display font-medium text-brand-off-white transition-all duration-300 block w-fit cursor-pointer
                                          hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-white hover:via-brand-silver hover:to-white
                                          hover:bg-[length:200%_auto] hover:animate-[shimmer_2s_linear_infinite]"
                             >
@@ -153,7 +174,7 @@ export default function Navbar() {
                       </div>
 
                       {/* Right Column: Contact Form */}
-                      <div className="flex flex-col justify-center">
+                      {/* <div className="flex flex-col justify-center">
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -198,7 +219,7 @@ export default function Navbar() {
                             </button>
                           </form>
                         </motion.div>
-                      </div>
+                      </div> */}
                     </div>
                 </div>
               </motion.div>

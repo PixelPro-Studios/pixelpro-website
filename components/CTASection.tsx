@@ -1,25 +1,33 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function CTA() {
   return (
-    <section className="py-28 bg-gradient-to-b from-brand-charcoal to-brand-black relative overflow-hidden">
-       {/* Abstract bg element */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-silver/20 to-transparent" />
-
+    <section className="pt-12 pb-28 bg-gradient-to-b from-brand-black via-brand-black/80 to-brand-silver/10 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-brand-off-white mb-6 tracking-tight">
-          Your Vision, Our Lens.
+          Realise your event vision.
         </h2>
-        <p className="text-lg md:text-xl text-brand-silver/70 mb-12 max-w-2xl mx-auto font-sans font-light">
-          Don't let your masterpiece go uncaptured. Let's build something extraordinary together.
+        <p className="text-lg md:text-xl text-brand-off-white/80 mb-12 max-w-2xl mx-auto font-sans font-light">
+          Craft extraordinary experiences for your event participants with us.
         </p>
         
-        <button className="group relative inline-flex items-center px-10 py-5 bg-transparent border border-brand-silver text-brand-silver font-semibold text-lg overflow-hidden transition-all duration-300 hover:bg-brand-silver hover:text-brand-black cursor-pointer rounded-sm">
-          <span>Start Your Legacy</span>
-          <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-        </button>
+        <motion.div
+          whileTap={{ y: 4, scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+          <Link 
+            href="https://cal.com/pixelpro/consultation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 px-8 py-4 bg-brand-off-white text-brand-black font-semibold rounded-xl hover:bg-white transition-colors duration-300 tracking-wide uppercase text-sm cursor-pointer"
+          >
+            Book a Call
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

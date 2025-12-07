@@ -2,67 +2,91 @@
 
 import { Camera, Eye, Clock, Layers } from "lucide-react";
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const reasons = [
   {
-    title: "Technical Precision",
-    description: "State-of-the-art equipment and flawless execution for every frame. We invest in top-tier technology to ensure your visuals are crisp, clear, and professionally calibrated.",
-    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop", // Camera lens/equipment
+    title: "LIGHTNING-fast response time",
+    description: "Whether it's a last-minute change, an urgent request or a same-day event, our team replies quickly and gets things moving immediately.",
+    highlight: "No delays, no slow admin.",
+    image: "/photos/pixelpro-studios-singapore-sound-system-rental.jpg",
   },
   {
-    title: "Creative Vision",
-    description: "Storytelling that transcends the ordinary, capturing the essence of your event. Our creative directors work closely with you to turn abstract concepts into compelling visual narratives.",
-    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop", // Creative/Atmospheric
+    title: "Competitive Rates Without Compromising Quality",
+    description: "We keep our pricing fair and transparent while using professional-grade equipment trusted AT festivals, corporate productions, mall activations and community events.",
+    highlight: "Get better value without the hidden markup.",
+    image: "/photos/pixelpro-studios-singapore-sound-system-rental.jpg",
   },
   {
-    title: "Unwavering Reliability",
-    description: "On time, every time. We understand there are no second takes in live events. Our rigorous planning and backup systems guarantee peace of mind when it matters most.",
-    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000&auto=format&fit=crop", // Event production/Backstage
+    title: "One-Stop Solution for Your Entire Event",
+    description: "From sound and stage to lighting, projection, LED walls, photography and videography. You only deal with one vendor, one team, one smooth workflow.",
+    highlight: "",
+    image: "/photos/pixelpro-studios-one-stop-event-av-and-media-singapore.jpg",
   },
   {
-    title: "End-to-End Production",
-    description: "From concept to final edit, we handle the entire production lifecycle seamlessly. You get a single point of contact and a unified team dedicated to your project's success.",
-    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44e?q=80&w=1000&auto=format&fit=crop", // Editing/Studio
+    title: "Our Reliability Guarantee",
+    description: "If a technical issue ever happens during your event, our team resolves it within thirty minutes or you receive an immediate discount.",
+    highlight: "Zero stress, zero disruptions.",
+    image: "/photos/pixelpro-studios-singapore-sound-system-rental.jpg",
   },
 ];
 
+function ReasonCard({ reason, index }: { reason: typeof reasons[0], index: number }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
+
+  return (
+    <div 
+      className={`flex flex-col md:flex-row items-center my-4 ${
+        index % 2 === 1 ? "md:flex-row-reverse" : ""
+      }`}
+    >
+      {/* Text Side */}
+      <div className="w-full md:w-1/2 pt-4 pb-12 md:pb-16 px-6 md:px-16 flex flex-col justify-center">
+        <div className="flex items-center gap-4 mb-6">
+          <h3 className="text-2xl md:text-3xl font-display font-bold text-brand-platinum uppercase leading-tight">
+            {reason.title}
+          </h3>
+        </div>
+        <div className="text-brand-off-white/70 leading-relaxed text-lg font-sans text-justify">
+          <p className="mb-4">{reason.description}</p>
+          {reason.highlight && (
+            <p className="font-bold text-brand-silver italic">{reason.highlight}</p>
+          )}
+        </div>
+      </div>
+
+      {/* Image Side */}
+      <div ref={ref} className="w-full md:w-1/2 h-[200px] md:h-[400px] relative group overflow-hidden rounded-2xl">
+        <div className="absolute inset-0 bg-brand-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+        <Image
+          src={reason.image}
+          alt={reason.title}
+          fill
+          className={`object-cover transition-all duration-[1500ms] group-hover:scale-105 ${
+            isInView ? "grayscale-0" : "grayscale"
+          }`}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function WhyUs() {
   return (
-    <section className="py-12 bg-brand-black overflow-hidden">
+    <section className="pt-12 pb-6 bg-brand-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="flex flex-col items-center text-center gap-6 pb-4">
+            <h2 className="text-4xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-silver via-blue-400 to-brand-silver bg-[length:200%_auto] animate-[shimmer_3s_linear_infinite] hover:animate-[shimmer_0.8s_linear_infinite] transition-all cursor-default leading-tight pb-2">
+              Let's bring your event to life.
+            </h2>
+        </div>
 
-        <div className="flex flex-col gap-0">
+        <div className="flex flex-col gap-0 pt-12">
           {reasons.map((reason, index) => (
-            <div 
-              key={index} 
-              className={`flex flex-col md:flex-row items-center my-8 ${
-                index % 2 === 1 ? "md:flex-row-reverse" : ""
-              }`}
-            >
-              {/* Text Side */}
-              <div className="w-full md:w-1/2 py-12 md:py-16 px-6 md:px-16 flex flex-col justify-center">
-                <div className="flex items-center gap-4 mb-6">
-                  <h3 className="text-2xl md:text-3xl font-display font-bold text-brand-platinum">
-                    {reason.title}
-                  </h3>
-                </div>
-                <p className="text-brand-off-white/70 leading-relaxed text-lg font-sans">
-                  {reason.description}
-                </p>
-              </div>
-
-              {/* Image Side */}
-              <div className="w-full md:w-1/2 h-[300px] md:h-[500px] relative group overflow-hidden rounded-2xl">
-                <div className="absolute inset-0 bg-brand-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                <Image
-                  src={reason.image}
-                  alt={reason.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </div>
+            <ReasonCard key={index} reason={reason} index={index} />
           ))}
         </div>
       </div>
