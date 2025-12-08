@@ -14,7 +14,7 @@ const reasons = [
   },
   {
     title: "Competitive Rates Without Compromising Quality",
-    description: "We keep our pricing fair and transparent while using professional-grade equipment trusted AT festivals, corporate productions, mall activations and community events.",
+    description: "We keep our pricing fair and transparent while using professional-grade equipment trusted at festivals, corporate productions, mall activations and community events.",
     highlight: "Get better value without the hidden markup.",
     image: "/photos/pixelpro-studios-singapore-sound-system-rental.jpg",
   },

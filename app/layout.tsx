@@ -18,7 +18,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "PixelPro Studios | One-stop AV Systems, Photography & Videography Singapore",
-  description: "Your reliable one-stop partner for events, media, and AV production. Professional audio systems, stage lighting, LED walls, photography, videography, and talent services in Singapore.",
+  description: "Your reliable one-stop partner for events, media, and AV productions. Professional audio systems, stage lighting, LED walls, photography, videography, and talent services in Singapore.",
   keywords: [
     "AV systems Singapore",
     "event photography Singapore",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     locale: "en_SG",
     url: "https://pixelprostudios.com",
     title: "PixelPro Studios | Premium AV Systems, Photography & Videography Singapore",
-    description: "Your reliable one-stop partner for events, media, and AV production. Professional audio systems, stage lighting, LED walls, photography, videography, and talent services in Singapore.",
+    description: "Your reliable one-stop partner for events, media, and AV productions. Professional audio systems, stage lighting, LED walls, photography, videography, and talent services in Singapore.",
     siteName: "PixelPro Studios",
     images: [
       {
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "PixelPro Studios | Premium AV Systems, Photography & Videography Singapore",
-    description: "Your reliable one-stop partner for events, media, and AV production in Singapore.",
+    description: "Your reliable one-stop partner for events, media, and AV productions in Singapore.",
     images: ["/photos/pixelpro-studios-singapore-sound-system-rental.jpg"],
     creator: "@pixelprostudiossg",
   },

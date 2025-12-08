@@ -79,7 +79,7 @@ export default function TalentPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group">
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-off-white text-brand-black font-semibold text-sm rounded-full hover:bg-white transition-all duration-300 group">
                     <span>Get a Quote</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>

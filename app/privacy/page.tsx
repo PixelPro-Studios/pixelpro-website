@@ -21,49 +21,50 @@ export default function PrivacyPage() {
         {/* Content */}
         <div className="prose prose-invert max-w-none">
           <div className="text-brand-silver leading-relaxed space-y-8 text-justify">
+            
             <div>
               <h2 className="text-2xl font-display font-bold text-brand-off-white mb-4">1. General</h2>
               <p>
-                This is a PixelPro Studios Pte. Ltd. website. Thank you for examining our privacy statement.
+                This website is operated by PixelPro Studios Pte. Ltd. We take your privacy seriously and are committed to protecting your personal data.
               </p>
             </div>
 
             <div>
               <h2 className="text-2xl font-display font-bold text-brand-off-white mb-4">2. Browsing</h2>
               <p>
-                If you are only browsing this website, we do not capture data that allows us to identify you individually.
+                If you are browsing this website, we do not collect information that can identify you personally. Basic analytics data may be captured to improve site performance, but this does not include personally identifiable information.
               </p>
             </div>
 
             <div>
               <h2 className="text-2xl font-display font-bold text-brand-off-white mb-4">3. Data Sharing</h2>
               <p>
-                If you choose to make an application or send us an e-mail for which you provide us with personally identifiable data, we may share necessary data with other Government agencies, so as to serve you in a most efficient and effective way, unless such sharing is prohibited by legislation. We will NOT share your personal data with non-Government entities, except where such entities have been authorised to carry out specific Government services. We will comply with the Personal Data Protection Act (PDPA).
+                If you choose to contact us, submit a form, or send us an email containing personal information, you consent to PixelPro using that information for the purpose of responding to your enquiry or delivering the requested services. We may share your data with service providers directly involved in your project, but only when necessary and always in compliance with the Personal Data Protection Act (PDPA). We do not sell, rent, or disclose your personal data to unauthorised third parties.
               </p>
             </div>
 
             <div>
               <h2 className="text-2xl font-display font-bold text-brand-off-white mb-4">4. Data Retention</h2>
               <p>
-                For your convenience, we may also display to you data you had previously supplied us. This will speed up processes and save you the trouble of repeating previous submissions. Should the data be out-of-date, please supply us the latest data. We will retain your personal data only as necessary for the effective delivery of services to you.
+                For your convenience, we may retain information you previously provided so that you do not need to resubmit the same details. If any information becomes outdated, please update us so we can provide accurate service. Personal data will be kept only for as long as required to fulfil the purpose for which it was collected.
               </p>
             </div>
 
             <div>
               <h2 className="text-2xl font-display font-bold text-brand-off-white mb-4">5. External Links</h2>
               <p>
-                This site may contain links to non-Government sites whose data protection and privacy practices may differ from ours. We are not responsible for the content and privacy practices of these other websites and encourage you to consult the privacy notices of those sites.
+                Our website may contain links to external websites or third-party platforms. These sites have their own privacy practices, which may differ from ours. PixelPro is not responsible for the content or privacy policies of external websites, and we encourage you to review the privacy statements of those sites before providing any personal information.
               </p>
             </div>
 
-            <div className="mt-12 pt-8 border-t border-white/10">
-              <h2 className="text-2xl font-display font-bold text-brand-off-white mb-4">Contact Us</h2>
+            <div>
+              <h2 className="text-2xl font-display font-bold text-brand-off-white mb-4">6. Your Rights</h2>
               <p>
-                If you have any questions about our Privacy Policy or how we handle your personal data, please contact us at{" "}
-                <a href="mailto:hello@pixelprostudios.com" className="text-brand-silver hover:text-brand-off-white underline transition-colors">
-                  hello@pixelprostudios.com
+                If you wish to access, update, or request the removal of your personal data from our records, you may email us at any time at{" "}
+                <a href="mailto:support@pixelprostudios.sg" className="text-brand-platinum hover:text-brand-off-white underline transition-colors">
+                  support@pixelprostudios.sg
                 </a>
-                .
+                . We will process your request in accordance with PDPA requirements.
               </p>
             </div>
           </div>
@@ -72,4 +73,3 @@ export default function PrivacyPage() {
     </main>
   );
 }
-

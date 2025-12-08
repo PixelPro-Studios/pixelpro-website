@@ -157,9 +157,9 @@ export default function ContactPage() {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="order-1 md:order-2"
           >
-            <div className="bg-gradient-to-br from-brand-silver via-brand-silver/70 to-brand-silver/80 rounded-3xl p-6 md:p-8 min-h-[600px]">
+            <div className="bg-white rounded-3xl p-6 min-h-[200px] md:p-8 min-h-[600px]">
               <iframe
-                data-tally-src="https://tally.so/embed/Bza7LN?transparentBackground=1&dynamicHeight=1"
+                data-tally-src="https://tally.so/embed/Bza7LN?transparentBackground=1&dynamicHeight=0"
                 loading="lazy"
                 width="100%"
                 height="100%"

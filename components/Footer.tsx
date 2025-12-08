@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
@@ -87,7 +87,6 @@ export default function Footer() {
       </svg>
     ), href: "https://tiktok.com/@pixelprostudios.sg" },
     { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/pixelprostudios" },
-    { name: "YouTube", icon: Youtube, href: "https://youtube.com/@pixelprostudios" },
   ];
 
   return (
@@ -126,7 +125,8 @@ export default function Footer() {
                   alt="Singapore Government Registered Supplier - GeBIZ"
                   width={200}
                   height={60}
-                  className="grayscale invert opacity-80 hover:opacity-100 transition-opacity"
+                  className="invert opacity-80 hover:opacity-100 transition-opacity"
+                  style={{ filter: 'brightness(0) saturate(100%) invert(1)' }}
                 />
               </div>
             </div>

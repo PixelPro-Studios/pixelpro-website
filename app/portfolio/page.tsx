@@ -7,19 +7,14 @@ import PortfolioBottomNavbar from "@/components/PortfolioBottomNavbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
-type Category = "all" | "av-systems" | "photography" | "videography";
-type AVSubcategory = "all" | "audio" | "stage";
-type PhotoSubcategory = "events" | "food" | "graduation" | "pets" | "studio";
+type Category = "audio" | "stage" | "photography" | "videography";
 
 type PortfolioItem = {
   id: number;
   category: Category;
-  subcategory: AVSubcategory;
   title: string;
   image?: string;
   videoId?: string;
-  isVideo?: boolean;
-  photoSubcategory?: PhotoSubcategory;
 };
 
 // Generate portfolio items from the folders
@@ -27,23 +22,21 @@ const generatePortfolioItems = (): PortfolioItem[] => {
   const items: PortfolioItem[] = [];
   let id = 1;
 
-  // AV Audio Systems (10 images)
+  // Audio Systems (10 images)
   for (let i = 1; i <= 10; i++) {
     items.push({
       id: id++,
-      category: "av-systems" as Category,
-      subcategory: "audio" as AVSubcategory,
+      category: "audio",
       image: `/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-${i}.jpg`,
       title: `Sound System`,
     });
   }
 
-  // AV Stage Productions (8 images)
+  // Stage Productions (8 images)
   for (let i = 1; i <= 8; i++) {
     items.push({
       id: id++,
-      category: "av-systems" as Category,
-      subcategory: "stage" as AVSubcategory,
+      category: "stage",
       image: `/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-${i}.jpg`,
       title: `Stage Production`,
     });
@@ -53,9 +46,7 @@ const generatePortfolioItems = (): PortfolioItem[] => {
   for (let i = 1; i <= 29; i++) {
     items.push({
       id: id++,
-      category: "photography" as Category,
-      subcategory: "all" as AVSubcategory,
-      photoSubcategory: "events" as PhotoSubcategory,
+      category: "photography",
       image: `/portfolio-photo/Events/pixelpro-studios-event-photography-singapore-${i}.jpg`,
       title: `Event Photography`,
     });
@@ -65,9 +56,7 @@ const generatePortfolioItems = (): PortfolioItem[] => {
   for (let i = 1; i <= 8; i++) {
     items.push({
       id: id++,
-      category: "photography" as Category,
-      subcategory: "all" as AVSubcategory,
-      photoSubcategory: "food" as PhotoSubcategory,
+      category: "photography",
       image: `/portfolio-photo/Food/pixelpro-studios-food-photography-singapore-${i}.jpg`,
       title: `Food Photography`,
     });
@@ -78,11 +67,29 @@ const generatePortfolioItems = (): PortfolioItem[] => {
     const num = i.toString().padStart(2, '0');
     items.push({
       id: id++,
-      category: "photography" as Category,
-      subcategory: "all" as AVSubcategory,
-      photoSubcategory: "graduation" as PhotoSubcategory,
+      category: "photography",
       image: `/portfolio-photo/Graduation/pixelpro-studios-graduation-photography-singapore-${num}.jpg`,
       title: `Graduation Photography`,
+    });
+  }
+
+  // Photography - Pets (5 images)
+  for (let i = 1; i <= 5; i++) {
+    items.push({
+      id: id++,
+      category: "photography",
+      image: `/portfolio-photo/Pets/pixelpro-studios-pet-photography-singapore-${i}.jpg`,
+      title: `Pet Photography`,
+    });
+  }
+
+  // Photography - Studio (5 images)
+  for (let i = 1; i <= 5; i++) {
+    items.push({
+      id: id++,
+      category: "photography",
+      image: `/portfolio-photo/Studio/pixelpro-studios-studio-photography-singapore-${i}.jpg`,
+      title: `Studio Photography`,
     });
   }
 
@@ -96,11 +103,9 @@ const generatePortfolioItems = (): PortfolioItem[] => {
   videos.forEach((video) => {
     items.push({
       id: id++,
-      category: "videography" as Category,
-      subcategory: "all" as AVSubcategory,
+      category: "videography",
       videoId: video.id,
       title: video.title,
-      isVideo: true,
     });
   });
 
@@ -113,25 +118,17 @@ function PortfolioContent() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category") as Category | null;
   
-  const [selectedCategory, setSelectedCategory] = useState<Category>(categoryParam || "av-systems");
-  const [selectedAVSubcategory, setSelectedAVSubcategory] = useState<AVSubcategory>("all");
+  const [selectedCategory, setSelectedCategory] = useState<Category>(categoryParam || "audio");
   const [selectedImage, setSelectedImage] = useState<{ image: string; title: string } | null>(null);
 
   // Update category when URL parameter changes
   useEffect(() => {
-    if (categoryParam && (categoryParam === "av-systems" || categoryParam === "photography" || categoryParam === "videography")) {
+    if (categoryParam && (categoryParam === "audio" || categoryParam === "stage" || categoryParam === "photography" || categoryParam === "videography")) {
       setSelectedCategory(categoryParam);
     }
   }, [categoryParam]);
 
-  const filteredItems = portfolioItems.filter((item) => {
-    if (selectedCategory === "all") return true;
-    if (selectedCategory !== item.category) return false;
-    if (selectedCategory === "av-systems" && selectedAVSubcategory !== "all") {
-      return item.subcategory === selectedAVSubcategory;
-    }
-    return true;
-  });
+  const filteredItems = portfolioItems.filter((item) => item.category === selectedCategory);
 
   return (
     <>
@@ -201,14 +198,14 @@ function PortfolioContent() {
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-cover transition-all duration-500 group-hover:scale-110"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-brand-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="text-xl font-display font-bold text-brand-off-white">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <p className="text-brand-off-white font-semibold text-sm">
                         {item.title}
-                      </h3>
+                      </p>
                     </div>
                   </motion.div>
                 );
@@ -229,9 +226,7 @@ function PortfolioContent() {
 
         <PortfolioBottomNavbar
           selectedCategory={selectedCategory}
-          selectedAVSubcategory={selectedAVSubcategory}
           onCategoryChange={setSelectedCategory}
-          onAVSubcategoryChange={setSelectedAVSubcategory}
         />
       </main>
 
@@ -297,7 +292,7 @@ export default function PortfolioPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center bg-brand-black">
-        <div className="text-brand-silver">Loading...</div>
+        <p className="text-brand-off-white">Loading portfolio...</p>
       </div>
     }>
       <PortfolioContent />

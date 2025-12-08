@@ -53,17 +53,22 @@ export default function Services() {
                 href={service.href}
                 className="group relative overflow-hidden bg-gradient-to-br from-brand-charcoal/100 to-brand-black/40 p-8 md:p-10 rounded-2xl border border-white/10 hover:border-brand-silver/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(192,192,192,0.1)] hover:-translate-y-1 cursor-pointer block"
               >
-              <div className="mb-8 inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-charcoal text-brand-silver group-hover:bg-brand-silver group-hover:text-brand-black transition-colors duration-300">
-                <service.icon className="w-7 h-7" />
-              </div>
-              
-              <h3 className="text-2xl font-display font-bold text-brand-platinum mb-4 group-hover:text-white transition-colors duration-300">
-                {service.title}
-              </h3>
-              
-              <p className="text-brand-off-white/80 leading-relaxed font-sans group-hover:text-brand-off-white/80 transition-colors duration-300">
-                {service.description}
-              </p>
+                {/* Arrow Icon - Top Right */}
+                <div className="absolute top-6 right-6 text-brand-silver/40 group-hover:text-brand-silver group-hover:translate-x-1 transition-all duration-300">
+                  <ChevronRight className="w-6 h-6" />
+                </div>
+
+                <div className="mb-8 inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-charcoal text-brand-silver group-hover:bg-brand-silver group-hover:text-brand-black transition-colors duration-300">
+                  <service.icon className="w-7 h-7" />
+                </div>
+                
+                <h3 className="text-2xl font-display font-bold text-brand-platinum mb-4 group-hover:text-white transition-colors duration-300">
+                  {service.title}
+                </h3>
+                
+                <p className="text-brand-off-white/80 leading-relaxed font-sans group-hover:text-brand-off-white/80 transition-colors duration-300">
+                  {service.description}
+                </p>
               </Link>
             </motion.div>
           ))}

@@ -33,10 +33,10 @@ export default function Hero() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="font-display font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight text-brand-off-white leading-tight"
         >
-          Events made effortless,
+          Events made effortless, 
           <br className="hidden md:block" />
           <span className="inline-block md:ml-2">
-            every time
+            every time.
           </span>
         </motion.h1>
         
@@ -46,7 +46,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           className="text-xl md:text-2xl text-brand-off-white/80 max-w-2xl mx-auto font-sans"
         >
-         PixelPro is your reliable one-stop partner for events, media, and AV production in Singapore.
+         PixelPro is your reliable one-stop partner for events, media, and AV productions in Singapore.
         </motion.p>
         
         <motion.div
