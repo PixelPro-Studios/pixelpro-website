@@ -21,7 +21,7 @@ const reasons = [
   {
     title: "One-Stop Solution for Your Entire Event",
     description: "From sound and stage to lighting, projection, LED walls, photography and videography. You only deal with one vendor, one team, one smooth workflow.",
-    highlight: "",
+    highlight: "Save time, stress and confusion with one trusted partner.",
     image: "/photos/one-stop-solution-for-your-entire-event.jpg",
   },
   {

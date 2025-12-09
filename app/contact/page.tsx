@@ -3,9 +3,12 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, Clock, MessageCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function ContactPage() {
+  const [firstFormSubmitted, setFirstFormSubmitted] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
   useEffect(() => {
     // Load Tally embed script
     const script = document.createElement("script");
@@ -14,7 +17,56 @@ export default function ContactPage() {
     document.body.appendChild(script);
 
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
+
+  useEffect(() => {
+    // Listen for Tally form submission events
+    const handleMessage = (event: MessageEvent) => {
+      // Validate origin for security (Tally forms are served from tally.so)
+      if (!event.origin.includes("tally.so")) {
+        return;
+      }
+
+      // Check if the message contains the form submission event
+      if (typeof event.data === "string" && event.data.includes("Tally.FormSubmitted")) {
+        try {
+          const data = JSON.parse(event.data);
+          
+          // Check for both 'event' and 'type' properties (Tally may use either)
+          if (data.event === "Tally.FormSubmitted" || data.type === "Tally.FormSubmitted") {
+            // Check if it's the first form (Bza7LN)
+            if (data.payload?.formId === "Bza7LN") {
+              setFirstFormSubmitted((prev) => {
+                if (!prev) {
+                  return true;
+                }
+                return prev;
+              });
+            }
+          }
+        } catch (error) {
+          // If parsing fails, try checking if it's a simple string match
+          if (event.data.includes("Tally.FormSubmitted")) {
+            setFirstFormSubmitted((prev) => {
+              if (!prev) {
+                return true;
+              }
+              return prev;
+            });
+          }
+        }
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
     };
   }, []);
   const contactMethods = [
@@ -157,17 +209,34 @@ export default function ContactPage() {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="order-1 md:order-2"
           >
-            <div className="bg-white rounded-3xl p-6 min-h-[200px] md:p-8 min-h-[600px]">
-              <iframe
-                data-tally-src="https://tally.so/embed/Bza7LN?transparentBackground=1&dynamicHeight=0"
-                loading="lazy"
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                marginHeight={0}
-                marginWidth={0}
-                title="Contact Form"
-              />
+            <div className="bg-white rounded-3xl p-6 h-auto md: p-8">
+              {!firstFormSubmitted ? (
+                <iframe
+                  ref={iframeRef}
+                  data-tally-src="https://tally.so/embed/Bza7LN?transparentBackground=1&dynamicHeight=1"
+                  loading="lazy"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  marginHeight={0}
+                  marginWidth={0}
+                  title="Contact Form"
+                  key="first-form"
+                />
+              ) : (
+                <iframe
+                  ref={iframeRef}
+                  src="https://tally.so/embed/obEMg1?transparentBackground=1&dynamicHeight=1"
+                  loading="lazy"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  marginHeight={0}
+                  marginWidth={0}
+                  title="Get a Faster Quote"
+                  key="second-form"
+                />
+              )}
             </div>
           </motion.div>
         </div>

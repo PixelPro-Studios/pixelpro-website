@@ -24,8 +24,8 @@ const services = [
     href: "/services/videography",
   },
   {
-    title: "Talent",
-    description: "Professional hosts, voiceover artists, and on-screen talent to elevate your production value and engage your audience.",
+    title: "Entertainment & Talent",
+    description: "Professional hosts, event entertainment and performances to elevate your production value and engage your audience.",
     icon: Mic2,
     href: "/services/talent",
   },

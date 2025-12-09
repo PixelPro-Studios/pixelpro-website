@@ -1,5 +1,6 @@
 "use client";
 
+import CTA from "@/components/CTASection";
 import { motion } from "framer-motion";
 import { Film, Target, TrendingUp, Users, Lightbulb, Heart } from "lucide-react";
 
@@ -151,6 +152,7 @@ export default function AboutPage() {
           </div>
         </motion.div>
       </motion.div>
+      <CTA />
     </main>
   );
 }

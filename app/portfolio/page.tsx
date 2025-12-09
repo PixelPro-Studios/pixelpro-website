@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import PortfolioBottomNavbar from "@/components/PortfolioBottomNavbar";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 type Category = "audio" | "stage" | "photography" | "videography";
 
@@ -73,8 +73,8 @@ const generatePortfolioItems = (): PortfolioItem[] => {
     });
   }
 
-  // Photography - Pets (5 images)
-  for (let i = 1; i <= 5; i++) {
+  // Photography - Pets (13 images)
+  for (let i = 1; i <= 13; i++) {
     items.push({
       id: id++,
       category: "photography",
@@ -83,8 +83,8 @@ const generatePortfolioItems = (): PortfolioItem[] => {
     });
   }
 
-  // Photography - Studio (5 images)
-  for (let i = 1; i <= 5; i++) {
+  // Photography - Studio (13 images)
+  for (let i = 1; i <= 13; i++) {
     items.push({
       id: id++,
       category: "photography",
@@ -119,7 +119,7 @@ function PortfolioContent() {
   const categoryParam = searchParams.get("category") as Category | null;
   
   const [selectedCategory, setSelectedCategory] = useState<Category>(categoryParam || "audio");
-  const [selectedImage, setSelectedImage] = useState<{ image: string; title: string } | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{ image: string; title: string; index: number } | null>(null);
 
   // Update category when URL parameter changes
   useEffect(() => {
@@ -128,7 +128,60 @@ function PortfolioContent() {
     }
   }, [categoryParam]);
 
+  // Handle category change with scroll to top
+  const handleCategoryChange = (category: Category) => {
+    setSelectedCategory(category);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const filteredItems = portfolioItems.filter((item) => item.category === selectedCategory);
+
+  // Navigation functions for modal
+  const getPreviousImage = useCallback(() => {
+    if (!selectedImage) return null;
+    const imageItems = filteredItems.filter(item => item.image);
+    const currentIndex = imageItems.findIndex(item => item.image === selectedImage.image);
+    const prevIndex = currentIndex > 0 ? currentIndex - 1 : imageItems.length - 1;
+    const prevItem = imageItems[prevIndex];
+    return prevItem ? { image: prevItem.image!, title: prevItem.title, index: prevIndex } : null;
+  }, [selectedImage, filteredItems]);
+
+  const getNextImage = useCallback(() => {
+    if (!selectedImage) return null;
+    const imageItems = filteredItems.filter(item => item.image);
+    const currentIndex = imageItems.findIndex(item => item.image === selectedImage.image);
+    const nextIndex = currentIndex < imageItems.length - 1 ? currentIndex + 1 : 0;
+    const nextItem = imageItems[nextIndex];
+    return nextItem ? { image: nextItem.image!, title: nextItem.title, index: nextIndex } : null;
+  }, [selectedImage, filteredItems]);
+
+  const handlePrevious = useCallback(() => {
+    const prev = getPreviousImage();
+    if (prev) setSelectedImage(prev);
+  }, [getPreviousImage]);
+
+  const handleNext = useCallback(() => {
+    const next = getNextImage();
+    if (next) setSelectedImage(next);
+  }, [getNextImage]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (!selectedImage) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        handlePrevious();
+      } else if (e.key === "ArrowRight") {
+        handleNext();
+      } else if (e.key === "Escape") {
+        setSelectedImage(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImage, handlePrevious, handleNext]);
 
   return (
     <>
@@ -191,7 +244,12 @@ function PortfolioContent() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
-                    onClick={() => item.image && setSelectedImage({ image: item.image, title: item.title })}
+                    onClick={() => {
+                      if (item.image) {
+                        const index = filteredItems.findIndex(i => i.id === item.id);
+                        setSelectedImage({ image: item.image, title: item.title, index });
+                      }
+                    }}
                     className="group relative overflow-hidden rounded-2xl bg-brand-charcoal cursor-pointer break-inside-avoid mb-6 aspect-[4/3]"
                   >
                     <Image
@@ -226,7 +284,7 @@ function PortfolioContent() {
 
         <PortfolioBottomNavbar
           selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
+          onCategoryChange={handleCategoryChange}
         />
       </main>
 
@@ -260,17 +318,59 @@ function PortfolioContent() {
                 >
                   <X className="w-6 h-6 md:w-8 md:h-8" />
                 </button>
-                
+
                 {/* Image */}
                 <div className="relative w-full flex-1 rounded-2xl overflow-hidden">
-                  <Image
-                    src={selectedImage.image}
-                    alt={selectedImage.title}
-                    fill
-                    className="object-contain"
-                    sizes="90vw"
-                    quality={100}
-                  />
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={selectedImage.image}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={selectedImage.image}
+                        alt={selectedImage.title}
+                        fill
+                        className="object-contain"
+                        sizes="90vw"
+                        quality={100}
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+
+                {/* Navigation Buttons */}
+                <div className="mt-4 flex items-center justify-center gap-4">
+                  {/* Previous Button */}
+                  {getPreviousImage() && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handlePrevious();
+                      }}
+                      className="p-3 md:p-4 text-brand-off-white hover:text-white transition-colors cursor-pointer bg-brand-black/50 hover:bg-brand-black/70 rounded-full backdrop-blur-sm"
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+                    </button>
+                  )}
+
+                  {/* Next Button */}
+                  {getNextImage() && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleNext();
+                      }}
+                      className="p-3 md:p-4 text-brand-off-white hover:text-white transition-colors cursor-pointer bg-brand-black/50 hover:bg-brand-black/70 rounded-full backdrop-blur-sm"
+                      aria-label="Next image"
+                    >
+                      <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+                    </button>
+                  )}
                 </div>
                 
                 {/* Title */}

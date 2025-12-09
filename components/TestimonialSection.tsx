@@ -200,8 +200,8 @@ export default function TestimonialSection() {
         </motion.div>
 
         {/* Stacked Cards with Flip Animation */}
-        <div className="relative flex flex-col items-center min-h-[400px]">
-          <div className="w-full max-w-4xl mx-auto px-4 relative flex-1 flex items-center">
+        <div className="relative flex flex-col items-center min-h-[450px]">
+          <div className="w-full max-w-4xl mx-auto px-4 relative h-[450px] flex items-center">
             {/* Next Card (Behind) - Hidden until current card flips */}
             <motion.div
               key={`next-${currentIndex}`}
@@ -210,9 +210,13 @@ export default function TestimonialSection() {
                 scale: isFlipping ? 1 : 0.95, 
                 opacity: isFlipping ? 1 : 0 
               }}
+              transition={{
+                duration: 0.8,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              }}
               className="absolute inset-0 z-0"
             >
-              <div className="relative bg-brand-charcoal/20 border border-white/5 rounded-3xl p-6 md:p-10 flex flex-col justify-between overflow-hidden max-h-[450px]">
+              <div className="relative bg-brand-charcoal/20 border border-white/5 rounded-3xl p-6 md:p-10 flex flex-col justify-between overflow-hidden h-full">
                 <div className="mb-6 relative z-10 overflow-y-auto flex-1">
                   <p className="text-base md:text-lg text-brand-off-white/70 leading-relaxed italic text-justify">
                     "{testimonials[getNextIndex()].text}"
@@ -258,7 +262,7 @@ export default function TestimonialSection() {
               }}
               className="absolute inset-0 z-10"
             >
-              <div className="relative bg-brand-charcoal/30 border border-white/10 rounded-3xl p-6 md:p-10 flex flex-col justify-between overflow-hidden shadow-2xl max-h-[450px]">
+              <div className="relative bg-brand-charcoal/30 border border-white/10 rounded-3xl p-6 md:p-10 flex flex-col justify-between overflow-hidden shadow-2xl h-full">
                 {/* Shine Effect */}
                 <div className="absolute inset-0 rounded-3xl pointer-events-none">
                   {/* Top shine */}
