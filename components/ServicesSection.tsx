@@ -1,6 +1,6 @@
 "use client";
 
-import { Speaker, Camera, Video, Mic2, ChevronRight } from "lucide-react";
+import { Speaker, Camera, Video, Mic2, ChevronRight, Download } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -72,6 +72,20 @@ export default function Services() {
               </Link>
             </motion.div>
           ))}
+        </div>
+
+        <div className="flex justify-center mt-12 md:mt-16">
+          <motion.a
+            href="/services/deck"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-brand-silver text-brand-black font-sans font-semibold text-base md:text-lg hover:bg-brand-platinum transition-colors duration-300 shadow-[0_0_30px_rgba(192,192,192,0.15)]"
+          >
+            <Download className="w-5 h-5" />
+            Download our services deck
+          </motion.a>
         </div>
       </div>
     </section>
