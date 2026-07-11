@@ -6,6 +6,7 @@ import Image from "next/image";
 import PortfolioBottomNavbar from "@/components/PortfolioBottomNavbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import posthog from "posthog-js";
 
 type Category = "audio" | "stage" | "photography" | "videography";
 
@@ -132,6 +133,7 @@ function PortfolioContent() {
   const handleCategoryChange = (category: Category) => {
     setSelectedCategory(category);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    posthog.capture('portfolio_category_changed', { category });
   };
 
   const filteredItems = portfolioItems.filter((item) => item.category === selectedCategory);
@@ -248,6 +250,7 @@ function PortfolioContent() {
                       if (item.image) {
                         const index = filteredItems.findIndex(i => i.id === item.id);
                         setSelectedImage({ image: item.image, title: item.title, index });
+                        posthog.capture('portfolio_image_viewed', { title: item.title, category: selectedCategory });
                       }
                     }}
                     className="group relative overflow-hidden rounded-2xl bg-brand-charcoal cursor-pointer break-inside-avoid mb-6 aspect-[4/3]"
