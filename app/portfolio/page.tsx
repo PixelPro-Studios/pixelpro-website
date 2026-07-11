@@ -6,6 +6,7 @@ import Image from "next/image";
 import PortfolioBottomNavbar from "@/components/PortfolioBottomNavbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import posthog from "posthog-js";
 
 type Category = "all" | "av-systems" | "photography" | "videography";
 type AVSubcategory = "all" | "audio" | "stage";
@@ -117,6 +118,11 @@ export default function PortfolioPage() {
   const [selectedAVSubcategory, setSelectedAVSubcategory] = useState<AVSubcategory>("all");
   const [selectedImage, setSelectedImage] = useState<{ image: string; title: string } | null>(null);
 
+  const handleCategoryChange = (category: Category) => {
+    setSelectedCategory(category);
+    posthog.capture("portfolio_category_changed", { category });
+  };
+
   // Update category when URL parameter changes
   useEffect(() => {
     if (categoryParam && (categoryParam === "av-systems" || categoryParam === "photography" || categoryParam === "videography")) {
@@ -194,7 +200,12 @@ export default function PortfolioPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
-                    onClick={() => item.image && setSelectedImage({ image: item.image, title: item.title })}
+                    onClick={() => {
+                      if (item.image) {
+                        setSelectedImage({ image: item.image, title: item.title });
+                        posthog.capture("portfolio_image_opened", { title: item.title, category: selectedCategory });
+                      }
+                    }}
                     className="group relative overflow-hidden rounded-2xl bg-brand-charcoal cursor-pointer break-inside-avoid mb-6 aspect-[4/3]"
                   >
                     <Image
@@ -230,7 +241,7 @@ export default function PortfolioPage() {
         <PortfolioBottomNavbar
           selectedCategory={selectedCategory}
           selectedAVSubcategory={selectedAVSubcategory}
-          onCategoryChange={setSelectedCategory}
+          onCategoryChange={handleCategoryChange}
           onAVSubcategoryChange={setSelectedAVSubcategory}
         />
       </main>

@@ -3,10 +3,16 @@
 import BottomNavbar from "@/components/BottomNavbar";
 import ImageCarousel from "@/components/ImageCarousel";
 import Link from "next/link";
-import { ArrowRight, Eye } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import posthog from "posthog-js";
 
 export default function TalentPage() {
+  useEffect(() => {
+    posthog.capture("service_page_viewed", { service: "talent" });
+  }, []);
+
   return (
     <main className="min-h-screen pt-32 pb-32 px-4 md:px-8 bg-gradient-to-b from-brand-black from-70% to-brand-silver/10">
       <motion.div 
@@ -79,7 +85,7 @@ export default function TalentPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group">
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture("get_a_quote_clicked", { service: "talent" })}>
                     <span>Get a Quote</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import posthog from "posthog-js";
 
 export default function Hero() {
   return (
@@ -58,11 +59,12 @@ export default function Hero() {
             whileTap={{ y: 4, scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <Link 
+            <Link
               href="https://cal.com/pixelpro/consultation"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-4 px-8 py-4 bg-brand-off-white text-brand-black font-semibold rounded-xl hover:bg-white transition-colors duration-300 tracking-wide uppercase text-sm cursor-pointer"
+              onClick={() => posthog.capture("book_a_call_clicked", { source: "hero" })}
             >
               Book a Call
             </Link>
