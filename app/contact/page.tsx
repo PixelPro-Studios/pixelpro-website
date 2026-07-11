@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, Clock, MessageCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect } from "react";
+import posthog from "posthog-js";
 
 export default function ContactPage() {
   useEffect(() => {
@@ -84,6 +85,12 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block"
+                    onClick={() =>
+                      posthog.capture("contact_method_clicked", {
+                        method: method.title.toLowerCase(),
+                        href: method.href,
+                      })
+                    }
                   >
                     <div className="bg-brand-charcoal/30 border border-white/5 rounded-3xl p-6 hover:bg-brand-charcoal/50 hover:border-white/10 transition-all duration-300 group">
                       <div className="flex items-center gap-4">

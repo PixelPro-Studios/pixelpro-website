@@ -6,12 +6,14 @@ import Link from "next/link";
 import { ArrowRight, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import posthog from "posthog-js";
 
 export default function AVSystemsPage() {
   useEffect(() => {
     // Enable smooth scrolling for this page
     document.documentElement.style.scrollBehavior = 'smooth';
-    
+    posthog.capture("service_page_viewed", { service: "av-systems" });
+
     return () => {
       // Clean up - reset to default
       document.documentElement.style.scrollBehavior = 'auto';
@@ -90,7 +92,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/portfolio?category=av-systems" className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group">
+                  <Link href="/portfolio?category=av-systems" className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group" onClick={() => posthog.capture("see_our_work_clicked", { service: "av-systems" })}>
                     <Eye className="w-4 h-4" />
                     <span>See Our Work</span>
                   </Link>
@@ -99,7 +101,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group">
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture("get_a_quote_clicked", { service: "av-systems" })}>
                     <span>Get a Quote</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
@@ -164,7 +166,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/portfolio?category=av-systems" className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group">
+                  <Link href="/portfolio?category=av-systems" className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group" onClick={() => posthog.capture("see_our_work_clicked", { service: "av-systems" })}>
                     <Eye className="w-4 h-4" />
                     <span>See Our Work</span>
                   </Link>
@@ -173,7 +175,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group">
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture("get_a_quote_clicked", { service: "av-systems" })}>
                     <span>Get a Quote</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
@@ -237,7 +239,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/portfolio?category=av-systems" className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group">
+                  <Link href="/portfolio?category=av-systems" className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group" onClick={() => posthog.capture("see_our_work_clicked", { service: "av-systems" })}>
                     <Eye className="w-4 h-4" />
                     <span>See Our Work</span>
                   </Link>
@@ -246,7 +248,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group">
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture("get_a_quote_clicked", { service: "av-systems" })}>
                     <span>Get a Quote</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
@@ -312,7 +314,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/portfolio?category=av-systems" className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group">
+                  <Link href="/portfolio?category=av-systems" className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group" onClick={() => posthog.capture("see_our_work_clicked", { service: "av-systems" })}>
                     <Eye className="w-4 h-4" />
                     <span>See Our Work</span>
                   </Link>
@@ -321,7 +323,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group">
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture("get_a_quote_clicked", { service: "av-systems" })}>
                     <span>Get a Quote</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
