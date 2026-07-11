@@ -20,7 +20,11 @@ const avNavItems = [
   { name: "LED Walls", id: "led-wall", href: "/services/av-systems#led-wall" },
 ];
 
-export default function BottomNavbar() {
+interface BottomNavbarProps {
+  position?: "bottom" | "top";
+}
+
+export default function BottomNavbar({ position = "bottom" }: BottomNavbarProps = {}) {
   const pathname = usePathname();
   const isAvPage = pathname === "/services/av-systems";
   const [showMoreMenu, setShowMoreMenu] = useState(false);
@@ -53,7 +57,7 @@ export default function BottomNavbar() {
   }, [isAvPage]);
 
   return (
-    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40 w-[95%] max-w-lg">
+    <div className={`fixed ${position === "top" ? "top-24" : "bottom-6"} left-1/2 transform -translate-x-1/2 z-40 w-[95%] max-w-lg`}>
       <nav className="relative bg-brand-charcoal/90 backdrop-blur-md border border-white/10 rounded-full px-4 py-3 shadow-lg flex justify-around items-center">
         
         {/* AV Page Navigation */}
@@ -102,7 +106,7 @@ export default function BottomNavbar() {
                       initial={{ opacity: 0, y: 10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      className="absolute bottom-full right-0 mb-4 bg-brand-charcoal/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 min-w-[140px] shadow-2xl z-50 flex flex-col gap-1"
+                      className={`absolute right-0 ${position === "top" ? "top-full mt-4" : "bottom-full mb-4"} bg-brand-charcoal/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 min-w-[140px] shadow-2xl z-50 flex flex-col gap-1`}
                     >
                       {mainNavItems.filter(item => item.href !== "/services/av-systems").map((item) => (
                         <motion.div
