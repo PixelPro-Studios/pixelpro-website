@@ -15,7 +15,7 @@ export default function ServicesPage() {
       <div className="bg-transparent">
         <Services />
       </div>
-      <BottomNavbar />
+      <BottomNavbar position="top" />
     </motion.main>
   );
 }

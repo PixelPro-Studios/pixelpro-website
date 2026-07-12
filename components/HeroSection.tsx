@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import posthog from "posthog-js";
 
 export default function Hero() {
   return (
@@ -33,10 +34,10 @@ export default function Hero() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="font-display font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight text-brand-off-white leading-tight"
         >
-          Events made effortless,
+          Events made effortless, 
           <br className="hidden md:block" />
           <span className="inline-block md:ml-2">
-            every time
+            every time.
           </span>
         </motion.h1>
         
@@ -46,7 +47,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           className="text-xl md:text-2xl text-brand-off-white/80 max-w-2xl mx-auto font-sans"
         >
-         PixelPro is your reliable one-stop partner for events, media, and AV production in Singapore.
+         PixelPro is your reliable one-stop partner for events, media, and AV productions in Singapore.
         </motion.p>
         
         <motion.div
@@ -58,11 +59,12 @@ export default function Hero() {
             whileTap={{ y: 4, scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <Link 
+            <Link
               href="https://cal.com/pixelpro/consultation"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-4 px-8 py-4 bg-brand-off-white text-brand-black font-semibold rounded-xl hover:bg-white transition-colors duration-300 tracking-wide uppercase text-sm cursor-pointer"
+              onClick={() => posthog.capture('book_a_call_clicked', { source: 'hero' })}
             >
               Book a Call
             </Link>

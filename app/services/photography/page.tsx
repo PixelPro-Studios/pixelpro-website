@@ -82,7 +82,7 @@ export default function PhotographyPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/portfolio?category=photography" className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group">
+                  <Link href="/portfolio?category=photography" className="inline-flex items-center gap-2 px-6 py-2.5 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold text-sm rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group">
                     <Eye className="w-4 h-4" />
                     <span>See Our Work</span>
                   </Link>
@@ -91,7 +91,7 @@ export default function PhotographyPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-brand-off-white text-brand-black font-semibold rounded-full hover:bg-white transition-all duration-300 group">
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-off-white text-brand-black font-semibold text-sm rounded-full hover:bg-white transition-all duration-300 group">
                     <span>Get a Quote</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>

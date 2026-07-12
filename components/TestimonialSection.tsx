@@ -6,75 +6,81 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 const testimonials = [
   {
     id: 1,
-    text: "I am really glad that I have found PixelPro Studios when I went looking for a professional firm to videotape a speech to be used for the University of Chicago 10th Anniversary celebration in Beijing. I appreciate how Joe and Lukas did absolutely everything to make this a success. First of all, they did a dry run with all the equipment they've deemed necessary for the actual session; this consists of sound proofing panels, several cameras and an assorted lighting. The actual session went so smoothly after a long preparation of positioning equipment and testing. We were just so pleased with the result that everything falls into place when PixelPro Studios delivers. It is evident that they assume nothing, and went about making sure all scenarios are catered for, leaving nothing to render a less than desirable outcome of the taping. I really appreciated the hard work and dedication and especially the professionalism of the team.",
+    text: "We were genuinely so pleased with the outcome. Everything fell into place seamlessly with PixelPro Studios. Every scenario was carefully thought through and handled, which gave us complete peace of mind throughout the process. They showed up prepared, paid attention to every detail, and delivered far beyond expectations.",
     author: "Amanda Lum",
     role: "Event Coordinator, Sahasra Pte Ltd",
   },
   {
     id: 2,
-    text: "After I first proposed my plan for a relay during a commemorative event, Lukas and Wee Joe did a recce on their own initiative. Subsequently, they helped me firm up the event plan with much details. I am very appreciative of their technical expertise and of course, their drive and passion put into this project.",
+    text: "After I first shared my plan for a relay during our commemorative event, PixelPro Studios took the initiative to conduct a recce on their own. From there, they helped refine and firm up the entire event plan with impressive detail. I'm truly grateful for their technical expertise and, more importantly, the drive and passion they put into this project.",
     author: "Mr Teo Zhan Rui",
     role: "Event Coordinator, Victoria School",
   },
   {
     id: 3,
-    text: "It was by chance that my organisation got to know about PixelPro. As the pricing they charged was significantly lower (and I really mean, worlds' apart) than the other vendors that I sourced for, I was not having very high expectations. However, I must say they more than surpass my hopes and I highly recommend them. I requested a lot of changes and my demands weren't exactly easy. But PixelPro never once showed me any attitude such as \"paying peanuts and demanding melons\". Rather they were professional through and through. In the end, we got what we needed and I must state that they played a significant role for us. Thank you PixelPro.",
+    text: "Despite their extremely competitive rates, PixelPro exceeded all expectations. They handled every demanding change with complete professionalism and delivered exactly what our event needed. Their support made a meaningful difference to our success, and we were genuinely impressed. Highly recommended.",
     author: "Mr Tan",
     role: "Ngee Ann Secondary School",
   },
   {
     id: 4,
-    text: "Engaged Lukas for my company's event to provide projectors. As I needed projector with usb compatibility, he went above and beyond to source for usb players that could be used with the projectors. The setting up was professional and he was super helpful in getting everything up and running. We needed a last min hire of another projector and even after he had left the premises, he arranged for a delivery to send it over swiftly. Really professional work here, nothing but praises 👏 🙌",
+    text: "We engaged PixelPro Studios for our company event, and their projection setup was smooth and professional. The team was incredibly helpful and ensured everything ran perfectly. When we needed extra projectors on short notice, they arranged swift delivery promptly. Truly professional service and nothing but praise for their work.",
     author: "Jasmine Chye",
     role: "Chief of Staff, Paradigm Connect Asia",
   },
   {
     id: 5,
-    text: "Lukas and his team did an excellent job of recording our Band performances. Their equipment setup was elaborate; both the lighting and sound aspects of the videos were professionally and meticulously taken care of. During the actual recording, they had the equipment to allow us to view the clips to assess if they were satisfactory, and gave us useful pointers on how to enhance the presentation both visually and audio-wise. They also had a very short turnaround time when we requested to take a look at the videos, both in raw form and after editing. I would highly recommend PixelPro to any performing arts group that requires their video recording expertise.",
+    text: "PixelPro Studios did an excellent job recording our band performances. Their lighting and sound setup was meticulous, and they allowed us to review clips on the spot with helpful pointers to improve our presentation. Turnaround for both raw and edited videos was impressively fast. Highly recommended for any performing arts group needing professional expertise.",
     author: "Ms Tan",
     role: "Nanyang Junior College",
   },
   {
     id: 6,
-    text: "I was informed I needed a sound system and crew very last minute with a 2 weeks runway. Got to hear about PixelPros and engaged them on short notice but they more than just delivered. They really provide high quality service and are really easy to work with. Thank you",
+    text: "I was informed last minute that I needed a sound system and crew, with barely a two-week runway. I got to know about PixelPro Studios and engaged them on short notice, and they more than delivered. The team provided high quality support, were very flexible throughout, and made everything incredibly easy to manage. Thank you for the great work!",
     author: "Sherelle Ng",
     role: "Event Manager, Performing Arts",
   },
   {
     id: 7,
-    text: "Lukas was recommended through a friend of mine and Lukas was professional and kind enough to meet my requests as it was a very last minute arrangement. He was patient and understanding, excellent service and experience. Will definitely recommend them!",
+    text: "PixelPro Studios was recommended by a friend, and they managed my very last-minute request with impressive professionalism and kindness. The team was patient, accommodating, and ensured everything went smoothly without stress. Their exceptional service and reassuring approach made a big difference. I would definitely recommend them.",
     author: "Tian",
     role: "",
   },
   {
     id: 8,
-    text: "Hired Lukas to provide a projector for an outdoor event. Thank you for the excellent service and experience! We will definitely work with him again for future events.",
+    text: "Engaged PixelPro Studios to provide a high-brightness projector and screen for our outdoor event. The visuals were incredibly clear, even in challenging lighting conditions. The setup was smooth, the team was professional, and the overall experience was excellent. We will definitely work with them again for future events.",
     author: "Kimberly Liew",
     role: "Events Manager, Paws for Cause",
   },
   {
     id: 9,
-    text: "We engaged PixelPro to help us take photos for our gelato earlier last month. They were easy to communicate with and helpful in suggesting ideas and concepts we could adopt during the shoot to ensure maximum results. The quality of the photos turned out to be superb, with incredible editing skills and quick turnaround, we were really satisfied with the results of this photoshoot. They have been very professional throughout the entire process and would definitely look to engage them for another photoshoot in the near future. Would recommend them strongly to anyone looking for a great photoshoot experience with fantastic results.",
+    text: "We engaged PixelPro for a company photoshoot, and the team was easy to communicate with and offered helpful creative suggestions. The photos turned out superb, with excellent editing and a quick turnaround. Their professionalism made the entire process smooth. We're very satisfied and will definitely work with them again. Would highly recommend them!",
     author: "James",
     role: "Marketing Executive, Gelatology Lab",
   },
   {
     id: 10,
-    text: "PixelPro Studios helped Victoria School Chinese Orchestra in our video recording and photography last year. The quality of photos and videos were very good and they were receptive to our feedback, and were patient in editing the photos and videos to our satisfaction. They were able to customize their service to meet our needs and even went beyond their duty by coaching some of the students in video editing skills. Overall, they have been very responsible and reliable and I would recommend them strongly for their services.",
+    text: "PixelPro Studios supported Victoria School Chinese Orchestra with videography and photography, and the final work was excellent. They were receptive to feedback, patient through multiple edits, and willing to customise their service to our needs. The team even coached our students in video editing. Responsible, reliable, and committed. We would gladly work with them again.",
     author: "Tan Yan Li",
     role: "Head of Department, Victoria School",
   },
   {
     id: 11,
-    text: "PixelPro Studios offers an affordable and high quality video and audio recording services. We started the recording at 830am that day and they offered us a link to download the video recordings in 1080p and 4K resolutions by 1030pm on the same day of recording. They also offered suggestions during the recording to make the video better.",
+    text: "PixelPro Studios delivered affordable yet high-quality video and audio recording for our event. We received both 1080p and 4K download links on the same day, which was incredibly efficient. They also offered helpful suggestions throughout the recording, ensuring a better final result. Overall, it was a very smooth, reliable, and impressive experience.",
     author: "De Shun Chin",
     role: "Performing Arts Teacher",
   },
   {
     id: 12,
-    text: "A friendly, accommodating and flexible rental shop/ studios. Item was in great condition and it helped with my shoot. Will surely look to rent from you guys again! Thanks!",
+    text: "PixelPro Studios was friendly, accommodating, and flexible throughout the entire rental process. The equipment was in excellent condition and helped our shoot run smoothly without any issues. We were very satisfied with their service and will definitely return for future rentals.",
     author: "Santhosh Chandran",
-    role: "",
+    role: "Operations Executive, Local SME",
+  },
+  {
+    id: 13,
+    text: "We engaged PixelPro for our event, and the experience was excellent from start to finish. Communication was seamless, the team arrived early, and the sound system was flawless throughout, including during the minister's speech. They handled last-minute requests with calm professionalism. A reliable, friendly, and highly capable team I'd recommend.",
+    author: "Gwendolyn Anne David",
+    role: "Community Event Organiser, People's Association",
   },
 ];
 
@@ -92,7 +98,7 @@ export default function TestimonialSection() {
   const getNextIndex = () => (currentIndex + 1) % testimonials.length;
 
   const handleFlip = (showHeartsAnimation: boolean = false) => {
-    if (isFlipping) return;
+    if (isFlipping || showHearts) return;
     setIsFlipping(true);
     
     // Trigger heart shower only if manually clicked
@@ -116,11 +122,11 @@ export default function TestimonialSection() {
     }, 800);
   };
 
-  // Auto-advance every 20 seconds
+  // Auto-advance every 12 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       handleFlip(false); // Auto-advance without hearts
-    }, 20000);
+    }, 12000);
 
     return () => clearInterval(timer);
   }, [currentIndex]); // Reset timer when currentIndex changes
@@ -166,7 +172,7 @@ export default function TestimonialSection() {
           >
             <motion.button
               onClick={() => handleFlip(true)}
-              disabled={isFlipping}
+              disabled={isFlipping || showHearts}
               className="w-16 h-16 rounded-full bg-gradient-to-br from-brand-silver/20 to-brand-silver/10 border-2 border-brand-silver/30 flex items-center justify-center hover:border-brand-silver hover:from-brand-silver/30 hover:to-brand-silver/20 transition-all cursor-pointer shadow-lg hover:shadow-brand-silver/20 backdrop-blur-sm disabled:opacity-50 disabled:cursor-not-allowed"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -194,8 +200,8 @@ export default function TestimonialSection() {
         </motion.div>
 
         {/* Stacked Cards with Flip Animation */}
-        <div className="relative flex flex-col items-center min-h-[500px]">
-          <div className="w-full max-w-4xl mx-auto px-4 relative flex-1 flex items-center">
+        <div className="relative flex flex-col items-center min-h-[450px]">
+          <div className="w-full max-w-4xl mx-auto px-4 relative h-[450px] flex items-center">
             {/* Next Card (Behind) - Hidden until current card flips */}
             <motion.div
               key={`next-${currentIndex}`}
@@ -204,9 +210,13 @@ export default function TestimonialSection() {
                 scale: isFlipping ? 1 : 0.95, 
                 opacity: isFlipping ? 1 : 0 
               }}
+              transition={{
+                duration: 0.8,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              }}
               className="absolute inset-0 z-0"
             >
-              <div className="relative bg-brand-charcoal/20 border border-white/5 rounded-3xl p-6 md:p-10 flex flex-col justify-between overflow-hidden max-h-[450px]">
+              <div className="relative bg-brand-charcoal/20 border border-white/5 rounded-3xl p-6 md:p-10 flex flex-col justify-between overflow-hidden h-full">
                 <div className="mb-6 relative z-10 overflow-y-auto flex-1">
                   <p className="text-base md:text-lg text-brand-off-white/70 leading-relaxed italic text-justify">
                     "{testimonials[getNextIndex()].text}"
@@ -252,7 +262,7 @@ export default function TestimonialSection() {
               }}
               className="absolute inset-0 z-10"
             >
-              <div className="relative bg-brand-charcoal/30 border border-white/10 rounded-3xl p-6 md:p-10 flex flex-col justify-between overflow-hidden shadow-2xl max-h-[450px]">
+              <div className="relative bg-brand-charcoal/30 border border-white/10 rounded-3xl p-6 md:p-10 flex flex-col justify-between overflow-hidden shadow-2xl h-full">
                 {/* Shine Effect */}
                 <div className="absolute inset-0 rounded-3xl pointer-events-none">
                   {/* Top shine */}
@@ -270,7 +280,7 @@ export default function TestimonialSection() {
                   <div className="absolute bottom-0 right-0 w-32 h-32 bg-brand-silver/10 rounded-full blur-3xl" />
                 </div>
 
-                <div className="mb-6 relative z-10 overflow-y-auto flex-1">
+                <div className="mb-12 relative z-10 overflow-y-auto flex-1">
                   <p className="text-base md:text-lg text-brand-off-white/90 leading-relaxed italic text-justify">
                     "{testimonials[currentIndex].text}"
                   </p>
@@ -290,22 +300,39 @@ export default function TestimonialSection() {
           </div>
 
           {/* Progress Indicator - Always below cards */}
-          <div className="mt-8 flex gap-2 justify-center">
+          <div className="mt-4 flex gap-2 justify-center">
             {testimonials.map((_, index) => (
-              <button
-                key={index}
+              <motion.button
+                key={`${index}-${currentIndex}`}
                 onClick={() => {
                   if (!isFlipping && index !== currentIndex) {
                     setCurrentIndex(index);
                   }
                 }}
-                className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ 
+                  scale: index === currentIndex ? 1 : 0.8,
+                  opacity: index === currentIndex ? 1 : 0.5
+                }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+                className={`relative h-1.5 rounded-full transition-all cursor-pointer overflow-hidden ${
                   index === currentIndex
-                    ? "bg-brand-silver w-8"
+                    ? "bg-brand-silver/30 w-8"
                     : "bg-brand-silver/30 w-1.5 hover:bg-brand-silver/50"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
-              />
+              >
+                {index === currentIndex && (
+                  <motion.div
+                    className="absolute inset-0 bg-brand-silver rounded-full"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 12, ease: "linear" }}
+                    style={{ transformOrigin: "left" }}
+                  />
+                )}
+              </motion.button>
             ))}
           </div>
         </div>

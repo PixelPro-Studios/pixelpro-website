@@ -10,25 +10,25 @@ const reasons = [
     title: "LIGHTNING-fast response time",
     description: "Whether it's a last-minute change, an urgent request or a same-day event, our team replies quickly and gets things moving immediately.",
     highlight: "No delays, no slow admin.",
-    image: "/photos/pixelpro-studios-singapore-sound-system-rental.jpg",
+    image: "/photos/lightning-fast-response-time.jpg",
   },
   {
     title: "Competitive Rates Without Compromising Quality",
-    description: "We keep our pricing fair and transparent while using professional-grade equipment trusted AT festivals, corporate productions, mall activations and community events.",
+    description: "We keep our pricing fair and transparent while using professional-grade equipment trusted at festivals, corporate productions, mall activations and community events.",
     highlight: "Get better value without the hidden markup.",
-    image: "/photos/pixelpro-studios-singapore-sound-system-rental.jpg",
+    image: "/photos/competitive-rates-without-compromising-quality.jpg",
   },
   {
     title: "One-Stop Solution for Your Entire Event",
     description: "From sound and stage to lighting, projection, LED walls, photography and videography. You only deal with one vendor, one team, one smooth workflow.",
-    highlight: "",
-    image: "/photos/pixelpro-studios-one-stop-event-av-and-media-singapore.jpg",
+    highlight: "Save time, stress and confusion with one trusted partner.",
+    image: "/photos/one-stop-solution-for-your-entire-event.jpg",
   },
   {
     title: "Our Reliability Guarantee",
     description: "If a technical issue ever happens during your event, our team resolves it within thirty minutes or you receive an immediate discount.",
     highlight: "Zero stress, zero disruptions.",
-    image: "/photos/pixelpro-studios-singapore-sound-system-rental.jpg",
+    image: "/photos/our-reliability-guarantee.jpg",
   },
 ];
 

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import posthog from "posthog-js";
 
 const navLinks = [
   { name: "Portfolio", href: "/portfolio" },
@@ -162,7 +163,10 @@ export default function Navbar() {
                           >
                             <Link
                               href={link.href}
-                              onClick={toggleMenu}
+                              onClick={() => {
+                                toggleMenu();
+                                posthog.capture('nav_link_clicked', { link_name: link.name, href: link.href });
+                              }}
                               className="text-2xl md:text-3xl font-display font-medium text-brand-off-white transition-all duration-300 block w-fit cursor-pointer
                                          hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-white hover:via-brand-silver hover:to-white
                                          hover:bg-[length:200%_auto] hover:animate-[shimmer_2s_linear_infinite]"

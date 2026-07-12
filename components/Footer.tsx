@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
@@ -87,7 +87,6 @@ export default function Footer() {
       </svg>
     ), href: "https://tiktok.com/@pixelprostudios.sg" },
     { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/pixelprostudios" },
-    { name: "YouTube", icon: Youtube, href: "https://youtube.com/@pixelprostudios" },
   ];
 
   return (
@@ -120,15 +119,6 @@ export default function Footer() {
               <p className="text-brand-off-white/90 text-sm mt-2">
                 UEN: 202340399H
               </p>
-              <div className="mt-4 flex justify-center md:justify-start">
-                <Image
-                  src="/client_logos/pixelpro-studios-government-supplier-gebiz-registered.png"
-                  alt="Singapore Government Registered Supplier - GeBIZ"
-                  width={200}
-                  height={60}
-                  className="grayscale invert opacity-80 hover:opacity-100 transition-opacity"
-                />
-              </div>
             </div>
 
             {/* Center - Brand Name (Desktop Only) */}
@@ -140,8 +130,21 @@ export default function Footer() {
               </motion.div>
             </div>
 
-            {/* Right Side - Social Media Icons */}
-            <div className="flex items-center gap-4 flex-1 justify-center md:justify-end">
+            {/* Right Side - Government Badge and Social Media Icons */}
+            <div className="flex flex-col items-center gap-4 flex-1 justify-center md:justify-end">
+              {/* Government Badge */}
+              <div className="flex justify-center md:justify-end">
+                <Image
+                  src="/client_logos/pixelpro-studios-government-supplier-gebiz-registered.png"
+                  alt="Singapore Government Registered Supplier - GeBIZ"
+                  width={200}
+                  height={60}
+                  className="invert opacity-80 hover:opacity-100 transition-opacity"
+                  style={{ filter: 'brightness(0) saturate(100%) invert(1)' }}
+                />
+              </div>
+              {/* Social Media Icons */}
+              <div className="flex items-center gap-4">
               {socialLinks.map((social) => (
                 <motion.div
                   key={social.name}
@@ -159,6 +162,7 @@ export default function Footer() {
                   </Link>
                 </motion.div>
               ))}
+              </div>
             </div>
           </div>
         </div>

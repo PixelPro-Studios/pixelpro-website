@@ -1,25 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import PortfolioBottomNavbar from "@/components/PortfolioBottomNavbar";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import posthog from "posthog-js";
 
-type Category = "all" | "av-systems" | "photography" | "videography";
-type AVSubcategory = "all" | "audio" | "stage";
-type PhotoSubcategory = "events" | "food" | "graduation" | "pets" | "studio";
+type Category = "audio" | "stage" | "photography" | "videography";
 
 type PortfolioItem = {
   id: number;
   category: Category;
-  subcategory: AVSubcategory;
   title: string;
   image?: string;
   videoId?: string;
-  isVideo?: boolean;
-  photoSubcategory?: PhotoSubcategory;
 };
 
 // Generate portfolio items from the folders
@@ -27,23 +23,21 @@ const generatePortfolioItems = (): PortfolioItem[] => {
   const items: PortfolioItem[] = [];
   let id = 1;
 
-  // AV Audio Systems (10 images)
+  // Audio Systems (10 images)
   for (let i = 1; i <= 10; i++) {
     items.push({
       id: id++,
-      category: "av-systems" as Category,
-      subcategory: "audio" as AVSubcategory,
+      category: "audio",
       image: `/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-${i}.jpg`,
       title: `Sound System`,
     });
   }
 
-  // AV Stage Productions (8 images)
+  // Stage Productions (8 images)
   for (let i = 1; i <= 8; i++) {
     items.push({
       id: id++,
-      category: "av-systems" as Category,
-      subcategory: "stage" as AVSubcategory,
+      category: "stage",
       image: `/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-${i}.jpg`,
       title: `Stage Production`,
     });
@@ -53,9 +47,7 @@ const generatePortfolioItems = (): PortfolioItem[] => {
   for (let i = 1; i <= 29; i++) {
     items.push({
       id: id++,
-      category: "photography" as Category,
-      subcategory: "all" as AVSubcategory,
-      photoSubcategory: "events" as PhotoSubcategory,
+      category: "photography",
       image: `/portfolio-photo/Events/pixelpro-studios-event-photography-singapore-${i}.jpg`,
       title: `Event Photography`,
     });
@@ -65,9 +57,7 @@ const generatePortfolioItems = (): PortfolioItem[] => {
   for (let i = 1; i <= 8; i++) {
     items.push({
       id: id++,
-      category: "photography" as Category,
-      subcategory: "all" as AVSubcategory,
-      photoSubcategory: "food" as PhotoSubcategory,
+      category: "photography",
       image: `/portfolio-photo/Food/pixelpro-studios-food-photography-singapore-${i}.jpg`,
       title: `Food Photography`,
     });
@@ -78,11 +68,29 @@ const generatePortfolioItems = (): PortfolioItem[] => {
     const num = i.toString().padStart(2, '0');
     items.push({
       id: id++,
-      category: "photography" as Category,
-      subcategory: "all" as AVSubcategory,
-      photoSubcategory: "graduation" as PhotoSubcategory,
+      category: "photography",
       image: `/portfolio-photo/Graduation/pixelpro-studios-graduation-photography-singapore-${num}.jpg`,
       title: `Graduation Photography`,
+    });
+  }
+
+  // Photography - Pets (13 images)
+  for (let i = 1; i <= 13; i++) {
+    items.push({
+      id: id++,
+      category: "photography",
+      image: `/portfolio-photo/Pets/pixelpro-studios-pet-photography-singapore-${i}.jpg`,
+      title: `Pet Photography`,
+    });
+  }
+
+  // Photography - Studio (13 images)
+  for (let i = 1; i <= 13; i++) {
+    items.push({
+      id: id++,
+      category: "photography",
+      image: `/portfolio-photo/Studio/pixelpro-studios-studio-photography-singapore-${i}.jpg`,
+      title: `Studio Photography`,
     });
   }
 
@@ -96,11 +104,9 @@ const generatePortfolioItems = (): PortfolioItem[] => {
   videos.forEach((video) => {
     items.push({
       id: id++,
-      category: "videography" as Category,
-      subcategory: "all" as AVSubcategory,
+      category: "videography",
       videoId: video.id,
       title: video.title,
-      isVideo: true,
     });
   });
 
@@ -109,29 +115,75 @@ const generatePortfolioItems = (): PortfolioItem[] => {
 
 const portfolioItems = generatePortfolioItems();
 
-export default function PortfolioPage() {
+function PortfolioContent() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category") as Category | null;
   
-  const [selectedCategory, setSelectedCategory] = useState<Category>(categoryParam || "av-systems");
-  const [selectedAVSubcategory, setSelectedAVSubcategory] = useState<AVSubcategory>("all");
-  const [selectedImage, setSelectedImage] = useState<{ image: string; title: string } | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<Category>(categoryParam || "audio");
+  const [selectedImage, setSelectedImage] = useState<{ image: string; title: string; index: number } | null>(null);
 
   // Update category when URL parameter changes
   useEffect(() => {
-    if (categoryParam && (categoryParam === "av-systems" || categoryParam === "photography" || categoryParam === "videography")) {
+    if (categoryParam && (categoryParam === "audio" || categoryParam === "stage" || categoryParam === "photography" || categoryParam === "videography")) {
       setSelectedCategory(categoryParam);
     }
   }, [categoryParam]);
 
-  const filteredItems = portfolioItems.filter((item) => {
-    if (selectedCategory === "all") return true;
-    if (selectedCategory !== item.category) return false;
-    if (selectedCategory === "av-systems" && selectedAVSubcategory !== "all") {
-      return item.subcategory === selectedAVSubcategory;
-    }
-    return true;
-  });
+  // Handle category change with scroll to top
+  const handleCategoryChange = (category: Category) => {
+    setSelectedCategory(category);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    posthog.capture('portfolio_category_changed', { category });
+  };
+
+  const filteredItems = portfolioItems.filter((item) => item.category === selectedCategory);
+
+  // Navigation functions for modal
+  const getPreviousImage = useCallback(() => {
+    if (!selectedImage) return null;
+    const imageItems = filteredItems.filter(item => item.image);
+    const currentIndex = imageItems.findIndex(item => item.image === selectedImage.image);
+    const prevIndex = currentIndex > 0 ? currentIndex - 1 : imageItems.length - 1;
+    const prevItem = imageItems[prevIndex];
+    return prevItem ? { image: prevItem.image!, title: prevItem.title, index: prevIndex } : null;
+  }, [selectedImage, filteredItems]);
+
+  const getNextImage = useCallback(() => {
+    if (!selectedImage) return null;
+    const imageItems = filteredItems.filter(item => item.image);
+    const currentIndex = imageItems.findIndex(item => item.image === selectedImage.image);
+    const nextIndex = currentIndex < imageItems.length - 1 ? currentIndex + 1 : 0;
+    const nextItem = imageItems[nextIndex];
+    return nextItem ? { image: nextItem.image!, title: nextItem.title, index: nextIndex } : null;
+  }, [selectedImage, filteredItems]);
+
+  const handlePrevious = useCallback(() => {
+    const prev = getPreviousImage();
+    if (prev) setSelectedImage(prev);
+  }, [getPreviousImage]);
+
+  const handleNext = useCallback(() => {
+    const next = getNextImage();
+    if (next) setSelectedImage(next);
+  }, [getNextImage]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (!selectedImage) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        handlePrevious();
+      } else if (e.key === "ArrowRight") {
+        handleNext();
+      } else if (e.key === "Escape") {
+        setSelectedImage(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImage, handlePrevious, handleNext]);
 
   return (
     <>
@@ -194,21 +246,27 @@ export default function PortfolioPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
-                    onClick={() => item.image && setSelectedImage({ image: item.image, title: item.title })}
+                    onClick={() => {
+                      if (item.image) {
+                        const index = filteredItems.findIndex(i => i.id === item.id);
+                        setSelectedImage({ image: item.image, title: item.title, index });
+                        posthog.capture('portfolio_image_viewed', { title: item.title, category: selectedCategory });
+                      }
+                    }}
                     className="group relative overflow-hidden rounded-2xl bg-brand-charcoal cursor-pointer break-inside-avoid mb-6 aspect-[4/3]"
                   >
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-cover transition-all duration-500 group-hover:scale-110"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-brand-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="text-xl font-display font-bold text-brand-off-white">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <p className="text-brand-off-white font-semibold text-sm">
                         {item.title}
-                      </h3>
+                      </p>
                     </div>
                   </motion.div>
                 );
@@ -229,9 +287,7 @@ export default function PortfolioPage() {
 
         <PortfolioBottomNavbar
           selectedCategory={selectedCategory}
-          selectedAVSubcategory={selectedAVSubcategory}
-          onCategoryChange={setSelectedCategory}
-          onAVSubcategoryChange={setSelectedAVSubcategory}
+          onCategoryChange={handleCategoryChange}
         />
       </main>
 
@@ -265,17 +321,59 @@ export default function PortfolioPage() {
                 >
                   <X className="w-6 h-6 md:w-8 md:h-8" />
                 </button>
-                
+
                 {/* Image */}
                 <div className="relative w-full flex-1 rounded-2xl overflow-hidden">
-                  <Image
-                    src={selectedImage.image}
-                    alt={selectedImage.title}
-                    fill
-                    className="object-contain"
-                    sizes="90vw"
-                    quality={100}
-                  />
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={selectedImage.image}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={selectedImage.image}
+                        alt={selectedImage.title}
+                        fill
+                        className="object-contain"
+                        sizes="90vw"
+                        quality={100}
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+
+                {/* Navigation Buttons */}
+                <div className="mt-4 flex items-center justify-center gap-4">
+                  {/* Previous Button */}
+                  {getPreviousImage() && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handlePrevious();
+                      }}
+                      className="p-3 md:p-4 text-brand-off-white hover:text-white transition-colors cursor-pointer bg-brand-black/50 hover:bg-brand-black/70 rounded-full backdrop-blur-sm"
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+                    </button>
+                  )}
+
+                  {/* Next Button */}
+                  {getNextImage() && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleNext();
+                      }}
+                      className="p-3 md:p-4 text-brand-off-white hover:text-white transition-colors cursor-pointer bg-brand-black/50 hover:bg-brand-black/70 rounded-full backdrop-blur-sm"
+                      aria-label="Next image"
+                    >
+                      <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+                    </button>
+                  )}
                 </div>
                 
                 {/* Title */}
@@ -290,5 +388,17 @@ export default function PortfolioPage() {
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+export default function PortfolioPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-brand-black">
+        <p className="text-brand-off-white">Loading portfolio...</p>
+      </div>
+    }>
+      <PortfolioContent />
+    </Suspense>
   );
 }
