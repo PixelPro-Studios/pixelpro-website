@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import posthog from "posthog-js";
@@ -83,7 +83,7 @@ export default function Navbar() {
   );
 
   return (
-    <>
+    <nav aria-label="Primary">
       {/* Backdrop for when menu is open */}
       <AnimatePresence>
         {isOpen && (
@@ -134,6 +134,7 @@ export default function Navbar() {
                 onClick={toggleMenu}
                 className="p-1 text-brand-silver hover:text-white transition-all duration-300 cursor-pointer"
                 aria-label="Toggle menu"
+                aria-expanded={isOpen}
               >
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -232,6 +233,6 @@ export default function Navbar() {
           </AnimatePresence>
         </motion.div>
       </div>
-    </>
+    </nav>
   );
 }

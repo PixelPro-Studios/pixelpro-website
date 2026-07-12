@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/blog";
 import BlogPageMotion from "@/components/blog/BlogPageMotion";
 import BlogPostCard from "@/components/blog/BlogPostCard";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Blog | PixelPro Studios",
+export const metadata: Metadata = pageMetadata({
+  title: "Blog",
   description:
     "Insights on event production, AV, photography, and videography from PixelPro Studios.",
-};
+  path: "/blog",
+});
 
 export default function BlogPage() {
   const posts = getAllPosts();

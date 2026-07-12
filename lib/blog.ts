@@ -4,12 +4,18 @@ import matter from "gray-matter";
 
 const postsDirectory = path.join(process.cwd(), "content/blog");
 
+export type RelatedService = {
+  label: string;
+  href: string;
+};
+
 export type BlogPostMeta = {
   slug: string;
   title: string;
   description: string;
   date: string;
   author: string;
+  relatedServices: RelatedService[];
 };
 
 export type BlogPost = BlogPostMeta & {
@@ -24,6 +30,27 @@ function getMdxFiles(): string[] {
   return fs
     .readdirSync(postsDirectory)
     .filter((file) => file.endsWith(".mdx") || file.endsWith(".md"));
+}
+
+function parseRelatedServices(data: Record<string, unknown>): RelatedService[] {
+  const raw = data.relatedServices;
+  if (!Array.isArray(raw)) return [];
+
+  return raw
+    .map((item) => {
+      if (
+        item &&
+        typeof item === "object" &&
+        "label" in item &&
+        "href" in item &&
+        typeof (item as RelatedService).label === "string" &&
+        typeof (item as RelatedService).href === "string"
+      ) {
+        return item as RelatedService;
+      }
+      return null;
+    })
+    .filter((item): item is RelatedService => item !== null);
 }
 
 export function getPostSlugs(): string[] {
@@ -43,6 +70,7 @@ export function getPostBySlug(slug: string): BlogPost {
     description: data.description as string,
     date: data.date as string,
     author: data.author as string,
+    relatedServices: parseRelatedServices(data as Record<string, unknown>),
     content,
   };
 }
@@ -57,6 +85,7 @@ export function getAllPosts(): BlogPostMeta[] {
         description: post.description,
         date: post.date,
         author: post.author,
+        relatedServices: post.relatedServices,
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));

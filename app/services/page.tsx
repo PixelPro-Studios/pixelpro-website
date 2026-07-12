@@ -1,21 +1,14 @@
-"use client";
+import type { Metadata } from "next";
+import ServicesPageClient from "./ServicesPageClient";
+import { pageMetadata } from "@/lib/seo";
 
-import Services from "@/components/ServicesSection";
-import BottomNavbar from "@/components/BottomNavbar";
-import { motion } from "framer-motion";
+export const metadata: Metadata = pageMetadata({
+  title: "Services",
+  description:
+    "Explore PixelPro Studios services: AV systems, photography, videography, and talent for events across Singapore.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
-  return (
-    <motion.main 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="min-h-screen bg-gradient-to-b from-brand-black/90 from-70% to-brand-silver/10"
-    >
-      <div className="bg-transparent">
-        <Services />
-      </div>
-      <BottomNavbar position="top" />
-    </motion.main>
-  );
+  return <ServicesPageClient />;
 }

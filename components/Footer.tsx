@@ -103,7 +103,25 @@ export default function Footer() {
               <p className="text-brand-off-white/90 text-sm mb-2">
                 All Rights Reserved.
               </p>
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-brand-off-white/90 text-sm">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1 text-brand-off-white/90 text-sm">
+                <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                  <Link href="/services/" className="hover:text-brand-off-white transition-colors cursor-pointer">
+                    Services
+                  </Link>
+                </motion.div>
+                <span>|</span>
+                <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                  <Link href="/portfolio/" className="hover:text-brand-off-white transition-colors cursor-pointer">
+                    Portfolio
+                  </Link>
+                </motion.div>
+                <span>|</span>
+                <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                  <Link href="/about/" className="hover:text-brand-off-white transition-colors cursor-pointer">
+                    About
+                  </Link>
+                </motion.div>
+                <span>|</span>
                 <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                   <Link href="/blog/" className="hover:text-brand-off-white transition-colors cursor-pointer">
                     Blog
@@ -111,18 +129,33 @@ export default function Footer() {
                 </motion.div>
                 <span>|</span>
                 <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-                  <Link href="/terms" className="hover:text-brand-off-white transition-colors cursor-pointer">
-                    Terms & Conditions
+                  <Link href="/contact/" className="hover:text-brand-off-white transition-colors cursor-pointer">
+                    Contact
                   </Link>
                 </motion.div>
                 <span>|</span>
                 <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-                  <Link href="/privacy" className="hover:text-brand-off-white transition-colors cursor-pointer">
-                    Privacy Policy
+                  <Link href="/terms/" className="hover:text-brand-off-white transition-colors cursor-pointer">
+                    Terms
+                  </Link>
+                </motion.div>
+                <span>|</span>
+                <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                  <Link href="/privacy/" className="hover:text-brand-off-white transition-colors cursor-pointer">
+                    Privacy
                   </Link>
                 </motion.div>
               </div>
               <p className="text-brand-off-white/90 text-sm mt-2">
+                <a href="tel:+6588605489" className="hover:text-brand-off-white transition-colors">
+                  +65 8860 5489
+                </a>
+                {" · "}
+                <a href="mailto:hello@pixelprostudios.sg" className="hover:text-brand-off-white transition-colors">
+                  hello@pixelprostudios.sg
+                </a>
+              </p>
+              <p className="text-brand-off-white/90 text-sm mt-1">
                 UEN: 202340399H
               </p>
             </div>
