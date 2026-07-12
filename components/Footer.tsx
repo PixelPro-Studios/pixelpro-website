@@ -105,6 +105,12 @@ export default function Footer() {
               </p>
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-brand-off-white/90 text-sm">
                 <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                  <Link href="/blog/" className="hover:text-brand-off-white transition-colors cursor-pointer">
+                    Blog
+                  </Link>
+                </motion.div>
+                <span>|</span>
+                <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                   <Link href="/terms" className="hover:text-brand-off-white transition-colors cursor-pointer">
                     Terms & Conditions
                   </Link>
