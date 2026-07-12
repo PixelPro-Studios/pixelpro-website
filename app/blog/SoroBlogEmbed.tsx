@@ -10,6 +10,9 @@ export default function SoroBlogEmbed() {
     const container = document.getElementById("soro-blog");
     if (!container) return;
 
+    // Soro calls scrollIntoView on article open — keep page position stable
+    container.scrollIntoView = () => {};
+
     // Remove any previous embed script so client navigations re-init cleanly
     document
       .querySelectorAll(`script[src="${EMBED_SRC}"]`)
