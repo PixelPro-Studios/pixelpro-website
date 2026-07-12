@@ -1,7 +1,8 @@
 "use client";
 
 import Services from "@/components/ServicesSection";
-import BottomNavbar from "@/components/BottomNavbar";
+import FaqSection from "@/components/FaqSection";
+import { servicesFaqs } from "@/lib/faqs";
 import { motion } from "framer-motion";
 
 export default function ServicesPageClient() {
@@ -24,7 +25,9 @@ export default function ServicesPageClient() {
       <div className="bg-transparent">
         <Services />
       </div>
-      <BottomNavbar position="top" />
+      <div className="px-4 md:px-8 pb-24">
+        <FaqSection faqs={servicesFaqs} />
+      </div>
     </motion.main>
   );
 }

@@ -3,6 +3,39 @@ export type FaqItem = {
   answer: string;
 };
 
+export const servicesFaqs: FaqItem[] = [
+  {
+    question: "What services does PixelPro Studios offer?",
+    answer:
+      "We provide audio-visual systems, event photography, videography, and entertainment & talent — a one-stop partner for productions of any scale across Singapore.",
+  },
+  {
+    question: "Can we book multiple services for one event?",
+    answer:
+      "Yes. As a one-stop event partner, we can coordinate AV, photography, videography, and talent under a single production team so your programme runs smoothly from planning to teardown.",
+  },
+  {
+    question: "Do you cover events across Singapore?",
+    answer:
+      "Yes. We support corporate events, schools, government agencies, and community organisations island-wide, with crew and equipment sized to your venue and run-of-show.",
+  },
+  {
+    question: "Are you a GeBIZ registered supplier?",
+    answer:
+      "Yes. PixelPro Studios is a Singapore Government registered supplier on GeBIZ, and we regularly support schools, public agencies, and institutional events.",
+  },
+  {
+    question: "How do I get a quote or start planning?",
+    answer:
+      "Share your event brief via our contact page and we will scope a proposal for you. You can also download our services deck for an overview of capabilities and packages.",
+  },
+  {
+    question: "Do you provide on-site crew and technical support?",
+    answer:
+      "Yes. Our team handles delivery, setup, live operation during your event, and teardown so your programme runs smoothly from start to finish.",
+  },
+];
+
 export const avSystemsFaqs: FaqItem[] = [
   {
     question: "Do you rent sound systems for events in Singapore?",

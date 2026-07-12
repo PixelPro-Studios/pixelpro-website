@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import ServicesPageClient from "./ServicesPageClient";
+import JsonLd, { faqPageJsonLd } from "@/components/JsonLd";
+import { servicesFaqs } from "@/lib/faqs";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -10,5 +12,10 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function ServicesPage() {
-  return <ServicesPageClient />;
+  return (
+    <>
+      <JsonLd data={faqPageJsonLd(servicesFaqs)} />
+      <ServicesPageClient />
+    </>
+  );
 }
