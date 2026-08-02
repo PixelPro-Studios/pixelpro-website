@@ -17,6 +17,9 @@ const BASE_DIM = 0.38;
 const SPOT_BOOST = 1.55;
 const SPOT_RADIUS_CELLS = 10;
 
+/** Random pixel boot — all lit by this duration (seconds) */
+const BOOT_DURATION = 0.5;
+
 /** Top gradient (matches stage blues) */
 const GRAD_TOP = { r: 10, g: 10, b: 10 };
 const GRAD_BOTTOM = { r: 12, g: 28, b: 55 };
@@ -34,21 +37,51 @@ export default function HeroPixelSpotlight() {
     if (!ctx) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const desktopQuery = window.matchMedia("(min-width: 768px) and (pointer: fine)");
 
     let cols = 0;
     let rows = 0;
     let pixels: Uint8ClampedArray = new Uint8ClampedArray(0);
+    let bootDelay: Float32Array = new Float32Array(0);
     let pointer: { x: number; y: number } | null = null;
     let rafId = 0;
     let needsDraw = true;
     let sourceImage: HTMLImageElement | null = null;
     let running = true;
+    let bootStarted = false;
+    let bootStart = 0;
+    let bootDone = reducedMotion;
+    let spotlightEnabled = desktopQuery.matches;
+
+    const seedBootDelays = () => {
+      const count = cols * rows;
+      bootDelay = new Float32Array(count);
+      for (let i = 0; i < count; i++) {
+        bootDelay[i] = Math.random() * BOOT_DURATION;
+      }
+    };
+
+    const startBoot = () => {
+      if (bootStarted || reducedMotion) {
+        bootDone = true;
+        return;
+      }
+      seedBootDelays();
+      bootStart = performance.now();
+      bootStarted = true;
+      bootDone = false;
+      needsDraw = true;
+    };
 
     const sampleImage = () => {
       const count = cols * rows;
       pixels = new Uint8ClampedArray(count * 4);
 
-      // Default fill
+      const { width } = container.getBoundingClientRect();
+      const isMobile = width < 768;
+      const shiftRatio = isMobile ? 0.03 : IMAGE_SHIFT;
+      const zoom = isMobile ? 1.35 : 1;
+
       for (let i = 0; i < count; i++) {
         pixels[i * 4] = GRAD_TOP.r;
         pixels[i * 4 + 1] = GRAD_TOP.g;
@@ -56,9 +89,8 @@ export default function HeroPixelSpotlight() {
         pixels[i * 4 + 3] = 255;
       }
 
-      const shiftRows = Math.floor(rows * IMAGE_SHIFT);
+      const shiftRows = Math.floor(rows * shiftRatio);
 
-      // Pixel gradient in the top band (space above the shifted photo)
       for (let y = 0; y < shiftRows; y++) {
         const t = shiftRows <= 1 ? 1 : y / (shiftRows - 1);
         const r = Math.round(GRAD_TOP.r + (GRAD_BOTTOM.r - GRAD_TOP.r) * t);
@@ -83,18 +115,15 @@ export default function HeroPixelSpotlight() {
 
       const iw = sourceImage.naturalWidth;
       const ih = sourceImage.naturalHeight;
-      // Cover the lower region; keep photo top (lights) visible
-      const scale = Math.max(cols / iw, availableRows / ih);
+      const scale = Math.max(cols / iw, availableRows / ih) * zoom;
       const sw = iw * scale;
       const sh = ih * scale;
       const sx = (cols - sw) / 2;
-      // Anchor to top of the photo so spotlights aren't cropped
-      const sy = 0;
 
       octx.fillStyle = BG;
       octx.fillRect(0, 0, cols, availableRows);
       octx.imageSmoothingEnabled = false;
-      octx.drawImage(sourceImage, sx, sy, sw, sh);
+      octx.drawImage(sourceImage, sx, 0, sw, sh);
 
       const data = octx.getImageData(0, 0, cols, availableRows).data;
       for (let y = 0; y < availableRows; y++) {
@@ -121,27 +150,40 @@ export default function HeroPixelSpotlight() {
       ctx.fillStyle = BG;
       ctx.fillRect(0, 0, width, height);
 
-      const spotCol = pointer ? Math.floor((pointer.x / width) * cols) : -999;
-      const spotRow = pointer ? Math.floor((pointer.y / height) * rows) : -999;
+      const elapsed = bootDone
+        ? BOOT_DURATION
+        : Math.min(BOOT_DURATION, (performance.now() - bootStart) / 1000);
+
+      if (!bootDone && elapsed >= BOOT_DURATION) {
+        bootDone = true;
+      }
+
+      const spotActive = Boolean(spotlightEnabled && pointer && bootDone);
+      const spotCol = spotActive && pointer ? Math.floor((pointer.x / width) * cols) : -999;
+      const spotRow = spotActive && pointer ? Math.floor((pointer.y / height) * rows) : -999;
       const radiusSq = SPOT_RADIUS_CELLS * SPOT_RADIUS_CELLS;
 
       for (let y = 0; y < rows; y++) {
         for (let x = 0; x < cols; x++) {
-          const i = (y * cols + x) * 4;
+          const idx = y * cols + x;
+          // Random pixel-by-pixel power-on over ~0.5s
+          if (!bootDone && elapsed < bootDelay[idx]) continue;
+
+          const i = idx * 4;
           let r = pixels[i];
           let g = pixels[i + 1];
           let b = pixels[i + 2];
 
-          const dx = x - spotCol + 0.5;
-          const dy = y - spotRow + 0.5;
-          const distSq = dx * dx + dy * dy;
-
           let mul = BASE_DIM;
-          if (pointer && distSq <= radiusSq) {
-            // Pixel-stepped falloff (not smooth) so the spot stays chunky
-            const t = 1 - Math.sqrt(distSq) / SPOT_RADIUS_CELLS;
-            const stepped = Math.round(t * 4) / 4;
-            mul = BASE_DIM + (SPOT_BOOST - BASE_DIM) * stepped;
+          if (spotActive) {
+            const dx = x - spotCol + 0.5;
+            const dy = y - spotRow + 0.5;
+            const distSq = dx * dx + dy * dy;
+            if (distSq <= radiusSq) {
+              const t = 1 - Math.sqrt(distSq) / SPOT_RADIUS_CELLS;
+              const stepped = Math.round(t * 4) / 4;
+              mul = BASE_DIM + (SPOT_BOOST - BASE_DIM) * stepped;
+            }
           }
 
           r = Math.min(255, Math.round(r * mul));
@@ -158,7 +200,6 @@ export default function HeroPixelSpotlight() {
         }
       }
 
-      // Soft bottom blend into next section
       const bottom = ctx.createLinearGradient(0, height * 0.7, 0, height);
       bottom.addColorStop(0, "rgba(10,10,10,0)");
       bottom.addColorStop(1, "rgba(10,10,10,0.95)");
@@ -168,6 +209,7 @@ export default function HeroPixelSpotlight() {
 
     const loop = () => {
       if (!running) return;
+      if (!bootDone) needsDraw = true;
       if (needsDraw) {
         draw();
         needsDraw = false;
@@ -189,11 +231,19 @@ export default function HeroPixelSpotlight() {
       cols = Math.max(40, Math.floor(width / CELL));
       rows = Math.max(24, Math.floor(height / CELL));
       sampleImage();
+
+      // Keep boot timing stable across resize; only reseed delays if still booting
+      if (!bootStarted) {
+        // wait for image
+      } else if (!bootDone) {
+        seedBootDelays();
+      }
+
       needsDraw = true;
     };
 
     const onPointerMove = (e: PointerEvent) => {
-      if (reducedMotion) return;
+      if (!spotlightEnabled || reducedMotion || !bootDone) return;
       const rect = container.getBoundingClientRect();
       pointer = {
         x: e.clientX - rect.left,
@@ -207,12 +257,21 @@ export default function HeroPixelSpotlight() {
       needsDraw = true;
     };
 
+    const onDesktopChange = () => {
+      spotlightEnabled = desktopQuery.matches;
+      if (!spotlightEnabled) {
+        pointer = null;
+        needsDraw = true;
+      }
+    };
+
     const img = new Image();
     img.decoding = "async";
     img.src = IMAGE_SRC;
     img.onload = () => {
       sourceImage = img;
       resize();
+      startBoot();
       needsDraw = true;
     };
 
@@ -221,6 +280,7 @@ export default function HeroPixelSpotlight() {
     observer.observe(container);
     container.addEventListener("pointermove", onPointerMove);
     container.addEventListener("pointerleave", onPointerLeave);
+    desktopQuery.addEventListener("change", onDesktopChange);
     running = true;
     rafId = requestAnimationFrame(loop);
 
@@ -230,6 +290,7 @@ export default function HeroPixelSpotlight() {
       observer.disconnect();
       container.removeEventListener("pointermove", onPointerMove);
       container.removeEventListener("pointerleave", onPointerLeave);
+      desktopQuery.removeEventListener("change", onDesktopChange);
     };
   }, []);
 
