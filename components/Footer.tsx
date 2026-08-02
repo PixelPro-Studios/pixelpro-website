@@ -92,7 +92,7 @@ export default function Footer() {
             {/* Left Side - Copyright and Legal */}
             <div className="text-center md:text-left flex-1">
               <p className="text-brand-off-white/90 text-sm mb-1">
-                Copyright © 2025 PixelPro Studios Pte. Ltd.
+                Copyright © {new Date().getFullYear()} PixelPro Studios Pte. Ltd.
               </p>
               <p className="text-brand-off-white/90 text-sm mb-2">
                 All Rights Reserved.
