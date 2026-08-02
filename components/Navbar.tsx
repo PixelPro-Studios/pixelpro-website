@@ -76,7 +76,7 @@ export default function Navbar() {
   // Central Text Component to reuse
   const BrandText = () => (
     <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-      <Link href="/" onClick={() => setIsOpen(false)} className="font-display font-bold text-lg tracking-wide text-brand-off-white hover:text-brand-silver transition-colors cursor-pointer">
+      <Link href="/" onClick={() => setIsOpen(false)} className="font-montserrat font-bold text-lg tracking-wide text-brand-off-white hover:text-brand-silver transition-colors cursor-pointer">
         pixelpro
       </Link>
     </motion.div>
@@ -169,7 +169,7 @@ export default function Navbar() {
                                 toggleMenu();
                                 posthog.capture('nav_link_clicked', { link_name: link.name, href: link.href });
                               }}
-                              className="text-2xl md:text-3xl font-display font-medium text-brand-off-white transition-all duration-300 block w-fit cursor-pointer
+                              className="text-2xl md:text-3xl font-montserrat font-medium text-brand-off-white transition-all duration-300 block w-fit cursor-pointer
                                          hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-white hover:via-brand-silver hover:to-white
                                          hover:bg-[length:200%_auto] hover:animate-[shimmer_2s_linear_infinite]"
                             >
@@ -187,7 +187,7 @@ export default function Navbar() {
                           transition={{ delay: 0.1, duration: 0.2 }}
                           className="bg-brand-black/50 p-6 rounded-2xl border border-white/5"
                         >
-                          <h3 className="text-xl font-display font-bold text-brand-platinum mb-5">Get in Touch</h3>
+                          <h3 className="text-xl font-display text-brand-platinum mb-5">Get in Touch</h3>
                           <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                             <div className="space-y-1.5">
                               <label htmlFor="name" className="text-[10px] font-sans text-brand-silver uppercase tracking-wider">Name</label>

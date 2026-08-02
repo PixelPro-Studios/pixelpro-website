@@ -58,24 +58,18 @@ export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const el = footerRef.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.1 }
     );
 
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
-    }
-
-    return () => {
-      if (footerRef.current) {
-        observer.unobserve(footerRef.current);
-      }
-    };
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   const socialLinks = [
@@ -163,7 +157,7 @@ export default function Footer() {
             {/* Center - Brand Name (Desktop Only) */}
             <div className="hidden md:block">
               <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-                <Link href="/" className="font-display font-bold text-2xl tracking-wide text-brand-off-white hover:text-brand-silver transition-colors cursor-pointer">
+                <Link href="/" className="font-montserrat font-bold text-2xl tracking-wide text-brand-off-white hover:text-brand-silver transition-colors cursor-pointer">
                   pixelpro
                 </Link>
               </motion.div>
@@ -171,14 +165,22 @@ export default function Footer() {
 
             {/* Right Side - Government Badge and Social Media Icons */}
             <div className="flex flex-col items-center gap-4 flex-1 justify-center md:justify-end">
-              {/* Government Badge */}
-              <div className="flex justify-center md:justify-end">
+              {/* Certification Badges */}
+              <div className="flex items-center justify-center md:justify-end gap-4">
                 <Image
                   src="/client_logos/pixelpro-studios-government-supplier-gebiz-registered.png"
                   alt="Singapore Government Registered Supplier - GeBIZ"
                   width={200}
                   height={60}
-                  className="invert opacity-80 hover:opacity-100 transition-opacity"
+                  className="h-12 w-auto invert opacity-80 hover:opacity-100 transition-opacity"
+                  style={{ filter: 'brightness(0) saturate(100%) invert(1)' }}
+                />
+                <Image
+                  src="/client_logos/pixelpro-studios-bizsafe-level-3.png"
+                  alt="bizSAFE Level 3"
+                  width={180}
+                  height={90}
+                  className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
                   style={{ filter: 'brightness(0) saturate(100%) invert(1)' }}
                 />
               </div>

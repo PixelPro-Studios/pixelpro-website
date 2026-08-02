@@ -37,7 +37,7 @@ export default function Services() {
     <section className="pt-32 pb-12 bg-transparent px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center text-center mb-10 gap-6">
-            <h2 className="text-5xl md:text-7xl font-display font-bold text-brand-off-white">What we offer.</h2>
+            <h2 className="text-5xl md:text-7xl font-display text-brand-off-white">What we offer.</h2>
           <p className="text-brand-off-white/90 max-w-2xl font-sans text-lg md:text-xl leading-relaxed">
             Comprehensive media solutions tailored to your unique requirements.
           </p>
@@ -64,7 +64,7 @@ export default function Services() {
                   <service.icon className="w-7 h-7" />
                 </div>
                 
-                <h3 className="text-2xl font-display font-bold text-brand-platinum mb-4 group-hover:text-white transition-colors duration-300">
+                <h3 className="text-3xl md:text-4xl font-display text-brand-platinum mb-4 group-hover:text-white transition-colors duration-300">
                   {service.title}
                 </h3>
                 
@@ -83,7 +83,7 @@ export default function Services() {
             rel="noopener noreferrer"
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-brand-silver text-brand-black font-sans font-semibold text-base md:text-lg hover:bg-brand-platinum transition-colors duration-300 shadow-[0_0_30px_rgba(192,192,192,0.15)]"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-md bg-brand-silver text-brand-black font-sans font-semibold text-base md:text-lg hover:bg-brand-platinum transition-colors duration-300 shadow-[0_0_30px_rgba(192,192,192,0.15)]"
             onClick={() => posthog.capture('services_deck_downloaded')}
           >
             <Download className="w-5 h-5" />

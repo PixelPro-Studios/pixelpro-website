@@ -13,7 +13,7 @@ export default function FaqSection({
     <section className="mt-24 max-w-3xl mx-auto" aria-labelledby="faq-heading">
       <h2
         id="faq-heading"
-        className="text-3xl md:text-4xl font-display font-semibold text-brand-off-white text-center mb-10"
+        className="text-3xl md:text-4xl font-display text-brand-off-white text-center mb-10"
       >
         {title}
       </h2>

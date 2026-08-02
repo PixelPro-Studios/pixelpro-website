@@ -31,7 +31,7 @@ export default function AVSystemsPage() {
       >
         {/* Header */}
         <div className="text-center space-y-6">
-          <h1 className="text-4xl md:text-6xl font-display font-bold text-brand-off-white">
+          <h1 className="text-4xl md:text-6xl font-display text-brand-off-white">
             AV Systems
           </h1>
           <p className="text-lg text-brand-off-white/80 max-w-2xl mx-auto font-light">
@@ -43,7 +43,7 @@ export default function AVSystemsPage() {
         <section id="audio" className="scroll-mt-32">
           <div className="space-y-8">
             <div className="space-y-2">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-off-white">Audio System Rental</h2>
+              <h2 className="text-3xl md:text-4xl font-display text-brand-off-white">Audio System Rental</h2>
               <h3 className="text-xl text-brand-off-white/80 font-medium leading-relaxed">Premium Sound Systems for Concerts, Corporate Events, Roadshows, Exhibitions and Community Shows</h3>
             </div>
 
@@ -93,7 +93,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/portfolio?category=audio" className="inline-flex items-center gap-2 px-6 py-2.5 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold text-sm rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group">
+                  <Link href="/portfolio#audio" className="inline-flex items-center gap-2 px-6 py-2.5 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold text-sm rounded-md hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group">
                     <Eye className="w-4 h-4" />
                     <span>See Our Work</span>
                   </Link>
@@ -102,7 +102,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-off-white text-brand-black font-semibold text-sm rounded-full hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture('get_a_quote_clicked', { service_page: 'av-systems' })}>
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-off-white text-brand-black font-semibold text-sm rounded-md hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture('get_a_quote_clicked', { service_page: 'av-systems' })}>
                     <span>Get a Quote</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
@@ -116,7 +116,7 @@ export default function AVSystemsPage() {
         <section id="lighting" className="scroll-mt-32">
           <div className="space-y-8">
             <div className="space-y-2">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-off-white">Stage Lighting Rental</h2>
+              <h2 className="text-3xl md:text-4xl font-display text-brand-off-white">Stage Lighting Rental</h2>
               <h3 className="text-xl text-brand-off-white/80 font-medium leading-relaxed">Professional Lighting for Concerts, Corporate Shows, Roadshows, Exhibitions and Outdoor Events</h3>
             </div>
 
@@ -167,7 +167,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/portfolio?category=stage" className="inline-flex items-center gap-2 px-6 py-2.5 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold text-sm rounded-full hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group">
+                  <Link href="/portfolio#stage" className="inline-flex items-center gap-2 px-6 py-2.5 bg-transparent border-2 border-brand-off-white text-brand-off-white font-semibold text-sm rounded-md hover:bg-brand-off-white hover:text-brand-black transition-all duration-300 group">
                     <Eye className="w-4 h-4" />
                     <span>See Our Work</span>
                   </Link>
@@ -176,7 +176,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-off-white text-brand-black font-semibold text-sm rounded-full hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture('get_a_quote_clicked', { service_page: 'av-systems' })}>
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-off-white text-brand-black font-semibold text-sm rounded-md hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture('get_a_quote_clicked', { service_page: 'av-systems' })}>
                     <span>Get a Quote</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
@@ -190,7 +190,7 @@ export default function AVSystemsPage() {
         <section id="projector" className="scroll-mt-32">
           <div className="space-y-8">
             <div className="space-y-2">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-off-white">Projector and Screen Rental</h2>
+              <h2 className="text-3xl md:text-4xl font-display text-brand-off-white">Projector and Screen Rental</h2>
               <h3 className="text-xl text-brand-off-white/80 font-medium leading-relaxed">High Brightness Projection for Corporate Events, Presentations, Outdoor Movie Nights, Exhibitions and Roadshows</h3>
             </div>
 
@@ -240,7 +240,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-off-white text-brand-black font-semibold text-sm rounded-full hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture('get_a_quote_clicked', { service_page: 'av-systems' })}>
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-off-white text-brand-black font-semibold text-sm rounded-md hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture('get_a_quote_clicked', { service_page: 'av-systems' })}>
                     <span>Get a Quote</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
@@ -254,7 +254,7 @@ export default function AVSystemsPage() {
         <section id="led-wall" className="scroll-mt-32">
           <div className="space-y-8">
             <div className="space-y-2">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-brand-off-white">LED Wall Rental</h2>
+              <h2 className="text-3xl md:text-4xl font-display text-brand-off-white">LED Wall Rental</h2>
               <h3 className="text-xl text-brand-off-white/80 font-medium leading-relaxed">High Impact Visuals for Concerts, Exhibitions, Roadshows, Conferences, Product Launches and Large Scale Events</h3>
             </div>
 
@@ -306,7 +306,7 @@ export default function AVSystemsPage() {
                   whileTap={{ y: 4, scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-off-white text-brand-black font-semibold text-sm rounded-full hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture('get_a_quote_clicked', { service_page: 'av-systems' })}>
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-off-white text-brand-black font-semibold text-sm rounded-md hover:bg-white transition-all duration-300 group" onClick={() => posthog.capture('get_a_quote_clicked', { service_page: 'av-systems' })}>
                     <span>Get a Quote</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>

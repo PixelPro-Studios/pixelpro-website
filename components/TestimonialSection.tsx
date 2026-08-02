@@ -194,7 +194,7 @@ export default function TestimonialSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-7xl font-display font-bold text-brand-off-white mb-4">
+          <h2 className="text-4xl md:text-7xl font-display text-brand-off-white mb-4">
             Our clients love us.
           </h2>
         </motion.div>

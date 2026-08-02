@@ -7,7 +7,7 @@ import posthog from "posthog-js";
 
 export default function Hero() {
   return (
-    <section className="relative h-[75vh] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative h-[75vh] w-full flex items-center justify-center overflow-hidden pt-28 md:pt-32">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -32,7 +32,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="font-display font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight text-brand-off-white leading-tight"
+          className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight text-brand-off-white leading-tight"
         >
           Events made effortless, 
           <br className="hidden md:block" />
@@ -47,7 +47,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           className="text-xl md:text-2xl text-brand-off-white/80 max-w-2xl mx-auto font-sans"
         >
-         PixelPro is your reliable one-stop partner for events, media, and AV productions in Singapore.
+         One-stop partner for events, media, and AV productions in Singapore.
         </motion.p>
         
         <motion.div
@@ -63,7 +63,7 @@ export default function Hero() {
               href="https://cal.com/pixelpro/consultation"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-4 px-8 py-4 bg-brand-off-white text-brand-black font-semibold rounded-xl hover:bg-white transition-colors duration-300 tracking-wide uppercase text-sm cursor-pointer"
+              className="inline-block mt-4 px-8 py-4 bg-brand-off-white text-brand-black font-semibold rounded-md hover:bg-white transition-colors duration-300 tracking-wide uppercase text-sm cursor-pointer"
               onClick={() => posthog.capture('book_a_call_clicked', { source: 'hero' })}
             >
               Book a Call

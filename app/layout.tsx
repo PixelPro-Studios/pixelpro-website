@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -8,6 +9,12 @@ import JsonLd, {
   websiteJsonLd,
 } from "@/components/JsonLd";
 import { SITE_URL, DEFAULT_OG_IMAGE } from "@/lib/seo";
+
+const oliveira = localFont({
+  src: "./fonts/oliveira.otf",
+  variable: "--font-oliveira",
+  display: "swap",
+});
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -31,7 +38,7 @@ export const metadata: Metadata = {
     template: "%s | PixelPro Studios",
   },
   description:
-    "Your reliable one-stop partner for events, media, and AV productions. Professional audio systems, stage lighting, LED walls, photography, videography, and talent services in Singapore.",
+    "One-stop partner for events, media, and AV productions. Professional audio systems, stage lighting, LED walls, photography, videography, and talent services in Singapore.",
   keywords: [
     "AV systems Singapore",
     "event photography Singapore",
@@ -61,7 +68,7 @@ export const metadata: Metadata = {
     title:
       "PixelPro Studios | Premium AV Systems, Photography & Videography Singapore",
     description:
-      "Your reliable one-stop partner for events, media, and AV productions. Professional audio systems, stage lighting, LED walls, photography, videography, and talent services in Singapore.",
+      "One-stop partner for events, media, and AV productions. Professional audio systems, stage lighting, LED walls, photography, videography, and talent services in Singapore.",
     siteName: "PixelPro Studios",
     images: [
       {
@@ -75,9 +82,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "PixelPro Studios | Premium AV Systems, Photography & Videography Singapore",
+      "PixelPro Studios | AV Systems, Photography & Videography Singapore",
     description:
-      "Your reliable one-stop partner for events, media, and AV productions in Singapore.",
+      "One-stop partner for events, media, and AV productions in Singapore.",
     images: [DEFAULT_OG_IMAGE],
     creator: "@pixelprostudiossg",
   },
@@ -103,9 +110,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${montserrat.variable} ${inter.variable} antialiased font-sans bg-brand-black text-brand-off-white`}
+        className={`${oliveira.variable} ${montserrat.variable} ${inter.variable} antialiased font-sans bg-brand-black text-brand-off-white`}
       >
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />

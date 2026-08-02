@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 type Category = "audio" | "stage" | "photography" | "videography";
 
 interface PortfolioBottomNavbarProps {
-  selectedCategory: Category;
+  activeCategory: Category;
   onCategoryChange: (category: Category) => void;
 }
 
@@ -17,14 +17,14 @@ const categories = [
 ];
 
 export default function PortfolioBottomNavbar({
-  selectedCategory,
+  activeCategory,
   onCategoryChange,
 }: PortfolioBottomNavbarProps) {
   return (
     <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40 w-[95%] max-w-lg">
       <nav className="relative bg-brand-charcoal/90 backdrop-blur-md border border-white/10 rounded-full px-4 py-3 shadow-lg flex justify-around items-center">
         {categories.map((category) => {
-          const isActive = selectedCategory === category.id;
+          const isActive = activeCategory === category.id;
           return (
             <motion.button
               key={category.id}

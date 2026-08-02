@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
 
 const LOGOS: { file: string; alt: string }[] = [
@@ -78,7 +78,59 @@ const LOGOS: { file: string; alt: string }[] = [
   },
 ];
 
+const MID = Math.ceil(LOGOS.length / 2);
+const ROW_ONE = LOGOS.slice(0, MID);
+const ROW_TWO = LOGOS.slice(MID);
+
+function LogoRow({
+  logos,
+  direction,
+  duration = 50,
+  paused,
+}: {
+  logos: typeof LOGOS;
+  direction: "left" | "right";
+  duration?: number;
+  paused: boolean;
+}) {
+  const loop = [...logos, ...logos];
+  const animationName =
+    direction === "left" ? "marquee-left" : "marquee-right";
+
+  return (
+    <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
+      <div
+        className="flex py-4 space-x-16 min-w-max px-8 items-center"
+        style={{
+          animation: `${animationName} ${duration}s linear infinite`,
+          animationPlayState: paused ? "paused" : "running",
+        }}
+      >
+        {loop.map((logo, index) => (
+          <div
+            key={`${logo.file}-${index}`}
+            className="group relative w-28 h-28 flex items-center justify-center z-0"
+          >
+            <div className="absolute inset-0 bg-brand-silver/80 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-75 group-hover:scale-100 -z-10" />
+
+            <div className="relative z-10 w-full h-full grayscale invert group-hover:grayscale-0 group-hover:invert-0 transition-all duration-300 opacity-60 group-hover:opacity-100">
+              <Image
+                src={`/client_logos/${logo.file}`}
+                alt={logo.alt}
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function InfiniteLogos() {
+  const [paused, setPaused] = useState(false);
+
   return (
     <section className="py-4 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 text-center">
@@ -87,34 +139,13 @@ export default function InfiniteLogos() {
         </p>
       </div>
 
-      <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
-        <motion.div
-          className="flex py-8 space-x-16 min-w-max px-8 items-center"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            ease: "linear",
-            duration: 60,
-          }}
-        >
-          {[...LOGOS, ...LOGOS].map((logo, index) => (
-            <div
-              key={`${logo.file}-${index}`}
-              className="group relative w-28 h-28 flex items-center justify-center z-0"
-            >
-              <div className="absolute inset-0 bg-brand-silver/80 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-75 group-hover:scale-100 -z-10" />
-
-              <div className="relative z-10 w-full h-full grayscale invert group-hover:grayscale-0 group-hover:invert-0 transition-all duration-300 opacity-60 group-hover:opacity-100">
-                <Image
-                  src={`/client_logos/${logo.file}`}
-                  alt={logo.alt}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </div>
-          ))}
-        </motion.div>
+      <div
+        className="mt-2 flex flex-col"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <LogoRow logos={ROW_ONE} direction="left" duration={55} paused={paused} />
+        <LogoRow logos={ROW_TWO} direction="right" duration={60} paused={paused} />
       </div>
     </section>
   );

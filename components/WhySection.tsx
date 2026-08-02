@@ -45,7 +45,7 @@ function ReasonCard({ reason, index }: { reason: typeof reasons[0], index: numbe
       {/* Text Side */}
       <div className="w-full md:w-1/2 pt-4 pb-12 md:pb-16 px-6 md:px-16 flex flex-col justify-center">
         <div className="flex items-center gap-4 mb-6">
-          <h3 className="text-2xl md:text-3xl font-display font-bold text-brand-platinum uppercase leading-tight">
+          <h3 className="text-2xl md:text-3xl font-display text-brand-platinum uppercase leading-tight">
             {reason.title}
           </h3>
         </div>
@@ -79,7 +79,7 @@ export default function WhyUs() {
     <section className="pt-12 pb-6 bg-brand-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
       <div className="flex flex-col items-center text-center gap-6 pb-4">
-            <h2 className="text-4xl md:text-7xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-silver via-blue-400 to-brand-silver bg-[length:200%_auto] animate-[shimmer_3s_linear_infinite] hover:animate-[shimmer_0.8s_linear_infinite] transition-all cursor-default leading-tight pb-2">
+            <h2 className="text-4xl md:text-7xl font-display text-transparent bg-clip-text bg-gradient-to-r from-brand-silver via-blue-400 to-brand-silver bg-[length:200%_auto] animate-[shimmer_3s_linear_infinite] hover:animate-[shimmer_0.8s_linear_infinite] transition-all cursor-default leading-tight pb-2">
               Let's bring your event to life.
             </h2>
         </div>

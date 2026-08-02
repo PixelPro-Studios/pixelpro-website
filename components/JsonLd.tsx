@@ -1,5 +1,6 @@
 import {
   SITE_URL,
+  DEFAULT_OG_IMAGE,
   absoluteUrl,
   organization,
 } from "@/lib/seo";
@@ -105,6 +106,45 @@ export function serviceJsonLd({
       "@type": "Country",
       name: organization.areaServed,
     },
+  };
+}
+
+export function blogPostingJsonLd({
+  title,
+  description,
+  slug,
+  date,
+  author,
+  image,
+}: {
+  title: string;
+  description: string;
+  slug: string;
+  date: string;
+  author: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    datePublished: date,
+    dateModified: date,
+    author: {
+      "@type": "Person",
+      name: author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: organization.legalName,
+      logo: {
+        "@type": "ImageObject",
+        url: organization.logo,
+      },
+    },
+    mainEntityOfPage: absoluteUrl(`/blog/${slug}`),
+    image: `${SITE_URL}${image ?? DEFAULT_OG_IMAGE}`,
   };
 }
 

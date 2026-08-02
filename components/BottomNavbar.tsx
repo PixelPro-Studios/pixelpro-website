@@ -117,7 +117,7 @@ export default function BottomNavbar({ position = "bottom" }: BottomNavbarProps 
                           <Link
                             href={item.href}
                             onClick={() => setShowMoreMenu(false)}
-                            className="px-4 py-2.5 rounded-xl text-xs font-medium text-brand-off-white/70 hover:text-brand-off-white hover:bg-white/5 transition-all text-left uppercase tracking-wide cursor-pointer block"
+                            className="px-4 py-2.5 rounded-md text-xs font-medium text-brand-off-white/70 hover:text-brand-off-white hover:bg-white/5 transition-all text-left uppercase tracking-wide cursor-pointer block"
                           >
                             {item.name}
                           </Link>

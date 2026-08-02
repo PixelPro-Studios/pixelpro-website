@@ -113,7 +113,7 @@ export default function ContactPage() {
       >
         {/* Header */}
         <div className="text-center mb-16 space-y-6">
-          <h1 className="text-5xl md:text-7xl font-display font-bold text-brand-off-white">
+          <h1 className="text-5xl md:text-7xl font-display text-brand-off-white">
             Get in touch.
           </h1>
           <p className="text-xl text-brand-silver max-w-2xl mx-auto">
@@ -147,7 +147,7 @@ export default function ContactPage() {
                           <method.icon className="w-7 h-7 text-brand-silver" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-xl font-display font-bold text-brand-off-white mb-1">
+                          <h3 className="text-xl font-display text-brand-off-white mb-1">
                             {method.title}
                           </h3>
                           <p className="text-brand-silver/70 text-sm mb-1">
@@ -176,7 +176,7 @@ export default function ContactPage() {
               <div className="bg-brand-charcoal/30 border border-white/5 rounded-3xl p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <Clock className="w-7 h-7 text-brand-silver" />
-                  <h2 className="text-2xl font-display font-bold text-brand-off-white">
+                  <h2 className="text-2xl font-display text-brand-off-white">
                     Working Hours
                   </h2>
                 </div>
