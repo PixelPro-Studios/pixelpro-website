@@ -6,16 +6,20 @@ const IMAGE_SRC = "/photos/pixelpro-studios-hero-stage.webp";
 const BG = "#0A0A0A";
 
 /** Pixel size in CSS px — chunky LED look */
-const CELL = 10;
+const CELL = 7;
 const GAP = 1;
 
-/** Cover-fit bias: 0 = top, 0.5 = center (keeps stage lights in frame) */
-const FOCUS_Y = 0.22;
+/** Push the photo down so stage lights sit in view; top gap = gradient */
+const IMAGE_SHIFT = 0.1;
 
 /** Base dim so headline stays readable; spotlight lifts back toward full */
 const BASE_DIM = 0.38;
 const SPOT_BOOST = 1.55;
-const SPOT_RADIUS_CELLS = 7;
+const SPOT_RADIUS_CELLS = 10;
+
+/** Top gradient (matches stage blues) */
+const GRAD_TOP = { r: 10, g: 10, b: 10 };
+const GRAD_BOTTOM = { r: 12, g: 28, b: 55 };
 
 export default function HeroPixelSpotlight() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -44,36 +48,65 @@ export default function HeroPixelSpotlight() {
       const count = cols * rows;
       pixels = new Uint8ClampedArray(count * 4);
 
-      if (!sourceImage?.complete || !sourceImage.naturalWidth) {
-        for (let i = 0; i < count; i++) {
-          pixels[i * 4] = 10;
-          pixels[i * 4 + 1] = 10;
-          pixels[i * 4 + 2] = 14;
-          pixels[i * 4 + 3] = 255;
-        }
-        return;
+      // Default fill
+      for (let i = 0; i < count; i++) {
+        pixels[i * 4] = GRAD_TOP.r;
+        pixels[i * 4 + 1] = GRAD_TOP.g;
+        pixels[i * 4 + 2] = GRAD_TOP.b;
+        pixels[i * 4 + 3] = 255;
       }
 
+      const shiftRows = Math.floor(rows * IMAGE_SHIFT);
+
+      // Pixel gradient in the top band (space above the shifted photo)
+      for (let y = 0; y < shiftRows; y++) {
+        const t = shiftRows <= 1 ? 1 : y / (shiftRows - 1);
+        const r = Math.round(GRAD_TOP.r + (GRAD_BOTTOM.r - GRAD_TOP.r) * t);
+        const g = Math.round(GRAD_TOP.g + (GRAD_BOTTOM.g - GRAD_TOP.g) * t);
+        const b = Math.round(GRAD_TOP.b + (GRAD_BOTTOM.b - GRAD_TOP.b) * t);
+        for (let x = 0; x < cols; x++) {
+          const i = (y * cols + x) * 4;
+          pixels[i] = r;
+          pixels[i + 1] = g;
+          pixels[i + 2] = b;
+        }
+      }
+
+      if (!sourceImage?.complete || !sourceImage.naturalWidth) return;
+
+      const availableRows = Math.max(8, rows - shiftRows);
       const off = document.createElement("canvas");
       off.width = cols;
-      off.height = rows;
+      off.height = availableRows;
       const octx = off.getContext("2d", { willReadFrequently: true });
       if (!octx) return;
 
       const iw = sourceImage.naturalWidth;
       const ih = sourceImage.naturalHeight;
-      const scale = Math.max(cols / iw, rows / ih);
+      // Cover the lower region; keep photo top (lights) visible
+      const scale = Math.max(cols / iw, availableRows / ih);
       const sw = iw * scale;
       const sh = ih * scale;
       const sx = (cols - sw) / 2;
-      // Bias crop upward so lights aren't clipped
-      const sy = (rows - sh) * FOCUS_Y;
+      // Anchor to top of the photo so spotlights aren't cropped
+      const sy = 0;
 
       octx.fillStyle = BG;
-      octx.fillRect(0, 0, cols, rows);
+      octx.fillRect(0, 0, cols, availableRows);
       octx.imageSmoothingEnabled = false;
       octx.drawImage(sourceImage, sx, sy, sw, sh);
-      pixels.set(octx.getImageData(0, 0, cols, rows).data);
+
+      const data = octx.getImageData(0, 0, cols, availableRows).data;
+      for (let y = 0; y < availableRows; y++) {
+        for (let x = 0; x < cols; x++) {
+          const src = (y * cols + x) * 4;
+          const dst = ((y + shiftRows) * cols + x) * 4;
+          pixels[dst] = data[src];
+          pixels[dst + 1] = data[src + 1];
+          pixels[dst + 2] = data[src + 2];
+          pixels[dst + 3] = 255;
+        }
+      }
     };
 
     const draw = () => {
