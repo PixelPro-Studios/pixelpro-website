@@ -7,7 +7,7 @@ import HeroPixelSpotlight from "@/components/HeroPixelSpotlight";
 
 export default function Hero() {
   return (
-    <section className="relative h-[calc(100svh-9rem)] md:h-[75vh] w-full flex items-center justify-center overflow-hidden pt-28 md:pt-32">
+    <section className="relative h-[90svh] md:h-[75vh] w-full flex items-center justify-center overflow-hidden pt-28 md:pt-32">
       <HeroPixelSpotlight />
 
       {/* Content — pointer-events none so spotlight tracks through text; CTA re-enables */}

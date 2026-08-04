@@ -2,10 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import TvFramePixelated from "@/components/TvFramePixelated";
-
-/** Screen hole insets relative to cropped TV frame (top right bottom left) */
-const SCREEN_INSET = "19.2% 14.8% 17.6% 14.8%";
 
 const LOGOS: { file: string; alt: string }[] = [
   {
@@ -102,9 +98,9 @@ function LogoRow({
     direction === "left" ? "marquee-left" : "marquee-right";
 
   return (
-    <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+    <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
       <div
-        className="flex py-1.5 md:py-2 space-x-10 md:space-x-14 min-w-max px-4 items-center"
+        className="flex py-4 space-x-16 min-w-max px-8 items-center"
         style={{
           animation: `${animationName} ${duration}s linear infinite`,
           animationPlayState: paused ? "paused" : "running",
@@ -113,17 +109,16 @@ function LogoRow({
         {loop.map((logo, index) => (
           <div
             key={`${logo.file}-${index}`}
-            className="group relative w-16 h-16 md:w-24 md:h-24 flex items-center justify-center z-0 shrink-0"
+            className="group relative w-28 h-28 flex items-center justify-center z-0"
           >
             <div className="absolute inset-0 bg-brand-silver/80 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-75 group-hover:scale-100 -z-10" />
 
-            <div className="relative z-10 w-full h-full grayscale invert group-hover:grayscale-0 group-hover:invert-0 transition-all duration-300 opacity-85 group-hover:opacity-100">
+            <div className="relative z-10 w-full h-full grayscale invert group-hover:grayscale-0 group-hover:invert-0 transition-all duration-300 opacity-60 group-hover:opacity-100">
               <Image
                 src={`/client_logos/${logo.file}`}
                 alt={logo.alt}
                 fill
                 className="object-contain"
-                sizes="96px"
               />
             </div>
           </div>
@@ -137,68 +132,20 @@ export default function InfiniteLogos() {
   const [paused, setPaused] = useState(false);
 
   return (
-    <section className="pt-2 md:pt-4 pb-8 md:pb-12 overflow-hidden">
-      <div className="mx-auto w-full max-w-6xl px-3 md:px-6">
-        <div
-          className="relative w-full aspect-[795/511]"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-        >
-          {/* Display — label + logos in the transparent screen hole */}
-          <div
-            className="absolute overflow-hidden bg-[#061018]"
-            style={{ inset: SCREEN_INSET }}
-          >
-            <div className="relative z-0 flex h-full flex-col">
-              <p className="shrink-0 pt-2 md:pt-3 text-center text-[10px] md:text-sm text-brand-silver/90 uppercase tracking-widest font-medium font-sans">
-                Trusted By
-              </p>
-              <div className="flex min-h-0 flex-1 flex-col justify-center gap-0.5 pb-1">
-                <LogoRow
-                  logos={ROW_ONE}
-                  direction="left"
-                  duration={55}
-                  paused={paused}
-                />
-                <LogoRow
-                  logos={ROW_TWO}
-                  direction="right"
-                  duration={60}
-                  paused={paused}
-                />
-              </div>
-            </div>
+    <section className="py-4 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <p className="text-sm text-brand-silver/90 uppercase tracking-widest font-medium font-sans">
+          Trusted By
+        </p>
+      </div>
 
-            {/* CRT blue tint */}
-            <div
-              className="pointer-events-none absolute inset-0 z-[1] mix-blend-multiply"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(41,78,255,0.35) 0%, rgba(20,60,140,0.4) 50%, rgba(10,40,100,0.38) 100%)",
-              }}
-              aria-hidden
-            />
-
-            {/* Soft blue wash on top for glow */}
-            <div
-              className="pointer-events-none absolute inset-0 z-[1] bg-brand-blue/15 mix-blend-screen"
-              aria-hidden
-            />
-
-            {/* Subtle vignette */}
-            <div
-              className="pointer-events-none absolute inset-0 z-[2]"
-              style={{
-                background:
-                  "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.55) 100%)",
-              }}
-              aria-hidden
-            />
-          </div>
-
-          {/* Pixelated TV bezel — same CELL/GAP LED look as hero */}
-          <TvFramePixelated />
-        </div>
+      <div
+        className="mt-2 flex flex-col"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <LogoRow logos={ROW_ONE} direction="left" duration={55} paused={paused} />
+        <LogoRow logos={ROW_TWO} direction="right" duration={60} paused={paused} />
       </div>
     </section>
   );
