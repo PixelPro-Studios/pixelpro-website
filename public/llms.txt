@@ -24,6 +24,7 @@
 - Portfolio: https://pixelprostudios.sg/portfolio/
 - About: https://pixelprostudios.sg/about/
 - Blog: https://pixelprostudios.sg/blog/
+- Promotions: https://pixelprostudios.sg/promotions/
 - Contact: https://pixelprostudios.sg/contact/
 
 ## About

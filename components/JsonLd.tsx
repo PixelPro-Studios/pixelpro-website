@@ -116,6 +116,7 @@ export function blogPostingJsonLd({
   date,
   author,
   image,
+  basePath = "/blog",
 }: {
   title: string;
   description: string;
@@ -123,6 +124,7 @@ export function blogPostingJsonLd({
   date: string;
   author: string;
   image?: string;
+  basePath?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -143,7 +145,7 @@ export function blogPostingJsonLd({
         url: organization.logo,
       },
     },
-    mainEntityOfPage: absoluteUrl(`/blog/${slug}`),
+    mainEntityOfPage: absoluteUrl(`${basePath}/${slug}`),
     image: `${SITE_URL}${image ?? DEFAULT_OG_IMAGE}`,
   };
 }

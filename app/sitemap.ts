@@ -1,11 +1,13 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { getAllPromotions } from "@/lib/promotions";
 import { absoluteUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
+  const promotions = getAllPromotions();
 
   const staticRoutes: {
     path: string;
@@ -21,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/services/talent", changeFrequency: "monthly", priority: 0.8 },
     { path: "/portfolio", changeFrequency: "weekly", priority: 0.8 },
     { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
+    { path: "/promotions", changeFrequency: "weekly", priority: 0.8 },
     { path: "/contact", changeFrequency: "monthly", priority: 0.7 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
     { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
@@ -38,6 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(post.date),
       changeFrequency: "monthly" as const,
       priority: 0.6,
+    })),
+    ...promotions.map((promotion) => ({
+      url: absoluteUrl(`/promotions/${promotion.slug}`),
+      lastModified: new Date(promotion.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
   ];
 }

@@ -45,12 +45,12 @@ export const avSystemsFaqs: FaqItem[] = [
   {
     question: "What AV equipment can you supply?",
     answer:
-      "We supply audio systems, stage lighting, projectors, and LED walls. Packages can be tailored to your venue size, programme format, and technical requirements.",
+      "We supply audio systems, stage lighting, projectors, and LED walls. Packages can be tailored to your venue size, programme format, and technical requirements. As your on-stage, one-stop production partner, we can handle anything technical — so you skip the middleman fees.",
   },
   {
     question: "How far in advance should I book AV rental?",
     answer:
-      "We recommend booking at least two to four weeks ahead for standard events. Larger productions, LED walls, or peak seasons may need earlier confirmation so we can reserve crew and equipment.",
+      "We recommend booking at least two to four weeks ahead for standard events. Larger productions, LED walls, or peak seasons may need earlier confirmation so we can reserve crew and equipment. If you need urgent support, feel free to reach out — we respond fast.",
   },
   {
     question: "Do you provide setup and technical support on site?",

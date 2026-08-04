@@ -123,6 +123,12 @@ export default function Footer() {
                 </motion.div>
                 <span>|</span>
                 <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                  <Link href="/promotions/" className="hover:text-brand-off-white transition-colors cursor-pointer">
+                    Promotions
+                  </Link>
+                </motion.div>
+                <span>|</span>
+                <motion.div whileTap={{ y: 2, scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
                   <Link href="/contact/" className="hover:text-brand-off-white transition-colors cursor-pointer">
                     Contact
                   </Link>
