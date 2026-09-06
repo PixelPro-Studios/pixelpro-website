@@ -1,9 +1,9 @@
 "use client";
 
-import { Camera, Eye, Clock, Layers } from "lucide-react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { useRef } from "react";
+import InstagramGrid from "@/components/InstagramGrid";
 
 const reasons = [
   {
@@ -78,13 +78,15 @@ export default function WhyUs() {
   return (
     <section className="pt-12 pb-6 bg-brand-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-      <div className="flex flex-col items-center text-center gap-6 pb-4">
+        <div className="flex flex-col items-center text-center gap-6 pb-4">
             <h2 className="text-4xl md:text-7xl font-display text-transparent bg-clip-text bg-gradient-to-r from-brand-silver via-blue-400 to-brand-silver bg-[length:200%_auto] animate-[shimmer_3s_linear_infinite] hover:animate-[shimmer_0.8s_linear_infinite] transition-all cursor-default leading-tight pb-2">
-              Let's bring your event to life.
+              Let&apos;s bring your event to life.
             </h2>
         </div>
 
-        <div className="flex flex-col gap-0 pt-12">
+        <InstagramGrid />
+
+        <div className="flex flex-col gap-0 pt-6 md:pt-10">
           {reasons.map((reason, index) => (
             <ReasonCard key={index} reason={reason} index={index} />
           ))}

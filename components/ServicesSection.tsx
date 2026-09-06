@@ -1,6 +1,6 @@
 "use client";
 
-import { Speaker, Camera, Video, Mic2, ChevronRight, Download } from "lucide-react";
+import { Speaker, Camera, Video, Mic2, ChevronRight, Download, PanelsTopLeft } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import posthog from "posthog-js";
@@ -8,9 +8,15 @@ import posthog from "posthog-js";
 const services = [
   {
     title: "Audio Visual Systems",
-    description: "Comprehensive audio-visual solutions including sound reinforcement, lighting design, and staging for events of any scale.",
+    description: "Professional sound reinforcement, stage lighting, projection and technical support for events of any scale.",
     icon: Speaker,
     href: "/services/av-systems",
+  },
+  {
+    title: "LED Walls",
+    description: "Bright, high-resolution LED wall systems with custom configurations and on-site video operation for indoor and outdoor events.",
+    icon: PanelsTopLeft,
+    href: "/services/led-walls",
   },
   {
     title: "Photography",
@@ -43,16 +49,17 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
+              className={`${index < 3 ? "lg:col-span-2" : "lg:col-span-3"} h-full`}
               whileTap={{ y: 4, scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <Link
                 href={service.href}
-                className="group relative overflow-hidden bg-gradient-to-br from-brand-charcoal/100 to-brand-black/40 p-8 md:p-10 rounded-2xl border border-white/10 hover:border-brand-silver/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(192,192,192,0.1)] hover:-translate-y-1 cursor-pointer block"
+                className="group relative h-full overflow-hidden bg-gradient-to-br from-brand-charcoal/100 to-brand-black/40 p-8 md:p-10 rounded-2xl border border-white/10 hover:border-brand-silver/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(192,192,192,0.1)] hover:-translate-y-1 cursor-pointer block"
                 onClick={() => posthog.capture('service_card_clicked', { service: service.title, href: service.href })}
               >
                 {/* Arrow Icon - Top Right */}
@@ -94,4 +101,3 @@ export default function Services() {
     </section>
   );
 }
-

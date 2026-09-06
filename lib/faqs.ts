@@ -7,7 +7,7 @@ export const servicesFaqs: FaqItem[] = [
   {
     question: "What services does PixelPro Studios offer?",
     answer:
-      "We provide audio-visual systems, event photography, videography, and entertainment & talent — a one-stop partner for productions of any scale across Singapore.",
+      "We provide audio-visual systems, LED walls, event photography, videography, and entertainment & talent — a one-stop partner for productions of any scale across Singapore.",
   },
   {
     question: "Can we book multiple services for one event?",
@@ -45,7 +45,7 @@ export const avSystemsFaqs: FaqItem[] = [
   {
     question: "What AV equipment can you supply?",
     answer:
-      "We supply audio systems, stage lighting, projectors, and LED walls. Packages can be tailored to your venue size, programme format, and technical requirements. As your on-stage, one-stop production partner, we can handle anything technical — so you skip the middleman fees.",
+      "We supply audio systems, stage lighting, and projectors, with a separate dedicated LED wall service for larger visual productions. Packages can be tailored to your venue size, programme format, and technical requirements.",
   },
   {
     question: "How far in advance should I book AV rental?",
@@ -61,6 +61,34 @@ export const avSystemsFaqs: FaqItem[] = [
     question: "Are you a GeBIZ registered supplier?",
     answer:
       "Yes. PixelPro Studios is a Singapore Government registered supplier on GeBIZ, and we regularly support schools, public agencies, and institutional events.",
+  },
+];
+
+export const ledWallsFaqs: FaqItem[] = [
+  {
+    question: "Do you provide LED wall rental across Singapore?",
+    answer:
+      "Yes. We supply, install, calibrate, operate, and dismantle indoor and outdoor LED wall systems for events across Singapore.",
+  },
+  {
+    question: "What pixel pitches are available?",
+    answer:
+      "Our commonly specified systems include P2.5 panels for closer indoor viewing and P3.9 panels for larger stages and outdoor applications. We recommend the right option based on viewing distance, content, and venue conditions.",
+  },
+  {
+    question: "Can the LED wall be used outdoors or in bright venues?",
+    answer:
+      "Yes. Our outdoor-capable panels deliver 4000+ nits of brightness, helping content remain clear in daylight and bright mall or atrium environments. Final suitability depends on the site and weather plan.",
+  },
+  {
+    question: "Can you manage live cameras and presentation content?",
+    answer:
+      "Yes. We can route live camera feeds, presentations, sponsor loops, videos, countdowns, and motion graphics through professional video processors, with an operator on site where required.",
+  },
+  {
+    question: "What information do you need for an LED wall quote?",
+    answer:
+      "Share your event date, venue, preferred screen size, indoor or outdoor setting, programme hours, content sources, and whether the wall will be ground-supported or rigged. We can help refine the specification from there.",
   },
 ];
 

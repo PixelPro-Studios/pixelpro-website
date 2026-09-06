@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/about", changeFrequency: "monthly", priority: 0.8 },
     { path: "/services", changeFrequency: "monthly", priority: 0.9 },
     { path: "/services/av-systems", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/services/led-walls", changeFrequency: "monthly", priority: 0.8 },
     { path: "/services/photography", changeFrequency: "monthly", priority: 0.8 },
     { path: "/services/videography", changeFrequency: "monthly", priority: 0.8 },
     { path: "/services/talent", changeFrequency: "monthly", priority: 0.8 },

@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/seo";
 
 const title = "AV Systems";
 const description =
-  "Professional AV systems rental in Singapore — sound systems, stage lighting, projectors, and LED walls with on-site technical support.";
+  "Professional AV systems rental in Singapore — sound systems, stage lighting, projectors, and on-site technical support.";
 const path = "/services/av-systems";
 
 export const metadata: Metadata = pageMetadata({

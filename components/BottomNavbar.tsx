@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const mainNavItems = [
   { name: "AV Systems", href: "/services/av-systems" },
+  { name: "LED Walls", href: "/services/led-walls" },
   { name: "Photo", href: "/services/photography" },
   { name: "Video", href: "/services/videography" },
   { name: "Talent", href: "/services/talent" },
@@ -17,7 +18,6 @@ const avNavItems = [
   { name: "Audio", id: "audio", href: "/services/av-systems#audio" },
   { name: "Lighting", id: "lighting", href: "/services/av-systems#lighting" },
   { name: "Projector", id: "projector", href: "/services/av-systems#projector" },
-  { name: "LED Walls", id: "led-wall", href: "/services/av-systems#led-wall" },
 ];
 
 interface BottomNavbarProps {
@@ -57,7 +57,7 @@ export default function BottomNavbar({ position = "bottom" }: BottomNavbarProps 
   }, [isAvPage]);
 
   return (
-    <div className={`fixed ${position === "top" ? "top-24" : "bottom-6"} left-1/2 transform -translate-x-1/2 z-40 w-[95%] max-w-lg`}>
+    <div className={`fixed ${position === "top" ? "top-24" : "bottom-6"} left-1/2 transform -translate-x-1/2 z-40 w-[95%] max-w-2xl`}>
       <nav className="relative bg-brand-charcoal/90 backdrop-blur-md border border-white/10 rounded-full px-4 py-3 shadow-lg flex justify-around items-center">
         
         {/* AV Page Navigation */}
