@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://pixelprostudios.sg";
+export const SITE_URL = "https://www.pixelprostudios.sg";
 
 export const SITE_NAME = "PixelPro Studios";
 
@@ -14,7 +14,7 @@ export const organization = {
   phone: "+65 8860 5489",
   email: "hello@pixelprostudios.sg",
   url: SITE_URL,
-  logo: `${SITE_URL}/favicon.ico`,
+  logo: `${SITE_URL}/logos/pixelpro-studios-logo.svg`,
   sameAs: [
     "https://facebook.com/pixelprostudiossg",
     "https://instagram.com/pixelprostudios.sg",

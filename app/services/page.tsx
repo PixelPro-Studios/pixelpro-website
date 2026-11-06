@@ -5,7 +5,7 @@ import { servicesFaqs } from "@/lib/faqs";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Services",
+  title: "Event AV & Media Services Singapore",
   description:
     "Explore PixelPro Studios services: AV systems, LED walls, photography, videography, and talent for events across Singapore.",
   path: "/services",

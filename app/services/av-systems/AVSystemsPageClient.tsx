@@ -250,6 +250,12 @@ export default function AVSystemsPage() {
           </div>
         </section>
 
+        <p className="mb-16 text-center font-sans text-base text-brand-off-white/70">
+          Planning an event? Read our{" "}
+          <Link href="/blog/event-av-checklist/" className="underline hover:text-brand-off-white">pre-event AV checklist</Link>
+          .
+        </p>
+
         <FaqSection faqs={avSystemsFaqs} />
       </motion.div>
       

@@ -202,6 +202,12 @@ export default function LEDWallsPageClient() {
           </div>
         </section>
 
+        <p className="mb-16 text-center font-sans text-base text-brand-off-white/70">
+          See one of our LED walls in action at the{" "}
+          <Link href="/blog/ndp-2026-marina-barrage-live-screening/" className="underline hover:text-brand-off-white">NDP 2026 live screening at Marina Barrage</Link>
+          .
+        </p>
+
         <FaqSection faqs={ledWallsFaqs} />
       </motion.div>
 

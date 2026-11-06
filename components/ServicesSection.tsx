@@ -38,11 +38,14 @@ const services = [
   },
 ];
 
-export default function Services() {
+export default function Services({ eyebrow }: { eyebrow?: string } = {}) {
   return (
     <section className="pt-32 pb-12 bg-transparent px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center text-center mb-10 gap-6">
+            {eyebrow && (
+              <h1 className="font-sans text-sm md:text-base uppercase tracking-[0.2em] text-brand-off-white/60">{eyebrow}</h1>
+            )}
             <h2 className="text-5xl md:text-7xl font-display text-brand-off-white">What we offer.</h2>
           <p className="text-brand-off-white/90 max-w-2xl font-sans text-lg md:text-xl leading-relaxed">
             Comprehensive media solutions tailored to your unique requirements.
@@ -85,7 +88,7 @@ export default function Services() {
 
         <div className="flex justify-center mt-12 md:mt-16">
           <motion.a
-            href="/services/deck"
+            href="/services/deck/"
             target="_blank"
             rel="noopener noreferrer"
             whileTap={{ scale: 0.97 }}

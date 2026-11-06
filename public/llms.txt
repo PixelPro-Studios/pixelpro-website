@@ -2,7 +2,7 @@
 
 > One-stop AV systems, photography, videography, and talent for events in Singapore.
 
-- Website: https://pixelprostudios.sg/
+- Website: https://www.pixelprostudios.sg/
 - Email: hello@pixelprostudios.sg
 - Phone / WhatsApp: +65 8860 5489
 - Hours: Monday–Sunday, 9am–10pm
@@ -12,20 +12,20 @@
 
 ## Services
 
-- AV Systems (sound, lighting, projectors, LED walls): https://pixelprostudios.sg/services/av-systems/
-- Event Photography: https://pixelprostudios.sg/services/photography/
-- Event Videography: https://pixelprostudios.sg/services/videography/
-- Talent & Entertainment: https://pixelprostudios.sg/services/talent/
+- AV Systems (sound, lighting, projectors, LED walls): https://www.pixelprostudios.sg/services/av-systems/
+- Event Photography: https://www.pixelprostudios.sg/services/photography/
+- Event Videography: https://www.pixelprostudios.sg/services/videography/
+- Talent & Entertainment: https://www.pixelprostudios.sg/services/talent/
 
 ## Key pages
 
-- Home: https://pixelprostudios.sg/
-- Services: https://pixelprostudios.sg/services/
-- Portfolio: https://pixelprostudios.sg/portfolio/
-- About: https://pixelprostudios.sg/about/
-- Blog: https://pixelprostudios.sg/blog/
-- Promotions: https://pixelprostudios.sg/promotions/
-- Contact: https://pixelprostudios.sg/contact/
+- Home: https://www.pixelprostudios.sg/
+- Services: https://www.pixelprostudios.sg/services/
+- Portfolio: https://www.pixelprostudios.sg/portfolio/
+- About: https://www.pixelprostudios.sg/about/
+- Blog: https://www.pixelprostudios.sg/blog/
+- Promotions: https://www.pixelprostudios.sg/promotions/
+- Contact: https://www.pixelprostudios.sg/contact/
 
 ## About
 
@@ -33,6 +33,6 @@ PixelPro Studios Pte. Ltd. is a Singapore event production company founded in 20
 
 ## Optional
 
-- Sitemap: https://pixelprostudios.sg/sitemap.xml
-- Terms: https://pixelprostudios.sg/terms/
-- Privacy: https://pixelprostudios.sg/privacy/
+- Sitemap: https://www.pixelprostudios.sg/sitemap.xml
+- Terms: https://www.pixelprostudios.sg/terms/
+- Privacy: https://www.pixelprostudios.sg/privacy/

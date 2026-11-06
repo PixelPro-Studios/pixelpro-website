@@ -1,8 +1,27 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import { Instagram } from "lucide-react";
 
 const INSTAGRAM_PROFILE = "https://www.instagram.com/pixelprostudios.sg/";
 
 export default function InstagramGrid() {
+  // loading="lazy" still fetched the 1.4 MB embed on page load; mount it only when it nears the viewport
+  const box = useRef<HTMLDivElement>(null);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const el = box.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        setShow(true);
+        io.disconnect();
+      }
+    }, { rootMargin: "300px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <div className="w-full pt-6 pb-10 md:pt-10 md:pb-16">
       <div className="mx-auto max-w-3xl text-center">
@@ -17,7 +36,8 @@ export default function InstagramGrid() {
         </p>
       </div>
 
-      <div className="mx-auto mt-8 max-w-[660px] overflow-hidden rounded-3xl border border-white/10 bg-brand-charcoal shadow-[0_20px_70px_rgba(0,0,0,0.45)] md:mt-10">
+      <div ref={box} className="mx-auto mt-8 max-w-[660px] overflow-hidden rounded-3xl border border-white/10 bg-brand-charcoal shadow-[0_20px_70px_rgba(0,0,0,0.45)] md:mt-10">
+        {show ? (
         <iframe
           src="https://www.instagram.com/pixelprostudios.sg/embed/"
           title="Latest Instagram posts from PixelPro Studios"
@@ -25,6 +45,9 @@ export default function InstagramGrid() {
           loading="lazy"
           allow="encrypted-media"
         />
+        ) : (
+          <div className="block h-[620px] w-full sm:h-[690px]" />
+        )}
       </div>
 
       <div className="mt-7 flex justify-center">

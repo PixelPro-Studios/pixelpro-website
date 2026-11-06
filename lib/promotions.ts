@@ -9,6 +9,8 @@ export type PromotionMeta = {
   slug: string;
   title: string;
   description: string;
+  metaTitle?: string;
+  metaDescription?: string;
   date: string;
   author: string;
   image?: string;
@@ -66,6 +68,8 @@ export function getPromotionBySlug(slug: string): Promotion {
     slug,
     title: data.title as string,
     description: data.description as string,
+    metaTitle: typeof data.metaTitle === "string" ? data.metaTitle : undefined,
+    metaDescription: typeof data.metaDescription === "string" ? data.metaDescription : undefined,
     date: data.date as string,
     author: data.author as string,
     image: typeof data.image === "string" ? data.image : undefined,

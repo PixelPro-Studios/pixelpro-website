@@ -13,18 +13,18 @@ export default function Hero() {
       {/* Content — pointer-events none so spotlight tracks through text; CTA re-enables */}
       <div className="relative z-10 px-4 md:px-6 max-w-5xl mx-auto text-center space-y-8 pointer-events-none">
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight text-brand-off-white leading-tight"
         >
-          Events made effortless,
+          Events made effortless,{" "}
           <br className="hidden md:block" />
           <span className="inline-block md:ml-2">every time.</span>
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           className="text-xl md:text-2xl text-brand-off-white/80 max-w-2xl mx-auto font-sans"

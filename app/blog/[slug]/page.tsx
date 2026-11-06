@@ -30,16 +30,16 @@ export async function generateMetadata({
     const ogImage = post.image ?? DEFAULT_OG_IMAGE;
     return {
       ...pageMetadata({
-        title: post.title,
-        description: post.description,
+        title: post.metaTitle ?? post.title,
+        description: post.metaDescription ?? post.description,
         path: `/blog/${slug}`,
         type: "article",
         ogImage,
       }),
       openGraph: {
         ...pageMetadata({
-          title: post.title,
-          description: post.description,
+          title: post.metaTitle ?? post.title,
+          description: post.metaDescription ?? post.description,
           path: `/blog/${slug}`,
           type: "article",
           ogImage,

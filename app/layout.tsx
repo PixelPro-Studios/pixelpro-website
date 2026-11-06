@@ -34,11 +34,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "PixelPro Studios | One-stop AV Systems, Photography & Videography Singapore",
+      "LED Wall, Sound & AV Rental Singapore | PixelPro Studios",
     template: "%s | PixelPro Studios",
   },
   description:
-    "One-stop partner for events, media, and AV productions. Professional audio systems, stage lighting, LED walls, photography, videography, and talent services in Singapore.",
+    "LED wall, sound system and AV rental in Singapore, set up and run by our own crew. Also stage lighting, photography, videography and emcees.",
   keywords: [
     "AV systems Singapore",
     "event photography Singapore",
@@ -66,9 +66,9 @@ export const metadata: Metadata = {
     locale: "en_SG",
     url: SITE_URL,
     title:
-      "PixelPro Studios | Premium AV Systems, Photography & Videography Singapore",
+      "LED Wall, Sound & AV Rental Singapore | PixelPro Studios",
     description:
-      "One-stop partner for events, media, and AV productions. Professional audio systems, stage lighting, LED walls, photography, videography, and talent services in Singapore.",
+      "LED wall, sound system and AV rental in Singapore, set up and run by our own crew. Also stage lighting, photography, videography and emcees.",
     siteName: "PixelPro Studios",
     images: [
       {
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "PixelPro Studios | AV Systems, Photography & Videography Singapore",
+      "LED Wall, Sound & AV Rental Singapore | PixelPro Studios",
     description:
       "One-stop partner for events, media, and AV productions in Singapore.",
     images: [DEFAULT_OG_IMAGE],

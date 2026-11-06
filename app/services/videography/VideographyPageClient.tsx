@@ -127,6 +127,12 @@ export default function VideographyPage() {
           </div>
         </section>
 
+        <p className="mb-16 text-center font-sans text-base text-brand-off-white/70">
+          Not sure you need one? Read{" "}
+          <Link href="/blog/why-hire-event-videographer/" className="underline hover:text-brand-off-white">why hire a professional event videographer</Link>
+          .
+        </p>
+
         <FaqSection faqs={videographyFaqs} />
       </motion.div>
       
