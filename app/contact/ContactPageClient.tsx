@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, Clock, MessageCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import posthog from "posthog-js";
+import { track } from "@/lib/analytics";
 
 export default function ContactPage() {
   const [firstFormSubmitted, setFirstFormSubmitted] = useState(false);
@@ -44,8 +44,8 @@ export default function ContactPage() {
             if (data.payload?.formId === "Bza7LN") {
               setFirstFormSubmitted((prev) => {
                 if (!prev) {
-                  posthog.capture('contact_form_submitted', { form_id: data.payload?.formId });
-                  posthog.capture('quote_form_viewed');
+                  track('contact_form_submitted', { form_id: data.payload?.formId });
+                  track('quote_form_viewed');
                   return true;
                 }
                 return prev;
@@ -139,7 +139,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block"
-                    onClick={() => posthog.capture('contact_method_clicked', { method: method.title, href: method.href })}
+                    onClick={() => track('contact_method_clicked', { method: method.title, href: method.href })}
                   >
                     <div className="bg-brand-charcoal/30 border border-white/5 rounded-3xl p-6 hover:bg-brand-charcoal/50 hover:border-white/10 transition-all duration-300 group">
                       <div className="flex items-center gap-4">

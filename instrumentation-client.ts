@@ -1,8 +1,5 @@
-import posthog from "posthog-js"
+import { startAnalytics } from "@/lib/analytics";
 
-posthog.init(process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN!, {
-  api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-  defaults: '2026-01-30',
-  capture_exceptions: true,
-  debug: process.env.NODE_ENV === "development",
-});
+// PostHog starts once the page has loaded, so it doesn't compete with the first paint
+if (document.readyState === "complete") startAnalytics();
+else window.addEventListener("load", () => startAnalytics(), { once: true });

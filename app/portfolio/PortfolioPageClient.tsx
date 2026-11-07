@@ -5,7 +5,7 @@ import Image from "next/image";
 import PortfolioBottomNavbar from "@/components/PortfolioBottomNavbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import posthog from "posthog-js";
+import { track } from "@/lib/analytics";
 
 type Category = "audio" | "stage" | "photography" | "videography";
 
@@ -186,7 +186,7 @@ export default function PortfolioPageClient() {
     setActiveCategory(category);
     window.history.replaceState(null, "", `#${category}`);
     el.scrollIntoView({ behavior: "smooth" });
-    posthog.capture("portfolio_category_changed", { category });
+    track("portfolio_category_changed", { category });
 
     window.setTimeout(() => {
       isScrollingRef.current = false;
@@ -228,7 +228,7 @@ export default function PortfolioPageClient() {
   const handleImageClick = (item: PortfolioItem, pool: PortfolioItem[]) => {
     if (!item.image) return;
     setSelectedImage({ image: item.image, title: item.title, pool });
-    posthog.capture("portfolio_image_viewed", {
+    track("portfolio_image_viewed", {
       title: item.title,
       category: item.category,
       subcategory: item.subcategory,

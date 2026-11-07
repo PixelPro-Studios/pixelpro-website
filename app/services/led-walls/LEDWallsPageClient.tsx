@@ -7,7 +7,7 @@ import { ledWallsFaqs } from "@/lib/faqs";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Eye, MonitorUp, RadioTower, Sun } from "lucide-react";
 import Link from "next/link";
-import posthog from "posthog-js";
+import { track } from "@/lib/analytics";
 
 const specifications = [
   { value: "P2.5", label: "Fine-pitch indoor panels" },
@@ -70,7 +70,7 @@ export default function LEDWallsPageClient() {
             <Link
               href="/contact"
               onClick={() =>
-                posthog.capture("get_a_quote_clicked", {
+                track("get_a_quote_clicked", {
                   service_page: "led-walls",
                 })
               }
@@ -189,7 +189,7 @@ export default function LEDWallsPageClient() {
             <Link
               href="/contact"
               onClick={() =>
-                posthog.capture("get_a_quote_clicked", {
+                track("get_a_quote_clicked", {
                   service_page: "led-walls",
                   source: "led_wall_cta",
                 })

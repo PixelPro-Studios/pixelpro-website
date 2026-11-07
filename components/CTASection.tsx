@@ -3,7 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import posthog from "posthog-js";
+import { track } from "@/lib/analytics";
 
 export default function CTA() {
   return (
@@ -25,7 +25,7 @@ export default function CTA() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-4 px-8 py-4 bg-brand-off-white text-brand-black font-semibold rounded-md hover:bg-white transition-colors duration-300 tracking-wide uppercase text-sm cursor-pointer"
-            onClick={() => posthog.capture('book_a_call_clicked', { source: 'cta_section' })}
+            onClick={() => track('book_a_call_clicked', { source: 'cta_section' })}
           >
             Book a Call
           </Link>
