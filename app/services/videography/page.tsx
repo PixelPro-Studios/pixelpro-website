@@ -17,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
   title,
   description,
   path,
+  ogImage: "/services-video/pixelpro-studios-videography-services-singapore.jpg",
 });
 
 export default function VideographyPage() {

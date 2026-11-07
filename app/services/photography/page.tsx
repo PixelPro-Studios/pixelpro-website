@@ -17,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
   title,
   description,
   path,
+  ogImage: "/services-photo/pixelpro-studios-photography-service-singapore.jpg",
 });
 
 export default function PhotographyPage() {

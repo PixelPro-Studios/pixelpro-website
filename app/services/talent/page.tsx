@@ -15,6 +15,7 @@ export const metadata: Metadata = pageMetadata({
   title,
   description,
   path,
+  ogImage: "/services-talent/pixelpro-studios-talent-and-entertainment-singapore.jpg",
 });
 
 export default function TalentPage() {

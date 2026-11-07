@@ -17,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
   title,
   description,
   path,
+  ogImage: "/services-av-audio/pixelpro-studios-audio-visual-productions-singapore.jpg",
 });
 
 export default function AVSystemsPage() {
