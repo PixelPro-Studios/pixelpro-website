@@ -1,0 +1,13 @@
+{
+  "redirects": [
+    { "source": "/5-reasons-why-live-stream-will-flourish-your-business{/}?", "destination": "/services/videography/", "permanent": true },
+    { "source": "/how-live-streaming-can-empower-your-organisation{/}?", "destination": "/services/videography/", "permanent": true },
+    { "source": "/graduation{/}?", "destination": "/services/videography/", "permanent": true },
+    { "source": "/category/videography{/}?", "destination": "/services/videography/", "permanent": true },
+    { "source": "/contact-us{/}?", "destination": "/contact/", "permanent": true },
+    { "source": "/our-packages{/}?", "destination": "/services/", "permanent": true },
+    { "source": "/our-projects{/}?", "destination": "/portfolio/", "permanent": true },
+    { "source": "/singapore-youth-festival-2021-syf-videography{/}?", "destination": "/portfolio/", "permanent": true },
+    { "source": "/blog/promotion-charity-singapore-led-walls-event{/}?", "destination": "/promotions/promotion-charity-singapore-led-walls-event/", "permanent": true }
+  ]
+}
