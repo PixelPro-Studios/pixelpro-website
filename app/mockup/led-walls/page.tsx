@@ -13,7 +13,7 @@ const c: ServiceContent = {
   waText: "Hi PixelPro, I'd like a quote for an LED wall. Date: , Venue: , Guests: , Indoor/outdoor: ",
   eyebrow: "LED wall rental · Singapore",
   h1: "LED Wall Rental in Singapore",
-  intro: "LED wall rental for your dinner and dance, town hall, school event or launch. Our crew sets it up, runs it and packs it away, so you can focus on your guests.",
+  intro: "LED wall rental for your dinner and dance, town hall, school event or launch. Our crew sets up the LED screen, runs it and packs it away, so you can focus on your guests.",
   introRetained: "Bright LED displays engineered for conferences, concerts, exhibitions, roadshows, launches, and large-scale events in Singapore.",
   seeWorkLabel: "See our LED work",
   heroImages: ["/services-hero/services_led-walls.webp", "/services-av-led/pixelpro-studios-led-wall-services-singapore.jpg"],
@@ -36,7 +36,7 @@ const c: ServiceContent = {
     list: [
       "Indoor and outdoor LED panels",
       "Modular screens sized to your venue",
-      "Full-stage backdrops and side screens",
+      "Full-stage LED backdrops and side screens",
       "Ground-supported or rigged configurations",
       "Live camera feeds and presentation playback",
       "Video processors and signal management",
@@ -73,7 +73,7 @@ const c: ServiceContent = {
     ],
   },
   jobs: {
-    title: "Screens we've built",
+    title: "LED screens we've built for events",
     items: [
       { img: "/blog/ndp-2026-marina-barrage-live-screening.webp", alt: "LED wall for the NDP 2026 live screening at Marina Barrage", caption: "LED wall, stage and sound for the NDP 2026 live screening at Marina Barrage" },
       { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-3.jpg", alt: "PixelPro Studios stage production", placeholder: "Caption: \"[size] LED wall, [venue type], [N] guests\". No client names." },
@@ -98,11 +98,11 @@ const c: ServiceContent = {
   quote: { title: "Get your LED wall quote", checklist: ["Event date", "Venue", "Number of guests", "Indoor or outdoor", "How long the event runs", "Screen size (if you know it)", "What you'll show: slides, video, live camera", "Need a stage or sound too?"] },
   faqTitle: "LED wall rental questions",
   faqs: [
-    { question: "How much does LED wall rental cost?", answer: "We quote per event, because the price depends on the screen size, indoor or outdoor, how long the event runs, venue access and setup timing, and the crew needed. Send us your brief and we'll reply with a setup and a quote." },
+    { question: "How much does LED screen rental cost?", answer: "We quote per event, because the price depends on the screen size, indoor or outdoor, how long the event runs, venue access and setup timing, and the crew needed. Send us your brief and we'll reply with a setup and a quote." },
     { question: "I'm not technical. What do I need to do?", answer: "Send us your slides and videos beforehand and tell us the programme. Our crew plans the setup, builds and tests the screen, and runs it during the event." },
     { question: "What if something goes wrong in the middle of the event?", answer: "Our crew is on site the whole time. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
     { question: "Do you provide LED wall rental across Singapore?", answer: "Yes. We supply, install, calibrate, operate, and dismantle indoor and outdoor LED wall systems for events across Singapore." },
-    { question: "How big can the LED wall be?", answer: "Up to about 25 m² indoors and 18 m² outdoors from our own stock, depending on the venue, power and structure. For bigger walls we bring in more screen through our partners." },
+    { question: "How big can the LED video wall be?", answer: "Up to about 25 m² indoors and 18 m² outdoors from our own stock, depending on the venue, power and structure. For bigger walls we bring in more screen through our partners." },
     { question: "What pixel pitches are available?", answer: "Our commonly specified systems include P2.6 panels for closer indoor viewing and P3.9 panels for larger stages and outdoor applications. We recommend the right option based on viewing distance, content, and venue conditions." },
     { question: "Should I choose an LED wall or a projector?", answer: "An LED wall is brighter, sharper and casts no shadows, so it suits bright rooms, outdoor events and big stages. A projector can be enough for a dim room on a tighter budget. We rent both, so we'll recommend whichever fits your venue." },
     { question: "Can the LED wall be used outdoors or in bright venues?", answer: "Yes. Our outdoor-capable panels help content remain clear in daylight and bright mall or atrium environments. Final suitability depends on the site and weather plan." },

@@ -120,14 +120,14 @@ const c: ServiceContent = {
   faqs: [
     { question: "How much does AV rental cost?", answer: "We quote per event, because the price depends on what you need, your guest count and room, how long the event runs, indoor or outdoor, venue access, and how much crew is needed. Send us your brief and we'll reply with a setup and a quote." },
     { question: "Do you rent sound systems for events in Singapore?", answer: "Yes. PixelPro Studios provides professional sound system rental across Singapore, including speakers, mixers, microphones, and on-site technicians for corporate events, schools, conferences, and outdoor programmes." },
-    { question: "What AV equipment can you supply?", answer: "We supply audio systems, LED walls, stages, stage lighting, and projectors. Packages can be tailored to your venue size, programme format, and technical requirements." },
+    { question: "What AV equipment can I rent?", answer: "We supply audio systems, LED walls, stages, stage lighting, and projectors. Packages can be tailored to your venue size, programme format, and technical requirements." },
     { question: "I'm not technical. What do I need to do?", answer: "Tell us your venue, guest count and programme. We recommend the setup, then plan, build, run and pack it away." },
     { question: "How far in advance should I book AV rental?", answer: "We recommend booking at least two to four weeks ahead for standard events. Larger productions, LED walls, or peak seasons may need earlier confirmation so we can reserve crew and equipment. If you need urgent support, feel free to reach out — we respond fast." },
     { question: "Do you provide setup and technical support on site?", answer: "Yes. Our team handles delivery, setup, live operation during your event, and teardown so your programme runs smoothly from start to finish." },
     { question: "What if something goes wrong in the middle of the event?", answer: "Our crew is on site the whole time. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
     { question: "Can you livestream the event?", answer: "Yes, for compact setups: up to four cameras streamed online. Cameras that move around the room need wireless links, so they cost more." },
     { question: "Are you a GeBIZ registered supplier?", answer: "Yes. PixelPro Studios is a Singapore Government registered supplier on GeBIZ, and we regularly support schools, public agencies, and institutional events." },
-    { question: "Do you cover all of Singapore?", answer: "Yes, island-wide, with crew and equipment sized to your venue and run-of-show." },
+    { question: "Do you cover all of Singapore?", answer: "Yes. We provide audio visual rental island-wide, with crew and equipment sized to your venue and run-of-show." },
   ],
   related: [
     { label: "Sound system rental", href: "/mockup/sound-system-rental" },

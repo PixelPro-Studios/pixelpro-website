@@ -90,7 +90,7 @@ const c: ServiceContent = {
   faqTitle: "Stage rental questions",
   faqs: [
     { question: "How much does stage rental cost?", answer: "We quote per event, because the price depends on the stage size and height, skirting, any safety extras like guardrails, and venue access and timing. Send us your brief and we'll reply with a setup and a quote." },
-    { question: "How big can the stage be?", answer: "Up to 32 m² from our own stock, built from 2 m × 1 m sections. For larger stages, we bring in more through our partners." },
+    { question: "How big can the stage be?", answer: "Up to 32 m² from our own stock, built from 2 m × 1 m sections, so it works as a portable stage for venues that don't have one. For larger stages, we bring in more through our partners." },
     { question: "How high is the stage?", answer: "The height is adjustable from 60 cm to 100 cm, depending on your room and what happens on stage." },
     { question: "Do you provide steps and guardrails?", answer: "Steps come with the stage. Guardrails aren't included as standard, but we can arrange them when your stage needs them." },
     { question: "Can the skirting match our theme?", answer: "Black skirting is standard. We can arrange other colours on request." },

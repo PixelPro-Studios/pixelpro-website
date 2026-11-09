@@ -59,7 +59,7 @@ const c: ServiceContent = {
     { who: "Schools", events: "Speech days, concerts, CCA shows", copy: "We quote through GeBIZ and handle the technical side, including working with your hall's own vendor. We already work with MOE schools.", links: [{ label: "Speech day sound", href: "/events/speech-day-sound-system" }, { label: "School hall sound", href: "/events/school-hall-sound-system" }] },
     { who: "Government and community", events: "Community events, public stages", copy: "Clear sound for community stages and public programmes. GeBIZ registered and bizSAFE Level 3. Registered charities and NPOs get 10% off, and we donate 5% of the booking.", links: [{ label: "Community event sound", href: "/events/community-event-sound-system" }] },
     { who: "Brand and marketing teams", events: "Roadshows, activations, launches", copy: "Sound for roadshow booths and mall atriums, with the emcee and product demos heard over the crowd.", links: [{ label: "Roadshow LED screen", href: "/events/roadshow-led-screen-rental" }] },
-    { who: "Event agencies and planners", events: "AV and technical production partner", copy: "Running the event for a client? We can be your sound team, with our own crew, so you deal with one supplier.", links: [{ label: "Event production", href: "/mockup/event-production" }] },
+    { who: "Event agencies and planners", events: "AV and technical production partner", copy: "Running the event for a client? We can be your sound team, with our own crew, or rent you the equipment on its own if you have a technician.", links: [{ label: "Event production", href: "/mockup/event-production" }] },
   ],
   sizing: { eyebrow: "Sizing", title: "How much sound do I need?", intro: "It depends on your guest count, the room, and whether it's speeches or live music. Send us your venue and programme and we'll recommend a setup.", placeholder: "3–4 rows from Jovin's job list, e.g. \"[N] guests, [venue type], speeches only → [speakers, mics]\". Only setups PixelPro has actually run." },
   priceFactors: [
@@ -72,7 +72,7 @@ const c: ServiceContent = {
   ],
   comparison: {
     eyebrow: "Do I need a sound engineer?",
-    title: "Why every booking comes with an engineer",
+    title: "Why we recommend booking an engineer",
     body: "Renting speakers is the easy part. What makes the difference on the day is someone who knows the system, checks every mic and adjusts the sound as the room fills up.",
     cards: [
       ["Sound check before doors open", "Every mic and every speaker tested in the room, not just at the warehouse."],
@@ -111,6 +111,7 @@ const c: ServiceContent = {
     { question: "Do you rent sound systems for events in Singapore?", answer: "Yes. PixelPro Studios provides professional sound system rental across Singapore, including speakers, mixers, microphones, and on-site technicians for corporate events, schools, conferences, and outdoor programmes." },
     { question: "I'm not technical. What do I need to do?", answer: "Tell us your programme: who speaks when, any music or performances, and how many mics you need. Our engineer sets up, sound-checks and runs everything on the day." },
     { question: "What if something goes wrong in the middle of the event?", answer: "Our engineer is on site the whole time. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
+    { question: "Can I rent just the speakers?", answer: "Yes. Speaker rental on its own, without an engineer, is available at a fixed equipment rate. Most organisers add our engineer, who sets up, sound-checks and runs it on the day." },
     { question: "Can you handle a live band?", answer: "Yes. Our digital mixers and stagebox handle larger input counts for bands, with instrument mics and wireless mics for singers and hosts." },
     { question: "Do you provide setup and technical support on site?", answer: "Yes. Our team handles delivery, setup, live operation during your event, and teardown so your programme runs smoothly from start to finish." },
     { question: "How far in advance should I book?", answer: "We recommend booking at least two to four weeks ahead for standard events. Larger productions or peak seasons may need earlier confirmation so we can reserve crew and equipment. If you need urgent support, feel free to reach out — we respond fast." },
