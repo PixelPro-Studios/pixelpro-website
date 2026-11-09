@@ -133,15 +133,17 @@ const portfolioItems = generatePortfolioItems();
 function ImageMasonry({
   items,
   onImageClick,
+  aboveFold = false,
 }: {
   items: PortfolioItem[];
   onImageClick: (item: PortfolioItem, pool: PortfolioItem[]) => void;
+  aboveFold?: boolean;
 }) {
   const imageItems = items.filter((item) => item.image);
 
   return (
     <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
-      {imageItems.map((item) => (
+      {imageItems.map((item, index) => (
         <motion.div
           key={item.id}
           layout
@@ -156,6 +158,9 @@ function ImageMasonry({
             src={item.image!}
             alt={item.title}
             fill
+            // the first row is on screen at load, so don't lazy-load it
+            loading={aboveFold && index < 3 ? "eager" : undefined}
+            fetchPriority={aboveFold && index === 0 ? "high" : undefined}
             className="object-cover transition-transform duration-500 group-hover:scale-110"
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
@@ -306,7 +311,7 @@ export default function PortfolioPageClient() {
               <h2 className="text-3xl md:text-4xl font-display text-brand-off-white">
                 {SECTION_HEADINGS.audio}
               </h2>
-              <ImageMasonry items={audioItems} onImageClick={handleImageClick} />
+              <ImageMasonry items={audioItems} onImageClick={handleImageClick} aboveFold />
             </section>
 
             {/* Stage */}
