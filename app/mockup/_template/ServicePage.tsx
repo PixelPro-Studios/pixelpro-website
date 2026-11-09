@@ -134,7 +134,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         {/* 1. Hero, with the first photo as a darkened backdrop */}
         <div className="relative overflow-hidden rounded-3xl">
-          <Image src={c.heroImages[0]} alt="" fill priority sizes="100vw" className="object-cover" />
+          <Image src={c.heroImages[0]} alt={c.heroAlt} fill priority sizes="100vw" className="object-cover" />
           <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-brand-black/75 to-brand-black/90" />
         <header className="relative mx-auto max-w-4xl px-4 py-16 text-center md:py-24">
           <Eyebrow>{c.eyebrow}</Eyebrow>

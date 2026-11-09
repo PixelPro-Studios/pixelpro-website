@@ -5,7 +5,8 @@ import type { Metadata } from "next";
 import ServicePage, { type ServiceContent } from "../_template/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Sound System Rental Singapore | Crew Included | PixelPro Studios",
+  title: "Sound System Rental Singapore | Crew Included",
+  description: "Sound system rental in Singapore with an engineer on site: speakers, wireless and headset mics for speeches, town halls, dinner and dances and live bands.",
   robots: { index: false, follow: false },
 };
 
@@ -13,11 +14,11 @@ const c: ServiceContent = {
   waText: "Hi PixelPro, I'd like a quote for a sound system. Date: , Venue: , Guests: , Speeches/band: ",
   eyebrow: "Sound system rental · Singapore",
   h1: "Sound System Rental in Singapore",
-  intro: "Clear sound for your speeches, town hall, dinner and dance or live band. Our sound engineer sets it up, tests it and runs it on the day, so every guest hears every word.",
-  introRetained: "Premium Sound Systems for Concerts, Corporate Events, Roadshows, Exhibitions and Community Shows.",
+  intro: "Sound system rental for your speeches, town hall, dinner and dance or live band. Our sound engineer sets it up, tests it and runs it on the day, so every guest hears every word.",
+  introRetained: "Sound Systems for Concerts, Corporate Events, Roadshows, Exhibitions and Community Shows.",
   seeWorkLabel: "See our sound work",
-  heroImages: ["/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-2.jpg", "/photos/pixelpro-studios-singapore-sound-system-rental.jpg"],
-  heroAlt: "PixelPro Studios sound system at an event in Singapore",
+  heroImages: ["/services-hero/services_sound-system-rental.webp", "/photos/pixelpro-studios-singapore-sound-system-rental.jpg"],
+  heroAlt: "Sound system rental in Singapore: PixelPro speakers and mics at an event",
   pains: [
     { worry: "“People at the back can't hear the speeches.”", fix: "We size and tune the system for your room and guest count, so the sound is even from the front table to the back row.", spec: "15\" powered speakers · 18\" subwoofers" },
     { worry: "“The mic keeps cutting out, or it squeals.”", fix: "Our engineer sound-checks every mic before doors open and watches the levels for the whole event.", spec: "Shure and Sennheiser wireless handheld and headset mics" },
@@ -28,7 +29,7 @@ const c: ServiceContent = {
   story: {
     eyebrow: "Audio system rental",
     title: "Powerful, clear sound engineered for every event",
-    subtitle: "Premium Sound Systems for Concerts, Corporate Events, Roadshows, Exhibitions and Community Shows",
+    subtitle: "Sound Systems for Concerts, Corporate Events, Roadshows, Exhibitions and Community Shows",
     paragraphs: [
       "We deliver professional audio solutions engineered for events that demand power, clarity and full reliability. Our systems are built to perform across any environment, including concert stages, shopping mall atriums, outdoor fields, hotel ballrooms, roadshow booths and community pavilions.",
       "Every setup is designed, tuned and tested by experienced live sound engineers who understand how to achieve clean vocal presence, impactful music reinforcement and even coverage throughout the venue. Whether the event needs background ambience, high-energy music, formal speeches or a live performance, we configure the right system to match the exact space and audience size.",
@@ -48,7 +49,7 @@ const c: ServiceContent = {
     ],
     after: [
       "Our team handles technical planning, equipment preparation, on-site setup, sound checks, safety checks and full event support. This ensures consistent performance from start to finish and gives organisers complete confidence that the audio will run smoothly.",
-      "We combine professional-level sound engineering with a young, energetic crew that genuinely cares about creating great experiences. We focus on delivering outstanding audio performance while keeping the process simple, seamless and stress-free for every organiser.",
+      "We combine professional-level sound engineering with a young, energetic crew that genuinely cares about creating great experiences. We focus on delivering outstanding audio performance while keeping the process simple and stress-free for every organiser.",
     ],
     image: "/services-av-audio/pixelpro-studios-audio-visual-productions-singapore.jpg",
     imageAlt: "PixelPro Studios audio setup",

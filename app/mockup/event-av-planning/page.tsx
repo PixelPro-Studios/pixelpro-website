@@ -5,7 +5,8 @@ import type { Metadata } from "next";
 import ServicePage, { type ServiceContent } from "../_template/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Event AV Planning Singapore | Tested Before Doors Open | PixelPro Studios",
+  title: "Event AV Planning Singapore | Tested Before Doors Open",
+  description: "Event AV planning in Singapore: the brief, a site visit, a plan for every mic and screen, and every slide tested before doors open, with spares on hand.",
   robots: { index: false, follow: false },
 };
 
@@ -13,11 +14,11 @@ const c: ServiceContent = {
   waText: "Hi PixelPro, I'd like help planning the AV for my event. Date: , Venue: , Guests: , Event type: ",
   eyebrow: "Event AV planning · Singapore",
   h1: "Event AV Planning in Singapore",
-  intro: "The work before your guests arrive that stops things going wrong: the brief, a site visit where needed, a plan for every mic and screen, every slide tested on the screen and a sound check on setup day, with spares on hand. A full rehearsal is available on request.",
+  intro: "Event AV planning is the work before your guests arrive that stops things going wrong: the brief, a site visit where needed, a plan for every mic and screen, every slide tested on the screen and a sound check on setup day, with spares on hand. A full rehearsal is available on request.",
   introRetained: "Great events feel effortless for the audience. Behind the scenes, that calm usually comes from a clear AV plan locked in well before doors open.",
   seeWorkLabel: "See our work",
-  heroImages: ["/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-6.jpg", "/photos/our-reliability-guarantee.jpg"],
-  heroAlt: "PixelPro Studios crew preparing an event",
+  heroImages: ["/services-hero/services_event-av-planning.webp", "/photos/our-reliability-guarantee.jpg"],
+  heroAlt: "Event AV planning in Singapore: an emcee on stage with a tested mic and slides on screen",
   pains: [
     { worry: "“We only found out about the venue's problems on the day.”", fix: "We walk the venue first: power, cable runs, sightlines, stage height and the light in the room, so problems are fixed before load-in.", spec: "Site visit for larger or unusual setups" },
     { worry: "“The slides didn't show properly on the screen.”", fix: "On setup day we run through every one of your slides and videos on the screen, so you see them as your guests will before doors open.", spec: "Every slide tested on setup day" },

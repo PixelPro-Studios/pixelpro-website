@@ -4,7 +4,8 @@ import type { Metadata } from "next";
 import ServicePage, { type ServiceContent } from "../_template/ServicePage";
 
 export const metadata: Metadata = {
-  title: "LED Wall Rental Singapore | Crew Included | PixelPro Studios",
+  title: "LED Wall Rental Singapore | Crew Included",
+  description: "LED wall rental in Singapore with crew included: indoor P2.6 and outdoor P3.9 screens for dinner and dances, town halls, school events and launches.",
   robots: { index: false, follow: false },
 };
 
@@ -12,11 +13,11 @@ const c: ServiceContent = {
   waText: "Hi PixelPro, I'd like a quote for an LED wall. Date: , Venue: , Guests: , Indoor/outdoor: ",
   eyebrow: "LED wall rental · Singapore",
   h1: "LED Wall Rental in Singapore",
-  intro: "A big, bright screen for your dinner and dance, town hall, school event or launch. Our crew sets it up, runs it and packs it away, so you can focus on your guests.",
-  introRetained: "Bright, seamless LED displays engineered for conferences, concerts, exhibitions, roadshows, launches, and large-scale events in Singapore.",
+  intro: "LED wall rental for your dinner and dance, town hall, school event or launch. Our crew sets it up, runs it and packs it away, so you can focus on your guests.",
+  introRetained: "Bright LED displays engineered for conferences, concerts, exhibitions, roadshows, launches, and large-scale events in Singapore.",
   seeWorkLabel: "See our LED work",
-  heroImages: ["/services-av-led/pixelpro-studios-led-wall-screen-rental-singapore.jpg", "/services-av-led/pixelpro-studios-led-wall-services-singapore.jpg"],
-  heroAlt: "PixelPro Studios LED wall at a live event in Singapore",
+  heroImages: ["/services-hero/services_led-walls.webp", "/services-av-led/pixelpro-studios-led-wall-services-singapore.jpg"],
+  heroAlt: "LED wall rental in Singapore: a PixelPro LED wall at a live event",
   pains: [
     { worry: "“The back of the room can't see the slides.”", fix: "A sharp LED wall big enough to fill the stage, with side screens and a live camera on the speaker if the room is long.", spec: "P2.6 indoor screen · up to about 25 m²" },
     { worry: "“It's outdoors, or the room is bright. Won't it look washed out?”", fix: "LED is brighter than a projector, and we have a separate screen built for outdoor events and big stages.", spec: "P3.9 outdoor screen · up to about 18 m²" },
@@ -68,7 +69,7 @@ const c: ServiceContent = {
       ["Brighter and sharper", "Stays clear in bright rooms, mall atriums and outdoors."],
       ["No projector space needed", "Nothing to place in front of or behind the screen."],
       ["No shadows", "Speakers and guests can walk past without blocking the picture."],
-      ["Looks premium", "Stronger contrast for a more premium result, especially in bright venues."],
+      ["Stronger contrast", "Colours and text stay clear, especially in bright venues."],
     ],
   },
   jobs: {

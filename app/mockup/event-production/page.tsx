@@ -5,19 +5,20 @@ import type { Metadata } from "next";
 import ServicePage, { type ServiceContent } from "../_template/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Event Production Company Singapore | One Team | PixelPro Studios",
+  title: "Event Production Company Singapore | One Team",
+  description: "Event production company in Singapore: sound, LED walls, stage, lighting, photo and video from one team, with one contact from brief to pack-down.",
   robots: { index: false, follow: false },
 };
 
 const c: ServiceContent = {
   waText: "Hi PixelPro, I'd like to discuss event production. Date: , Venue: , Guests: , Event type: ",
   eyebrow: "Event production · Singapore",
-  h1: "Event Production in Singapore",
-  intro: "One team for the technical side of your event: sound, LED walls, stage, lighting, photos and video, plus emcees and crew through our partners. You deal with one person from the first brief to pack-down.",
+  h1: "Event Production Company in Singapore",
+  intro: "Event production from one company, for the technical side of your event: sound, LED walls, stage, lighting, photos and video, plus emcees and crew through our partners. You deal with one person from the first brief to pack-down.",
   introRetained: "For events, media, and AV production. Your one-stop partner.",
   seeWorkLabel: "See our work",
-  heroImages: ["/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-2.jpg", "/photos/pixelpro-studios-hero-stage.webp"],
-  heroAlt: "PixelPro Studios event production in Singapore",
+  heroImages: ["/services-hero/services_event-production.webp", "/photos/pixelpro-studios-hero-stage.webp"],
+  heroAlt: "Event production company in Singapore: PixelPro stage, screen and sound at an event",
   pains: [
     { worry: "“I'm managing five vendors who don't talk to each other.”", fix: "Sound, screen, stage, lighting, photos and video from one team, planned together so everything fits on the day.", spec: "One vendor, one team, one workflow" },
     { worry: "“I also need emcees, ushers and registration crew.”", fix: "We arrange them through our partner network, and stay your one point of contact for all of it.", spec: "Emcees, DJs, bands, ushers, registration crew via partners" },

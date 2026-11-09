@@ -7,7 +7,8 @@ import type { Metadata } from "next";
 import ServicePage, { type ServiceContent } from "../_template/ServicePage";
 
 export const metadata: Metadata = {
-  title: "AV Rental Singapore | Sound, LED, Stage, Crew Included | PixelPro Studios",
+  title: "AV Rental Singapore | Sound, LED, Stage, Crew Included",
+  description: "AV rental in Singapore from one team: sound, LED walls, stages and projectors, set up, run on the day and packed away by our crew. GeBIZ registered.",
   robots: { index: false, follow: false },
 };
 
@@ -15,11 +16,11 @@ const c: ServiceContent = {
   waText: "Hi PixelPro, I'd like a quote for event AV. Date: , Venue: , Guests: , What I need: ",
   eyebrow: "AV systems · Singapore",
   h1: "AV Rental in Singapore",
-  intro: "Sound, LED walls, stages and projectors for your event, from one team. We plan it, set it up, run it on the day and pack it away, so you only deal with one vendor.",
-  introRetained: "State-of-the-art audio visual systems for events, conferences, and installations.",
+  intro: "AV rental from one team: sound, LED walls, stages and projectors for your event. We plan it, set it up, run it on the day and pack it away, so you only deal with one vendor.",
+  introRetained: "Audio visual systems for events, conferences, and installations.",
   seeWorkLabel: "See our work",
-  heroImages: ["/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-9.jpg", "/services-av-led/pixelpro-studios-led-wall-screen-rental-singapore.jpg"],
-  heroAlt: "PixelPro Studios event AV setup in Singapore",
+  heroImages: ["/services-hero/services_av-systems.webp", "/services-av-led/pixelpro-studios-led-wall-screen-rental-singapore.jpg"],
+  heroAlt: "AV rental in Singapore: PixelPro sound and stage setup at an event",
   pains: [
     { worry: "“I'm already chasing five vendors.”", fix: "Sound, screen, stage and projection from one team, planned together. One quote, one person to call.", spec: "Sound · LED walls · stages · projectors · photo and video" },
     { worry: "“I don't know what AV I actually need.”", fix: "Send us your venue, guest count and programme. We'll recommend a setup that fits your room and programme.", spec: "Recommendations from your brief · site visit if needed" },
@@ -31,9 +32,9 @@ const c: ServiceContent = {
     eyebrow: "What we supply",
     title: "Everything for your event's AV",
     items: [
-      { title: "Audio System Rental", subtitle: "Premium Sound Systems for Concerts, Corporate Events, Roadshows, Exhibitions and Community Shows", copy: "We deliver professional audio solutions engineered for events that demand power, clarity and full reliability.", href: "/mockup/sound-system-rental", img: "/services-av-audio/pixelpro-studios-audio-visual-productions-singapore.jpg" },
-      { title: "LED Wall Rental", subtitle: "High-impact event visuals", copy: "Bright, seamless LED displays engineered for conferences, concerts, exhibitions, roadshows, launches, and large-scale events in Singapore.", href: "/mockup/led-walls", img: "/services-av-led/pixelpro-studios-led-wall-services-singapore.jpg" },
-      { title: "Projector and Screen Rental", subtitle: "High Brightness Projection for Corporate Events, Presentations, Outdoor Movie Nights, Exhibitions and Roadshows", copy: "We deliver crystal clear projection solutions tailored for every type of event.", href: "/mockup/projector-rental", img: "/services-av-projector/pixelpro-studios-projector-rental-singapore.jpg" },
+      { title: "Audio System Rental", subtitle: "Sound Systems for Concerts, Corporate Events, Roadshows, Exhibitions and Community Shows", copy: "We deliver professional audio solutions engineered for events that demand power, clarity and full reliability.", href: "/mockup/sound-system-rental", img: "/services-av-audio/pixelpro-studios-audio-visual-productions-singapore.jpg" },
+      { title: "LED Wall Rental", subtitle: "High-impact event visuals", copy: "Bright LED displays engineered for conferences, concerts, exhibitions, roadshows, launches, and large-scale events in Singapore.", href: "/mockup/led-walls", img: "/services-av-led/pixelpro-studios-led-wall-services-singapore.jpg" },
+      { title: "Projector and Screen Rental", subtitle: "High Brightness Projection for Corporate Events, Presentations, Outdoor Movie Nights, Exhibitions and Roadshows", copy: "We deliver projection setups sized for every type of event.", href: "/mockup/projector-rental", img: "/services-av-projector/pixelpro-studios-projector-rental-singapore.jpg" },
       { title: "Stage Rental", subtitle: "Modular Stages for Dinner and Dances, School Ceremonies, Concerts and Community Events", copy: "Modular stage platforms up to 32 m², 60 cm to 100 cm high, with skirting and steps.", href: "/mockup/stage-rental", img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-1.jpg" },
     ],
   },

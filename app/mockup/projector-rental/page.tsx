@@ -5,7 +5,8 @@ import type { Metadata } from "next";
 import ServicePage, { type ServiceContent } from "../_template/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Projector Rental Singapore | Crew Included | PixelPro Studios",
+  title: "Projector Rental Singapore | Crew Included",
+  description: "Projector rental in Singapore with the screen and crew included: set up and run for seminars, town halls, school ceremonies and outdoor movie nights.",
   robots: { index: false, follow: false },
 };
 
@@ -13,11 +14,11 @@ const c: ServiceContent = {
   waText: "Hi PixelPro, I'd like a quote for a projector and screen. Date: , Venue: , Guests: , Indoor/outdoor: ",
   eyebrow: "Projector and screen rental · Singapore",
   h1: "Projector Rental in Singapore",
-  intro: "A projector and screen for your seminar, town hall, school ceremony or outdoor movie night. We deliver it, line it up and stay on site, so your slides just work.",
+  intro: "Projector rental for your seminar, town hall, school ceremony or outdoor movie night, with the screen included. We deliver it, line it up and stay on site, so your slides just work.",
   introRetained: "High Brightness Projection for Corporate Events, Presentations, Outdoor Movie Nights, Exhibitions and Roadshows.",
   seeWorkLabel: "See our projector work",
-  heroImages: ["/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-5.jpg", "/services-av-projector/pixelpro-studios-projector-screen-rental-singapore.jpg"],
-  heroAlt: "PixelPro Studios projector and screen at an event in Singapore",
+  heroImages: ["/services-hero/services_projector-rental.webp", "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-5.jpg"],
+  heroAlt: "Projector rental in Singapore: an outdoor projection screen on a truss frame",
   pains: [
     { worry: "“The room is bright. Will the slides look washed out?”", fix: "We bring projectors bright enough for lit halls, and very bright laser projectors for big rooms. For really bright venues, we'll tell you if an LED wall is the better choice.", spec: "5,000-lumen projectors · 10,000-lumen laser projectors" },
     { worry: "“There's no space to put the projector.”", fix: "Short-throw and ultra-short-throw projectors sit close to the screen, so nobody walks through the picture.", spec: "Short-throw lenses · ultra-short-throw projector" },
@@ -30,7 +31,7 @@ const c: ServiceContent = {
     title: "Bright, reliable visuals for every environment",
     subtitle: "High Brightness Projection for Corporate Events, Presentations, Outdoor Movie Nights, Exhibitions and Roadshows",
     paragraphs: [
-      "We deliver crystal clear projection solutions tailored for every type of event. Whether it is a professional corporate presentation, a training session, a product showcase, a wedding montage, or an outdoor movie screening, our projectors and screens ensure your visuals look sharp, bright and immersive.",
+      "We deliver projection setups sized for every type of event. Whether it is a professional corporate presentation, a training session, a product showcase, a wedding montage, or an outdoor movie screening, our projectors and screens ensure your visuals look sharp, bright and immersive.",
       "Every setup is planned to ensure maximum clarity and visibility regardless of venue lighting conditions. For brightly lit halls, shopping malls and outdoor environments, our high-lumen projectors guarantee crisp images that stay readable and impactful from all angles.",
     ],
     listTitle: "We provide a full range of projection equipment, including:",

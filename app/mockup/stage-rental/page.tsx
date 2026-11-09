@@ -5,18 +5,19 @@ import type { Metadata } from "next";
 import ServicePage, { type ServiceContent } from "../_template/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Stage Rental Singapore | Crew Included | PixelPro Studios",
+  title: "Stage Platform Rental Singapore | Crew Included",
+  description: "Stage platform rental in Singapore: modular stages up to 32 m², 60 to 100 cm high, with skirting and steps, built and packed away by our crew.",
   robots: { index: false, follow: false },
 };
 
 const c: ServiceContent = {
   waText: "Hi PixelPro, I'd like a quote for a stage. Date: , Venue: , Guests: , Stage size (if known): ",
   eyebrow: "Stage and platform rental · Singapore",
-  h1: "Stage Rental in Singapore",
-  intro: "A raised stage for your dinner and dance, prize giving, school concert or community event. We build it, skirt it and pack it away, so every guest can see who's on stage.",
+  h1: "Stage Platform Rental in Singapore",
+  intro: "Stage platform rental for your dinner and dance, prize giving, school concert or community event. We build it, skirt it and pack it away, so every guest can see who's on stage.",
   seeWorkLabel: "See our stage work",
-  heroImages: ["/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-6.jpg", "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-2.jpg"],
-  heroAlt: "PixelPro Studios stage at an event in Singapore",
+  heroImages: ["/services-hero/services_stage-rental.webp", "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-2.jpg"],
+  heroAlt: "Stage platform rental in Singapore: musicians performing on a PixelPro stage",
   pains: [
     { worry: "“Guests at the back can't see who's speaking.”", fix: "A raised stage puts your speakers and performers above the crowd, with the height set for your room.", spec: "Adjustable height, 60 cm to 100 cm" },
     { worry: "“The venue has no stage, or it's too small.”", fix: "Our modular stage is built from sections, so we can size it for your room and programme. Need bigger? We bring more through our partners.", spec: "16 × 2 m × 1 m decks · up to 32 m²" },
