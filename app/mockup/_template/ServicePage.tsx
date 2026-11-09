@@ -2,7 +2,6 @@
 // Local review only: do not commit or deploy. `_template` is a private folder, so Next.js doesn't route it.
 import Link from "next/link";
 import Image from "next/image";
-import ImageCarousel from "@/components/ImageCarousel";
 import FaqSection from "@/components/FaqSection";
 import { ArrowRight, Check, MessageCircle, ShieldCheck, Star } from "lucide-react";
 import type { ReactNode } from "react";
@@ -133,8 +132,11 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
   return (
     <main className="min-h-screen bg-gradient-to-b from-brand-black from-70% to-brand-silver/10 pb-32 pt-28">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        {/* 1. Hero */}
-        <header className="mx-auto max-w-4xl py-10 text-center md:py-14">
+        {/* 1. Hero, with the first photo as a darkened backdrop */}
+        <div className="relative overflow-hidden rounded-3xl">
+          <Image src={c.heroImages[0]} alt="" fill priority sizes="100vw" className="object-cover" />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-brand-black/75 to-brand-black/90" />
+        <header className="relative mx-auto max-w-4xl px-4 py-16 text-center md:py-24">
           <Eyebrow>{c.eyebrow}</Eyebrow>
           <h1 className="mt-4 font-display text-5xl leading-tight text-brand-off-white md:text-7xl">{c.h1}</h1>
           <p className="mx-auto mt-6 max-w-3xl font-sans text-lg font-light leading-relaxed text-brand-off-white/75 md:text-xl">{c.intro}</p>
@@ -154,11 +156,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
             </a>
           </div>
         </header>
-
-        {/* 2. Photos */}
-        <section aria-label="Gallery" className="h-[360px] md:h-[600px]">
-          <ImageCarousel images={c.heroImages} alt={c.heroAlt} />
-        </section>
+        </div>
 
         {/* 3. Value prop, pain first */}
         <section className="pt-16 md:pt-24">
