@@ -16,7 +16,7 @@ const c: ServiceContent = {
   intro: "A projector and screen for your seminar, town hall, school ceremony or outdoor movie night. We deliver it, line it up and stay on site, so your slides just work.",
   introRetained: "High Brightness Projection for Corporate Events, Presentations, Outdoor Movie Nights, Exhibitions and Roadshows.",
   seeWorkLabel: "See our projector work",
-  heroImages: ["/services-av-projector/pixelpro-studios-projector-rental-singapore.jpg", "/services-av-projector/pixelpro-studios-projector-screen-rental-singapore.jpg"],
+  heroImages: ["/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-5.jpg", "/services-av-projector/pixelpro-studios-projector-screen-rental-singapore.jpg"],
   heroAlt: "PixelPro Studios projector and screen at an event in Singapore",
   pains: [
     { worry: "“The room is bright. Will the slides look washed out?”", fix: "We bring projectors bright enough for lit halls, and very bright laser projectors for big rooms. For really bright venues, we'll tell you if an LED wall is the better choice.", spec: "5,000-lumen projectors · 10,000-lumen laser projectors" },

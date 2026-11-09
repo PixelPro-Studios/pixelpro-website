@@ -15,7 +15,7 @@ const c: ServiceContent = {
   h1: "Stage Rental in Singapore",
   intro: "A raised stage for your dinner and dance, prize giving, school concert or community event. We build it, skirt it and pack it away, so every guest can see who's on stage.",
   seeWorkLabel: "See our stage work",
-  heroImages: ["/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-1.jpg", "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-2.jpg"],
+  heroImages: ["/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-6.jpg", "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-2.jpg"],
   heroAlt: "PixelPro Studios stage at an event in Singapore",
   pains: [
     { worry: "“Guests at the back can't see who's speaking.”", fix: "A raised stage puts your speakers and performers above the crowd, with the height set for your room.", spec: "Adjustable height, 60 cm to 100 cm" },

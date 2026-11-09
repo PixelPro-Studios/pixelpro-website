@@ -16,7 +16,7 @@ const c: ServiceContent = {
   intro: "The work before your guests arrive that stops things going wrong: the brief, a site visit where needed, a plan for every mic and screen, every slide tested on the screen and a sound check on setup day, with spares on hand. A full rehearsal is available on request.",
   introRetained: "Great events feel effortless for the audience. Behind the scenes, that calm usually comes from a clear AV plan locked in well before doors open.",
   seeWorkLabel: "See our work",
-  heroImages: ["/photos/pixelpro-studios-hero-stage.webp", "/photos/our-reliability-guarantee.jpg"],
+  heroImages: ["/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-6.jpg", "/photos/our-reliability-guarantee.jpg"],
   heroAlt: "PixelPro Studios crew preparing an event",
   pains: [
     { worry: "“We only found out about the venue's problems on the day.”", fix: "We walk the venue first: power, cable runs, sightlines, stage height and the light in the room, so problems are fixed before load-in.", spec: "Site visit for larger or unusual setups" },

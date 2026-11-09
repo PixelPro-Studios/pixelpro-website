@@ -18,7 +18,7 @@ const c: ServiceContent = {
   intro: "Sound, LED walls, stages and projectors for your event, from one team. We plan it, set it up, run it on the day and pack it away, so you only deal with one vendor.",
   introRetained: "State-of-the-art audio visual systems for events, conferences, and installations.",
   seeWorkLabel: "See our work",
-  heroImages: ["/photos/pixelpro-studios-one-stop-event-av-and-media-singapore.jpg", "/services-av-led/pixelpro-studios-led-wall-screen-rental-singapore.jpg"],
+  heroImages: ["/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-9.jpg", "/services-av-led/pixelpro-studios-led-wall-screen-rental-singapore.jpg"],
   heroAlt: "PixelPro Studios event AV setup in Singapore",
   pains: [
     { worry: "“I'm already chasing five vendors.”", fix: "Sound, screen, stage and projection from one team, planned together. One quote, one person to call.", spec: "Sound · LED walls · stages · projectors · photo and video" },

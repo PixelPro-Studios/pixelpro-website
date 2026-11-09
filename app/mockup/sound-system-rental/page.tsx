@@ -16,7 +16,7 @@ const c: ServiceContent = {
   intro: "Clear sound for your speeches, town hall, dinner and dance or live band. Our sound engineer sets it up, tests it and runs it on the day, so every guest hears every word.",
   introRetained: "Premium Sound Systems for Concerts, Corporate Events, Roadshows, Exhibitions and Community Shows.",
   seeWorkLabel: "See our sound work",
-  heroImages: ["/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-1.jpg", "/photos/pixelpro-studios-singapore-sound-system-rental.jpg"],
+  heroImages: ["/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-2.jpg", "/photos/pixelpro-studios-singapore-sound-system-rental.jpg"],
   heroAlt: "PixelPro Studios sound system at an event in Singapore",
   pains: [
     { worry: "“People at the back can't hear the speeches.”", fix: "We size and tune the system for your room and guest count, so the sound is even from the front table to the back row.", spec: "15\" powered speakers · 18\" subwoofers" },

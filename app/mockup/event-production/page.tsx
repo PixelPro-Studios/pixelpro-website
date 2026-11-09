@@ -16,7 +16,7 @@ const c: ServiceContent = {
   intro: "One team for the technical side of your event: sound, LED walls, stage, lighting, photos and video, plus emcees and crew through our partners. You deal with one person from the first brief to pack-down.",
   introRetained: "For events, media, and AV production. Your one-stop partner.",
   seeWorkLabel: "See our work",
-  heroImages: ["/photos/pixelpro-studios-one-stop-event-av-and-media-singapore.jpg", "/photos/pixelpro-studios-hero-stage.webp"],
+  heroImages: ["/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-2.jpg", "/photos/pixelpro-studios-hero-stage.webp"],
   heroAlt: "PixelPro Studios event production in Singapore",
   pains: [
     { worry: "“I'm managing five vendors who don't talk to each other.”", fix: "Sound, screen, stage, lighting, photos and video from one team, planned together so everything fits on the day.", spec: "One vendor, one team, one workflow" },
