@@ -54,7 +54,7 @@ const defaultSteps: [string, string][] = [
   ["Send us your brief", "Date, venue, guest count and your programme. WhatsApp is fastest."],
   ["Site visit if needed", "We check the space, power and access for larger or unusual setups."],
   ["Quote and confirm", "A 50% deposit confirms your date."],
-  ["Setup and rehearsal", "We build, test and run through your programme before guests arrive."],
+  ["Setup and testing", "We build, run through your slides and sound check everything before guests arrive."],
   ["Event and pack-down", "Our crew runs everything throughout, then packs it all away."],
 ];
 
