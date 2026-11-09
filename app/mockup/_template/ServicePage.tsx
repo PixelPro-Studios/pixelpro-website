@@ -47,9 +47,9 @@ export type ServiceContent = {
   related: LinkT[];
 };
 
-const trust = ["5.0 on Google (25 reviews)", "GeBIZ registered", "bizSAFE Level 3", "Resolved within 30 minutes, or an immediate discount"];
+export const trust = ["5.0 on Google (25 reviews)", "GeBIZ registered", "bizSAFE Level 3", "Resolved within 30 minutes, or an immediate discount"];
 
-const defaultSteps: [string, string][] = [
+export const defaultSteps: [string, string][] = [
   ["Send us your brief", "Date, venue, guest count and your programme. WhatsApp is fastest."],
   ["Site visit if needed", "We check the space, power and access for larger or unusual setups."],
   ["Quote and confirm", "A 50% deposit confirms your date."],
@@ -58,7 +58,7 @@ const defaultSteps: [string, string][] = [
 ];
 
 // Real Google review excerpts (deepagent: clients/pixelpro/research/google-reviews-2026-11-04.md). Excerpts only, never reworded.
-const allReviews = [
+export const allReviews = [
   { quote: "Reliable, trustworthy, prompt, great communication.", who: "Candy Mak", context: "Finale with stage, LED screen and AV" },
   { quote: "Seamless and stress-free… last-minute requests… calm efficiency.", who: "Gwendolyn Anne David", context: "Event organiser, sound" },
   { quote: "Significantly lower… than the other vendors.", who: "Tan Hee Pheng", context: "MOE" },
@@ -78,11 +78,11 @@ export function Placeholder({ children }: { children: ReactNode }) {
   );
 }
 
-function Eyebrow({ children }: { children: ReactNode }) {
+export function Eyebrow({ children }: { children: ReactNode }) {
   return <p className="font-sans text-xs font-semibold uppercase tracking-[0.3em] text-brand-silver/70">{children}</p>;
 }
 
-function Stars() {
+export function Stars() {
   return (
     <span className="flex gap-0.5" aria-label="5 stars">
       {[0, 1, 2, 3, 4].map((i) => (
@@ -92,7 +92,7 @@ function Stars() {
   );
 }
 
-function Tick() {
+export function Tick() {
   return (
     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-blue/20 text-blue-300">
       <Check className="h-3.5 w-3.5" />
@@ -100,7 +100,7 @@ function Tick() {
   );
 }
 
-function WhatsAppButton({ href, label = "WhatsApp us for a quote" }: { href: string; label?: string }) {
+export function WhatsAppButton({ href, label = "WhatsApp us for a quote" }: { href: string; label?: string }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 rounded-md bg-[#25D366] px-6 py-3 font-sans text-sm font-semibold text-black transition-opacity hover:opacity-90">
       <MessageCircle className="h-4 w-4" />
@@ -110,7 +110,7 @@ function WhatsAppButton({ href, label = "WhatsApp us for a quote" }: { href: str
   );
 }
 
-function Cards2({ items }: { items: [string, string][] }) {
+export function Cards2({ items }: { items: [string, string][] }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       {items.map(([t, c]) => (
@@ -123,10 +123,49 @@ function Cards2({ items }: { items: [string, string][] }) {
   );
 }
 
+export function ReviewsAndPromise({ first = [] }: { first?: string[] }) {
+  const reviews = [...allReviews].sort((a, b) => (first.includes(b.who) ? 1 : 0) - (first.includes(a.who) ? 1 : 0));
+  return (
+    <section className="pt-12 md:pt-16" aria-label="Google reviews">
+      <style>{`
+        @keyframes pp-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .pp-track { animation: pp-marquee 45s linear infinite; }
+        .pp-marquee:hover .pp-track { animation-play-state: paused; }
+        @media (prefers-reduced-motion: reduce) { .pp-track { animation: none; } }
+      `}</style>
+      <div className="flex items-center gap-3 font-sans text-brand-off-white">
+        <Stars />
+        <span className="text-sm text-brand-silver">5.0 from 25 Google reviews</span>
+      </div>
+      <div className="pp-marquee relative mt-5 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+        <ul className="pp-track flex w-max gap-4">
+          {[...reviews, ...reviews].map((r, i) => (
+            <li key={i} aria-hidden={i >= reviews.length} className="w-[280px] shrink-0 rounded-2xl border border-white/10 bg-brand-charcoal/70 p-5 md:w-[320px]">
+              <Stars />
+              <p className="mt-3 font-sans text-brand-off-white">&ldquo;{r.quote}&rdquo;</p>
+              <p className="mt-3 font-sans text-xs text-brand-silver/70">
+                {r.who} · {r.context} · Google review
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-6 flex items-start gap-4 rounded-2xl border border-blue-300/30 bg-brand-blue/10 p-6">
+        <ShieldCheck className="h-7 w-7 shrink-0 text-blue-300" />
+        <div>
+          <h2 className="font-display text-xl text-brand-off-white md:text-2xl">Worried it&apos;ll fail mid-speech?</h2>
+          <p className="mt-1.5 font-sans leading-relaxed text-brand-off-white/75">
+            If a technical issue ever happens during your event, our team resolves it within thirty minutes or you receive an immediate discount.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function ServicePage({ c }: { c: ServiceContent }) {
   const wa = "https://wa.me/6588605489?text=" + encodeURIComponent(c.waText);
   const first = c.reviewsFirst ?? [];
-  const reviews = [...allReviews].sort((a, b) => (first.includes(b.who) ? 1 : 0) - (first.includes(a.who) ? 1 : 0));
   const steps = c.steps ?? defaultSteps;
 
   return (
@@ -177,40 +216,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
         </section>
 
         {/* 4. Credibility straight after the value prop */}
-        <section className="pt-12 md:pt-16" aria-label="Google reviews">
-          <style>{`
-            @keyframes pp-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-            .pp-track { animation: pp-marquee 45s linear infinite; }
-            .pp-marquee:hover .pp-track { animation-play-state: paused; }
-            @media (prefers-reduced-motion: reduce) { .pp-track { animation: none; } }
-          `}</style>
-          <div className="flex items-center gap-3 font-sans text-brand-off-white">
-            <Stars />
-            <span className="text-sm text-brand-silver">5.0 from 25 Google reviews</span>
-          </div>
-          <div className="pp-marquee relative mt-5 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
-            <ul className="pp-track flex w-max gap-4">
-              {[...reviews, ...reviews].map((r, i) => (
-                <li key={i} aria-hidden={i >= reviews.length} className="w-[280px] shrink-0 rounded-2xl border border-white/10 bg-brand-charcoal/70 p-5 md:w-[320px]">
-                  <Stars />
-                  <p className="mt-3 font-sans text-brand-off-white">&ldquo;{r.quote}&rdquo;</p>
-                  <p className="mt-3 font-sans text-xs text-brand-silver/70">
-                    {r.who} · {r.context} · Google review
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="mt-6 flex items-start gap-4 rounded-2xl border border-blue-300/30 bg-brand-blue/10 p-6">
-            <ShieldCheck className="h-7 w-7 shrink-0 text-blue-300" />
-            <div>
-              <h2 className="font-display text-xl text-brand-off-white md:text-2xl">Worried it&apos;ll fail mid-speech?</h2>
-              <p className="mt-1.5 font-sans leading-relaxed text-brand-off-white/75">
-                If a technical issue ever happens during your event, our team resolves it within thirty minutes or you receive an immediate discount.
-              </p>
-            </div>
-          </div>
-        </section>
+        <ReviewsAndPromise first={first} />
 
         {/* 5b. Services overview (umbrella pages): PixelPro's own section headings and intros, linking to each service page */}
         {c.services && (

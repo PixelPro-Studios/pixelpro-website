@@ -51,7 +51,7 @@ const c: ServiceContent = {
     imageAlt: "PixelPro Studios projector screen setup",
   },
   buyers: [
-    { who: "HR and admin teams", events: "Town halls, seminars, AGMs, training", copy: "Slides that the whole room can read, a laptop that connects first time, and someone on site if anything changes. You present; we handle the screen.", links: [{ label: "Town hall sound", href: "/events/town-hall-sound-system" }] },
+    { who: "HR and admin teams", events: "Town halls, seminars, AGMs, training", copy: "Slides that the whole room can read, a laptop that connects first time, and someone on site if anything changes. You present; we handle the screen.", links: [{ label: "Town hall sound", href: "/mockup/events/town-hall-sound-system" }] },
     { who: "Schools", events: "Ceremonies, prize giving, briefings", copy: "We quote through GeBIZ and handle the technical side, so the teacher-in-charge doesn't have to. We already work with MOE schools.", links: [{ label: "Prize giving ceremony AV", href: "/events/prize-giving-ceremony-av" }] },
     { who: "Government and community", events: "Outdoor movie nights, community events", copy: "A 250-inch screen and bright laser projector for outdoor screenings. GeBIZ registered and bizSAFE Level 3. Registered charities and NPOs get 10% off, and we donate 5% of the booking.", links: [{ label: "Outdoor movie screening", href: "/events/outdoor-movie-screening" }] },
     { who: "Brand and marketing teams", events: "Exhibitions, roadshows, launches", copy: "Projection for booths and launches, with short-throw options where space is tight. For bright mall atriums, we'll recommend LED.", links: [{ label: "LED wall rental", href: "/mockup/led-walls" }] },

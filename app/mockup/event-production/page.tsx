@@ -55,7 +55,7 @@ const c: ServiceContent = {
     imageAlt: "One-stop event production by PixelPro Studios",
   },
   buyers: [
-    { who: "HR and admin teams", events: "Dinner and dances, town halls, company events", copy: "Hand us the technical side of the whole event, from AV to photos and the emcee. You get one quote and one person to call, and you can enjoy the night.", links: [{ label: "Dinner and dance AV", href: "/events/dinner-and-dance-av" }, { label: "CNY event AV", href: "/events/cny-event-av" }] },
+    { who: "HR and admin teams", events: "Dinner and dances, town halls, company events", copy: "Hand us the technical side of the whole event, from AV to photos and the emcee. You get one quote and one person to call, and you can enjoy the night.", links: [{ label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" }, { label: "CNY event AV", href: "/mockup/events/cny-event-av" }] },
     { who: "Schools", events: "Graduations, concerts, school-wide events", copy: "AV, stage, photos and video under one GeBIZ quotation, so the teacher-in-charge has one vendor to manage. We already work with MOE schools.", links: [{ label: "LED wall for graduation", href: "/events/led-wall-rental-for-graduation" }] },
     { who: "Government and community", events: "Public events, National Day, community programmes", copy: "Public events that can't fail, with one accountable partner. GeBIZ registered and bizSAFE Level 3. We produced the LED wall, stage and sound for the NDP 2026 screening at Marina Barrage.", links: [{ label: "Outdoor movie screening", href: "/events/outdoor-movie-screening" }] },
     { who: "Brand and marketing teams", events: "Launches, roadshows, activations", copy: "The technical production for your launch or activation, plus photos and video you can use for marketing after.", links: [{ label: "LED wall for product launches", href: "/events/led-wall-for-product-launch" }] },
@@ -126,7 +126,7 @@ const c: ServiceContent = {
     { label: "LED wall rental", href: "/mockup/led-walls" },
     { label: "Sound system rental", href: "/mockup/sound-system-rental" },
     { label: "Event production vs AV rental", href: "/blog/event-production-vs-av-rental" },
-    { label: "Dinner and dance AV", href: "/events/dinner-and-dance-av" },
+    { label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" },
   ],
 };
 

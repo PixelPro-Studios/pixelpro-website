@@ -48,7 +48,7 @@ const c: ServiceContent = {
     imageAlt: "PixelPro Studios stage production",
   },
   buyers: [
-    { who: "HR and admin teams", events: "Dinner and dances, CNY dinners, award nights", copy: "A proper stage for the speeches, performances and lucky draw, built with the screen and sound by one team, so you're not chasing several vendors.", links: [{ label: "Dinner and dance AV", href: "/events/dinner-and-dance-av" }, { label: "CNY event AV", href: "/events/cny-event-av" }] },
+    { who: "HR and admin teams", events: "Dinner and dances, CNY dinners, award nights", copy: "A proper stage for the speeches, performances and lucky draw, built with the screen and sound by one team, so you're not chasing several vendors.", links: [{ label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" }, { label: "CNY event AV", href: "/mockup/events/cny-event-av" }] },
     { who: "Schools", events: "Prize giving, graduations, concerts", copy: "A raised stage with steps for students walking up. We quote through GeBIZ and handle the technical side, and we already work with MOE schools.", links: [{ label: "Prize giving ceremony AV", href: "/events/prize-giving-ceremony-av" }] },
     { who: "Government and community", events: "Community stages, public events", copy: "Stages for community programmes and public events. GeBIZ registered and bizSAFE Level 3. Registered charities and NPOs get 10% off, and we donate 5% of the booking.", links: [{ label: "Community event sound", href: "/events/community-event-sound-system" }] },
     { who: "Brand and marketing teams", events: "Launches, roadshows, activations", copy: "A clean stage for product reveals and emcee segments, with skirting in your brand colour on request.", links: [{ label: "LED wall for product launches", href: "/events/led-wall-for-product-launch" }] },
@@ -104,7 +104,7 @@ const c: ServiceContent = {
     { label: "LED wall rental", href: "/mockup/led-walls" },
     { label: "Sound system rental", href: "/mockup/sound-system-rental" },
     { label: "AV rental", href: "/mockup/av-systems" },
-    { label: "Dinner and dance AV", href: "/events/dinner-and-dance-av" },
+    { label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" },
     { label: "Prize giving ceremony AV", href: "/events/prize-giving-ceremony-av" },
   ],
 };

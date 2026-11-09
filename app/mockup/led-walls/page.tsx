@@ -45,10 +45,10 @@ const c: ServiceContent = {
     ],
   },
   buyers: [
-    { who: "HR and admin teams", events: "Dinner and dances, town halls, CNY dinners", copy: "Organising the company D&D for the first time? One team handles the screen, stage and sound, so you're not chasing five vendors. Our crew runs everything on the night while you host.", links: [{ label: "Dinner and dance AV", href: "/events/dinner-and-dance-av" }, { label: "CNY event AV", href: "/events/cny-event-av" }] },
+    { who: "HR and admin teams", events: "Dinner and dances, town halls, CNY dinners", copy: "Organising the company D&D for the first time? One team handles the screen, stage and sound, so you're not chasing five vendors. Our crew runs everything on the night while you host.", links: [{ label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" }, { label: "CNY event AV", href: "/mockup/events/cny-event-av" }] },
     { who: "Schools", events: "Graduations, speech days, concerts", copy: "We quote through GeBIZ and handle the technical side, so the teacher-in-charge doesn't have to. We already work with MOE schools.", links: [{ label: "LED wall for graduation", href: "/events/led-wall-rental-for-graduation" }] },
     { who: "Government and community", events: "Public screenings, National Day, community events", copy: "Public events that can't fail. GeBIZ registered and bizSAFE Level 3. We produced the LED wall, stage and sound for the NDP 2026 screening at Marina Barrage. Registered charities and NPOs get 10% off, and we donate 5% of the booking.", links: [{ label: "Outdoor LED wall rental", href: "/events/outdoor-led-wall-rental" }] },
-    { who: "Brand and marketing teams", events: "Roadshows, launches, activations", copy: "A screen bright enough to stop people in a busy mall, plus photos and video you can use after the event.", links: [{ label: "Roadshow LED screen", href: "/events/roadshow-led-screen-rental" }, { label: "LED wall for product launches", href: "/events/led-wall-for-product-launch" }] },
+    { who: "Brand and marketing teams", events: "Roadshows, launches, activations", copy: "A screen bright enough to stop people in a busy mall, plus photos and video you can use after the event.", links: [{ label: "Roadshow LED screen", href: "/mockup/events/roadshow-led-screen-rental" }, { label: "LED wall for product launches", href: "/events/led-wall-for-product-launch" }] },
     { who: "Event agencies and planners", events: "AV and technical production partner", copy: "Running the event for a client? We can be your AV team: screen, stage and sound with our own crew, so you deal with one supplier.", links: [{ label: "Event production", href: "/services/event-production" }] },
   ],
   sizing: { eyebrow: "Sizing", title: "Which size do I need?", intro: "The common sizes we build, and the events they suit. Not sure? Send us your venue and guest count and we'll recommend one.", placeholder: "3–4 rows from Jovin's job list, e.g. \"[size] for [venue type], about [N] guests\". Only sizes PixelPro has actually built." },
@@ -118,7 +118,7 @@ const c: ServiceContent = {
     { label: "Projector and screen rental", href: "/mockup/projector-rental" },
     { label: "AV rental", href: "/mockup/av-systems" },
     { label: "LED wall vs projector", href: "/blog/led-wall-vs-projector" },
-    { label: "Dinner and dance AV", href: "/events/dinner-and-dance-av" },
+    { label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" },
   ],
 };
 

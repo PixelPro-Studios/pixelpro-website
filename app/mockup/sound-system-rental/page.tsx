@@ -55,10 +55,10 @@ const c: ServiceContent = {
     imageAlt: "PixelPro Studios audio setup",
   },
   buyers: [
-    { who: "HR and admin teams", events: "Town halls, dinner and dances, CNY dinners", copy: "Headset mics for presenters, handhelds for Q&A and the lucky draw, and an engineer running it all, so you can host instead of worrying about the mic.", links: [{ label: "Town hall sound", href: "/events/town-hall-sound-system" }, { label: "Dinner and dance AV", href: "/events/dinner-and-dance-av" }] },
-    { who: "Schools", events: "Speech days, concerts, CCA shows", copy: "We quote through GeBIZ and handle the technical side, including working with your hall's own vendor. We already work with MOE schools.", links: [{ label: "Speech day sound", href: "/events/speech-day-sound-system" }, { label: "School hall sound", href: "/events/school-hall-sound-system" }] },
+    { who: "HR and admin teams", events: "Town halls, dinner and dances, CNY dinners", copy: "Headset mics for presenters, handhelds for Q&A and the lucky draw, and an engineer running it all, so you can host instead of worrying about the mic.", links: [{ label: "Town hall sound", href: "/mockup/events/town-hall-sound-system" }, { label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" }] },
+    { who: "Schools", events: "Speech days, concerts, CCA shows", copy: "We quote through GeBIZ and handle the technical side, including working with your hall's own vendor. We already work with MOE schools.", links: [{ label: "Speech day sound", href: "/events/speech-day-sound-system" }, { label: "Sound for schools", href: "/mockup/events/school-sound-system-rental" }] },
     { who: "Government and community", events: "Community events, public stages", copy: "Clear sound for community stages and public programmes. GeBIZ registered and bizSAFE Level 3. Registered charities and NPOs get 10% off, and we donate 5% of the booking.", links: [{ label: "Community event sound", href: "/events/community-event-sound-system" }] },
-    { who: "Brand and marketing teams", events: "Roadshows, activations, launches", copy: "Sound for roadshow booths and mall atriums, with the emcee and product demos heard over the crowd.", links: [{ label: "Roadshow LED screen", href: "/events/roadshow-led-screen-rental" }] },
+    { who: "Brand and marketing teams", events: "Roadshows, activations, launches", copy: "Sound for roadshow booths and mall atriums, with the emcee and product demos heard over the crowd.", links: [{ label: "Roadshow LED screen", href: "/mockup/events/roadshow-led-screen-rental" }] },
     { who: "Event agencies and planners", events: "AV and technical production partner", copy: "Running the event for a client? We can be your sound team, with our own crew, or rent you the equipment on its own if you have a technician.", links: [{ label: "Event production", href: "/mockup/event-production" }] },
   ],
   sizing: { eyebrow: "Sizing", title: "How much sound do I need?", intro: "It depends on your guest count, the room, and whether it's speeches or live music. Send us your venue and programme and we'll recommend a setup.", placeholder: "3–4 rows from Jovin's job list, e.g. \"[N] guests, [venue type], speeches only → [speakers, mics]\". Only setups PixelPro has actually run." },
@@ -124,7 +124,7 @@ const c: ServiceContent = {
     { label: "Stage rental", href: "/mockup/stage-rental" },
     { label: "AV rental", href: "/mockup/av-systems" },
     { label: "How many speakers for 300 people?", href: "/blog/how-many-speakers-for-300-people" },
-    { label: "Town hall sound", href: "/events/town-hall-sound-system" },
+    { label: "Town hall sound", href: "/mockup/events/town-hall-sound-system" },
     { label: "Last-minute sound system rental", href: "/events/last-minute-sound-system-rental" },
   ],
 };
