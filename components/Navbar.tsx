@@ -8,12 +8,12 @@ import Image from "next/image";
 import { track } from "@/lib/analytics";
 
 const navLinks = [
-  { name: "Portfolio", href: "/portfolio" },
   { name: "Services", href: "/services" },
-  { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
+  { name: "Our Work", href: "/portfolio" },
+  { name: "About Us", href: "/about" },
   { name: "Promotions", href: "/promotions" },
-  { name: "Contact", href: "/contact" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar() {
