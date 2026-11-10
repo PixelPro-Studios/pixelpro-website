@@ -89,7 +89,7 @@ const c: ServiceContent = {
     title: "Events we've planned and run",
     items: [
       { img: "/blog/ndp-2026-marina-barrage-live-screening.webp", alt: "LED wall, stage and sound for the NDP 2026 live screening at Marina Barrage", caption: "LED wall, stage and sound for the NDP 2026 live screening at Marina Barrage" },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-2.jpg", alt: "PixelPro Studios event", placeholder: "Caption: \"[event type], [venue type], [N] guests: what we planned\". No client names." },
+      { img: "/portfolio-live-music/event-av-planning_sound-check-before-doors-open.webp", alt: "PixelPro sound check at the mixing desk before a live music show opens", caption: "Sound check before doors open: speakers, monitors, mics and a 16-channel mixer for a record show with live bands, run by our engineer all day" },
       { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-5.jpg", alt: "PixelPro Studios event", placeholder: "Caption: \"[event type], [venue type], [N] guests: what we planned\". No client names." },
     ],
   },

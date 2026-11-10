@@ -84,8 +84,8 @@ const c: ServiceContent = {
   jobs: {
     title: "Sound we've run",
     items: [
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-2.jpg", alt: "PixelPro Studios sound system setup", placeholder: "Caption: \"[speakers/mics], [venue type], [N] guests\". No client names." },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-4.jpg", alt: "PixelPro Studios sound system setup", placeholder: "Caption: \"[speakers/mics], [venue type], [N] guests\". No client names." },
+      { img: "/portfolio-live-music/sound-system-rental_mixing-desk-sound-engineer.webp", alt: "Sound system rental in Singapore: a PixelPro sound engineer at the mixing desk during a live music show", caption: "2 × 15-inch speakers, 3 stage monitors, 3 wireless mics, a 16-channel mixer and our sound engineer, for a one-day record show with live bands at a convention centre" },
+      { img: "/portfolio-live-music/sound-system-rental_live-band-stage-monitors.webp", alt: "Live band on stage with PixelPro stage monitors and mics", caption: "Stage monitors, mics, DI boxes and a guitar amp for the live band sets at the same show" },
       { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-6.jpg", alt: "PixelPro Studios sound system setup", placeholder: "Caption: \"[speakers/mics], [venue type], [N] guests\". No client names." },
     ],
   },

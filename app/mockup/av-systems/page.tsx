@@ -96,7 +96,7 @@ const c: ServiceContent = {
     title: "Events we've produced",
     items: [
       { img: "/blog/ndp-2026-marina-barrage-live-screening.webp", alt: "LED wall, stage and sound for the NDP 2026 live screening at Marina Barrage", caption: "LED wall, stage and sound for the NDP 2026 live screening at Marina Barrage" },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-2.jpg", alt: "PixelPro Studios event production", placeholder: "Caption: \"[what we supplied], [venue type], [N] guests\". No client names." },
+      { img: "/portfolio-live-music/av-rental_stage-speakers-and-mixer.webp", alt: "AV rental for a live music show: PixelPro speakers on stands either side of the stage", caption: "Speakers, stage monitors, wireless mics, a 16-channel mixer and a sound engineer for a record show with live bands, convention centre" },
       { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-3.jpg", alt: "PixelPro Studios event production", placeholder: "Caption: \"[what we supplied], [venue type], [N] guests\". No client names." },
     ],
   },
