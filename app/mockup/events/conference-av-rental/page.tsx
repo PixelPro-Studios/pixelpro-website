@@ -44,8 +44,14 @@ const c: EventContent = {
     ],
   },
   typicalSetup: {
-    title: "A typical conference setup",
-    placeholder: "From Jovin's job list (bible §10): attendees · venue type · main screen · speakers and mics · breakout rooms · crew on site · setup time. One line under it: \"Based on [N] of our conference jobs. No client named.\" Leave out if no conference job is confirmed.",
+    title: "A three-day international forum for about 100 delegates",
+    rows: [
+      ["Event", "Railway Accident Investigation International Forum 2026, hosted by the Ministry of Transport's Transport Safety Investigation Bureau, hotel ballroom"],
+      ["Delegates", "About 100 participants from 37 agencies, over three days of talks and panels"],
+      ["Main screen", "3.5 m × 2.5 m LED wall, with a 4K presentation switcher and a video splitter for speakers' laptops"],
+      ["For speakers", "A 50-inch confidence monitor on a foldback stand, so presenters see their slides while facing the room"],
+      ["Crew", "An LED technician for startup, monitoring, troubleshooting and shutdown each day"],
+    ],
   },
   coreTitle: "Built to keep every session on time",
   priceFactors: [
@@ -59,9 +65,9 @@ const c: EventContent = {
   photos: {
     title: "Talks and panels we've run",
     items: [
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-8.jpg", alt: "Speaker with a handheld mic at a conference supported by PixelPro Studios", placeholder: "Caption: \"[mics, screen], [venue type], [N] delegates\". No client names." },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-2.jpg", alt: "Panel on stage with a mic for each speaker, by PixelPro Studios", placeholder: "Caption: \"[mics, stage, screen], [venue type]\". No client names." },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-6.jpg", alt: "Host on stage with slides on screen, by PixelPro Studios", placeholder: "Caption: \"[mics, screen], [venue type]\". No client names." },
+      { img: "/portfolio-jobs/conference-av-rental_led-wall-hotel-ballroom-forum.webp", alt: "Conference AV rental: delegates facing a 3.5 m × 2.5 m PixelPro LED wall in a hotel ballroom", caption: "3.5 m × 2.5 m LED wall for a three-day international forum, about 100 delegates from 37 agencies, hotel ballroom" },
+      { img: "/portfolio-jobs/conference-av-rental_panel-discussion-led-wall.webp", alt: "Panel discussion in front of a PixelPro LED wall at an international forum", caption: "Panel discussion at the same forum, with the session title on the LED wall" },
+      { img: "/portfolio-jobs/conference-av-rental_confidence-monitor.webp", alt: "Confidence monitor with a 30-minute countdown facing the speaker", caption: "Confidence monitor at the stage edge: speakers see their slides and a countdown timer while facing the room" },
     ],
   },
   included: [
@@ -83,7 +89,7 @@ const c: EventContent = {
     { question: "Can you livestream our conference?", answer: "Yes, as a compact setup with up to four cameras. We're not a large broadcast company, and we'll tell you if your plan needs one." },
     { question: "Do you work with event agencies?", answer: "Yes. We work as the AV and technical production partner for event agencies, with our own crew or as equipment-only rental at a fixed rate." },
     { question: "Can you supply projectors for breakout rooms?", answer: "Yes. We have projectors and screens for smaller rooms, set up and tested along with the main hall." },
-    { question: "What if something fails mid-session?", answer: "Our crew stays on site with backup mics and spare LED panels. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
+    { question: "What if something fails mid-session?", answer: "Our crew stays on site with backup mics and spare LED panels. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
   ],
   related: [
     { label: "Town hall sound", href: "/mockup/events/town-hall-sound-system" },

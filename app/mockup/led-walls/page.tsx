@@ -51,7 +51,18 @@ const c: ServiceContent = {
     { who: "Brand and marketing teams", events: "Roadshows, launches, activations", copy: "A screen bright enough to stop people in a busy mall, plus photos and video you can use after the event.", links: [{ label: "Roadshow LED screen", href: "/mockup/events/roadshow-led-screen-rental" }, { label: "LED wall for product launches", href: "/events/led-wall-for-product-launch" }] },
     { who: "Event agencies and planners", events: "AV and technical production partner", copy: "Running the event for a client? We can be your AV team: screen, stage and sound with our own crew, so you deal with one supplier.", links: [{ label: "Event production", href: "/services/event-production" }] },
   ],
-  sizing: { eyebrow: "Sizing", title: "Which size do I need?", intro: "The common sizes we build, and the events they suit. Not sure? Send us your venue and guest count and we'll recommend one.", placeholder: "3–4 rows from Jovin's job list, e.g. \"[size] for [venue type], about [N] guests\". Only sizes PixelPro has actually built." },
+  sizing: {
+    eyebrow: "Sizing",
+    title: "Which size do I need?",
+    intro: "The screens we own, the walls we've built with them, and the one rule that decides the size: how close your nearest guests sit.",
+    rows: [
+      ["Indoor screen (P2.6)", "Up to about 25 m² from our own stock, for example 5 m × 3 m. Sharp when the nearest guests sit at least 2.6 m away."],
+      ["Outdoor screen (P3.9)", "Up to about 18 m², for example 6 m × 3 m or 5 m × 2 m. Bright enough for daylight and mall atriums. Best when the nearest viewers are at least 3.9 m away."],
+      ["Walls we've built", "3.5 m × 2.5 m for a three-day international forum in a hotel ballroom · 5 m × 3 m outdoors at Marina Barrage for National Day · 5.5 m × 3 m in a mall atrium · 6 m × 2.5 m and 7 m × 2.5 m for university showcases · 2.5 m × 4 m upright for a party · four 1 m × 2 m upright panels beside a school hall stage"],
+      ["Power", "Plan for about one 13A socket per 4 m² of screen. If the venue can't supply that, we arrange temporary power and a licensed electrical worker."],
+    ],
+    note: "Not sure? Send us your venue and guest count and we'll recommend a size.",
+  },
   priceFactors: [
     ["Screen size", "A smaller wall", "A bigger wall: more panels, crew and setup time"],
     ["Indoor or outdoor", "Indoors", "Outdoors: a different screen and more planning"],
@@ -75,17 +86,25 @@ const c: ServiceContent = {
   jobs: {
     title: "LED screens we've built for events",
     items: [
-      { img: "/blog/ndp-2026-marina-barrage-live-screening.webp", alt: "LED wall for the NDP 2026 live screening at Marina Barrage", caption: "LED wall, stage and sound for the NDP 2026 live screening at Marina Barrage" },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-3.jpg", alt: "PixelPro Studios stage production", placeholder: "Caption: \"[size] LED wall, [venue type], [N] guests\". No client names." },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-5.jpg", alt: "PixelPro Studios stage production", placeholder: "Caption: \"[size] LED wall, [venue type], [N] guests\". No client names." },
+      { img: "/portfolio-jobs/led-wall-rental_outdoor-5x3m-led-wall-marina-barrage.webp", alt: "Outdoor LED wall rental: a 5 m × 3 m PixelPro LED wall at Marina Barrage for National Day", caption: "5 m × 3 m outdoor LED wall, 8 speakers and a subwoofer for PUB's NDP 2026 live screening at Marina Barrage" },
+      { img: "/portfolio-jobs/conference-av-rental_led-wall-hotel-ballroom-forum.webp", alt: "3.5 m × 2.5 m LED wall in a hotel ballroom for an international forum", caption: "3.5 m × 2.5 m LED wall and a 50-inch confidence monitor for a three-day international forum, about 100 delegates, hotel ballroom" },
+      { img: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", alt: "5.5 m × 3 m LED wall above a stage in a mall atrium, set up by PixelPro", caption: "5.5 m × 3 m LED wall and a 7 m × 4 m stage in a mall atrium, built overnight before the mall opened" },
     ],
   },
-  typicalSetup: { title: "What a 300-guest dinner and dance usually needs", placeholder: "From the job list: guests · venue type · screen size · sound · crew on site · setup time. One line under it: \"Based on [N] of our D&D jobs. No client named.\"" },
+  typicalSetup: {
+    title: "A university pitch day with a 6 m × 2.5 m LED wall",
+    rows: [
+      ["Event", "Create4Good Demo Day 2026, SUTD Campus Centre: student teams pitching to judges and guests"],
+      ["Screen", "6 m × 2.5 m LED wall for slides, a pitch timer and sponsor visuals"],
+      ["Sound", "2 × 15-inch speakers, a digital mixer, 2 wireless mics and 3 rostrum mics"],
+      ["Crew", "Our crew built and ran the LED wall; a sound engineer stayed on site for the whole programme"],
+    ],
+  },
   includedTitle: "You don't have to touch a thing",
   included: [
     "We check the venue first, with a site visit if it needs one",
     "We deliver, build and test the screen before your guests arrive",
-    "We stand it on the floor or hang it, whatever your venue allows",
+    "We stand it on the floor, or hang it where the venue allows after a technical check",
     "We can put the speaker on the big screen with a live camera",
     "Someone from our crew runs the screen for the whole event",
     "We pack everything away after",
@@ -100,7 +119,7 @@ const c: ServiceContent = {
   faqs: [
     { question: "How much does LED screen rental cost?", answer: "We quote per event, because the price depends on the screen size, indoor or outdoor, how long the event runs, venue access and setup timing, and the crew needed. Send us your brief and we'll reply with a setup and a quote." },
     { question: "I'm not technical. What do I need to do?", answer: "Send us your slides and videos beforehand and tell us the programme. Our crew plans the setup, builds and tests the screen, and runs it during the event." },
-    { question: "What if something goes wrong in the middle of the event?", answer: "Our crew is on site the whole time. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
+    { question: "What if something goes wrong in the middle of the event?", answer: "Our crew is on site the whole time. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
     { question: "Do you provide LED wall rental across Singapore?", answer: "Yes. We supply, install, calibrate, operate, and dismantle indoor and outdoor LED wall systems for events across Singapore." },
     { question: "How big can the LED video wall be?", answer: "For LED video wall hire, up to about 25 m² indoors and 18 m² outdoors from our own stock, depending on the venue, power and structure. For bigger walls we bring in more screen through our partners." },
     { question: "What pixel pitches are available?", answer: "Our commonly specified systems include P2.6 panels for closer indoor viewing and P3.9 panels for larger stages and outdoor applications. We recommend the right option based on viewing distance, content, and venue conditions." },

@@ -23,7 +23,7 @@ const c: ServiceContent = {
     { worry: "“I'm managing five vendors who don't talk to each other.”", fix: "Sound, screen, stage, lighting, photos and video from one team, planned together so everything fits on the day.", spec: "One vendor, one team, one workflow" },
     { worry: "“I also need emcees, ushers and registration crew.”", fix: "We arrange them through our partner network, and stay your one point of contact for all of it.", spec: "Emcees, DJs, bands, ushers, registration crew via partners" },
     { worry: "“Our event doesn't fit a standard package.”", fix: "Tell us the idea. Not all events fit into a fixed list, so we design the setup around your concept.", spec: "Custom setups on request" },
-    { worry: "“If something goes wrong, who's responsible?”", fix: "We are. Our crew is on site throughout, and any technical issue is resolved within thirty minutes or you get an immediate discount.", spec: "One accountable technical partner from setup to strike" },
+    { worry: "“If something goes wrong, who's responsible?”", fix: "We are. Our crew is on site throughout, and any technical issue is resolved within thirty minutes or you get a rebate, as set out in your quote.", spec: "One accountable technical partner from setup to strike" },
   ],
   reviewsFirst: ["Candy Mak", "Tan Hee Pheng", "Gwendolyn Anne David"],
   story: {
@@ -84,12 +84,22 @@ const c: ServiceContent = {
   jobs: {
     title: "Events we've produced",
     items: [
-      { img: "/blog/ndp-2026-marina-barrage-live-screening.webp", alt: "LED wall, stage and sound for the NDP 2026 live screening at Marina Barrage", caption: "LED wall, stage and sound for the NDP 2026 live screening at Marina Barrage" },
+      { img: "/blog/ndp-2026-marina-barrage-live-screening.webp", alt: "LED wall, sound and lighting for the NDP 2026 live screening at Marina Barrage", caption: "5 m × 3 m outdoor LED wall, sound covering over 100 m and outdoor lighting for PUB's NDP 2026 live screening at Marina Barrage" },
+      { img: "/portfolio-jobs/school-sound-system-rental_prize-day-stage-led-and-lighting.webp", alt: "School prize day stage with upright LED panels and stage lighting by PixelPro", caption: "Upright LED panels, moving heads, PAR lights and sound for a school prize day, while a second crew ran an outdoor festival next door" },
       { img: "/portfolio-live-music/event-production_stage-sound-and-crew.webp", alt: "PixelPro Studios sound setup and banner beside a live music stage", caption: "Full sound for a one-day record show with live bands at a convention centre: speakers, monitors, wireless mics, mixer and a sound engineer" },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-3.jpg", alt: "PixelPro Studios event production", placeholder: "Caption: \"[what we produced], [venue type], [N] guests\". No client names." },
     ],
   },
-  typicalSetup: { title: "What a full company dinner and dance production looks like", placeholder: "From the job list: guests · venue type · AV · stage · photo/video · talent · crew on site · setup time. One line under it: \"Based on [N] of our D&D jobs. No client named.\"" },
+  typicalSetup: {
+    title: "Marina Barrage on National Day: an outdoor screening for thousands",
+    rows: [
+      ["Event", "PUB's National Day Celebrations 2026 at Marina Barrage, with a live screening of the parade"],
+      ["Screen", "5 m × 3 m outdoor LED wall"],
+      ["Sound", "8 speakers and a subwoofer spread across the lawn, covering over 100 m"],
+      ["Lighting", "2 moving heads, 4 outdoor floodlights and 6 waterproof PAR lights"],
+      ["Planning", "Site visits beforehand to check the venue, power and weather plan; our crew stayed on site all day"],
+    ],
+    note: "\"The team took the initiative to conduct site visits ahead of the event... contributing significantly to the smooth execution of the event.\" Cayden Tan, Manager, Catchment & Waterways Department (Marina Barrage), PUB",
+  },
   includedTitle: "What you hand over to us",
   included: [
     "The technical plan for your whole event",
@@ -115,7 +125,7 @@ const c: ServiceContent = {
     { question: "Do you handle emcees, ushers and registration?", answer: "Yes, through our partner network. Emcees are freelance partners matched to your event and language needs, and we stay your one point of contact." },
     { question: "Do you work with event agencies?", answer: "Yes. We work as the AV and technical production partner for event agencies, as well as directly with companies hosting events." },
     { question: "Do you provide on-site crew and technical support?", answer: "Yes. Our team handles delivery, setup, live operation during your event, and teardown so your programme runs smoothly from start to finish." },
-    { question: "What if something goes wrong in the middle of the event?", answer: "Our crew is on site the whole time with spare screen panels and backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
+    { question: "What if something goes wrong in the middle of the event?", answer: "Our crew is on site the whole time with spare screen panels and backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
     { question: "Are you a GeBIZ registered supplier?", answer: "Yes. PixelPro Studios is a Singapore Government registered supplier on GeBIZ, and we regularly support schools, public agencies, and institutional events." },
     { question: "Do you cover events across Singapore?", answer: "Yes. We support corporate events, schools, government agencies, and community organisations island-wide, with crew and equipment sized to your venue and run-of-show." },
     { question: "How do I get a quote or start planning?", answer: "Share your event brief on WhatsApp or by email and we will scope a proposal for you. You can also download our services deck for an overview of capabilities." },

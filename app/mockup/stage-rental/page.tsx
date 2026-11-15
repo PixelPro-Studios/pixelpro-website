@@ -54,7 +54,19 @@ const c: ServiceContent = {
     { who: "Brand and marketing teams", events: "Launches, roadshows, activations", copy: "A clean stage for product reveals and emcee segments, with skirting in your brand colour on request.", links: [{ label: "LED wall for product launches", href: "/events/led-wall-for-product-launch" }] },
     { who: "Event agencies and planners", events: "AV and technical production partner", copy: "Need a stage for a client's event? We build it with our own crew, and can add the screen and sound in the same quote.", links: [{ label: "Event production", href: "/mockup/event-production" }] },
   ],
-  sizing: { eyebrow: "Sizing", title: "Which stage size do I need?", intro: "It depends on what happens on stage: a speaker at a lectern needs far less than a band or a dance item. Send us your programme and we'll recommend a size.", placeholder: "3–4 rows from Jovin's job list, e.g. \"[size, height] for [event type], [venue type]\". Only stages PixelPro has actually built." },
+  sizing: {
+    eyebrow: "Sizing",
+    title: "Which stage size do I need?",
+    intro: "It depends on what happens on stage: a speaker at a lectern needs far less than a band or a dance item. Our stage is built from 2 m × 1 m platforms, so it's sized to your programme.",
+    rows: [
+      ["Building blocks", "16 platforms of 2 m × 1 m each: up to 32 m² from our own stock, bigger through our partners"],
+      ["Height", "Adjustable from 60 cm to 100 cm. A higher stage is easier to see from the back, and costs a little more"],
+      ["Load", "Up to 600 kg per m², enough for bands, dance items and equipment"],
+      ["A stage we've built", "7 m × 4 m with steps and skirting in a mall atrium, under a 5.5 m × 3 m LED wall"],
+      ["Comes with", "Two sets of stage stairs and black skirting. Custom skirting colours on request. Guardrails are arranged separately"],
+    ],
+    note: "Send us your programme and venue and we'll recommend a size and height.",
+  },
   priceFactors: [
     ["Stage size", "A small speaking platform", "A full performance stage, up to 32 m² or bigger through partners"],
     ["Height", "A low platform", "A higher stage, with more steps"],
@@ -66,12 +78,11 @@ const c: ServiceContent = {
   jobs: {
     title: "Stages we've built",
     items: [
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-6.jpg", alt: "PixelPro Studios stage", placeholder: "Caption: \"[size, height] stage, [venue type], [N] guests\". No client names." },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-7.jpg", alt: "PixelPro Studios stage", placeholder: "Caption: \"[size, height] stage, [venue type], [N] guests\". No client names." },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-8.jpg", alt: "PixelPro Studios stage", placeholder: "Caption: \"[size, height] stage, [venue type], [N] guests\". No client names." },
+      { img: "/portfolio-jobs/stage-rental_7x4m-stage-and-led-wall-in-a-mall.webp", alt: "Stage rental in Singapore: a 7 m × 4 m PixelPro stage with red skirting under an LED wall in a mall", caption: "7 m × 4 m stage with skirting, a rostrum and a 5.5 m × 3 m LED wall for Caregiving Fest in a mall atrium, built overnight" },
+      { img: "/portfolio-jobs/stage-rental_stage-steps-and-skirting.webp", alt: "Stage stairs and skirting on a PixelPro stage", caption: "Stage stairs and full skirting on the same stage, ready before the mall opened" },
+      { img: "/portfolio-jobs/roadshow-led-screen-rental_mall-atrium-crowd.webp", alt: "Performers on a PixelPro stage in a mall atrium with a seated crowd", caption: "The same stage in use: performances, speeches and a guest-of-honour segment" },
     ],
   },
-  typicalSetup: { title: "What a 300-guest dinner and dance stage usually looks like", placeholder: "From the job list: stage size · height · skirting · steps · crew · build time. One line under it: \"Based on [N] of our D&D jobs. No client named.\"" },
   includedTitle: "You don't have to touch a thing",
   included: [
     "We plan the stage size and height with you",

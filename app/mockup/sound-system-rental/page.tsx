@@ -61,7 +61,18 @@ const c: ServiceContent = {
     { who: "Brand and marketing teams", events: "Roadshows, activations, launches", copy: "Sound for roadshow booths and mall atriums, with the emcee and product demos heard over the crowd.", links: [{ label: "Roadshow LED screen", href: "/mockup/events/roadshow-led-screen-rental" }] },
     { who: "Event agencies and planners", events: "AV and technical production partner", copy: "Running the event for a client? We can be your sound team, with our own crew, or rent you the equipment on its own if you have a technician.", links: [{ label: "Event production", href: "/mockup/event-production" }] },
   ],
-  sizing: { eyebrow: "Sizing", title: "How much sound do I need?", intro: "It depends on your guest count, the room, and whether it's speeches or live music. Send us your venue and programme and we'll recommend a setup.", placeholder: "3–4 rows from Jovin's job list, e.g. \"[N] guests, [venue type], speeches only → [speakers, mics]\". Only setups PixelPro has actually run." },
+  sizing: {
+    eyebrow: "Sizing",
+    title: "How much sound do I need?",
+    intro: "It depends on your guest count, the room, and whether it's speeches or live music. This is how we usually build it, with real setups we've run.",
+    rows: [
+      ["Speeches and presentations", "15-inch speakers, handheld or rostrum mics, a digital mixer and an engineer. Example: 2 speakers, 2 wireless and 3 rostrum mics for a university pitch day"],
+      ["Panels and conferences", "More wireless mics, an antenna system so they stay clear, and playback for your videos. Example: 4 headsets and 4 handhelds for a school prize day"],
+      ["Live bands and performances", "Our 48-channel desk, DI boxes, instrument mics, stage monitors, subwoofers and a proper sound check. Example: 3 monitors, 10 DI boxes and a stage box for a record show with live bands"],
+      ["Big outdoor spaces", "Speakers spread around the space instead of only at the front. Example: 8 speakers around Suntec's Fountain of Wealth for a school orientation, and 8 speakers with a subwoofer covering over 100 m at Marina Barrage"],
+    ],
+    note: "Send us your venue, guest count and programme and we'll recommend a setup.",
+  },
   priceFactors: [
     ["Number of guests and room size", "A small room or function room", "A ballroom, hall or outdoor field: more speakers and subwoofers"],
     ["Speeches or live music", "Speeches and background music", "A live band: more inputs, monitors and mixing"],
@@ -86,10 +97,18 @@ const c: ServiceContent = {
     items: [
       { img: "/portfolio-live-music/sound-system-rental_mixing-desk-sound-engineer.webp", alt: "Sound system rental in Singapore: a PixelPro sound engineer at the mixing desk during a live music show", caption: "2 × 15-inch speakers, 3 stage monitors, 3 wireless mics, a 16-channel mixer and our sound engineer, for a one-day record show with live bands at a convention centre" },
       { img: "/portfolio-live-music/sound-system-rental_live-band-stage-monitors.webp", alt: "Live band on stage with PixelPro stage monitors and mics", caption: "Stage monitors, mics, DI boxes and a guitar amp for the live band sets at the same show" },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-6.jpg", alt: "PixelPro Studios sound system setup", placeholder: "Caption: \"[speakers/mics], [venue type], [N] guests\". No client names." },
+      { img: "/portfolio-jobs/sound-system-rental_community-club-hall-full-house.webp", alt: "A full community club hall with PixelPro speakers and screens", caption: "2 × 15-inch speakers, 2 stage monitors, a 16-channel mixer and 6 instrument mics for a full-house sing-along night at a community club" },
     ],
   },
-  typicalSetup: { title: "What a 300-guest town hall usually needs", placeholder: "From the job list: guests · venue type · speakers · mics (headset/handheld) · crew on site · setup time. One line under it: \"Based on [N] of our town hall jobs. No client named.\"" },
+  typicalSetup: {
+    title: "Two events at once: a school prize day indoors and a festival outdoors",
+    rows: [
+      ["Event", "Umar Pulavar Tamil Language Centre's 49th Speech & Prize Presentation Ceremony, with Tamil Fest 2026 running outdoors at the same time"],
+      ["Indoors", "4 headset and 4 handheld wireless mics, 6 instrument mics, a rostrum mic and a digital mixer, linked to the hall's own sound system"],
+      ["Outdoors", "4 × JBL EON715 speakers, 6 headset and 6 handheld wireless mics, and an antenna system to keep 12 mics clear"],
+      ["Crew", "Two separate teams, so each event had its own engineer from rehearsal to pack-down"],
+    ],
+  },
   includedTitle: "You don't have to touch a thing",
   included: [
     "We plan the system for your room, guest count and programme",
@@ -110,7 +129,7 @@ const c: ServiceContent = {
     { question: "How much does sound system rental cost?", answer: "We quote per event, because the price depends on your guest count and room, whether it's speeches or live music, how many mics you need, how long the event runs and venue access. Send us your brief and we'll reply with a setup and a quote." },
     { question: "Do you rent sound systems for events in Singapore?", answer: "Yes. PixelPro Studios provides professional sound system rental across Singapore, including speakers, mixers, microphones, and on-site technicians for corporate events, schools, conferences, and outdoor programmes." },
     { question: "I'm not technical. What do I need to do?", answer: "Tell us your programme: who speaks when, any music or performances, and how many mics you need. Our engineer sets up, sound-checks and runs everything on the day." },
-    { question: "What if something goes wrong in the middle of the event?", answer: "Our engineer is on site the whole time. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
+    { question: "What if something goes wrong in the middle of the event?", answer: "Our engineer is on site the whole time. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
     { question: "Can I rent just the speakers?", answer: "Yes. Speaker rental on its own, without an engineer, is available at a fixed equipment rate. Most organisers add our engineer, who sets up, sound-checks and runs it on the day." },
     { question: "Can you handle a live band?", answer: "Yes. Our digital mixers and stagebox handle larger input counts for bands, with instrument mics and wireless mics for singers and hosts." },
     { question: "Do you provide setup and technical support on site?", answer: "Yes. Our team handles delivery, setup, live operation during your event, and teardown so your programme runs smoothly from start to finish." },

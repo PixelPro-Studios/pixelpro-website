@@ -44,8 +44,14 @@ const c: EventContent = {
     ],
   },
   typicalSetup: {
-    title: "A typical school hall setup",
-    placeholder: "From Jovin's job list (bible §10): event type · school hall size · audience · speakers and mics · screen · crew on site · setup time. One line under it: \"Based on [N] of our school jobs. No school named.\" Leave out if no school job is confirmed.",
+    title: "A school prize day indoors and a festival outdoors, on the same day",
+    rows: [
+      ["Event", "Umar Pulavar Tamil Language Centre (MOE): the 49th Speech & Prize Presentation Ceremony in the hall, with Tamil Fest 2026 outdoors at the same time"],
+      ["In the hall", "4 upright LED panels (1 m × 2 m each) beside the stage, 4 headset and 4 handheld wireless mics, 6 instrument mics, a rostrum mic, linked to the hall's own sound system, plus moving heads and PAR lights"],
+      ["Outdoors", "4 × JBL EON715 speakers and 12 wireless mics for cultural performances, with an antenna system to keep them clear"],
+      ["Crew", "Two separate teams, so each programme had its own technicians from rehearsal to pack-down"],
+    ],
+    note: "\"Despite the changes throughout the events, everyone remained flexible, supportive, and worked together to ensure everything ran smoothly.\" Musrifah Shahibal Mustafa, UPTLC",
   },
   coreTitle: "Built for school halls, auditoriums and fields",
   timeline: {
@@ -68,9 +74,9 @@ const c: EventContent = {
   photos: {
     title: "School concerts and ceremonies we've supported",
     items: [
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-4.jpg", alt: "School band performing with mics set up by PixelPro Studios", placeholder: "Caption: \"[mics, speakers], school hall\". No school named." },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-5.jpg", alt: "Outdoor school band performance with sound by PixelPro Studios", placeholder: "Caption: \"[mics, speakers], outdoor\". No school named." },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-5.jpg", alt: "Orchestra concert on stage with a screen, by PixelPro Studios", placeholder: "Caption: \"[sound, screen, stage], auditorium\". No school named." },
+      { img: "/portfolio-jobs/school-sound-system-rental_speech-at-the-rostrum.webp", alt: "School sound system rental: a speech at the rostrum with PixelPro LED panels behind", caption: "Rostrum mic, wireless mics and upright LED panels for a school prize day, linked to the hall's own sound system" },
+      { img: "/portfolio-jobs/school-sound-system-rental_prize-day-stage-led-and-lighting.webp", alt: "School hall stage with upright LED panels and coloured lighting by PixelPro", caption: "The same hall: four 1 m × 2 m LED panels, moving heads and PAR lights around the stage" },
+      { img: "/portfolio-jobs/school-sound-system-rental_outdoor-orientation-speakers.webp", alt: "Junior college students in an outdoor mass dance with a PixelPro speaker in front", caption: "8 outdoor speakers around Suntec's Fountain of Wealth for a junior college orientation mass dance, powered by a 25 kVA generator" },
     ],
   },
   included: [

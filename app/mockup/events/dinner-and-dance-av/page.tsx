@@ -43,10 +43,6 @@ const c: EventContent = {
       ["Pack-down", "We pack everything away after the last guest leaves."],
     ],
   },
-  typicalSetup: {
-    title: "A typical D&D setup",
-    placeholder: "From Jovin's job list (bible §10): pax · venue type · LED wall size · speakers and mics · stage size · crew on site · setup time. One line under it: \"Based on [N] of our D&D jobs. No client named.\" Also answers the Reddit question \"30 pax company dinner, what's the smallest setup?\" (bible §8b Q1). Leave out if no D&D job is confirmed.",
-  },
   coreTitle: "Built to run your D&D from start to finish",
   timeline: {
     title: "When to book your D&D",
@@ -68,9 +64,9 @@ const c: EventContent = {
   photos: {
     title: "Dinners and stages we've run",
     items: [
-      { img: "/services-av-led/pixelpro-studios-led-wall-screen-rental-singapore.jpg", alt: "Ballroom dinner with an LED wall by PixelPro Studios", placeholder: "Caption: \"[LED size, sound], [venue type], [N] pax\". No client names." },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-3.jpg", alt: "Band performing on a lit stage with an LED wall, production by PixelPro Studios", placeholder: "Caption: \"[stage, sound, LED], [venue type]\". No client names." },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-10.jpg", alt: "PixelPro Studios sound system at an event", placeholder: "Caption: \"[speakers, mics], [venue type], [N] pax\". No client names." },
+      { img: "/services-av-led/pixelpro-studios-led-wall-screen-rental-singapore.jpg", alt: "Ballroom dinner with an LED wall by PixelPro Studios", caption: "Ballroom dinner with an LED wall and sound" },
+      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-3.jpg", alt: "Band performing on a lit stage with an LED wall, production by PixelPro Studios", caption: "Live band on a lit stage with an LED wall behind" },
+      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-10.jpg", alt: "PixelPro Studios sound system at an event", caption: "Speakers and mics set up for the evening programme" },
     ],
   },
   included: [
@@ -92,7 +88,7 @@ const c: EventContent = {
     { question: "It's my first time organising a D&D. What do I need to do?", answer: "Send us your date, venue, pax and a rough run sheet. We'll recommend a setup, then build, test and run it on the day. You don't need to know anything technical." },
     { question: "Can you put our lucky draw on the screen?", answer: "Yes. Send us your lucky-draw graphics and videos and we run them on the LED wall on cue, with a walk-up mic for the winners." },
     { question: "Can you arrange an emcee, DJ or band?", answer: "Yes, through our partners. We arrange emcees, DJs and live bands to suit your event and coordinate them with the sound and screen." },
-    { question: "What if something goes wrong during the event?", answer: "Our crew is on site the whole time with spare LED panels and backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
+    { question: "What if something goes wrong during the event?", answer: "Our crew is on site the whole time with spare LED panels and backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
   ],
   related: [
     { label: "Chinese New Year event AV", href: "/mockup/events/cny-event-av" },

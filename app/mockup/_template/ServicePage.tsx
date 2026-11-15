@@ -32,11 +32,11 @@ export type ServiceContent = {
   };
   services?: { eyebrow: string; title: string; items: { title: string; subtitle: string; copy: string; href: string; img: string }[] };
   buyers: { who: string; events: string; copy: string; links: LinkT[] }[];
-  sizing?: { eyebrow: string; title: string; intro: string; placeholder: string };
+  sizing?: { eyebrow: string; title: string; intro: string; rows: [string, string][]; note?: string };
   priceFactors: [string, string, string][];
   comparison?: { eyebrow: string; title: string; body: string; link?: LinkT; cards: [string, string][] };
   jobs: { title: string; items: { img: string; alt: string; caption?: string; placeholder?: string }[] };
-  typicalSetup?: { title: string; placeholder: string };
+  typicalSetup?: SetupBlock;
   includedTitle: string;
   included: string[];
   addOns: { label: string; copy: string; href: string }[];
@@ -47,7 +47,34 @@ export type ServiceContent = {
   related: LinkT[];
 };
 
-export const trust = ["5.0 on Google (25 reviews)", "GeBIZ registered", "bizSAFE Level 3", "Resolved within 30 minutes, or an immediate discount"];
+export const trust = ["5.0 on Google (25 reviews)", "GeBIZ registered", "bizSAFE Level 3", "Resolved within 30 minutes, or a rebate (terms in your quote)"];
+
+// A real job from Jovin's write-ups (deepagent: clients/pixelpro/research/jovin-jobs/2026-11-15-job-writeups.md). Facts only.
+export type SetupBlock = { eyebrow?: string; title: string; rows: [string, string][]; note?: string };
+
+export function FactRows({ rows }: { rows: [string, string][] }) {
+  return (
+    <dl className="grid gap-x-8 gap-y-4 font-sans text-sm sm:grid-cols-[minmax(0,12rem)_1fr]">
+      {rows.map(([k, v]) => (
+        <div key={k} className="contents">
+          <dt className="text-xs uppercase tracking-wider text-brand-silver/60 sm:pt-0.5">{k}</dt>
+          <dd className="-mt-3 text-brand-off-white/85 sm:mt-0">{v}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+export function SetupSection({ s, className = "" }: { s: SetupBlock; className?: string }) {
+  return (
+    <section className={`rounded-3xl border border-white/10 bg-brand-charcoal/60 p-7 md:p-10 ${className}`}>
+      <Eyebrow>{s.eyebrow ?? "A real job"}</Eyebrow>
+      <h2 className="mt-4 font-display text-3xl text-brand-off-white md:text-4xl">{s.title}</h2>
+      <div className="mt-6"><FactRows rows={s.rows} /></div>
+      {s.note && <p className="mt-6 font-sans text-sm text-brand-silver/70">{s.note}</p>}
+    </section>
+  );
+}
 
 export const defaultSteps: [string, string][] = [
   ["Send us your brief", "Date, venue, guest count and your programme. WhatsApp is fastest."],
@@ -155,7 +182,7 @@ export function ReviewsAndPromise({ first = [] }: { first?: string[] }) {
         <div>
           <h2 className="font-display text-xl text-brand-off-white md:text-2xl">Worried it&apos;ll fail mid-speech?</h2>
           <p className="mt-1.5 font-sans leading-relaxed text-brand-off-white/75">
-            If a technical issue ever happens during your event, our team resolves it within thirty minutes or you receive an immediate discount.
+            If a technical issue ever happens during your event, our team resolves it within thirty minutes or you receive a rebate, as set out in your quote.
           </p>
         </div>
       </div>
@@ -314,9 +341,10 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
             <Eyebrow>{c.sizing.eyebrow}</Eyebrow>
             <h2 className="mt-4 font-display text-4xl text-brand-off-white md:text-5xl">{c.sizing.title}</h2>
             <p className="mt-4 max-w-2xl font-sans text-brand-off-white/70">{c.sizing.intro}</p>
-            <div className="mt-8">
-              <Placeholder>{c.sizing.placeholder}</Placeholder>
+            <div className="mt-8 rounded-2xl border border-white/10 bg-brand-charcoal/40 p-6 md:p-8">
+              <FactRows rows={c.sizing.rows} />
             </div>
+            {c.sizing.note && <p className="mt-4 font-sans text-sm text-brand-silver/70">{c.sizing.note}</p>}
           </section>
         )}
 
@@ -390,15 +418,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
         </section>
 
         {/* 11. A typical setup */}
-        {c.typicalSetup && (
-          <section className="mt-20 rounded-3xl border border-white/10 bg-brand-charcoal/60 p-7 md:mt-28 md:p-10">
-            <Eyebrow>A typical setup</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl text-brand-off-white md:text-4xl">{c.typicalSetup.title}</h2>
-            <div className="mt-6">
-              <Placeholder>{c.typicalSetup.placeholder}</Placeholder>
-            </div>
-          </section>
-        )}
+        {c.typicalSetup && <SetupSection s={c.typicalSetup} className="mt-20 md:mt-28" />}
 
         {/* 12. Included + add-ons */}
         <section className="grid gap-10 pt-20 md:pt-28 lg:grid-cols-2 lg:gap-16">

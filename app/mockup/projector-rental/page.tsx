@@ -17,8 +17,8 @@ const c: ServiceContent = {
   intro: "Projector rental for your seminar, town hall, school ceremony or outdoor movie night, with the screen included. We deliver it, line it up and stay on site, so your slides just work.",
   introRetained: "High Brightness Projection for Corporate Events, Presentations, Outdoor Movie Nights, Exhibitions and Roadshows.",
   seeWorkLabel: "See our projector work",
-  heroImages: ["/services-hero/services_projector-rental.webp", "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-5.jpg"],
-  heroAlt: "Projector rental in Singapore: an outdoor projection screen on a truss frame",
+  heroImages: ["/portfolio-jobs/projector-rental_projector-community-movie-screening.webp", "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-5.jpg"],
+  heroAlt: "Projector rental in Singapore: a PixelPro projector and speakers at a packed community movie screening",
   pains: [
     { worry: "“The room is bright. Will the slides look washed out?”", fix: "We bring projectors bright enough for lit halls, and very bright laser projectors for big rooms. For really bright venues, we'll tell you if an LED wall is the better choice.", spec: "5,000-lumen projectors · 10,000-lumen laser projectors" },
     { worry: "“There's no space to put the projector.”", fix: "Short-throw and ultra-short-throw projectors sit close to the screen, so nobody walks through the picture.", spec: "Short-throw lenses · ultra-short-throw projector" },
@@ -57,7 +57,19 @@ const c: ServiceContent = {
     { who: "Brand and marketing teams", events: "Exhibitions, roadshows, launches", copy: "Projection for booths and launches, with short-throw options where space is tight. For bright mall atriums, we'll recommend LED.", links: [{ label: "LED wall rental", href: "/mockup/led-walls" }] },
     { who: "Event agencies and planners", events: "AV and technical production partner", copy: "Running the event for a client? We can supply and run the projection with our own crew, so you deal with one supplier.", links: [{ label: "Event production", href: "/mockup/event-production" }] },
   ],
-  sizing: { eyebrow: "Sizing", title: "Which projector and screen do I need?", intro: "It depends on the room size, how bright it is, and how far back your guests sit. Send us your venue and guest count and we'll recommend a setup.", placeholder: "3–4 rows from Jovin's job list, e.g. \"[screen size] + [projector], [venue type], about [N] guests\". Only setups PixelPro has actually run." },
+  sizing: {
+    eyebrow: "Sizing",
+    title: "Which projector and screen do I need?",
+    intro: "It depends on the room size, how bright it is, and how far back your guests sit. These are the three projectors we own and where each one fits.",
+    rows: [
+      ["Small or tight rooms", "Ultra-short-throw projector (3,300 lumens). It sits right in front of the screen, so nobody walks through the picture"],
+      ["Seminars and halls", "5,000-lumen projectors, our standard choice when there's a clear spot for the projector"],
+      ["Big rooms and night screenings", "10,000-lumen laser projectors with a short-throw lens, about 1 to 3 m from the screen"],
+      ["Screens", "120-inch fast-fold (our standard), a 250-inch fast-fold for big rooms and movie nights, and a 100-inch fabric screen for small budgets"],
+      ["Setups we've run", "Two 120-inch screens with two 5,000-lumen projectors for a community club music night · a 120-inch screen with a 10,000-lumen projector for a community club event"],
+    ],
+    note: "In bright daylight, an LED wall looks much better than any projector. We'll tell you which fits your venue.",
+  },
   priceFactors: [
     ["Screen size", "A 100 or 120-inch screen", "A 250-inch screen, or several screens"],
     ["Room brightness", "A dim room: a standard projector is enough", "A bright hall or outdoors: a laser projector, or LED"],
@@ -81,12 +93,20 @@ const c: ServiceContent = {
   jobs: {
     title: "Screens we've set up",
     items: [
-      { img: "/services-av-projector/pixelpro-studios-projector-rental-singapore.jpg", alt: "PixelPro Studios projector setup", placeholder: "Caption: \"[screen size] + [projector], [venue type], [N] guests\". No client names." },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-5.jpg", alt: "PixelPro Studios projection at an event", placeholder: "Caption: \"[screen size] + [projector], [venue type], [N] guests\". No client names." },
-      { img: "/services-av-projector/pixelpro-studios-projector-screen-rental-singapore.jpg", alt: "PixelPro Studios projector screen", placeholder: "Caption: \"[screen size] + [projector], [venue type], [N] guests\". No client names." },
+      { img: "/portfolio-jobs/projector-rental_two-120-inch-screens-community-club.webp", alt: "Projector rental: song lyrics on a 120-inch PixelPro screen at a community club music night", caption: "Two 120-inch screens and two 5,000-lumen projectors showing song lyrics for a sing-along night at a community club hall" },
+      { img: "/portfolio-jobs/projector-rental_movie-screening-crowd.webp", alt: "Families watching a community movie screening on a PixelPro projector screen", caption: "Projector, screen and speakers for a community movie screening, with families seated on the floor" },
+      { img: "/portfolio-jobs/projector-rental_screen-and-speakers-setup.webp", alt: "Fast-fold projector screen with skirting and speakers set up before a screening", caption: "The same screening before doors open: fast-fold screen with skirting, speakers on stands, projector on its case" },
     ],
   },
-  typicalSetup: { title: "What a 150-guest seminar usually needs", placeholder: "From the job list: guests · venue type · screen size · projector · crew on site · setup time. One line under it: \"Based on [N] of our seminar jobs. No client named.\"" },
+  typicalSetup: {
+    title: "A community club music night with two screens",
+    rows: [
+      ["Event", "Changi Simei Ukulele Night 2026, a free sing-along night in the community club's multi-purpose hall"],
+      ["Screens", "2 × 120-inch fast-fold screens and 2 × Panasonic 5,000-lumen projectors, so every seat could read the lyrics"],
+      ["Sound", "2 × 15-inch speakers, 2 stage monitors, a 16-channel mixer, a wireless mic and 6 instrument mics"],
+      ["Crew", "A sound engineer on site; we delivered, set up, tested and packed everything away"],
+    ],
+  },
   includedTitle: "You don't have to touch a thing",
   included: [
     "We pick the projector and screen for your room and lighting",
@@ -106,7 +126,7 @@ const c: ServiceContent = {
   faqs: [
     { question: "How much does projector rental cost?", answer: "We quote per event, because the price depends on the screen size, how bright the room is, how many screens you need, how long the event runs and venue access. Send us your brief and we'll reply with a setup and a quote." },
     { question: "I'm not technical. What do I need to do?", answer: "Send us your slides and videos, and bring your laptop early if you're presenting from it. We set up, align and test everything with you before guests arrive." },
-    { question: "What if something goes wrong in the middle of the event?", answer: "We carry backup projection equipment and have someone on site. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
+    { question: "What if something goes wrong in the middle of the event?", answer: "We carry backup projection equipment and have someone on site. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
     { question: "How big a screen can you provide?", answer: "We have 100-inch fabric screens, a 120-inch fast-fold screen (our go-to portable option) and a 250-inch fast-fold screen for large rooms and outdoor screenings." },
     { question: "Will a projector work in a bright room?", answer: "Our high-brightness and laser projectors handle lit halls well. For very bright venues, mall atriums or daylight outdoors, an LED wall gives a clearer picture, and we'll tell you if that's the better choice." },
     { question: "Do you have short-throw projectors?", answer: "Yes. Short-throw and ultra-short-throw projectors sit close to the screen, which helps in small rooms and stops people casting shadows." },

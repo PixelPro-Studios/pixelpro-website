@@ -43,10 +43,6 @@ const c: EventContent = {
       ["Pack-down", "We pack everything away after the session."],
     ],
   },
-  typicalSetup: {
-    title: "A typical setup for a 300-person town hall",
-    placeholder: "From Jovin's job list (bible §10): attendees · venue type · speakers · headset and handheld mics · screen · crew on site · setup time. One line under it: \"Based on [N] of our town hall jobs. No client named.\" Leave out if no town hall job is confirmed.",
-  },
   coreTitle: "Built to make every update heard and seen",
   priceFactors: [
     ["Attendees and room size", "A meeting room or small hall", "An auditorium or ballroom: more speakers"],
@@ -59,9 +55,9 @@ const c: EventContent = {
   photos: {
     title: "Talks, panels and meetings we've run",
     items: [
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-7.jpg", alt: "Fireside chat with handheld mics and slides on screen, sound by PixelPro Studios", placeholder: "Caption: \"[mics, screen], [venue type], [N] attendees\". No client names." },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-2.jpg", alt: "Panel discussion on stage with mics for each speaker, by PixelPro Studios", placeholder: "Caption: \"[mics, stage, screen], [venue type], [N] attendees\". No client names." },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-6.jpg", alt: "Emcee on stage with a headset mic and slides on screen, by PixelPro Studios", placeholder: "Caption: \"[mics, screen], [venue type]\". No client names." },
+      { img: "/portfolio-jobs/town-hall-sound-system_full-atrium-led-wall.webp", alt: "Town hall sound system: a full atrium audience facing a speaker, LED wall and PixelPro speakers", caption: "A full atrium for a university investor day: speakers either side of the stage and an LED wall behind the presenter" },
+      { img: "/portfolio-jobs/conference-av-rental_panel-discussion-led-wall.webp", alt: "Panel discussion with a mic for each speaker in front of a PixelPro LED wall", caption: "Panel discussion with a mic for each speaker, at a three-day forum for about 100 delegates" },
+      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-7.jpg", alt: "Fireside chat with handheld mics and slides on screen, sound by PixelPro Studios", caption: "Fireside chat with handheld mics and slides on screen" },
     ],
   },
   included: [
@@ -83,7 +79,7 @@ const c: EventContent = {
     { question: "How many mics do we need for the Q&A?", answer: "It depends on the room. A small room may need one or two handhelds; a large hall needs more, so runners can reach the floor quickly. Tell us your room and attendee count and we'll recommend a number." },
     { question: "Can staff join the town hall online?", answer: "Yes. We run compact livestreams with up to four cameras, so remote staff see the presenters and slides. For large broadcast productions, we'll tell you honestly that it's outside our compact setup." },
     { question: "Can you handle an AGM as well?", answer: "Yes. AGMs need the same things as a town hall: clear mics for the chair and speakers, mics for shareholder questions and slides on screen." },
-    { question: "What if a mic fails during the session?", answer: "Our engineer is on site with backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
+    { question: "What if a mic fails during the session?", answer: "Our engineer is on site with backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
   ],
   related: [
     { label: "Conference AV rental", href: "/mockup/events/conference-av-rental" },

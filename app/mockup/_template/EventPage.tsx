@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FaqSection from "@/components/FaqSection";
 import { ArrowRight, Check, MessageCircle } from "lucide-react";
-import { Eyebrow, Placeholder, ReviewsAndPromise, Tick, WhatsAppButton, trust, defaultSteps } from "./ServicePage";
+import { Eyebrow, Placeholder, ReviewsAndPromise, SetupSection, Tick, WhatsAppButton, trust, defaultSteps, type SetupBlock } from "./ServicePage";
 import { Star } from "lucide-react";
 
 type LinkT = { label: string; href: string };
@@ -22,7 +22,7 @@ export type EventContent = {
   reviewsFirst?: string[];
   pitch: { title: string; paragraphs: string[] }; // ties the core services to this event
   moments: { title: string; intro: string; items: [string, string][] }; // the run of show: moment → what we set up
-  typicalSetup: { title: string; placeholder: string }; // block 5b, from the bible job table only
+  typicalSetup?: SetupBlock; // block 5b: a real job from Jovin's write-ups, never invented; leave out if none
   coreTitle: string; // "Built to…" heading
   timeline?: { title: string; intro: string; items: [string, string][] }; // when to book
   priceFactors: [string, string, string][];
@@ -122,13 +122,7 @@ export default function EventPage({ c }: { c: EventContent }) {
         </section>
 
         {/* 5b. A typical setup (bible job table only, never invented) */}
-        <section className="mt-20 rounded-3xl border border-white/10 bg-brand-charcoal/60 p-7 md:mt-28 md:p-10">
-          <Eyebrow>A typical setup</Eyebrow>
-          <h2 className="mt-4 font-display text-3xl text-brand-off-white md:text-4xl">{c.typicalSetup.title}</h2>
-          <div className="mt-6">
-            <Placeholder>{c.typicalSetup.placeholder}</Placeholder>
-          </div>
-        </section>
+        {c.typicalSetup && <SetupSection s={c.typicalSetup} className="mt-20 md:mt-28" />}
 
         {/* 6. Built to… (shared core service cards) */}
         <section className="pt-20 md:pt-28">

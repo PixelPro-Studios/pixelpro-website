@@ -44,8 +44,14 @@ const c: EventContent = {
     ],
   },
   typicalSetup: {
-    title: "A typical mall atrium setup",
-    placeholder: "From Jovin's job list (bible §10): venue type · LED wall size and pitch · speakers and mics · stage · crew on site · setup time. One line under it: \"Based on [N] of our roadshow jobs. No client named.\" Leave out if no roadshow job is confirmed.",
+    title: "A mall atrium festival, built overnight",
+    rows: [
+      ["Event", "Caregiving Fest 2026 by the Caregiving Welfare Association at Sengkang Grand Mall, with booths, performances and a guest-of-honour segment"],
+      ["Screen and stage", "5.5 m × 3 m LED wall above a 7 m × 4 m stage with steps, skirting and a rostrum"],
+      ["Sound", "4 speakers, a stage monitor, a digital mixer, 5 Shure wireless mics and 2 headset mics"],
+      ["Setup", "Most of the build happened overnight, so the screen, stage and sound were tested before the mall opened"],
+      ["Crew", "LED operation, sound engineering and on-site support for the whole day"],
+    ],
   },
   coreTitle: "Built to make your booth the one people stop at",
   priceFactors: [
@@ -59,9 +65,9 @@ const c: EventContent = {
   photos: {
     title: "Mall atriums and activations we've set up",
     items: [
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-9.jpg", alt: "LED wall and sound set up in a mall atrium by PixelPro Studios", placeholder: "Caption: \"[LED size, sound], mall atrium\". No client names." },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-3.jpg", alt: "Performance in a mall atrium with speakers by PixelPro Studios", placeholder: "Caption: \"[speakers, mics], mall atrium\". No client names." },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-1.jpg", alt: "Outdoor community event with speakers by PixelPro Studios", placeholder: "Caption: \"[speakers, mics], outdoor\". No client names." },
+      { img: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", alt: "Roadshow LED screen rental: a 5.5 m × 3 m PixelPro LED wall in a mall atrium with a seated crowd", caption: "5.5 m × 3 m LED wall and 7 m × 4 m stage for a festival in a mall atrium, seen from the level above" },
+      { img: "/portfolio-jobs/roadshow-led-screen-rental_mall-atrium-crowd.webp", alt: "Performers on a PixelPro stage under an LED wall in a mall atrium", caption: "Performances on the same stage, with sound from 4 speakers and 7 wireless and headset mics" },
+      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-9.jpg", alt: "LED wall and sound set up in a mall atrium by PixelPro Studios", caption: "LED wall and speakers for another mall atrium event" },
     ],
   },
   included: [

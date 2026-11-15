@@ -23,7 +23,7 @@ const c: ServiceContent = {
     { worry: "“We only found out about the venue's problems on the day.”", fix: "We walk the venue first: power, cable runs, sightlines, stage height and the light in the room, so problems are fixed before load-in.", spec: "Site visit for larger or unusual setups" },
     { worry: "“The slides didn't show properly on the screen.”", fix: "On setup day we run through every one of your slides and videos on the screen, so you see them as your guests will before doors open.", spec: "Every slide tested on setup day" },
     { worry: "“The mics cut out halfway through the speech.”", fix: "Our sound engineer sets up and sound checks every mic on the day, and we map every mic, laptop and screen before load-in.", spec: "Signal-flow plan · same-day sound check" },
-    { worry: "“What if something fails mid-event?”", fix: "We bring spare screen panels and backup mics, so a faulty part is swapped on the spot. Any technical issue is resolved within thirty minutes, or you get an immediate discount.", spec: "Spare panels and mics · 30-minute promise" },
+    { worry: "“What if something fails mid-event?”", fix: "We bring spare screen panels and backup mics, so a faulty part is swapped on the spot. Any technical issue is resolved within thirty minutes, or you get a rebate, as set out in your quote.", spec: "Spare panels and mics · 30-minute promise" },
   ],
   reviewsFirst: ["Gwendolyn Anne David", "Tan Hee Pheng", "Candy Mak"],
   story: {
@@ -88,9 +88,20 @@ const c: ServiceContent = {
   jobs: {
     title: "Events we've planned and run",
     items: [
-      { img: "/blog/ndp-2026-marina-barrage-live-screening.webp", alt: "LED wall, stage and sound for the NDP 2026 live screening at Marina Barrage", caption: "LED wall, stage and sound for the NDP 2026 live screening at Marina Barrage" },
+      { img: "/blog/ndp-2026-marina-barrage-live-screening.webp", alt: "Outdoor LED wall and sound planned with site visits for the NDP 2026 screening at Marina Barrage", caption: "Site visits before PUB's NDP 2026 screening at Marina Barrage to plan the LED wall, speaker spread, power and weather cover" },
+      { img: "/portfolio-jobs/event-av-planning_control-desk-beside-the-stage.webp", alt: "PixelPro control desk beside a stage in a mall atrium", caption: "Mall event, planned around an overnight build: LED wall, 7 m × 4 m stage and sound installed before the mall opened, control desk beside the stage" },
       { img: "/portfolio-live-music/event-av-planning_sound-check-before-doors-open.webp", alt: "PixelPro sound check at the mixing desk before a live music show opens", caption: "Sound check before doors open: speakers, monitors, mics and a 16-channel mixer for a record show with live bands, run by our engineer all day" },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-5.jpg", alt: "PixelPro Studios event", placeholder: "Caption: \"[event type], [venue type], [N] guests: what we planned\". No client names." },
+    ],
+  },
+  typicalSetup: {
+    eyebrow: "A real job",
+    title: "Planning sound for a school orientation around a fountain",
+    rows: [
+      ["Event", "Victoria Junior College's JC1 orientation finale: a mass dance around Suntec's Fountain of Wealth, 5.30 pm to 8 pm"],
+      ["The problem", "Students stand all around a circular venue, so speakers only at the front would leave half of them unable to hear"],
+      ["The plan", "8 outdoor speakers spread around the fountain, a digital mixer and 4 wireless mics"],
+      ["Power and permits", "A 25 kVA generator with a distribution board, safety fencing, a licensed electrical worker and support for the SCDF temporary change-of-use permit"],
+      ["On the day", "Our crew coordinated with Suntec's venue management for setup and pack-down, and ran the sound throughout"],
     ],
   },
   includedTitle: "Part of every PixelPro production",
@@ -114,7 +125,7 @@ const c: ServiceContent = {
     { question: "How much does event AV planning cost?", answer: "We quote per event. Planning is how we run every PixelPro production, and the price depends on the size of the programme, whether we need a site visit, whether you'd like a full rehearsal, livestream or recording, and what we're running on the day." },
     { question: "Do you do site visits?", answer: "Yes, for larger or unusual setups. We check power locations, cable runs, sightlines, stage height and ambient light, and network capacity if you're livestreaming." },
     { question: "Do you rehearse before the event?", answer: "On every job we run through all your slides and videos on the screen, and our sound engineer sound checks every mic on setup day. If you'd like a full rehearsal of the programme (transitions, clicker handoffs, walk-on music, Q&A mics), just ask." },
-    { question: "What happens if something fails?", answer: "We bring spare screen panels, backup mics and spare HDMI and adapters, so a faulty part is swapped on the spot, and each crew member has a clear role. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
+    { question: "What happens if something fails?", answer: "We bring spare screen panels, backup mics and spare HDMI and adapters, so a faulty part is swapped on the spot, and each crew member has a clear role. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
     { question: "I'm organising this for the first time. Can you help?", answer: "Yes. We start with the outcome, not the gear list: your audience, room and programme. From there we recommend the setup and walk you through what to confirm. There's no minimum booking, so small events are welcome." },
     { question: "Can you plan a hybrid or livestreamed event?", answer: "Yes, for compact setups of up to four cameras. We check network capacity and backup connectivity at the site visit." },
     { question: "How far in advance should we start?", answer: "We recommend booking at least two to four weeks ahead for standard events, and earlier for larger productions. If you need urgent support, feel free to reach out — we respond fast." },

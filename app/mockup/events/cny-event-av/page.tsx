@@ -42,10 +42,6 @@ const c: EventContent = {
       ["Pack-down", "We pack everything away after the last guest leaves."],
     ],
   },
-  typicalSetup: {
-    title: "A typical CNY dinner setup",
-    placeholder: "From Jovin's CNY examples (bible §10, still to arrive): guests · venue type · LED wall size · speakers and mics · stage size · crew on site · setup time. One line under it: \"Based on [N] of our CNY jobs. No client named.\" Leave this block out if no CNY job is confirmed.",
-  },
   coreTitle: "Built to keep your CNY programme running",
   timeline: {
     title: "Book early for CNY",
@@ -67,9 +63,9 @@ const c: EventContent = {
   photos: {
     title: "Banquets and Chinese performances we've supported",
     items: [
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-1.jpg", alt: "Banquet hall with an LED wall and stage, set up by PixelPro Studios", placeholder: "Caption: \"[LED size, sound], [venue type], [N] guests\". No client names." },
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-6.jpg", alt: "Chinese orchestra on a stage with an LED wall, sound by PixelPro Studios", placeholder: "Caption: \"[stage, sound, screen], [venue type], [N] guests\". No client names." },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-2.jpg", alt: "Chinese ensemble with mics and stage lighting by PixelPro Studios", placeholder: "Caption: \"[mics, speakers], [venue type]\". No client names." },
+      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-1.jpg", alt: "Banquet hall with an LED wall and stage, set up by PixelPro Studios", caption: "Banquet hall with an LED wall and stage" },
+      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-6.jpg", alt: "Chinese orchestra on a stage with an LED wall, sound by PixelPro Studios", caption: "Chinese orchestra on stage, with sound and an LED wall" },
+      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-2.jpg", alt: "Chinese ensemble with mics and stage lighting by PixelPro Studios", caption: "Chinese ensemble with instrument mics and stage lighting" },
     ],
   },
   included: [
@@ -91,7 +87,7 @@ const c: EventContent = {
     { question: "How early should we book for Chinese New Year?", answer: "We recommend at least two to four weeks ahead for standard events, and earlier for LED walls and peak season. CNY is peak season, so book as soon as your date and venue are fixed." },
     { question: "Can you show our lucky draw on the screen?", answer: "Yes. Send us your lucky-draw graphics and videos and we run them on the LED wall on cue. We can also set up a walk-up mic for the winners." },
     { question: "Can you arrange an emcee or performers?", answer: "Yes, through our partners. We arrange bilingual emcees and performers to suit your event, and coordinate them with the sound and screen so you have one contact." },
-    { question: "What if something goes wrong during the dinner?", answer: "Our crew stays on site the whole time and we carry spare LED panels and backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive an immediate discount." },
+    { question: "What if something goes wrong during the dinner?", answer: "Our crew stays on site the whole time and we carry spare LED panels and backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
   ],
   related: [
     { label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" },
