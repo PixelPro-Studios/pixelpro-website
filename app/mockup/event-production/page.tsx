@@ -84,7 +84,7 @@ const c: ServiceContent = {
   jobs: {
     title: "Events we've produced",
     items: [
-      { img: "/blog/ndp-2026-marina-barrage-live-screening.webp", alt: "LED wall, sound and lighting for the NDP 2026 live screening at Marina Barrage", caption: "5 m × 3 m outdoor LED wall, sound covering over 100 m and outdoor lighting for PUB's NDP 2026 live screening at Marina Barrage" },
+      { img: "/portfolio-jobs/event-production_sound-engineer-marina-barrage.webp", alt: "PixelPro sound engineer at the mixing desk at Marina Barrage on National Day", caption: "Our engineer at the desk during PUB's NDP 2026 live screening at Marina Barrage: 5 m × 3 m outdoor LED wall, sound covering over 100 m, outdoor lighting" },
       { img: "/portfolio-jobs/school-sound-system-rental_prize-day-stage-led-and-lighting.webp", alt: "School prize day stage with upright LED panels and stage lighting by PixelPro", caption: "Upright LED panels, moving heads, PAR lights and sound for a school prize day, while a second crew ran an outdoor festival next door" },
       { img: "/portfolio-live-music/event-production_stage-sound-and-crew.webp", alt: "PixelPro Studios sound setup and banner beside a live music stage", caption: "Full sound for a one-day record show with live bands at a convention centre: speakers, monitors, wireless mics, mixer and a sound engineer" },
     ],

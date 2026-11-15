@@ -16,7 +16,7 @@ const c: ServiceContent = {
   intro: "LED wall rental for your dinner and dance, town hall, school event or launch. Our crew sets up the LED screen, runs it and packs it away, so you can focus on your guests.",
   introRetained: "Bright LED displays engineered for conferences, concerts, exhibitions, roadshows, launches, and large-scale events in Singapore.",
   seeWorkLabel: "See our LED work",
-  heroImages: ["/services-hero/services_led-walls.webp", "/services-av-led/pixelpro-studios-led-wall-services-singapore.jpg"],
+  heroImages: ["/services-hero/services_led-walls.webp", "/portfolio-jobs/led-wall-rental_6x2-5m-led-wall-pitch-day.webp"],
   heroAlt: "LED wall rental in Singapore: a PixelPro LED wall at a live event",
   pains: [
     { worry: "“The back of the room can't see the slides.”", fix: "A sharp LED wall big enough to fill the stage, with side screens and a live camera on the speaker if the room is long.", spec: "P2.6 indoor screen · up to about 25 m²" },
@@ -86,7 +86,7 @@ const c: ServiceContent = {
   jobs: {
     title: "LED screens we've built for events",
     items: [
-      { img: "/portfolio-jobs/led-wall-rental_outdoor-5x3m-led-wall-marina-barrage.webp", alt: "Outdoor LED wall rental: a 5 m × 3 m PixelPro LED wall at Marina Barrage for National Day", caption: "5 m × 3 m outdoor LED wall, 8 speakers and a subwoofer for PUB's NDP 2026 live screening at Marina Barrage" },
+      { img: "/portfolio-jobs/school-sound-system-rental_prize-day-stage-led-and-lighting.webp", alt: "Four upright PixelPro LED panels beside a school hall stage", caption: "Four 1 m × 2 m upright LED panels beside a school hall stage for a prize day, with moving heads and PAR lights" },
       { img: "/portfolio-jobs/conference-av-rental_led-wall-hotel-ballroom-forum.webp", alt: "3.5 m × 2.5 m LED wall in a hotel ballroom for an international forum", caption: "3.5 m × 2.5 m LED wall and a 50-inch confidence monitor for a three-day international forum, about 100 delegates, hotel ballroom" },
       { img: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", alt: "5.5 m × 3 m LED wall above a stage in a mall atrium, set up by PixelPro", caption: "5.5 m × 3 m LED wall and a 7 m × 4 m stage in a mall atrium, built overnight before the mall opened" },
     ],

@@ -78,7 +78,7 @@ const c: ServiceContent = {
   jobs: {
     title: "Stages we've built",
     items: [
-      { img: "/portfolio-jobs/stage-rental_7x4m-stage-and-led-wall-in-a-mall.webp", alt: "Stage rental in Singapore: a 7 m × 4 m PixelPro stage with red skirting under an LED wall in a mall", caption: "7 m × 4 m stage with skirting, a rostrum and a 5.5 m × 3 m LED wall for Caregiving Fest in a mall atrium, built overnight" },
+      { img: "/portfolio-jobs/event-av-planning_control-desk-beside-the-stage.webp", alt: "Stage rental in Singapore: a 7 m × 4 m PixelPro stage with steps and red skirting in a mall atrium", caption: "7 m × 4 m stage with steps, skirting and a rostrum for Caregiving Fest in a mall atrium, built overnight, with our control desk beside it" },
       { img: "/portfolio-jobs/stage-rental_stage-steps-and-skirting.webp", alt: "Stage stairs and skirting on a PixelPro stage", caption: "Stage stairs and full skirting on the same stage, ready before the mall opened" },
       { img: "/portfolio-jobs/roadshow-led-screen-rental_mall-atrium-crowd.webp", alt: "Performers on a PixelPro stage in a mall atrium with a seated crowd", caption: "The same stage in use: performances, speeches and a guest-of-honour segment" },
     ],
