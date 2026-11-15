@@ -7,6 +7,7 @@ import FaqSection from "@/components/FaqSection";
 import { ArrowRight, Check, MessageCircle } from "lucide-react";
 import { Eyebrow, Placeholder, ReviewsAndPromise, SetupSection, Tick, WhatsAppButton, trust, defaultSteps, type SetupBlock } from "./ServicePage";
 import { Star } from "lucide-react";
+import { isLive } from "./links";
 
 type LinkT = { label: string; href: string };
 
@@ -284,7 +285,7 @@ export default function EventPage({ c }: { c: EventContent }) {
         <section className="mx-auto mt-20 max-w-4xl">
           <h2 className="text-center font-display text-2xl text-brand-off-white">Related</h2>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            {c.related.map((r) => (
+            {c.related.filter((r) => isLive(r.href)).map((r) => (
               <Link key={r.href} href={r.href} className="rounded-full border border-white/15 px-4 py-2 font-sans text-sm text-brand-silver hover:border-white/40 hover:text-brand-off-white">
                 {r.label}
               </Link>

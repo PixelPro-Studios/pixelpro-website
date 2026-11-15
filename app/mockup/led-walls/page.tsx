@@ -49,7 +49,7 @@ const c: ServiceContent = {
     { who: "Schools", events: "Graduations, speech days, concerts", copy: "We quote through GeBIZ and handle the technical side, so the teacher-in-charge doesn't have to. We already work with MOE schools.", links: [{ label: "LED wall for graduation", href: "/events/led-wall-rental-for-graduation" }] },
     { who: "Government and community", events: "Public screenings, National Day, community events", copy: "Public events that can't fail. GeBIZ registered and bizSAFE Level 3. We ran the outdoor LED wall, sound and lighting for the NDP 2026 screening at Marina Barrage. Registered charities and NPOs get 10% off, and we donate 5% of the booking.", links: [{ label: "Outdoor LED wall rental", href: "/events/outdoor-led-wall-rental" }] },
     { who: "Brand and marketing teams", events: "Roadshows, launches, activations", copy: "A screen bright enough to stop people in a busy mall, plus photos and video you can use after the event.", links: [{ label: "Roadshow LED screen", href: "/mockup/events/roadshow-led-screen-rental" }, { label: "LED wall for product launches", href: "/events/led-wall-for-product-launch" }] },
-    { who: "Event agencies and planners", events: "AV and technical production partner", copy: "Running the event for a client? We can be your AV team: screen, stage and sound with our own crew, so you deal with one supplier.", links: [{ label: "Event production", href: "/services/event-production" }] },
+    { who: "Event agencies and planners", events: "AV and technical production partner", copy: "Running the event for a client? We can be your AV team: screen, stage and sound with our own crew, so you deal with one supplier.", links: [{ label: "Event production", href: "/mockup/event-production" }] },
   ],
   sizing: {
     eyebrow: "Sizing",
@@ -110,8 +110,8 @@ const c: ServiceContent = {
     "We pack everything away after",
   ],
   addOns: [
-    { label: "Stage", copy: "Up to 32 m², 60–100 cm high, with skirting and steps", href: "/services/stage-rental" },
-    { label: "Sound", copy: "Speakers, wireless and headset mics, and an engineer", href: "/services/sound-system-rental" },
+    { label: "Stage", copy: "Up to 32 m², 60–100 cm high, with skirting and steps", href: "/mockup/stage-rental" },
+    { label: "Sound", copy: "Speakers, wireless and headset mics, and an engineer", href: "/mockup/sound-system-rental" },
     { label: "Photo and video", copy: "Event photography, highlight films and social clips", href: "/services/photography" },
   ],
   quote: { title: "Get your LED wall quote", checklist: ["Event date", "Venue", "Number of guests", "Indoor or outdoor", "How long the event runs", "Screen size (if you know it)", "What you'll show: slides, video, live camera", "Need a stage or sound too?"] },

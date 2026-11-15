@@ -5,6 +5,9 @@ import Image from "next/image";
 import FaqSection from "@/components/FaqSection";
 import { ArrowRight, Check, MessageCircle, ShieldCheck, Star } from "lucide-react";
 import type { ReactNode } from "react";
+import { SafeCard, SafeLink, isLive } from "./links";
+
+export const plannedLinkClass = "inline-flex cursor-default items-center gap-1.5 font-sans text-sm font-semibold text-brand-silver/50 underline decoration-dotted decoration-white/30 underline-offset-4";
 
 type LinkT = { label: string; href: string };
 
@@ -252,19 +255,19 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
             <h2 className="mt-4 font-display text-4xl text-brand-off-white md:text-5xl">{c.services.title}</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {c.services.items.map((s) => (
-                <Link key={s.href} href={s.href} className="group overflow-hidden rounded-2xl border border-white/10 bg-brand-charcoal/70 transition-colors hover:border-white/30">
+                <SafeCard key={s.href} href={s.href} className="group overflow-hidden rounded-2xl border border-white/10 bg-brand-charcoal/70 transition-colors hover:border-white/30">
                   <div className="relative aspect-[16/9]">
                     <Image src={s.img} alt={s.title} fill className="object-cover" />
                   </div>
                   <div className="p-6 md:p-7">
                     <div className="flex items-center justify-between gap-4">
                       <h3 className="font-display text-2xl text-brand-off-white">{s.title}</h3>
-                      <ArrowRight className="h-5 w-5 shrink-0 text-brand-silver transition-transform group-hover:translate-x-1" />
+                      {isLive(s.href) && <ArrowRight className="h-5 w-5 shrink-0 text-brand-silver transition-transform group-hover:translate-x-1" />}
                     </div>
                     <p className="mt-1 font-sans text-sm font-medium text-brand-off-white/70">{s.subtitle}</p>
                     <p className="mt-3 font-sans text-sm leading-relaxed text-brand-silver/80">{s.copy}</p>
                   </div>
-                </Link>
+                </SafeCard>
               ))}
             </div>
           </section>
@@ -325,9 +328,9 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
                 <p className="mt-4 font-sans leading-relaxed text-brand-silver/85">{b.copy}</p>
                 <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
                   {b.links.map((l) => (
-                    <Link key={l.href} href={l.href} className="inline-flex items-center gap-1.5 font-sans text-sm font-semibold text-blue-300 hover:text-blue-200">
-                      {l.label} <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
+                    <SafeLink key={l.href} href={l.href} className="inline-flex items-center gap-1.5 font-sans text-sm font-semibold text-blue-300 hover:text-blue-200" plannedClassName={plannedLinkClass}>
+                      {l.label} {isLive(l.href) && <ArrowRight className="h-3.5 w-3.5" />}
+                    </SafeLink>
                   ))}
                 </div>
               </article>
@@ -389,7 +392,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
               <Eyebrow>{c.comparison.eyebrow}</Eyebrow>
               <h2 className="mt-4 font-display text-4xl leading-tight text-brand-off-white md:text-5xl">{c.comparison.title}</h2>
               <p className="mt-6 font-sans leading-relaxed text-brand-off-white/70">{c.comparison.body}</p>
-              {c.comparison.link && (
+              {c.comparison.link && isLive(c.comparison.link.href) && (
                 <Link href={c.comparison.link.href} className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-blue-300 hover:text-blue-200">
                   {c.comparison.link.label} <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -439,13 +442,13 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
             <h2 className="mt-4 font-display text-4xl text-brand-off-white md:text-5xl">One team for the whole event</h2>
             <div className="mt-8 space-y-4">
               {c.addOns.map((a) => (
-                <Link key={a.label} href={a.href} className="group block rounded-2xl border border-white/10 bg-brand-charcoal/70 p-6 transition-colors hover:border-white/30">
+                <SafeCard key={a.label} href={a.href} className="group block rounded-2xl border border-white/10 bg-brand-charcoal/70 p-6 transition-colors hover:border-white/30">
                   <div className="flex items-center justify-between">
                     <h3 className="font-display text-xl text-brand-off-white">{a.label}</h3>
-                    <ArrowRight className="h-4 w-4 text-brand-silver transition-transform group-hover:translate-x-1" />
+                    {isLive(a.href) && <ArrowRight className="h-4 w-4 text-brand-silver transition-transform group-hover:translate-x-1" />}
                   </div>
                   <p className="mt-2 font-sans text-sm text-brand-silver/80">{a.copy}</p>
-                </Link>
+                </SafeCard>
               ))}
             </div>
           </div>
@@ -499,7 +502,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
         <section className="mx-auto mt-20 max-w-4xl">
           <h2 className="text-center font-display text-2xl text-brand-off-white">Related</h2>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            {c.related.map((r) => (
+            {c.related.filter((r) => isLive(r.href)).map((r) => (
               <Link key={r.href} href={r.href} className="rounded-full border border-white/15 px-4 py-2 font-sans text-sm text-brand-silver hover:border-white/40 hover:text-brand-off-white">
                 {r.label}
               </Link>
