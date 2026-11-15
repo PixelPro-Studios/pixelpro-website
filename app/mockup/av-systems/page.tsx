@@ -32,7 +32,7 @@ const c: ServiceContent = {
     eyebrow: "What we supply",
     title: "Everything for your event's AV",
     items: [
-      { title: "Audio System Rental", subtitle: "Sound Systems for Concerts, Corporate Events, Roadshows, Exhibitions and Community Shows", copy: "We deliver professional audio solutions engineered for events that demand power, clarity and full reliability.", href: "/mockup/sound-system-rental", img: "/services-av-audio/pixelpro-studios-audio-visual-productions-singapore.jpg" },
+      { title: "Audio System Rental", subtitle: "Sound Systems for Concerts, Corporate Events, Roadshows, Exhibitions and Community Shows", copy: "We deliver professional audio solutions engineered for events that demand power, clarity and full reliability.", href: "/mockup/sound-system-rental", img: "/portfolio-live-music/sound-system-rental_mixing-desk-sound-engineer.webp" },
       { title: "LED Wall Rental", subtitle: "High-impact event visuals", copy: "Bright LED displays engineered for conferences, concerts, exhibitions, roadshows, launches, and large-scale events in Singapore.", href: "/mockup/led-walls", img: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp" },
       { title: "Projector and Screen Rental", subtitle: "High Brightness Projection for Corporate Events, Presentations, Outdoor Movie Nights, Exhibitions and Roadshows", copy: "We deliver projection setups sized for every type of event.", href: "/mockup/projector-rental", img: "/services-av-projector/pixelpro-studios-projector-rental-singapore.jpg" },
       { title: "Stage Rental", subtitle: "Modular Stages for Dinner and Dances, School Ceremonies, Concerts and Community Events", copy: "Modular stage platforms up to 32 m², 60 cm to 100 cm high, with skirting and steps.", href: "/mockup/stage-rental", img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-1.jpg" },
@@ -43,7 +43,7 @@ const c: ServiceContent = {
     title: "Stage Lighting Rental",
     subtitle: "Professional Lighting for Concerts, Corporate Shows, Roadshows, Exhibitions and Outdoor Events",
     paragraphs: [
-      "We provide full-scale lighting solutions designed to transform any venue into a dynamic, visually striking experience. From intimate stages to large outdoor arenas, our lighting systems create atmosphere, focus audience attention and elevate every performance or presentation.",
+      "We provide full-scale lighting solutions designed to transform any venue into a dynamic, visually striking experience. From intimate stages to outdoor events, our lighting systems create atmosphere, focus audience attention and elevate every performance or presentation.",
       "Our lighting designers and technicians plan every angle carefully to ensure balanced illumination, clean stage visibility and dramatic impact where needed. Whether the event requires a concert look, an elegant ambience, product highlighting, or a full theatrical treatment, we create a lighting plan that aligns with your theme and desired audience experience.",
     ],
     listTitle: "We offer a comprehensive range of lighting equipment, such as:",
@@ -51,20 +51,19 @@ const c: ServiceContent = {
       "LED Par cans",
       "Moving head spot, wash and beam lights",
       "Fresnel and profile stage lights (through our partners)",
-      "RGBWA+UV wash lights",
+      "RGBAW LED PAR lights",
       "Follow spots (through our partners)",
       "Uplighting",
       "Effect and ambience lighting",
       "DMX controllers",
-      "Wireless lighting systems",
-      "Lighting stands and truss-mounted rigs (truss through our partners)",
+      "Lighting stands and our goalpost truss (bigger truss rigs through our partners)",
       "Outdoor-rated fixtures",
     ],
     after: [
       "We handle layout planning, power distribution, mounting, safety checks, DMX programming, live cue operation and teardown. This gives organisers complete assurance that the lighting will enhance the event without complications.",
     ],
-    image: "/services-av-lighting/pixelpro-studios-stage-lighting-singapore.jpg",
-    imageAlt: "Stage lighting by PixelPro Studios",
+    image: "/portfolio-jobs/school-sound-system-rental_prize-day-stage-led-and-lighting.webp",
+    imageAlt: "School hall stage with PixelPro LED panels and coloured stage lighting",
   },
   buyers: [
     { who: "HR and admin teams", events: "Dinner and dances, town halls, CNY dinners", copy: "Organising the company D&D or town hall? One team handles the screen, stage and sound, so you're not chasing five vendors. Our crew runs everything while you host.", links: [{ label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" }, { label: "Town hall sound", href: "/mockup/events/town-hall-sound-system" }] },
@@ -97,7 +96,7 @@ const c: ServiceContent = {
     items: [
       { img: "/portfolio-jobs/conference-av-rental_led-wall-hotel-ballroom-forum.webp", alt: "AV rental for an international forum: delegates facing a PixelPro LED wall in a hotel ballroom", caption: "3.5 m × 2.5 m LED wall, presentation switcher and a confidence monitor for a three-day international forum, hotel ballroom" },
       { img: "/portfolio-jobs/led-wall-rental_6x2-5m-led-wall-pitch-day.webp", alt: "AV rental for a pitch day: a 6 m × 2.5 m PixelPro LED wall and speakers in a university atrium", caption: "6 m × 2.5 m LED wall, 2 speakers, a mixer and 5 mics for a university pitch day at SUTD" },
-      { img: "/portfolio-live-music/av-rental_stage-speakers-and-mixer.webp", alt: "AV rental for a live music show: PixelPro speakers on stands either side of the stage", caption: "Speakers, stage monitors, wireless mics, a 16-channel mixer and a sound engineer for a record show with live bands, convention centre" },
+      { img: "/portfolio-live-music/av-rental_stage-speakers-and-mixer.webp", alt: "AV rental for a live music show: PixelPro speakers on stands either side of the stage", caption: "Speakers, stage monitors, wireless mics, a digital mixer and a sound engineer for a record show with live bands, convention centre" },
     ],
   },
   typicalSetup: {

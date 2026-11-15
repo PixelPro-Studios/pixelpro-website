@@ -22,7 +22,7 @@ const c: ServiceContent = {
   pains: [
     { worry: "“The room is bright. Will the slides look washed out?”", fix: "We bring projectors bright enough for lit halls, and very bright laser projectors for big rooms. For really bright venues, we'll tell you if an LED wall is the better choice.", spec: "5,000-lumen projectors · 10,000-lumen laser projectors" },
     { worry: "“There's no space to put the projector.”", fix: "Short-throw and ultra-short-throw projectors sit close to the screen, so nobody walks through the picture.", spec: "Short-throw lenses · ultra-short-throw projector" },
-    { worry: "“We need a really big screen.”", fix: "Fast-fold screens from 100 to 250 inches, including one big enough for an outdoor movie night.", spec: "100\" fabric · 120\" and 250\" fast-fold screens" },
+    { worry: "“We need a really big screen.”", fix: "Screens from 100 to 250 inches, including a 250-inch fast-fold screen for big rooms and outdoor movie nights.", spec: "100\" fabric · 120\" and 250\" fast-fold screens" },
     { worry: "“What if my laptop won't connect?”", fix: "We handle the cables, signal and backup equipment, and test your laptop and slides before the event starts.", spec: "HDMI, audio and signal management · backup projection" },
   ],
   reviewsFirst: ["Jasmine Chye"],
@@ -32,7 +32,7 @@ const c: ServiceContent = {
     subtitle: "High Brightness Projection for Corporate Events, Presentations, Outdoor Movie Nights, Exhibitions and Roadshows",
     paragraphs: [
       "We deliver projection setups sized for every type of event. Whether it is a professional corporate presentation, a training session, a product showcase, a wedding montage, or an outdoor movie screening, our projectors and screens ensure your visuals look sharp, bright and immersive.",
-      "Every setup is planned to ensure maximum clarity and visibility regardless of venue lighting conditions. For brightly lit halls, shopping malls and outdoor environments, our high-lumen projectors guarantee crisp images that stay readable and impactful from all angles.",
+      "Every setup is planned to ensure maximum clarity and visibility regardless of venue lighting conditions. For brightly lit halls, shopping malls and outdoor environments, our high-lumen and laser projectors keep slides readable, and for bright outdoor settings we'll recommend an LED wall instead.",
     ],
     listTitle: "We provide a full range of projection equipment, including:",
     list: [
@@ -47,8 +47,8 @@ const c: ServiceContent = {
       "We support a wide range of event types such as corporate seminars, AGMs, exhibitions, roadshows, school ceremonies, product launches, outdoor screenings and community events. Our team handles delivery, lens adjustment, alignment, keystone correction, cable routing, testing and on-site support.",
       "We combine professional-grade projection systems with a young, detail focused team that ensures your visuals look impressive and run smoothly from start to finish. The result is a polished, reliable presentation that enhances your event and leaves a strong impression on your audience.",
     ],
-    image: "/services-av-projector/pixelpro-studios-projector-screen-rental-singapore.jpg",
-    imageAlt: "PixelPro Studios projector screen setup",
+    image: "/portfolio-jobs/projector-rental_two-120-inch-screens-community-club.webp",
+    imageAlt: "Song lyrics on a 120-inch PixelPro projector screen at a community club music night",
   },
   buyers: [
     { who: "HR and admin teams", events: "Town halls, seminars, AGMs, training", copy: "Slides that the whole room can read, a laptop that connects first time, and someone on site if anything changes. You present; we handle the screen.", links: [{ label: "Town hall sound", href: "/mockup/events/town-hall-sound-system" }] },
@@ -95,7 +95,7 @@ const c: ServiceContent = {
     items: [
       { img: "/portfolio-jobs/projector-rental_two-120-inch-screens-community-club.webp", alt: "Projector rental: song lyrics on a 120-inch PixelPro screen at a community club music night", caption: "Two 120-inch screens and two 5,000-lumen projectors showing song lyrics for a sing-along night at a community club hall" },
       { img: "/portfolio-jobs/projector-rental_movie-screening-crowd.webp", alt: "Families watching a community movie screening on a PixelPro projector screen", caption: "Projector, screen and speakers for a community movie screening, with families seated on the floor" },
-      { img: "/portfolio-jobs/projector-rental_screen-and-speakers-setup.webp", alt: "Fast-fold projector screen with skirting and speakers set up before a screening", caption: "The same screening before doors open: fast-fold screen with skirting, speakers on stands, projector on its case" },
+      { img: "/portfolio-jobs/sound-system-rental_community-club-hall-full-house.webp", alt: "A full community club hall with PixelPro projector screens either side of the stage", caption: "Projector screens either side of the stage, so the whole community club hall could follow the lyrics" },
     ],
   },
   typicalSetup: {
@@ -127,7 +127,7 @@ const c: ServiceContent = {
     { question: "How much does projector rental cost?", answer: "We quote per event, because the price depends on the screen size, how bright the room is, how many screens you need, how long the event runs and venue access. Send us your brief and we'll reply with a setup and a quote." },
     { question: "I'm not technical. What do I need to do?", answer: "Send us your slides and videos, and bring your laptop early if you're presenting from it. We set up, align and test everything with you before guests arrive." },
     { question: "What if something goes wrong in the middle of the event?", answer: "We carry backup projection equipment and have someone on site. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
-    { question: "How big a screen can you provide?", answer: "We have 100-inch fabric screens, a 120-inch fast-fold screen (our go-to portable option) and a 250-inch fast-fold screen for large rooms and outdoor screenings." },
+    { question: "How big a screen can you provide?", answer: "We have a 100-inch fabric screen, two 120-inch fast-fold screens (our go-to portable option) and a 250-inch fast-fold screen for large rooms and outdoor screenings." },
     { question: "Will a projector work in a bright room?", answer: "Our high-brightness and laser projectors handle lit halls well. For very bright venues, mall atriums or daylight outdoors, an LED wall gives a clearer picture, and we'll tell you if that's the better choice." },
     { question: "Do you have short-throw projectors?", answer: "Yes. Short-throw and ultra-short-throw projectors sit close to the screen, which helps in small rooms and stops people casting shadows." },
     { question: "Can you do an outdoor movie screening?", answer: "Yes. A 250-inch screen with a laser projector and outdoor sound works well once it's dark. The organiser arranges the screening licence." },

@@ -48,8 +48,8 @@ const c: ServiceContent = {
     after: [
       "When everyone knows the path of each signal, troubleshooting stays fast if something drifts. For keynote-heavy programmes, ask us for a full rehearsal of the transitions and handovers. And after the show, we capture notes while the event is fresh: what worked, what to improve, and which assets need delivery. That loop is how productions get sharper over time.",
     ],
-    image: "/photos/lightning-fast-response-time.jpg",
-    imageAlt: "PixelPro Studios crew at work",
+    image: "/portfolio-jobs/event-av-planning_control-desk-beside-the-stage.webp",
+    imageAlt: "PixelPro crew at the control desk beside a stage in a mall atrium",
   },
   steps: [
     ["Confirm the brief", "Audience, room layout, programme segments, livestream or recording, branding moments."],
@@ -88,9 +88,9 @@ const c: ServiceContent = {
   jobs: {
     title: "Events we've planned and run",
     items: [
-      { img: "/portfolio-jobs/event-production_sound-engineer-marina-barrage.webp", alt: "PixelPro sound engineer at Marina Barrage on National Day, after site visits to plan the setup", caption: "Site visits before PUB's NDP 2026 screening at Marina Barrage to plan the LED wall, speaker spread, power and weather cover" },
+      { img: "/portfolio-jobs/event-production_sound-engineer-marina-barrage.webp", alt: "PixelPro crew on site at Marina Barrage on National Day", caption: "Site visits before PUB's NDP 2026 screening at Marina Barrage to plan the LED wall, speaker spread, power and weather cover" },
       { img: "/portfolio-jobs/event-av-planning_control-desk-beside-the-stage.webp", alt: "PixelPro control desk beside a stage in a mall atrium", caption: "Mall event, planned around an overnight build: LED wall, 7 m × 4 m stage and sound installed before the mall opened, control desk beside the stage" },
-      { img: "/portfolio-live-music/event-av-planning_sound-check-before-doors-open.webp", alt: "PixelPro sound check at the mixing desk before a live music show opens", caption: "Sound check before doors open: speakers, monitors, mics and a 16-channel mixer for a record show with live bands, run by our engineer all day" },
+      { img: "/portfolio-live-music/event-av-planning_sound-check-before-doors-open.webp", alt: "PixelPro sound check at the mixing desk before a live music show opens", caption: "Sound check before doors open: speakers, monitors, mics and a digital mixer for a record show with live bands, run by our engineer all day" },
     ],
   },
   typicalSetup: {

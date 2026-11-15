@@ -37,7 +37,7 @@ const c: ServiceContent = {
       "Indoor and outdoor LED panels",
       "Modular screens sized to your venue",
       "Full-stage LED backdrops and side screens",
-      "Ground-supported or rigged configurations",
+      "Ground-supported, or rigged after a venue and safety check",
       "Live camera feeds and presentation playback",
       "Video processors and signal management",
       "Power distribution, calibration, and testing",
@@ -57,8 +57,8 @@ const c: ServiceContent = {
     intro: "The screens we own, the walls we've built with them, and the one rule that decides the size: how close your nearest guests sit.",
     rows: [
       ["Indoor screen (P2.6)", "Up to about 25 m² from our own stock, for example 5 m × 3 m. Sharp when the nearest guests sit at least 2.6 m away."],
-      ["Outdoor screen (P3.9)", "Up to about 18 m², for example 6 m × 3 m or 5 m × 2 m. Bright enough for daylight and mall atriums. Best when the nearest viewers are at least 3.9 m away."],
-      ["Walls we've built", "3.5 m × 2.5 m for a three-day international forum in a hotel ballroom · 5 m × 3 m outdoors at Marina Barrage for National Day · 5.5 m × 3 m in a mall atrium · 6 m × 2.5 m and 7 m × 2.5 m for university showcases · 2.5 m × 4 m upright for a party · four 1 m × 2 m upright panels beside a school hall stage"],
+      ["Outdoor screen (P3.9)", "Up to about 18 m², in whole-metre sizes such as 6 m × 3 m or 5 m × 2 m. Built for outdoor events and bright atriums; we confirm daylight visibility on a site check. Best when the nearest viewers are at least 3.9 m away."],
+      ["Walls we've built", "3.5 m × 2.5 m for a three-day international forum in a hotel ballroom · 5 m × 3 m outdoors at Marina Barrage for National Day · 5.5 m × 3 m in a mall atrium · 6 m × 2.5 m and 7 m × 2.5 m for university showcases · 2.5 m × 4 m upright for a party · four 1 m × 2 m upright panels on a school hall stage"],
       ["Power", "Plan for about one 13A socket per 4 m² of screen. If the venue can't supply that, we arrange temporary power and a licensed electrical worker."],
     ],
     note: "Not sure? Send us your venue and guest count and we'll recommend a size.",
@@ -86,7 +86,7 @@ const c: ServiceContent = {
   jobs: {
     title: "LED screens we've built for events",
     items: [
-      { img: "/portfolio-jobs/school-sound-system-rental_prize-day-stage-led-and-lighting.webp", alt: "Four upright PixelPro LED panels beside a school hall stage", caption: "Four 1 m × 2 m upright LED panels beside a school hall stage for a prize day, with moving heads and PAR lights" },
+      { img: "/portfolio-jobs/school-sound-system-rental_prize-day-stage-led-and-lighting.webp", alt: "Four upright PixelPro LED panels on a school hall stage", caption: "Four 1 m × 2 m upright LED panels on a school hall stage for a prize day, with stage lighting" },
       { img: "/portfolio-jobs/conference-av-rental_led-wall-hotel-ballroom-forum.webp", alt: "3.5 m × 2.5 m LED wall in a hotel ballroom for an international forum", caption: "3.5 m × 2.5 m LED wall and a 50-inch confidence monitor for a three-day international forum, about 100 delegates, hotel ballroom" },
       { img: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", alt: "5.5 m × 3 m LED wall above a stage in a mall atrium, set up by PixelPro", caption: "5.5 m × 3 m LED wall and a 7 m × 4 m stage in a mall atrium, built overnight before the mall opened" },
     ],

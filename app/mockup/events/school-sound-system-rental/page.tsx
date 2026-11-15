@@ -38,7 +38,7 @@ const c: EventContent = {
       ["Speech day and prize giving", "A lectern mic for the principal and guest of honour, handhelds for the emcee, and slides with the winners' names on screen."],
       ["Concerts and CCA shows", "Mics for choirs, bands and ensembles, a mixer with enough inputs for a full band, and a stage if the hall needs one."],
       ["Graduation", "Mics for speeches and the name reading, slides on screen, and photography or videography of the ceremony."],
-      ["Outdoor events", "Rain-protected speakers and an outdoor LED wall for sports days, carnivals and open-air shows."],
+      ["Outdoor events", "Speakers spread around the space, an outdoor LED wall and, where needed, a generator, for sports days, carnivals and open-air shows. We check the site and weather plan first."],
       ["Rehearsal", "A full rehearsal on request, so students practise with the real mics."],
       ["Pack-down", "We pack everything away after the event."],
     ],
@@ -47,7 +47,7 @@ const c: EventContent = {
     title: "A school prize day indoors and a festival outdoors, on the same day",
     rows: [
       ["Event", "Umar Pulavar Tamil Language Centre (MOE): the 49th Speech & Prize Presentation Ceremony in the hall, with Tamil Fest 2026 outdoors at the same time"],
-      ["In the hall", "4 upright LED panels (1 m × 2 m each) beside the stage, 4 headset and 4 handheld wireless mics, 6 instrument mics, a rostrum mic, linked to the hall's own sound system, plus moving heads and PAR lights"],
+      ["In the hall", "4 upright LED panels (1 m × 2 m each) on the stage, 4 headset and 4 handheld wireless mics, 6 instrument mics, a rostrum mic, linked to the hall's own sound system, plus moving heads and PAR lights"],
       ["Outdoors", "4 × JBL EON715 speakers and 12 wireless mics for cultural performances, with an antenna system to keep them clear"],
       ["Crew", "Two separate teams, so each programme had its own technicians from rehearsal to pack-down"],
     ],

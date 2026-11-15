@@ -16,8 +16,8 @@ const c: ServiceContent = {
   h1: "Stage Platform Rental in Singapore",
   intro: "Stage platform rental for your dinner and dance, prize giving, school concert or community event. We build it, skirt it and pack it away, so every guest can see who's on stage.",
   seeWorkLabel: "See our stage work",
-  heroImages: ["/services-hero/services_stage-rental.webp", "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-2.jpg"],
-  heroAlt: "Stage platform rental in Singapore: musicians performing on a PixelPro stage",
+  heroImages: ["/services-hero/services_stage-rental.webp", "/portfolio-jobs/roadshow-led-screen-rental_mall-atrium-crowd.webp"],
+  heroAlt: "Stage platform rental in Singapore: musicians performing on a PixelPro stage in a mall atrium",
   pains: [
     { worry: "“Guests at the back can't see who's speaking.”", fix: "A raised stage puts your speakers and performers above the crowd, with the height set for your room.", spec: "Adjustable height, 60 cm to 100 cm" },
     { worry: "“The venue has no stage, or it's too small.”", fix: "Our modular stage is built from sections, so we can size it for your room and programme. Need bigger? We bring more through our partners.", spec: "16 × 2 m × 1 m decks · up to 32 m²" },
@@ -44,8 +44,8 @@ const c: ServiceContent = {
       "Guardrails (arranged separately)",
       "Larger stages through our partners",
     ],
-    image: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-4.jpg",
-    imageAlt: "PixelPro Studios stage production",
+    image: "/portfolio-jobs/stage-rental_stage-steps-and-skirting.webp",
+    imageAlt: "PixelPro stage stairs and full skirting on a modular stage",
   },
   buyers: [
     { who: "HR and admin teams", events: "Dinner and dances, CNY dinners, award nights", copy: "A proper stage for the speeches, performances and lucky draw, built with the screen and sound by one team, so you're not chasing several vendors.", links: [{ label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" }, { label: "CNY event AV", href: "/mockup/events/cny-event-av" }] },

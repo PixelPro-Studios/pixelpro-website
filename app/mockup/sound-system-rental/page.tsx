@@ -42,7 +42,7 @@ const c: ServiceContent = {
       "Stage monitors",
       "In-ear monitor systems (through our partners)",
       "Digital mixers",
-      "Wireless handheld and lapel microphones",
+      "Wireless handheld and headset microphones",
       "Instrument microphones",
       "DI boxes",
       "Signal distribution and audio networking",
@@ -51,8 +51,8 @@ const c: ServiceContent = {
       "Our team handles technical planning, equipment preparation, on-site setup, sound checks, safety checks and full event support. This ensures consistent performance from start to finish and gives organisers complete confidence that the audio will run smoothly.",
       "We combine professional-level sound engineering with a young, energetic crew that genuinely cares about creating great experiences. We focus on delivering outstanding audio performance while keeping the process simple and stress-free for every organiser.",
     ],
-    image: "/services-av-audio/pixelpro-studios-audio-visual-productions-singapore.jpg",
-    imageAlt: "PixelPro Studios audio setup",
+    image: "/portfolio-live-music/sound-system-rental_mixing-desk-sound-engineer.webp",
+    imageAlt: "PixelPro sound engineer at the mixing desk during a live music show",
   },
   buyers: [
     { who: "HR and admin teams", events: "Town halls, dinner and dances, CNY dinners", copy: "Headset mics for presenters, handhelds for Q&A and the lucky draw, and an engineer running it all, so you can host instead of worrying about the mic.", links: [{ label: "Town hall sound", href: "/mockup/events/town-hall-sound-system" }, { label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" }] },
@@ -95,7 +95,7 @@ const c: ServiceContent = {
   jobs: {
     title: "Sound we've run",
     items: [
-      { img: "/portfolio-live-music/sound-system-rental_mixing-desk-sound-engineer.webp", alt: "Sound system rental in Singapore: a PixelPro sound engineer at the mixing desk during a live music show", caption: "2 × 15-inch speakers, 3 stage monitors, 3 wireless mics, a 16-channel mixer and our sound engineer, for a one-day record show with live bands at a convention centre" },
+      { img: "/portfolio-live-music/sound-system-rental_mixing-desk-sound-engineer.webp", alt: "Sound system rental in Singapore: a PixelPro sound engineer at the mixing desk during a live music show", caption: "2 × 15-inch speakers, 3 stage monitors, 3 wireless mics, a digital mixer and our sound engineer, for a one-day record show with live bands at a convention centre" },
       { img: "/portfolio-live-music/sound-system-rental_live-band-stage-monitors.webp", alt: "Live band on stage with PixelPro stage monitors and mics", caption: "Stage monitors, mics, DI boxes and a guitar amp for the live band sets at the same show" },
       { img: "/portfolio-jobs/sound-system-rental_community-club-hall-full-house.webp", alt: "A full community club hall with PixelPro speakers and screens", caption: "2 × 15-inch speakers, 2 stage monitors, a 16-channel mixer and 6 instrument mics for a full-house sing-along night at a community club" },
     ],

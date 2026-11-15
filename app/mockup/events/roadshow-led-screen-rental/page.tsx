@@ -14,7 +14,7 @@ const c: EventContent = {
   waText: "Hi PixelPro, I'd like a quote for a roadshow LED screen. Dates: , Mall/venue: , Indoor or outdoor: ",
   eyebrow: "Mall roadshows · brand pop-ups · activations",
   h1: "Roadshow LED Screen Rental in Singapore",
-  intro: "Roadshow LED screen rental for your mall atrium, pop-up or brand activation: a screen bright enough for a sunlit atrium, sound that carries the emcee over the crowd, and a crew that sets up and tears down around the mall's hours.",
+  intro: "Roadshow LED screen rental for your mall atrium, pop-up or brand activation: a screen bright enough for a busy mall atrium, sound that carries the emcee over the crowd, and a crew that sets up and tears down around the mall's hours.",
   heroImage: "/events-hero/events_roadshow-led-screen-rental.webp",
   heroAlt: "Roadshow LED screen rental in Singapore: an LED wall and sound set up in a mall atrium by PixelPro",
   painsTitle: "Where roadshow screens fall short",
@@ -28,7 +28,7 @@ const c: EventContent = {
     title: "A screen that gets noticed, and content you can use after",
     paragraphs: [
       "A roadshow has seconds to catch a passer-by. A bright LED wall playing your brand video does most of that work; clear sound for the emcee and demos does the rest.",
-      "We set up the screen, sound and stage, run them for the day and take them down after. Add photography and videography, including drone footage and same-day highlight edits, and you leave with content for your social channels too.",
+      "We set up the screen, sound and stage, run them for the day and take them down after. Add photography and videography, including drone footage and same-day highlight edits when agreed in advance, and you leave with content for your social channels too.",
     ],
   },
   moments: {
@@ -39,7 +39,7 @@ const c: EventContent = {
       ["Brand video loop", "Your videos and graphics playing on the LED wall all day."],
       ["Emcee and stage segments", "Wireless mics for the emcee, games and guest appearances, with a small stage if you need one."],
       ["Product demos", "A headset mic for the demonstrator and a live camera on the product if you add one."],
-      ["Content capture", "Event photos, videos, drone footage and same-day highlight edits for your social posts."],
+      ["Content capture", "Event photos, videos, drone footage, and same-day highlight edits when agreed in advance, for your social posts."],
       ["Teardown", "We take everything down after the last day."],
     ],
   },
@@ -56,7 +56,7 @@ const c: EventContent = {
   coreTitle: "Built to make your booth the one people stop at",
   priceFactors: [
     ["Screen size", "A small screen for a booth", "A large LED wall for an atrium stage"],
-    ["Indoor or outdoor", "Indoors, in an air-conditioned mall", "Outdoors (outdoor LED is waterproof; speakers are rain-protected)"],
+    ["Indoor or outdoor", "Indoors, in an air-conditioned mall", "Outdoors: an IP65 outdoor LED wall, weather cover for the sound, and a site check first"],
     ["Number of days", "A one-day pop-up", "A multi-day roadshow"],
     ["Stage and sound", "Background music only", "An emcee, games and performances on a stage"],
     ["Venue access", "Easy loading and a roomy setup slot", "No loading bay, or a tight setup window"],
@@ -86,10 +86,10 @@ const c: EventContent = {
   faqs: [
     { question: "How is an LED screen different from a projector at a roadshow?", answer: "An LED wall is brighter, has more contrast, needs no throw distance and doesn't show shadows when people walk in front of it. In a bright mall atrium or outdoors, that's the difference between a screen people notice and one they don't. A projector can still work in a dim indoor space on a smaller budget." },
     { question: "How much does roadshow LED screen rental cost?", answer: "We quote per event, because the price depends on the screen size, indoor or outdoor, the number of days, the sound and stage, and the setup window. Send us your brief and we'll reply with a setup and a quote." },
-    { question: "Can you set up outdoors?", answer: "Yes. Our outdoor LED is waterproof and our speakers are rain-protected, so outdoor setups work much like indoor ones." },
-    { question: "Do you need special power at the mall?", answer: "Our setups run on the venue's normal power points. We check access and power with the venue before the event." },
+    { question: "Can you set up outdoors?", answer: "Yes. Our outdoor LED wall is rated IP65 against dust and water, and we plan weather cover for the sound. We check the site, power and weather plan before we confirm." },
+    { question: "Do you need special power at the mall?", answer: "Usually not: plan for about one 13A socket per 4 m² of LED wall. We confirm power and access with the mall before the event, and arrange temporary power if the venue can't supply enough." },
     { question: "Can you supply signage and printing for the booth?", answer: "Yes, through our partners. We coordinate signage and printing with the screen, sound and stage, so you still have one contact." },
-    { question: "Can you film the roadshow for social media?", answer: "Yes. We offer event photography and videography, including drone footage and same-day highlight edits, from the same team running the screen." },
+    { question: "Can you film the roadshow for social media?", answer: "Yes. We offer event photography and videography, including drone footage and same-day highlight edits when agreed in advance, from the same team running the screen." },
   ],
   related: [
     { label: "LED wall rental", href: "/mockup/led-walls" },
