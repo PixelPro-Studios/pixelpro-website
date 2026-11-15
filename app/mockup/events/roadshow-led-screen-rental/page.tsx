@@ -67,7 +67,7 @@ const c: EventContent = {
     items: [
       { img: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", alt: "Roadshow LED screen rental: a 5.5 m × 3 m PixelPro LED wall in a mall atrium with a seated crowd", caption: "5.5 m × 3 m LED wall and 7 m × 4 m stage for a festival in a mall atrium, seen from the level above" },
       { img: "/portfolio-jobs/roadshow-led-screen-rental_mall-atrium-crowd.webp", alt: "Performers on a PixelPro stage under an LED wall in a mall atrium", caption: "Performances on the same stage, with sound from 4 speakers and 7 wireless and headset mics" },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-9.jpg", alt: "LED wall and sound set up in a mall atrium by PixelPro Studios", caption: "LED wall and speakers for another mall atrium event" },
+      { img: "/portfolio-jobs/event-av-planning_control-desk-beside-the-stage.webp", alt: "PixelPro control desk beside a stage in a mall atrium", caption: "Our control desk beside the stage, so the crew runs the screen and sound all day without leaving the floor" },
     ],
   },
   included: [

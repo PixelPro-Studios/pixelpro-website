@@ -57,7 +57,7 @@ const c: EventContent = {
     items: [
       { img: "/portfolio-jobs/town-hall-sound-system_full-atrium-led-wall.webp", alt: "Town hall sound system: a full atrium audience facing a speaker, LED wall and PixelPro speakers", caption: "A full atrium for a university tech commercialisation day: speakers either side of the stage and an LED wall behind the presenter" },
       { img: "/portfolio-jobs/conference-av-rental_panel-discussion-led-wall.webp", alt: "Panel discussion with a mic for each speaker in front of a PixelPro LED wall", caption: "Panel discussion with a mic for each speaker, at a three-day forum for about 100 delegates" },
-      { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-7.jpg", alt: "Fireside chat with handheld mics and slides on screen, sound by PixelPro Studios", caption: "Fireside chat with handheld mics and slides on screen" },
+      { img: "/portfolio-jobs/conference-av-rental_led-wall-hotel-ballroom-forum.webp", alt: "Rows of delegates facing a PixelPro LED wall in a hotel ballroom", caption: "Rows of delegates facing a 3.5 m × 2.5 m LED wall, with clear sound to the back of a hotel ballroom" },
     ],
   },
   included: [

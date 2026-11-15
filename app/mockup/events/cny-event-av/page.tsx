@@ -63,7 +63,6 @@ const c: EventContent = {
   photos: {
     title: "Banquets and Chinese performances we've supported",
     items: [
-      { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-1.jpg", alt: "Banquet hall with an LED wall and stage, set up by PixelPro Studios", caption: "Banquet hall with an LED wall and stage" },
       { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-6.jpg", alt: "Chinese orchestra on a stage with a projection screen, sound by PixelPro Studios", caption: "Chinese orchestra on stage, with stage monitors, sound and a projection screen" },
       { img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-2.jpg", alt: "Chinese ensemble with mics and stage lighting by PixelPro Studios", caption: "Chinese ensemble with instrument mics and stage lighting" },
     ],

@@ -51,8 +51,8 @@ const c: ServiceContent = {
     after: [
       "Have something else in mind? Not all events fit into a fixed list. If you have a unique concept, custom setup, or specialised requirement, our team is ready to design and execute a solution tailored to you.",
     ],
-    image: "/portfolio-jobs/school-sound-system-rental_prize-day-stage-led-and-lighting.webp",
-    imageAlt: "School prize day stage with PixelPro LED panels, lighting and sound",
+    image: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp",
+    imageAlt: "PixelPro LED wall, stage and sound for a festival in a mall atrium",
   },
   buyers: [
     { who: "HR and admin teams", events: "Dinner and dances, town halls, company events", copy: "Hand us the technical side of the whole event, from AV to photos and the emcee. You get one quote and one person to call, and you can enjoy the night.", links: [{ label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" }, { label: "CNY event AV", href: "/mockup/events/cny-event-av" }] },

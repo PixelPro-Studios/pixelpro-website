@@ -17,7 +17,7 @@ const c: ServiceContent = {
   intro: "Event AV planning is the work before your guests arrive that stops things going wrong: the brief, a site visit where needed, a plan for every mic and screen, every slide tested on the screen and a sound check on setup day, with spares on hand. A full rehearsal is available on request.",
   introRetained: "Great events feel effortless for the audience. Behind the scenes, that calm usually comes from a clear AV plan locked in well before doors open.",
   seeWorkLabel: "See our work",
-  heroImages: ["/services-hero/services_event-av-planning.webp", "/photos/our-reliability-guarantee.jpg"],
+  heroImages: ["/services-hero/services_event-av-planning.webp", "/portfolio-jobs/conference-av-rental_confidence-monitor.webp"],
   heroAlt: "Event AV planning in Singapore: an emcee on stage with a tested mic and slides on screen",
   pains: [
     { worry: "“We only found out about the venue's problems on the day.”", fix: "We walk the venue first: power, cable runs, sightlines, stage height and the light in the room, so problems are fixed before load-in.", spec: "Site visit for larger or unusual setups" },
@@ -48,8 +48,8 @@ const c: ServiceContent = {
     after: [
       "When everyone knows the path of each signal, troubleshooting stays fast if something drifts. For keynote-heavy programmes, ask us for a full rehearsal of the transitions and handovers. And after the show, we capture notes while the event is fresh: what worked, what to improve, and which assets need delivery. That loop is how productions get sharper over time.",
     ],
-    image: "/portfolio-jobs/event-av-planning_control-desk-beside-the-stage.webp",
-    imageAlt: "PixelPro crew at the control desk beside a stage in a mall atrium",
+    image: "/portfolio-jobs/event-av-planning_generator-and-safety-fencing.webp",
+    imageAlt: "Generator with safety fencing, set up by PixelPro for an outdoor school event at night",
   },
   steps: [
     ["Confirm the brief", "Audience, room layout, programme segments, livestream or recording, branding moments."],
@@ -88,7 +88,7 @@ const c: ServiceContent = {
   jobs: {
     title: "Events we've planned and run",
     items: [
-      { img: "/portfolio-jobs/event-production_sound-engineer-marina-barrage.webp", alt: "PixelPro crew on site at Marina Barrage on National Day", caption: "Site visits before PUB's NDP 2026 screening at Marina Barrage to plan the LED wall, speaker spread, power and weather cover" },
+      { img: "/portfolio-jobs/event-production_sound-engineer-marina-barrage.webp", alt: "PixelPro crew on site at Marina Barrage on National Day", caption: "Our crew on site at PUB's NDP 2026 screening at Marina Barrage, after site visits to plan the LED wall, speaker spread, power and weather cover" },
       { img: "/portfolio-jobs/event-av-planning_control-desk-beside-the-stage.webp", alt: "PixelPro control desk beside a stage in a mall atrium", caption: "Mall event, planned around an overnight build: LED wall, 7 m × 4 m stage and sound installed before the mall opened, control desk beside the stage" },
       { img: "/portfolio-live-music/event-av-planning_sound-check-before-doors-open.webp", alt: "PixelPro sound check at the mixing desk before a live music show opens", caption: "Sound check before doors open: speakers, monitors, mics and a digital mixer for a record show with live bands, run by our engineer all day" },
     ],

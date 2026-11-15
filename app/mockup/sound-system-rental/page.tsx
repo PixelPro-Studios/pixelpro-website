@@ -17,7 +17,7 @@ const c: ServiceContent = {
   intro: "Sound system rental for your speeches, town hall, dinner and dance or live band. Our sound engineer sets it up, tests it and runs it on the day, so every guest hears every word.",
   introRetained: "Sound Systems for Concerts, Corporate Events, Roadshows, Exhibitions and Community Shows.",
   seeWorkLabel: "See our sound work",
-  heroImages: ["/services-hero/services_sound-system-rental.webp", "/photos/pixelpro-studios-singapore-sound-system-rental.jpg"],
+  heroImages: ["/services-hero/services_sound-system-rental.webp", "/portfolio-live-music/av-rental_stage-speakers-and-mixer.webp"],
   heroAlt: "Sound system rental in Singapore: PixelPro speakers and mics at an event",
   pains: [
     { worry: "“People at the back can't hear the speeches.”", fix: "We size and tune the system for your room and guest count, so the sound is even from the front table to the back row.", spec: "15\" powered speakers · 18\" subwoofers" },
@@ -51,8 +51,8 @@ const c: ServiceContent = {
       "Our team handles technical planning, equipment preparation, on-site setup, sound checks, safety checks and full event support. This ensures consistent performance from start to finish and gives organisers complete confidence that the audio will run smoothly.",
       "We combine professional-level sound engineering with a young, energetic crew that genuinely cares about creating great experiences. We focus on delivering outstanding audio performance while keeping the process simple and stress-free for every organiser.",
     ],
-    image: "/portfolio-live-music/sound-system-rental_mixing-desk-sound-engineer.webp",
-    imageAlt: "PixelPro sound engineer at the mixing desk during a live music show",
+    image: "/portfolio-live-music/event-av-planning_sound-check-before-doors-open.webp",
+    imageAlt: "PixelPro sound check at the mixing desk before a live music show",
   },
   buyers: [
     { who: "HR and admin teams", events: "Town halls, dinner and dances, CNY dinners", copy: "Headset mics for presenters, handhelds for Q&A and the lucky draw, and an engineer running it all, so you can host instead of worrying about the mic.", links: [{ label: "Town hall sound", href: "/mockup/events/town-hall-sound-system" }, { label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" }] },

@@ -47,8 +47,8 @@ const c: ServiceContent = {
       "We support a wide range of event types such as corporate seminars, AGMs, exhibitions, roadshows, school ceremonies, product launches, outdoor screenings and community events. Our team handles delivery, lens adjustment, alignment, keystone correction, cable routing, testing and on-site support.",
       "We combine professional-grade projection systems with a young, detail focused team that ensures your visuals look impressive and run smoothly from start to finish. The result is a polished, reliable presentation that enhances your event and leaves a strong impression on your audience.",
     ],
-    image: "/portfolio-jobs/projector-rental_two-120-inch-screens-community-club.webp",
-    imageAlt: "Song lyrics on a 120-inch PixelPro projector screen at a community club music night",
+    image: "/services-av-projector/pixelpro-studios-projector-rental-singapore.jpg",
+    imageAlt: "Panasonic laser projector of the kind PixelPro rents for big rooms",
   },
   buyers: [
     { who: "HR and admin teams", events: "Town halls, seminars, AGMs, training", copy: "Slides that the whole room can read, a laptop that connects first time, and someone on site if anything changes. You present; we handle the screen.", links: [{ label: "Town hall sound", href: "/mockup/events/town-hall-sound-system" }] },

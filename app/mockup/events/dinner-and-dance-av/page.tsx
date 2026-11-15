@@ -64,7 +64,6 @@ const c: EventContent = {
   photos: {
     title: "Dinners and stages we've run",
     items: [
-      { img: "/services-av-led/pixelpro-studios-led-wall-screen-rental-singapore.jpg", alt: "Ballroom dinner with an LED wall by PixelPro Studios", caption: "Ballroom dinner with an LED wall and sound" },
       { img: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-3.jpg", alt: "Band performing on a lit stage with an LED wall, production by PixelPro Studios", caption: "Live band on a lit stage with an LED wall behind" },
       { img: "/portfolio-live-music/sound-system-rental_live-band-stage-monitors.webp", alt: "Live band on stage with PixelPro stage monitors and mics", caption: "Stage monitors, mics and DI boxes for live band sets. Send us the band's tech rider and we'll plan the inputs" },
     ],

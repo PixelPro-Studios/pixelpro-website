@@ -16,8 +16,8 @@ const c: ServiceContent = {
   h1: "Stage Platform Rental in Singapore",
   intro: "Stage platform rental for your dinner and dance, prize giving, school concert or community event. We build it, skirt it and pack it away, so every guest can see who's on stage.",
   seeWorkLabel: "See our stage work",
-  heroImages: ["/services-hero/services_stage-rental.webp", "/portfolio-jobs/roadshow-led-screen-rental_mall-atrium-crowd.webp"],
-  heroAlt: "Stage platform rental in Singapore: musicians performing on a PixelPro stage in a mall atrium",
+  heroImages: ["/services-hero/services_stage-rental.webp", "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp"],
+  heroAlt: "Stage platform rental in Singapore: a PixelPro stage with red skirting under an LED wall in a mall atrium",
   pains: [
     { worry: "“Guests at the back can't see who's speaking.”", fix: "A raised stage puts your speakers and performers above the crowd, with the height set for your room.", spec: "Adjustable height, 60 cm to 100 cm" },
     { worry: "“The venue has no stage, or it's too small.”", fix: "Our modular stage is built from sections, so we can size it for your room and programme. Need bigger? We bring more through our partners.", spec: "16 × 2 m × 1 m decks · up to 32 m²" },
@@ -79,7 +79,6 @@ const c: ServiceContent = {
     title: "Stages we've built",
     items: [
       { img: "/portfolio-jobs/event-av-planning_control-desk-beside-the-stage.webp", alt: "Stage rental in Singapore: a 7 m × 4 m PixelPro stage with steps and red skirting in a mall atrium", caption: "7 m × 4 m stage with steps, skirting and a rostrum for Caregiving Fest in a mall atrium, built overnight, with our control desk beside it" },
-      { img: "/portfolio-jobs/stage-rental_stage-steps-and-skirting.webp", alt: "Stage stairs and skirting on a PixelPro stage", caption: "Stage stairs and full skirting on the same stage, ready before the mall opened" },
       { img: "/portfolio-jobs/roadshow-led-screen-rental_mall-atrium-crowd.webp", alt: "Performers on a PixelPro stage in a mall atrium with a seated crowd", caption: "The same stage in use: performances, speeches and a guest-of-honour segment" },
     ],
   },
