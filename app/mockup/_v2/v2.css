@@ -134,6 +134,45 @@
   .v2-svc-row .v2-row-n { display: none; }
 }
 .v2-row.v2-row-text-only { grid-template-columns: 40px 1fr auto; }
+/* ---------- Apple-style gallery (apple.com/iphone media card gallery) ---------- */
+.v2-gal-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 calc((100vw - min(1100px, 88vw)) / 2); scrollbar-width: none; }
+.v2-gal-track::-webkit-scrollbar { display: none; }
+.v2-gal-slide { position: relative; flex: none; width: min(1100px, 88vw); aspect-ratio: 16 / 8; border-radius: 28px; overflow: hidden; background: #111; scroll-snap-align: center; }
+.v2-gal-slide .v2-cover { transition: transform 1200ms var(--ease-out); transform: scale(1.04); }
+.v2-gal-slide.is-current .v2-cover { transform: none; }
+.v2-gal-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 10, 10, 0.78) 0%, rgba(10, 10, 10, 0.2) 38%, rgba(10, 10, 10, 0) 60%); }
+.v2-gal-top { position: absolute; z-index: 1; top: 0; left: 0; right: 0; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 36px 40px; }
+.v2-gal-title { font-family: var(--font-oliveira), serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 48px); line-height: 1.05; letter-spacing: -0.015em; }
+.v2-gal-sub { margin-top: 8px; font-size: 17px; color: var(--mut); }
+.v2-gal-tag { position: absolute; z-index: 1; left: 40px; bottom: 32px; }
+.v2-gal-top .v2-btn { flex: none; }
+@media (max-width: 767px) {
+  .v2-gal-slide { aspect-ratio: 4 / 5; border-radius: 22px; }
+  .v2-gal-top { flex-direction: column; padding: 24px; }
+  .v2-gal-sub { font-size: 15px; }
+  .v2-gal-tag { left: 24px; bottom: 24px; }
+}
+/* controls: dot bar + play/pause; slide up into place when the gallery comes into view (Apple's "all-access pass") */
+.v2-gal-ctrl { display: flex; justify-content: center; gap: 12px; margin-top: 24px; opacity: 0; transform: translateY(24px); transition: opacity 400ms ease, transform 600ms var(--ease-out); }
+.v2-gal.is-in .v2-gal-ctrl { opacity: 1; transform: none; }
+.v2-gal-dots { display: flex; align-items: center; height: 56px; padding: 0 16px; border-radius: 28px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); }
+.v2-gal-dot { display: flex; align-items: center; justify-content: center; height: 44px; padding: 0 6px; }
+.v2-gal-dot-bar { position: relative; display: block; width: 8px; height: 8px; border-radius: 10px; overflow: hidden; background: rgba(255, 255, 255, 0.42); transition: width 500ms var(--ease-in-out), background-color 250ms linear; }
+.v2-gal-dot.is-active .v2-gal-dot-bar { width: 48px; background: rgba(255, 255, 255, 0.28); }
+.v2-gal-dot-fill { position: absolute; inset: 0; border-radius: inherit; background: var(--ink); transform-origin: left; transform: scaleX(0); animation-name: v2-fill; animation-timing-function: linear; animation-fill-mode: forwards; }
+@keyframes v2-fill { to { transform: scaleX(1); } }
+@media (hover: hover) and (pointer: fine) { .v2-gal-dot:not(.is-active):hover .v2-gal-dot-bar { background: rgba(255, 255, 255, 0.7); } }
+.v2-gal-pp { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; color: var(--ink); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); transition: transform 160ms var(--ease-out), background-color 200ms ease; }
+.v2-gal-pp:active, .v2-gal-dot:active { transform: scale(0.95); }
+@media (hover: hover) and (pointer: fine) { .v2-gal-pp:hover { background: rgba(255, 255, 255, 0.18); } }
+
+/* ---------- Apple-style scroll reveal ---------- */
+.v2-reveal { opacity: 0; transform: translateY(32px); transition: opacity 700ms ease var(--d, 0ms), transform 900ms var(--ease-out) var(--d, 0ms); }
+.v2-reveal.is-in { opacity: 1; transform: none; }
+/* chapters keep their own active dimming once revealed */
+.v2-chapter.v2-reveal.is-in:not(.is-active) { opacity: 0.55; }
+@media (min-width: 1024px) { .v2-chapter.v2-reveal { transition: opacity 250ms ease, transform 900ms var(--ease-out); } }
+
 /* floating WhatsApp button (desktop), only when no other WhatsApp button is on screen */
 .v2-float { position: fixed; z-index: 45; right: 24px; bottom: 24px; min-height: 52px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45); opacity: 0; transform: translateY(12px) scale(0.96); pointer-events: none; transition: opacity 200ms ease, transform 250ms var(--ease-out); }
 .v2-float.is-on { opacity: 1; transform: none; pointer-events: auto; }

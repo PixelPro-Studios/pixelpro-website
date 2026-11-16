@@ -6,7 +6,7 @@ import { useState } from "react";
 import Image from "next/image";
 import HeroPixelSpotlight from "@/components/HeroPixelSpotlight";
 import { LOGOS, LogoRow } from "@/components/LogoSection";
-import { FloatingWa, PhoneBar, RatingBlock, ReviewsMarquee, TrustChip, WaIcon, waLink } from "../_v2/shared";
+import { FloatingWa, PhoneBar, RatingBlock, ReviewsMarquee, TrustChip, WaIcon, useReveal, waLink } from "../_v2/shared";
 
 const WA = waLink("Hi PixelPro, I'd like a quote for an event (from your website).\nDate: \nVenue: \nEvent name & type: \nWhat you need: ");
 const CAL = "https://cal.com/pixelpro/consultation";
@@ -95,6 +95,7 @@ const FIGURES = [
 export default function HomeV2() {
   const [hover, setHover] = useState<number | null>(null);
   const shown = hover ?? 0;
+  useReveal();
   return (
     <main className="v2">
       <PhoneBar active={null} wa={WA} hideIds={["cta"]} />

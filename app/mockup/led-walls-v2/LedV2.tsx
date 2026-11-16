@@ -3,7 +3,7 @@
 // Copy from ../led-walls/page.tsx.
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { FloatingWa, LED_PROJECTS, PhoneBar, RatingBlock, ReviewsMarquee, SideTicks, TrustChip, WaIcon, WorkCarousel, goTo, useActiveSection, waLink } from "../_v2/shared";
+import { FloatingWa, LED_PROJECTS, PhoneBar, RatingBlock, ReviewsMarquee, SideTicks, TrustChip, WaIcon, WorkCarousel, goTo, useActiveSection, useReveal, waLink } from "../_v2/shared";
 
 const WA = waLink(
   "Hi PixelPro, I'd like a quote for an LED wall (from your LED wall rental page).\nDate: \nVenue: \nEvent name & type: \nLED wall size: \nIndoor or outdoor: \nNeed operator on-site: Yes/No",
@@ -168,6 +168,7 @@ const CHECKLIST = ["Event date", "Venue", "Event name and type", "Number of rent
 
 export default function LedV2() {
   const active = useActiveSection(SECTION_IDS);
+  useReveal();
   const [wall, setWall] = useState(0);
   const [prevWall, setPrevWall] = useState<number | null>(null);
   const [size, setSize] = useState(3);
@@ -236,7 +237,7 @@ export default function LedV2() {
             <h2 id="work-h" className="v2-h2">LED walls we&apos;ve built for events</h2>
           </div>
         </div>
-        <WorkCarousel projects={LED_PROJECTS} />
+        <WorkCarousel projects={LED_PROJECTS} wa={WA} />
       </section>
 
       {/* 3. LED walls (LUSTRE): chapters with a sticky photo that changes */}
