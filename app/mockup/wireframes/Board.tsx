@@ -6,6 +6,7 @@ const PAGES = [
   { key: "home", label: "Home page", src: "/mockup/home-v2/" },
   { key: "led", label: "LED wall rental", src: "/mockup/led-walls-v2/" },
   { key: "stage", label: "Stage rental", src: "/mockup/stage-rental-v2/" },
+  { key: "tpl", label: "Service template", src: "/mockup/service-template-v2/" },
 ];
 
 export default function Board() {
