@@ -3,7 +3,7 @@
 // Copy from ../led-walls/page.tsx.
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { LED_PROJECTS, RatingBlock, ReviewsMarquee, Stars, WaIcon, WorkCarousel, waLink } from "../_v2/shared";
+import { LED_PROJECTS, PhoneBar, RatingBlock, ReviewsMarquee, SectionBar, TrustChip, WaIcon, WorkCarousel, goTo, useActiveSection, waLink } from "../_v2/shared";
 
 const WA = waLink(
   "Hi PixelPro, I'd like a quote for an LED wall (from your LED wall rental page).\nDate: \nVenue: \nEvent name & type: \nLED wall size: \nIndoor or outdoor: \nNeed operator on-site: Yes/No",
@@ -16,6 +16,7 @@ const SECTIONS = [
   ["faq", "Questions"],
   ["quote", "Get a quote"],
 ] as const;
+const SECTION_IDS = SECTIONS.map(([id]) => id);
 
 const WALLS = [
   {
@@ -25,6 +26,7 @@ const WALLS = [
     copy: "For corporate presentations, conferences and indoor performances. High-resolution panels for slides, video and detailed graphics.",
     img: "/portfolio-jobs/conference-av-rental_panel-discussion-led-wall.webp",
     alt: "Indoor P2.5 LED wall behind a panel discussion",
+    pos: "center 72%",
     facts: [["P2.5", "pixel pitch"], ["Sharp", "slides and text up close"], ["Indoors", "ballrooms and halls"]],
   },
   {
@@ -34,6 +36,7 @@ const WALLS = [
     copy: "For outdoor events, public screenings and bright venues. High-brightness, weather-resistant panels.",
     img: "/portfolio-jobs/roadshow-led-screen-rental_mall-atrium-crowd.webp",
     alt: "LED screen in a bright mall atrium with a crowd",
+    pos: "center 45%",
     facts: [["P3.9", "pixel pitch"], ["Bright", "clear in daylight"], ["Outdoors", "weather-resistant panels"]],
   },
   {
@@ -41,8 +44,9 @@ const WALLS = [
     label: "Sizes",
     title: "Which size LED wall do I need?",
     copy: "Our modular LED walls can be configured to suit your event size, stage layout and venue. Whatever size you have in mind, we can build it.",
-    img: "/services-hero/services_led-walls.webp",
-    alt: "PixelPro LED wall at a live event",
+    img: "/portfolio-jobs/town-hall-sound-system_full-atrium-led-wall.webp",
+    alt: "Large PixelPro LED wall filling an atrium for a town hall",
+    pos: "center 50%",
     facts: [],
   },
 ];
@@ -163,107 +167,73 @@ const FAQS: Faq[] = [
 const CHECKLIST = ["Event date", "Venue", "Event name and type", "Number of rental days", "LED wall size (if you know it)", "Indoor or outdoor", "What you'll show: slides, video, graphics", "Need an operator on site?"];
 
 export default function LedV2() {
-  const [active, setActive] = useState<string | null>(null);
+  const active = useActiveSection(SECTION_IDS);
   const [wall, setWall] = useState(0);
+  const [prevWall, setPrevWall] = useState<number | null>(null);
   const [size, setSize] = useState(3);
   const [group, setGroup] = useState("All");
   const [open, setOpen] = useState<number | null>(0);
 
-  // Tracker: which section is in the middle of the screen
-  useEffect(() => {
-    const opts = { rootMargin: "-45% 0px -50% 0px" };
-    const obs = new IntersectionObserver((entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)), opts);
-    const hero = new IntersectionObserver(([e]) => e.isIntersecting && setActive(null), opts);
-    SECTIONS.forEach(([id]) => {
-      const el = document.getElementById(id);
-      if (el) obs.observe(el);
-    });
-    const h = document.getElementById("top");
-    if (h) hero.observe(h);
-    return () => {
-      obs.disconnect();
-      hero.disconnect();
-    };
-  }, []);
-
-  // LED wall chapters: swap the sticky photo when a chapter reaches the middle
+  // LED wall chapters: when a chapter reaches the middle, fade the new photo in on top of the old one
   useEffect(() => {
     const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setWall(Number((e.target as HTMLElement).dataset.i))),
+      (entries) =>
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          const i = Number((e.target as HTMLElement).dataset.i);
+          setWall((cur) => {
+            if (cur !== i) setPrevWall(cur);
+            return i;
+          });
+        }),
       { rootMargin: "-45% 0px -50% 0px" },
     );
     document.querySelectorAll<HTMLElement>("[data-chapter]").forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, []);
 
-  const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  const idx = SECTIONS.findIndex(([id]) => id === active);
   const [w, h] = SIZES[size];
   const faqs = FAQS.map((f, i) => ({ ...f, i })).filter((f) => group === "All" || f.group === group);
+  const pickGroup = (g: string) => {
+    setGroup(g);
+    const firstVisible = FAQS.findIndex((f) => g === "All" || f.group === g);
+    setOpen(firstVisible);
+  };
 
   return (
     <main className="v2">
-      {/* Tracker, desktop: ticks on the right edge (LUSTRE) */}
-      <nav className={`v2-ticks ${active ? "is-on" : ""}`} aria-label="On this page">
-        {SECTIONS.map(([id, label]) => (
-          <button key={id} type="button" onClick={() => go(id)} className={active === id ? "is-active" : ""} aria-current={active === id ? "true" : undefined}>
-            <span className="v2-tick-label">{label}</span>
-            <span className="v2-tick" />
-          </button>
-        ))}
-      </nav>
-      {/* Tracker, phone: a small card at the bottom left */}
-      <button type="button" className={`v2-pill ${active ? "is-on" : ""}`} onClick={() => go(SECTIONS[Math.min(idx + 1, SECTIONS.length - 1)][0])} aria-label="Next section">
-        <span className="v2-pill-num">0{Math.max(idx, 0) + 1}/0{SECTIONS.length}</span>
-        <span className="v2-pill-label">{idx >= 0 ? SECTIONS[idx][1] : ""}</span>
-        <span className="v2-pill-bar">
-          <i style={{ transform: `scaleX(${(Math.max(idx, 0) + 1) / SECTIONS.length})` }} />
-        </span>
-      </button>
+      <SectionBar sections={SECTIONS} active={active} wa={WA} />
+      <PhoneBar sections={SECTIONS} active={active} wa={WA} hideIds={["quote"]} />
 
-      {/* 1. Hero (Rain): photo fills the screen, headline left, one badge */}
-      <header id="top" className="v2-hero">
-        <Image src="/services-hero/services_led-walls.webp" alt="LED wall rental in Singapore: a PixelPro LED wall at a live event" fill priority sizes="100vw" className="v2-hero-img" />
-        <div className="v2-hero-shade" aria-hidden />
+      {/* 1. Hero: photo on the right, solid black behind the text (Netflix pattern), one-line trust chip */}
+      <header id="top" className="v2-hero v2-hero-split">
+        <div className="v2-hero-media">
+          <Image src="/services-hero/services_led-walls.webp" alt="LED wall rental in Singapore: a PixelPro LED wall at a live event" fill priority quality={70} sizes="(min-width: 1024px) 70vw, 100vw" className="v2-cover v2-photo" style={{ objectPosition: "62% 40%" }} />
+        </div>
         <div className="v2-hero-in">
-          <p className="v2-eyebrow v2-rise" style={{ animationDelay: "0ms" }}>LED wall rental · Singapore</p>
-          <h1 className="v2-h1 v2-rise" style={{ animationDelay: "60ms" }}>LED Wall Rental in Singapore</h1>
-          <p className="v2-lead v2-rise" style={{ animationDelay: "120ms" }}>
+          <TrustChip />
+          <h1 className="v2-h1 v2-rise-h">LED Wall Rental in Singapore</h1>
+          <p className="v2-lead v2-rise" style={{ animationDelay: "80ms" }}>
             From presentation screens to full-stage and outdoor LED displays. We plan each setup around your venue and programme, install and test it before your guests arrive, and our technicians stay on standby throughout your event.
           </p>
-          <div className="v2-btns v2-rise" style={{ animationDelay: "180ms" }}>
+          <div className="v2-btns v2-rise" style={{ animationDelay: "140ms" }}>
             <a href={WA} target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-wa">
               <WaIcon /> WhatsApp us for a quote
             </a>
-            <button type="button" onClick={() => go("work")} className="v2-btn v2-btn-ghost">
+            <button type="button" onClick={() => goTo("work")} className="v2-btn v2-btn-ghost">
               See our LED work
             </button>
           </div>
         </div>
-        <div className="v2-badge v2-rise" style={{ animationDelay: "260ms" }}>
-          <div className="v2-badge-top">
-            <span className="v2-badge-num">5.0</span>
-            <div>
-              <Stars />
-              <span className="v2-badge-sub">Rated on Google</span>
-            </div>
-          </div>
-          <div className="v2-badge-row">
-            <span>GeBIZ registered</span>
-            <span>bizSAFE Level 3</span>
-          </div>
-        </div>
-        <div className="v2-scrollcue" aria-hidden>
-          <span>Scroll</span>
-          <i />
-        </div>
       </header>
 
       {/* 2. Our work: Apple-style carousel; cards link to job pages once those exist */}
-      <section id="work" className="v2-work" aria-labelledby="work-h">
-        <div className="v2-wrap v2-work-head">
-          <p className="v2-eyebrow">Our work</p>
-          <h2 id="work-h" className="v2-h2">LED walls we&apos;ve built for events</h2>
+      <section id="work" className="v2-sec" aria-labelledby="work-h">
+        <div className="v2-wrap v2-head-row">
+          <div>
+            <p className="v2-eyebrow">01 · Our work</p>
+            <h2 id="work-h" className="v2-h2">LED walls we&apos;ve built for events</h2>
+          </div>
         </div>
         <WorkCarousel projects={LED_PROJECTS} />
       </section>
@@ -271,14 +241,14 @@ export default function LedV2() {
       {/* 3. LED walls (LUSTRE): chapters with a sticky photo that changes */}
       <section id="walls" className="v2-walls v2-wrap" aria-labelledby="walls-h">
         <div className="v2-walls-head">
-          <p className="v2-eyebrow">LED walls</p>
-          <h2 id="walls-h" className="v2-h2">Indoor and outdoor LED walls</h2>
+          <p className="v2-eyebrow">02 · LED walls</p>
+          <h2 id="walls-h" className="v2-h2 v2-h2-xl">Indoor and outdoor LED walls</h2>
         </div>
         <div className="v2-walls-grid">
           <div className="v2-stage" aria-hidden>
             {WALLS.map((c, i) => (
-              <div key={c.n} className={`v2-stage-img ${wall === i ? "is-active" : ""}`}>
-                <Image src={c.img} alt="" fill sizes="(min-width: 1024px) 55vw, 100vw" className="v2-cover" />
+              <div key={c.n} className={`v2-stage-img ${wall === i ? "is-active" : prevWall === i ? "is-prev" : ""}`}>
+                <Image src={c.img} alt="" fill sizes="(min-width: 1024px) 58vw, 100vw" className="v2-cover v2-photo" style={c.pos ? { objectPosition: c.pos } : undefined} />
               </div>
             ))}
             <div className="v2-stage-tag">
@@ -289,7 +259,7 @@ export default function LedV2() {
             {WALLS.map((c, i) => (
               <div key={c.n} data-chapter data-i={i} className={`v2-chapter ${wall === i ? "is-active" : ""}`}>
                 <div className="v2-chapter-img">
-                  <Image src={c.img} alt={c.alt} fill sizes="100vw" className="v2-cover" />
+                  <Image src={c.img} alt={c.alt} fill sizes="100vw" className="v2-cover v2-photo" style={c.pos ? { objectPosition: c.pos } : undefined} />
                 </div>
                 <p className="v2-chapter-num">
                   {c.n} / 03 · {c.label}
@@ -308,25 +278,25 @@ export default function LedV2() {
                 )}
                 {i === 2 && (
                   <div className="v2-sizer">
-                    <div className="v2-sizer-tabs" role="tablist" aria-label="Common LED wall sizes">
+                    <div className="v2-sizer-tabs" role="radiogroup" aria-label="Common LED wall sizes">
                       {SIZES.map(([sw, sh], k) => (
-                        <button key={k} type="button" role="tab" aria-selected={size === k} onClick={() => setSize(k)} className={size === k ? "is-active" : ""}>
+                        <button key={k} type="button" role="radio" aria-checked={size === k} onClick={() => setSize(k)} className={size === k ? "is-active" : ""}>
                           {sw} × {sh} m
                         </button>
                       ))}
                     </div>
+                    {/* Drawn to scale: the frame is 9.5 m wide and 5 m tall; the person is 1.7 m */}
                     <div className="v2-sizer-frame">
-                      <div className="v2-sizer-floor" />
                       <svg className="v2-sizer-person" viewBox="0 0 20 68" aria-hidden>
                         <circle cx="10" cy="6" r="5" fill="currentColor" />
                         <path d="M3 16h14l-1.5 24H14v28H6V40H4.5z" fill="currentColor" />
                       </svg>
                       <div className="v2-sizer-wall" style={{ transform: `scale(${w / 8}, ${h / 4})` }} />
-                      <span className="v2-sizer-label">
-                        {w} m × {h} m
-                      </span>
                     </div>
-                    <p className="v2-note">Person shown at 1.7 m for scale. Custom sizes and multiple-screen setups too.</p>
+                    <p className="v2-sizer-label" aria-live="polite">
+                      {w} m × {h} m <span>· person shown at 1.7 m for scale</span>
+                    </p>
+                    <p className="v2-note">Custom sizes and multiple-screen setups too.</p>
                     <a href={WA} target="_blank" rel="noopener noreferrer" className="v2-link">
                       Not sure? Share your venue details and we&apos;ll recommend a size →
                     </a>
@@ -338,27 +308,23 @@ export default function LedV2() {
         </div>
       </section>
 
-      {/* 4. Reviews: kept as Jovin likes it */}
-      <section id="reviews" className="v2-reviews" aria-labelledby="reviews-h">
-        <div className="v2-wrap v2-reviews-head">
-          <div>
-            <p className="v2-eyebrow">Reviews</p>
-            <h2 id="reviews-h" className="v2-h2">What our clients say</h2>
-          </div>
+      {/* 4. Reviews: the one place the big 5.0 appears */}
+      <section id="reviews" className="v2-sec" aria-labelledby="reviews-h">
+        <div className="v2-wrap v2-head-row">
+          <h2 id="reviews-h" className="v2-h2">What our clients say</h2>
           <RatingBlock />
         </div>
         <ReviewsMarquee />
       </section>
 
-      {/* 5. Questions: everything that was its own section is now an answer */}
+      {/* 5. Questions */}
       <section id="faq" className="v2-faq v2-wrap" aria-labelledby="faq-h">
         <div className="v2-faq-side">
-          <p className="v2-eyebrow">Questions</p>
           <h2 id="faq-h" className="v2-h2">LED wall rental questions</h2>
           <p className="v2-body">Pricing, sizes, what&apos;s included and how booking works.</p>
-          <div className="v2-filter" role="tablist" aria-label="Filter questions">
+          <div className="v2-filter" role="group" aria-label="Filter questions">
             {FAQ_GROUPS.map((g) => (
-              <button key={g} type="button" role="tab" aria-selected={group === g} onClick={() => setGroup(g)} className={group === g ? "is-active" : ""}>
+              <button key={g} type="button" aria-pressed={group === g} onClick={() => pickGroup(g)} className={group === g ? "is-active" : ""}>
                 {g}
               </button>
             ))}
@@ -368,21 +334,23 @@ export default function LedV2() {
           {faqs.map((f) => (
             <div key={f.q} className={`v2-acc-item ${open === f.i ? "is-open" : ""}`}>
               <h3>
-                <button type="button" aria-expanded={open === f.i} onClick={() => setOpen(open === f.i ? null : f.i)}>
+                <button type="button" aria-expanded={open === f.i} aria-controls={`faq-${f.i}`} onClick={() => setOpen(open === f.i ? null : f.i)}>
                   {f.q}
                   <span className="v2-plus" aria-hidden />
                 </button>
               </h3>
-              <div className="v2-acc-body">
+              <div className="v2-acc-body" id={`faq-${f.i}`} inert={open !== f.i}>
                 <div>
-                  <p>{f.a}</p>
-                  {f.list && (
-                    <ul>
-                      {f.list.map((l) => (
-                        <li key={l}>{l}</li>
-                      ))}
-                    </ul>
-                  )}
+                  <div className="v2-acc-pad">
+                    <p>{f.a}</p>
+                    {f.list && (
+                      <ul>
+                        {f.list.map((l) => (
+                          <li key={l}>{l}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -394,7 +362,7 @@ export default function LedV2() {
       <section id="quote" className="v2-wrap v2-quote-wrap" aria-labelledby="quote-h">
         <div className="v2-quote">
           <div>
-            <p className="v2-eyebrow">Get a quote</p>
+            <p className="v2-eyebrow">05 · Get a quote</p>
             <h2 id="quote-h" className="v2-h2">Request an LED Wall Rental Quotation</h2>
             <p className="v2-body">WhatsApp available 24/7 for enquiries and quotations. We reply as soon as we can.</p>
             <div className="v2-btns">

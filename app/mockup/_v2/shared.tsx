@@ -2,10 +2,15 @@
 // MOCKUP by Rankr (16 Nov 2026). Shared parts for the v2 design (LED page + home page).
 // `_v2` is a private folder, so Next.js doesn't route it.
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./v2.css";
 
 export const waLink = (text: string) => "https://wa.me/6588605489?text=" + encodeURIComponent(text);
+
+/** Smooth scrolling only when the visitor hasn't asked for reduced motion */
+export const scrollBehavior = (): ScrollBehavior =>
+  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+export const goTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
 
 // Real Google review excerpts, same list as ../_template/ServicePage.tsx (never reworded)
 export const allReviews = [
@@ -19,7 +24,7 @@ export const allReviews = [
   { quote: "Super flexible.", who: "Reshan Sivasamy", context: "Event organiser, sound" },
 ];
 
-export type Project = { img: string; alt: string; tag?: string; spec: string[]; title: string; line: string };
+export type Project = { img: string; alt: string; pos?: string; tag?: string; spec: string[]; title: string; line: string };
 
 // LED jobs from Jovin's write-ups (clients anonymous until PixelPro confirms names)
 export const LED_PROJECTS: Project[] = [
@@ -64,7 +69,7 @@ export function WaIcon() {
 
 export function Stars({ size = 14 }: { size?: number }) {
   return (
-    <span className="v2-stars" aria-label="5 stars">
+    <span className="v2-stars" role="img" aria-label="Rated 5 out of 5">
       {[0, 1, 2, 3, 4].map((i) => (
         <svg key={i} viewBox="0 0 20 20" width={size} height={size} aria-hidden>
           <path fill="currentColor" d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z" />
@@ -74,28 +79,151 @@ export function Stars({ size = 14 }: { size?: number }) {
   );
 }
 
+/** One-line trust chip for the top of each page (the big 5.0 lives in the reviews section only) */
+export function TrustChip() {
+  return (
+    <p className="v2-trust">
+      <Stars size={13} />
+      <span>5.0 on Google</span>
+      <i aria-hidden />
+      <span>GeBIZ registered</span>
+      <i aria-hidden />
+      <span>bizSAFE Level 3</span>
+    </p>
+  );
+}
+
+/** Which section sits in the middle of the screen; null while the hero is in view */
+export function useActiveSection(ids: readonly string[]) {
+  const [active, setActive] = useState<string | null>(null);
+  useEffect(() => {
+    const opts = { rootMargin: "-45% 0px -50% 0px" };
+    const obs = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && setActive(e.target.id)), opts);
+    const hero = new IntersectionObserver(([e]) => e.isIntersecting && setActive(null), opts);
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+    const h = document.getElementById("top");
+    if (h) hero.observe(h);
+    return () => {
+      obs.disconnect();
+      hero.disconnect();
+    };
+  }, [ids]);
+  return active;
+}
+
+/** Desktop: numbered section bar under the site navbar, with the main action on the right (T SERVIS / Apple local nav) */
+export function SectionBar({ sections, active, wa }: { sections: readonly (readonly [string, string])[]; active: string | null; wa: string }) {
+  const idx = sections.findIndex(([id]) => id === active);
+  return (
+    <nav className={`v2-secbar ${active ? "is-on" : ""}`} aria-label="Page sections" inert={!active}>
+      <ol>
+        {sections.map(([id, label], i) => (
+          <li key={id}>
+            <a href={`#${id}`} aria-current={active === id ? "location" : undefined} onClick={(e) => (e.preventDefault(), goTo(id))}>
+              <span className="v2-secbar-n">0{i + 1}</span>
+              {label}
+            </a>
+          </li>
+        ))}
+      </ol>
+      <a href={wa} target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-wa v2-btn-xs">
+        <WaIcon /> Get a quote
+      </a>
+      <span className="v2-secbar-bar" aria-hidden>
+        <i style={{ transform: `scaleX(${(Math.max(idx, 0) + 1) / sections.length})` }} />
+      </span>
+    </nav>
+  );
+}
+
+/** Phone: bottom bar after the hero. Left = section menu (opens a list, never jumps), right = WhatsApp quote */
+export function PhoneBar({ sections, active, wa, hideIds = [] }: { sections?: readonly (readonly [string, string])[]; active: string | null; wa: string; hideIds?: string[] }) {
+  const [shown, setShown] = useState(false);
+  const [menu, setMenu] = useState(false);
+  useEffect(() => {
+    const hero = document.getElementById("top");
+    const ends = hideIds.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    let pastHero = false;
+    let atEnd = false;
+    const set = () => setShown(pastHero && !atEnd);
+    const o1 = new IntersectionObserver(([e]) => ((pastHero = !e.isIntersecting && e.boundingClientRect.top < 0), set()));
+    const o2 = new IntersectionObserver((es) => ((atEnd = es.some((e) => e.isIntersecting)), set()));
+    if (hero) o1.observe(hero);
+    ends.forEach((el) => o2.observe(el));
+    return () => {
+      o1.disconnect();
+      o2.disconnect();
+    };
+  }, [hideIds]);
+  useEffect(() => {
+    if (!shown) setMenu(false);
+  }, [shown]);
+  const idx = sections ? sections.findIndex(([id]) => id === active) : -1;
+  return (
+    <div className={`v2-phonebar ${shown ? "is-on" : ""}`} inert={!shown}>
+      {sections && (
+        <div id="v2-secmenu" className={`v2-secmenu ${menu ? "is-open" : ""}`} inert={!menu}>
+          {sections.map(([id, label], i) => (
+            <a key={id} href={`#${id}`} aria-current={active === id ? "location" : undefined} onClick={(e) => (e.preventDefault(), setMenu(false), goTo(id))}>
+              <span className="v2-secbar-n">0{i + 1}</span>
+              {label}
+            </a>
+          ))}
+        </div>
+      )}
+      <div className="v2-phonebar-row">
+        {sections && (
+          <button type="button" className="v2-phonebar-sec" aria-expanded={menu} aria-controls="v2-secmenu" onClick={() => setMenu(!menu)}>
+            <span className="v2-secbar-n">0{Math.max(idx, 0) + 1}/0{sections.length}</span>
+            <span>{idx >= 0 ? sections[idx][1] : sections[0][1]}</span>
+            <span className={`v2-chev-s ${menu ? "is-up" : ""}`} aria-hidden />
+          </button>
+        )}
+        <a href={wa} target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-wa v2-phonebar-wa">
+          <WaIcon /> Get a quote
+        </a>
+      </div>
+    </div>
+  );
+}
+
 /* Apple-style carousel: cards side by side, ‹ › arrows, swipe on phones */
 export function WorkCarousel({ projects }: { projects: Project[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const [at, setAt] = useState({ start: true, end: false });
-  const update = () => {
+  useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    setAt({ start: el.scrollLeft < 8, end: el.scrollLeft + el.clientWidth > el.scrollWidth - 8 });
-  };
+    const update = () => {
+      const start = el.scrollLeft <= 1;
+      const end = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+      setAt((p) => (p.start === start && p.end === end ? p : { start, end }));
+    };
+    update();
+    el.addEventListener("scroll", update, { passive: true });
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => {
+      el.removeEventListener("scroll", update);
+      ro.disconnect();
+    };
+  }, []);
   const move = (dir: number) => {
     const el = ref.current;
     if (!el) return;
     const card = el.querySelector<HTMLElement>(".v2-car-card");
-    el.scrollBy({ left: dir * ((card?.offsetWidth ?? 400) + 20), behavior: "smooth" });
+    el.scrollBy({ left: dir * ((card?.offsetWidth ?? 400) + 20), behavior: scrollBehavior() });
   };
   return (
     <div className="v2-car">
-      <div ref={ref} className="v2-car-track" onScroll={update}>
+      <div ref={ref} className="v2-car-track">
         {projects.map((p) => (
           <article key={p.title} className="v2-car-card">
             <div className="v2-car-media">
-              <Image src={p.img} alt={p.alt} fill sizes="(min-width: 1024px) 460px, 85vw" className="v2-cover" />
+              <Image src={p.img} alt={p.alt} fill sizes="(min-width: 1024px) 460px, 85vw" className="v2-cover v2-photo" style={p.pos ? { objectPosition: p.pos } : undefined} />
             </div>
             <div className="v2-car-text">
               <div className="v2-chips">
@@ -125,14 +253,15 @@ export function WorkCarousel({ projects }: { projects: Project[] }) {
   );
 }
 
-/* Review row that slides by itself (Jovin likes this one); pauses under the mouse */
+/* Review row that slides by itself (Jovin likes it). Visible pause button; static swipe row on phones and for reduced motion. */
 export function ReviewsMarquee({ first = "Candy Mak" }: { first?: string }) {
+  const [paused, setPaused] = useState(false);
   const reviews = [...allReviews].sort((a, b) => (b.who === first ? 1 : 0) - (a.who === first ? 1 : 0));
   return (
-    <div className="v2-marquee">
+    <div className={`v2-marquee ${paused ? "is-paused" : ""}`}>
       <ul className="v2-track">
         {[...reviews, ...reviews].map((r, i) => (
-          <li key={i} aria-hidden={i >= reviews.length} className="v2-review">
+          <li key={i} aria-hidden={i >= reviews.length} className={`v2-review ${i >= reviews.length ? "is-dup" : ""}`}>
             <Stars />
             <p>&ldquo;{r.quote}&rdquo;</p>
             <span>
@@ -141,6 +270,9 @@ export function ReviewsMarquee({ first = "Candy Mak" }: { first?: string }) {
           </li>
         ))}
       </ul>
+      <button type="button" className="v2-pause" aria-pressed={paused} onClick={() => setPaused(!paused)}>
+        {paused ? "▶ Play" : "❚❚ Pause"}
+      </button>
     </div>
   );
 }

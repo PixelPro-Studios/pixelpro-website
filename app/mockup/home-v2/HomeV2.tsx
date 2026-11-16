@@ -1,8 +1,9 @@
 "use client";
 // MOCKUP by Rankr (16 Nov 2026). Home page, design v2. Service copy from components/ServicesSection.tsx;
-// "why" copy from the approved LED page and Lukas's WhatsApp text. No guarantee, no "one-stop" (writing rules).
+// "why" facts from the approved LED page and Lukas's WhatsApp text. No guarantee, no "one-stop" (writing rules).
+// Layout rule (T SERVIS / Moment Factory): every section a different shape; cards only in Services.
 import Image from "next/image";
-import { LED_PROJECTS, RatingBlock, ReviewsMarquee, Stars, WaIcon, WorkCarousel, waLink } from "../_v2/shared";
+import { LED_PROJECTS, PhoneBar, RatingBlock, ReviewsMarquee, TrustChip, WaIcon, waLink } from "../_v2/shared";
 
 const WA = waLink("Hi PixelPro, I'd like a quote for an event (from your website).\nDate: \nVenue: \nEvent name & type: \nWhat you need: ");
 const CAL = "https://cal.com/pixelpro/consultation";
@@ -26,62 +27,42 @@ const SERVICES = [
   { title: "Entertainment & Talent", copy: "Professional hosts, event entertainment and performances that engage your audience.", img: "/services-talent/pixelpro-studios-talent-and-entertainment-singapore.jpg", href: "/services/talent" },
 ];
 
-const REASONS = [
-  {
-    title: "Quick replies, any day",
-    copy: "WhatsApp is available 24/7 for enquiries and quotations. Our office runs Mon–Sun 9am–10pm, and you can call +65 8860 5489 for urgent requests.",
-    img: "/portfolio-live-music/sound-system-rental_live-band-stage-monitors.webp",
-    alt: "PixelPro stage monitors set up for a live band",
-  },
-  {
-    title: "Clear, competitive quotations",
-    copy: "Customised quotations with clear, competitive pricing. You see a breakdown of the equipment, installation and technical services.",
-    img: "/portfolio-live-music/sound-system-rental_mixing-desk-sound-engineer.webp",
-    alt: "PixelPro sound engineer at the mixing desk",
-  },
-  {
-    title: "One team for the technical side",
-    copy: "Sound systems, LED walls, staging, photography and videography from the same team. You have one contact and one quotation.",
-    img: "/portfolio-live-music/av-rental_stage-speakers-and-mixer.webp",
-    alt: "PixelPro stage speakers and mixer set up for an event",
-  },
+// Home starts its work list with a different job than the LED page does (no repeated lead photo)
+const [p0, p1, p2, p3] = LED_PROJECTS;
+const LEAD = p2;
+const ROWS = [p0, p1, p3];
+
+const FIGURES = [
+  { n: "24/7", title: "Quick replies, any day", copy: "WhatsApp for enquiries and quotations at any hour. Office Mon–Sun 9am–10pm; call +65 8860 5489 for urgent requests." },
+  { n: "1", title: "One contact, one quotation", copy: "Sound systems, LED walls, staging, photography and videography, with one contact and a clear breakdown of the equipment, installation and technical services." },
+  { n: "Lv 3", title: "bizSAFE and GeBIZ registered", copy: "bizSAFE Level 3, and a GeBIZ-registered vendor for schools and government agencies." },
 ];
 
-const FIELD = [1, 2, 3, 4, 5, 6].map((n) => `/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-${n}.jpg`);
+const FIELD = [1, 2, 4, 5, 6].map((n) => `/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-${n}.jpg`);
 
 export default function HomeV2() {
   return (
     <main className="v2">
-      {/* 1. Hero: one photo, one line, two buttons */}
-      <header className="v2-hero v2-hero-center">
-        <Image src="/photos/pixelpro-studios-hero-stage.webp" alt="Stage lit for an event by PixelPro Studios" fill priority sizes="100vw" className="v2-hero-img" />
-        <div className="v2-hero-shade" aria-hidden />
+      <PhoneBar active={null} wa={WA} hideIds={["cta"]} />
+
+      {/* 1. Hero: a sharp photo of a PixelPro rig on the right, solid black behind the text */}
+      <header id="top" className="v2-hero v2-hero-split">
+        <div className="v2-hero-media">
+          <Image src="/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-3.jpg" alt="Concert stage with lighting and LED screens run by PixelPro Studios" fill priority quality={70} sizes="(min-width: 1024px) 70vw, 100vw" className="v2-cover v2-photo" style={{ objectPosition: "55% 45%" }} />
+        </div>
         <div className="v2-hero-in">
-          <p className="v2-eyebrow v2-rise" style={{ animationDelay: "0ms" }}>Events, AV and media · Singapore</p>
-          <h1 className="v2-h1 v2-rise" style={{ animationDelay: "60ms" }}>Events made effortless, every time.</h1>
-          <p className="v2-lead v2-rise" style={{ animationDelay: "120ms" }}>
+          <TrustChip />
+          <h1 className="v2-h1 v2-rise-h">Events made effortless, every time.</h1>
+          <p className="v2-lead v2-rise" style={{ animationDelay: "80ms" }}>
             Sound systems, LED walls, staging, photography and videography for events across Singapore, planned and run by our own crew.
           </p>
-          <div className="v2-btns v2-rise" style={{ animationDelay: "180ms" }}>
-            <a href={CAL} target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-white">
-              Book a call
-            </a>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-ghost">
+          <div className="v2-btns v2-rise" style={{ animationDelay: "140ms" }}>
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-wa">
               <WaIcon /> WhatsApp us
             </a>
-          </div>
-        </div>
-        <div className="v2-badge v2-rise" style={{ animationDelay: "260ms" }}>
-          <div className="v2-badge-top">
-            <span className="v2-badge-num">5.0</span>
-            <div>
-              <Stars />
-              <span className="v2-badge-sub">Rated on Google</span>
-            </div>
-          </div>
-          <div className="v2-badge-row">
-            <span>GeBIZ registered</span>
-            <span>bizSAFE Level 3</span>
+            <a href={CAL} target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-ghost">
+              Book a call
+            </a>
           </div>
         </div>
       </header>
@@ -100,11 +81,11 @@ export default function HomeV2() {
         </div>
       </section>
 
-      {/* 3. Services: real job photos on every card */}
+      {/* 3. Services: the only card grid on the page */}
       <section className="v2-wrap v2-sec" aria-labelledby="svc-h">
         <div className="v2-head-row">
           <div>
-            <p className="v2-eyebrow">What we offer</p>
+            <p className="v2-eyebrow">01 · What we offer</p>
             <h2 id="svc-h" className="v2-h2">Event AV and media services</h2>
           </div>
           <a href="/services/deck" className="v2-btn v2-btn-ghost v2-btn-sm">
@@ -115,7 +96,7 @@ export default function HomeV2() {
           {SERVICES.map((s, i) => (
             <a key={s.title} href={s.href} className={`v2-svc-card ${i > 2 ? "is-wide" : ""}`}>
               <div className="v2-svc-media">
-                <Image src={s.img} alt={`${s.title} by PixelPro Studios`} fill sizes="(min-width: 1024px) 420px, 100vw" className="v2-cover" />
+                <Image src={s.img} alt="" fill sizes="(min-width: 1024px) 420px, 100vw" className="v2-cover v2-photo" />
               </div>
               <div className="v2-svc-text">
                 <div>
@@ -131,75 +112,102 @@ export default function HomeV2() {
         </div>
       </section>
 
-      {/* 4. Recent work: same carousel as the service pages */}
-      <section className="v2-sec" aria-labelledby="work-h">
-        <div className="v2-wrap v2-head-row">
+      {/* 4. Recent work: one big lead job, then a list (not more cards) */}
+      <section className="v2-wrap v2-sec" aria-labelledby="work-h">
+        <div className="v2-head-row">
           <div>
-            <p className="v2-eyebrow">Recent work</p>
+            <p className="v2-eyebrow">02 · Recent work</p>
             <h2 id="work-h" className="v2-h2">Events we&apos;ve supported</h2>
           </div>
           <a href="/portfolio" className="v2-link">
             See all projects →
           </a>
         </div>
-        <WorkCarousel projects={LED_PROJECTS} />
+        <article className="v2-lead-job">
+          <Image src={LEAD.img} alt={LEAD.alt} fill sizes="(min-width: 1280px) 1160px, 100vw" className="v2-cover v2-photo" />
+          <div className="v2-lead-job-text">
+            <div className="v2-chips">
+              {LEAD.spec.map((s) => (
+                <span key={s} className="v2-chip">
+                  {s}
+                </span>
+              ))}
+            </div>
+            <h3 className="v2-h3">{LEAD.title}</h3>
+            <p className="v2-card-line">{LEAD.line}</p>
+          </div>
+        </article>
+        <ul className="v2-rows">
+          {ROWS.map((p, i) => (
+            <li key={p.title} className="v2-row">
+              <span className="v2-row-n">0{i + 2}</span>
+              <div className="v2-row-img">
+                <Image src={p.img} alt={p.alt} fill sizes="160px" className="v2-cover v2-photo" />
+              </div>
+              <div className="v2-row-text">
+                <h3 className="v2-row-title">{p.title}</h3>
+                <p className="v2-card-line">{p.line}</p>
+              </div>
+              <span className="v2-row-spec">{p.spec[0]}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
-      {/* 5. Why PixelPro: three short reasons, real crew photos (replaces the stock-photo blocks; guarantee removed) */}
-      <section className="v2-wrap v2-sec" aria-labelledby="why-h">
-        <p className="v2-eyebrow">Why PixelPro</p>
-        <h2 id="why-h" className="v2-h2">Why event teams book PixelPro</h2>
-        <div className="v2-reasons">
-          {REASONS.map((r) => (
-            <article key={r.title} className="v2-reason">
-              <div className="v2-reason-media">
-                <Image src={r.img} alt={r.alt} fill sizes="(min-width: 1024px) 400px, 100vw" className="v2-cover" />
-              </div>
-              <div className="v2-reason-text">
-                <h3 className="v2-card-title">{r.title}</h3>
-                <p className="v2-card-line">{r.copy}</p>
-              </div>
-            </article>
+      {/* 5. Statement: text only, one big line */}
+      <section className="v2-wrap v2-statement" aria-label="What we do">
+        <p className="v2-statement-text">From a school hall to a mall atrium, we plan, set up and run the technical side of your event.</p>
+      </section>
+
+      {/* 6. Why PixelPro: one wide photo, then three big figures (no cards) */}
+      <section className="v2-sec v2-why" aria-labelledby="why-h">
+        <div className="v2-wrap">
+          <h2 id="why-h" className="v2-h2">Why event teams book PixelPro</h2>
+        </div>
+        <div className="v2-why-photo">
+          <Image src="/portfolio-live-music/event-av-planning_sound-check-before-doors-open.webp" alt="PixelPro crew running a sound check before the doors open" fill sizes="100vw" className="v2-cover v2-photo" style={{ objectPosition: "center 55%" }} />
+        </div>
+        <div className="v2-wrap v2-figures">
+          {FIGURES.map((f) => (
+            <div key={f.title} className="v2-figure">
+              <span className="v2-figure-n">{f.n}</span>
+              <h3 className="v2-figure-title">{f.title}</h3>
+              <p className="v2-card-line">{f.copy}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* 6. Reviews */}
+      {/* 7. Reviews: the one place the big 5.0 appears */}
       <section className="v2-sec" aria-labelledby="reviews-h">
-        <div className="v2-wrap v2-reviews-head">
-          <div>
-            <p className="v2-eyebrow">Reviews</p>
-            <h2 id="reviews-h" className="v2-h2">What our clients say</h2>
-          </div>
+        <div className="v2-wrap v2-head-row">
+          <h2 id="reviews-h" className="v2-h2">What our clients say</h2>
           <RatingBlock />
         </div>
         <ReviewsMarquee />
       </section>
 
-      {/* 7. From the field: dark photo grid (replaces the white Instagram box) */}
-      <section className="v2-wrap v2-sec" aria-labelledby="field-h">
-        <div className="v2-head-row">
-          <div>
-            <p className="v2-eyebrow">From the field</p>
-            <h2 id="field-h" className="v2-h2">See what we&apos;ve been creating</h2>
-          </div>
+      {/* 8. From the field: a sideways strip (replaces the white Instagram box) */}
+      <section className="v2-sec" aria-labelledby="field-h">
+        <div className="v2-wrap v2-head-row">
+          <h2 id="field-h" className="v2-h2">See what we&apos;ve been creating</h2>
           <a href="https://www.instagram.com/pixelprostudios.sg/" target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-ghost v2-btn-sm">
             Follow @pixelprostudios.sg
           </a>
         </div>
-        <div className="v2-field">
+        <div className="v2-strip">
           {FIELD.map((src, i) => (
-            <a key={src} href="https://www.instagram.com/pixelprostudios.sg/" target="_blank" rel="noopener noreferrer" className="v2-field-tile">
-              <Image src={src} alt={`PixelPro stage production in Singapore, photo ${i + 1}`} fill sizes="(min-width: 1024px) 200px, 33vw" className="v2-cover" />
+            <a key={src} href="https://www.instagram.com/pixelprostudios.sg/" target="_blank" rel="noopener noreferrer" className="v2-strip-tile" aria-label={`PixelPro stage production, photo ${i + 1} (opens Instagram)`}>
+              <Image src={src} alt="" fill sizes="(min-width: 1024px) 300px, 70vw" className="v2-cover v2-photo" />
             </a>
           ))}
         </div>
       </section>
 
-      {/* 8. One clear next step */}
-      <section className="v2-wrap v2-sec v2-sec-last" aria-labelledby="cta-h">
+      {/* 9. One clear next step (the only centred block) */}
+      <section id="cta" className="v2-wrap v2-sec v2-sec-last" aria-labelledby="cta-h">
         <div className="v2-cta">
-          <h2 id="cta-h" className="v2-h2">Let&apos;s bring your event to life.</h2>
+          <h2 id="cta-h" className="v2-h2 v2-h2-xl">Let&apos;s bring your event to life.</h2>
           <p className="v2-body">Tell us the date, venue and what you need. WhatsApp is available 24/7 for enquiries and quotations.</p>
           <div className="v2-btns">
             <a href={WA} target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-wa">
