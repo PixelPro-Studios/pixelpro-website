@@ -5,7 +5,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import HeroPixelSpotlight from "@/components/HeroPixelSpotlight";
-import InfiniteLogos from "@/components/LogoSection";
+import { LOGOS, LogoRow } from "@/components/LogoSection";
 import { LED_PROJECTS, PhoneBar, RatingBlock, ReviewsMarquee, TrustChip, WaIcon, waLink } from "../_v2/shared";
 
 const WA = waLink("Hi PixelPro, I'd like a quote for an event (from your website).\nDate: \nVenue: \nEvent name & type: \nWhat you need: ");
@@ -19,10 +19,27 @@ const SERVICES = [
   { title: "Entertainment & Talent", copy: "Hosts, entertainment and performances for your programme.", img: "/services-talent/pixelpro-studios-talent-and-entertainment-singapore.jpg", href: "/services/talent" },
 ];
 
-// Home leads with a different job than the LED page does; the rest are a text list (no thumbnails)
-const [p0, p1, p2, p3] = LED_PROJECTS;
-const LEAD = p2;
-const ROWS = [p0, p1, p3];
+// Recent work as a spec sheet per event type. Facts from Jovin's job write-ups only; no client names.
+const [uni, forum, mall, school] = LED_PROJECTS;
+const JOBS: { type: string; p: (typeof LED_PROJECTS)[number]; rows: [string, string][] }[] = [
+  { type: "Conference", p: forum, rows: [["Event", "Three-day international forum"], ["Venue", "Hotel ballroom"], ["Audience", "About 100 delegates"], ["Screen", "3.5 m × 2.5 m LED wall + 50-inch confidence monitor"]] },
+  { type: "Mall event", p: mall, rows: [["Event", "Public event on a stage"], ["Venue", "Mall atrium"], ["Screen", "5.5 m × 3 m LED display"], ["Also", "7 m × 4 m stage, built overnight"]] },
+  { type: "University", p: uni, rows: [["Event", "Innovation showcase"], ["Venue", "University"], ["Screen", "6 m × 2.5 m LED wall"], ["Also", "Sound, mics and crew on site"]] },
+  { type: "School", p: school, rows: [["Event", "Prize-day ceremony"], ["Venue", "School hall"], ["Screen", "Four 1 m × 2 m LED panels"]] },
+];
+
+/** The live site's logo marquee, as one row instead of two (Abel, 17 Nov) */
+function LogosOneRow() {
+  const [paused, setPaused] = useState(false);
+  return (
+    <section className="v2-logos-live" aria-label="Clients we have worked with">
+      <p className="v2-eyebrow v2-logos-label">Trusted by</p>
+      <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+        <LogoRow logos={LOGOS} direction="left" duration={90} paused={paused} />
+      </div>
+    </section>
+  );
+}
 
 const FIGURES = [
   { n: "24/7", title: "Quick replies, any day", copy: "WhatsApp for enquiries and quotations at any hour. Office Mon–Sun 9am–10pm; call +65 8860 5489 for urgent requests." },
@@ -33,6 +50,7 @@ const FIGURES = [
 export default function HomeV2() {
   const [hover, setHover] = useState<number | null>(null);
   const shown = hover ?? 0;
+  const [job, setJob] = useState(0);
   return (
     <main className="v2">
       <PhoneBar active={null} wa={WA} hideIds={["cta"]} />
@@ -58,9 +76,7 @@ export default function HomeV2() {
       </header>
 
       {/* 2. Client logos: the live two-row marquee, unchanged */}
-      <div className="v2-logos-live">
-        <InfiniteLogos />
-      </div>
+      <LogosOneRow />
 
       {/* 3. Services: a big-type list; a photo shows only on hover (desktop) */}
       <section className="v2-wrap v2-sec" aria-labelledby="svc-h">
@@ -112,29 +128,37 @@ export default function HomeV2() {
             See all projects →
           </a>
         </div>
-        <article className="v2-lead-job v2-home-lead">
-          <Image src={LEAD.img} alt={LEAD.alt} fill sizes="(min-width: 1280px) 1160px, 100vw" className="v2-cover v2-photo" />
-          <div className="v2-lead-job-text">
-            <div className="v2-chips">
-              {LEAD.spec.map((s) => (
-                <span key={s} className="v2-chip">
-                  {s}
-                </span>
+        {/* A buyer checks three things: "have they done my kind of event?", "can they handle my venue and size?", "is it real?".
+            So: pick the event type, see one real photo and a short spec sheet. No paragraphs. */}
+        <div className="v2-jobs">
+          <div className="v2-jobs-tabs" role="group" aria-label="Choose a type of event">
+            {JOBS.map((j, i) => (
+              <button key={j.type} type="button" aria-pressed={job === i} className={job === i ? "is-active" : ""} onClick={() => setJob(i)}>
+                {j.type}
+              </button>
+            ))}
+          </div>
+          <div className="v2-jobs-card">
+            <div className="v2-jobs-media">
+              {JOBS.map((j, i) => (
+                <div key={j.type} className={`v2-jobs-img ${job === i ? "is-active" : ""}`}>
+                  <Image src={j.p.img} alt={j.p.alt} fill sizes="(min-width: 1024px) 640px, 100vw" className="v2-cover v2-photo" />
+                </div>
               ))}
             </div>
-            <h3 className="v2-h3">{LEAD.title}</h3>
+            <div className="v2-jobs-spec">
+              <h3 className="v2-card-title">{JOBS[job].p.title}</h3>
+              <dl>
+                {JOBS[job].rows.map(([k, v]) => (
+                  <div key={k}>
+                    <dt>{k}</dt>
+                    <dd>{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           </div>
-        </article>
-        {/* One line per job: number, name, the screen it used */}
-        <ul className="v2-rows v2-rows-tight">
-          {ROWS.map((p, i) => (
-            <li key={p.title} className="v2-row v2-row-text-only">
-              <span className="v2-row-n">0{i + 2}</span>
-              <h3 className="v2-row-title">{p.title}</h3>
-              <span className="v2-row-spec">{p.spec[0]}</span>
-            </li>
-          ))}
-        </ul>
+        </div>
       </section>
 
       {/* 5. Statement: text only, one big line */}

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const LOGOS: { file: string; alt: string }[] = [
+export const LOGOS: { file: string; alt: string }[] = [
   {
     file: "pixelpro-studios-ahmad-ibrahim-secondary-school-sound-system-service.png",
     alt: "Ahmad Ibrahim Secondary School",
@@ -82,7 +82,7 @@ const MID = Math.ceil(LOGOS.length / 2);
 const ROW_ONE = LOGOS.slice(0, MID);
 const ROW_TWO = LOGOS.slice(MID);
 
-function LogoRow({
+export function LogoRow({
   logos,
   direction,
   duration = 50,
