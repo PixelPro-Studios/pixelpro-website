@@ -552,6 +552,13 @@
 .v2-related-copy { font-size: 14px; line-height: 1.5; color: var(--mut); }
 .v2-related-item .v2-learn { margin-top: 4px; }
 
+/* gallery stays inside the page margins like every other section (17 Nov) */
+.v2-gal { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+@media (min-width: 768px) { .v2-gal { padding: 0 40px; } }
+.v2-gal .v2-gal-track { padding: 0; border-radius: 28px; }
+.v2-gal .v2-gal-slide { width: 100%; }
+@media (max-width: 767px) { .v2-gal .v2-gal-track { border-radius: 22px; } }
+
 /* ---------- less wordy pass (17 Nov) ---------- */
 .v2-pricing { display: grid; gap: 28px; }
 @media (min-width: 1024px) { .v2-pricing { grid-template-columns: 0.8fr 1.2fr; gap: 72px; align-items: start; } }
