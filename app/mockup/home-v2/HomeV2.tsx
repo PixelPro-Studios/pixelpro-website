@@ -32,6 +32,7 @@ const FIGURES = [
 
 export default function HomeV2() {
   const [hover, setHover] = useState<number | null>(null);
+  const shown = hover ?? 0;
   return (
     <main className="v2">
       <PhoneBar active={null} wa={WA} hideIds={["cta"]} />
@@ -72,27 +73,32 @@ export default function HomeV2() {
             Download our services deck
           </a>
         </div>
-        <ul className="v2-svc-list" onMouseLeave={() => setHover(null)}>
-          {SERVICES.map((s, i) => (
-            <li key={s.title}>
-              <a href={s.href} className="v2-svc-row" onMouseEnter={() => setHover(i)} onFocus={() => setHover(i)}>
-                <span className="v2-row-n">0{i + 1}</span>
-                <h3 className="v2-svc-title">{s.title}</h3>
-                <p className="v2-svc-copy">{s.copy}</p>
-                <span className="v2-arrow" aria-hidden>
-                  →
-                </span>
-              </a>
-            </li>
-          ))}
-          <li className={`v2-svc-peek ${hover !== null ? "is-on" : ""}`} aria-hidden>
+        <div className="v2-svc-split">
+          <ul className="v2-svc-list">
             {SERVICES.map((s, i) => (
-              <div key={s.title} className={`v2-svc-peek-img ${hover === i ? "is-active" : ""}`}>
-                <Image src={s.img} alt="" fill sizes="320px" className="v2-cover v2-photo" />
+              <li key={s.title}>
+                <a href={s.href} className={`v2-svc-row ${shown === i ? "is-active" : ""}`} onMouseEnter={() => setHover(i)} onFocus={() => setHover(i)}>
+                  <span className="v2-row-n">0{i + 1}</span>
+                  <div>
+                    <h3 className="v2-svc-title">{s.title}</h3>
+                    <p className="v2-svc-copy">{s.copy}</p>
+                  </div>
+                  <span className="v2-arrow" aria-hidden>
+                    →
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          {/* One photo panel in its own column; it follows the row you point at (Apple "Significant others" pattern) */}
+          <div className="v2-svc-panel" aria-hidden>
+            {SERVICES.map((s, i) => (
+              <div key={s.title} className={`v2-svc-panel-img ${shown === i ? "is-active" : ""}`}>
+                <Image src={s.img} alt="" fill sizes="420px" className="v2-cover v2-photo" />
               </div>
             ))}
-          </li>
-        </ul>
+          </div>
+        </div>
       </section>
 
       {/* 4. Recent work: one big job, then a text list */}
