@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react";
 
 const PAGES = [
   { key: "home", label: "Home page", src: "/mockup/home-v2/" },
-  { key: "led", label: "LED wall rental page", src: "/mockup/led-walls-v2/" },
+  { key: "led", label: "LED wall rental", src: "/mockup/led-walls-v2/" },
+  { key: "stage", label: "Stage rental", src: "/mockup/stage-rental-v2/" },
 ];
 
 export default function Board() {

@@ -447,6 +447,90 @@
 .v2-cta .v2-body { max-width: 520px; }
 .v2-cta .v2-btns { justify-content: center; }
 
+/* ---------- shared service template v2 (17 Nov): Apple-pattern components ---------- */
+.v2-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.v2-learn { display: inline-flex; align-items: center; min-height: 32px; font-size: 15px; font-weight: 500; color: #8ea6ff; transition: color 200ms ease; }
+@media (hover: hover) and (pointer: fine) { .v2-learn:hover { color: #b8c8ff; text-decoration: underline; text-underline-offset: 4px; } }
+
+/* slot 3: Apple compare columns (huge number, label, centred lines) + picker */
+.v2-setup-head { max-width: 760px; }
+.v2-compare { margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); border-top: 1px solid var(--line); }
+.v2-compare-col { padding: 40px 24px 8px; text-align: center; }
+.v2-compare-col + .v2-compare-col { border-left: 1px solid var(--line); }
+.v2-compare-big { display: block; font-family: var(--font-inter), sans-serif; font-weight: 600; font-size: clamp(48px, 6vw, 80px); line-height: 1; letter-spacing: -0.03em; }
+.v2-compare-label { margin-top: 14px; font-family: var(--font-inter), sans-serif; font-size: 17px; font-weight: 600; }
+.v2-compare-col p { max-width: 340px; margin: 10px auto 0; font-size: 15px; line-height: 1.55; color: var(--mut); }
+.v2-sizer-wide { max-width: 760px; margin: 56px auto 0; text-align: center; }
+.v2-sizer-wide .v2-sizer-tabs { justify-content: center; }
+.v2-sizer-wide .v2-sizer-label, .v2-sizer-wide .v2-note { text-align: center; }
+.v2-setup-note { margin: 16px auto 0; }
+.v2-plan-frame { position: relative; margin-top: 18px; aspect-ratio: 10 / 6; border-radius: 16px; border: 1px dashed rgba(255, 255, 255, 0.18); background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px); background-size: 10% 16.666%; }
+.v2-plan-stage { position: absolute; left: 10%; top: 16.666%; width: 80%; height: 66.666%; transform-origin: left top; border-radius: 3px; background: linear-gradient(135deg, #2b2b2e, #3a3a3f); border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.03); transition: transform 240ms var(--ease-out); }
+.v2-plan-person { position: absolute; left: 4%; bottom: 10%; width: 5%; aspect-ratio: 1; border-radius: 50%; background: rgba(255, 255, 255, 0.7); }
+.v2-plan-tag { position: absolute; right: 12px; bottom: 10px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+@media (max-width: 767px) {
+  .v2-compare { grid-template-columns: 1fr; }
+  .v2-compare-col { padding: 28px 8px 4px; }
+  .v2-compare-col + .v2-compare-col { border-left: 0; border-top: 1px solid var(--line); }
+  .v2-sizer-wide { margin-top: 40px; }
+}
+
+/* slot 4: what's included, compare-style rows in two columns */
+.v2-inc { display: grid; gap: 32px; }
+@media (min-width: 1024px) { .v2-inc { grid-template-columns: 0.8fr 1.2fr; gap: 72px; align-items: start; } }
+.v2-checks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); }
+@media (min-width: 768px) { .v2-checks { grid-template-columns: 1fr 1fr; column-gap: 32px; } }
+.v2-checks li { display: flex; align-items: flex-start; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 15px; line-height: 1.5; color: var(--ink); }
+.v2-check { flex: none; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: rgba(142, 166, 255, 0.16); position: relative; }
+.v2-check::after { content: ""; position: absolute; left: 7px; top: 4px; width: 5px; height: 9px; border-right: 1.75px solid #8ea6ff; border-bottom: 1.75px solid #8ea6ff; transform: rotate(45deg); }
+.v2-support { margin-top: 28px; padding: 18px 22px; border-radius: 16px; font-size: 15px; line-height: 1.55; color: var(--mut); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); }
+
+/* slot 5: Apple Trade In pill switch with a sliding indicator */
+.v2-buyers-head { max-width: 760px; }
+.v2-switch { position: relative; display: inline-flex; flex-wrap: nowrap; max-width: 100%; margin-top: 32px; padding: 6px; border-radius: 999px; background: rgba(255, 255, 255, 0.07); border: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+.v2-switch::-webkit-scrollbar { display: none; }
+.v2-switch-ind { position: absolute; top: 6px; bottom: 6px; left: 0; border-radius: 999px; background: var(--ink); transition: transform 400ms var(--ease-in-out), width 400ms var(--ease-in-out); }
+.v2-switch button { position: relative; z-index: 1; flex: none; min-height: 48px; padding: 0 22px; border-radius: 999px; font-size: 15px; font-weight: 600; color: var(--mut); transition: color 250ms ease; }
+.v2-switch button.is-active { color: #0a0a0a; }
+@media (hover: hover) and (pointer: fine) { .v2-switch button:not(.is-active):hover { color: var(--ink); } }
+@keyframes v2-swap { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.v2-buyer { margin-top: 28px; max-width: 720px; animation: v2-swap 350ms var(--ease-out); }
+.v2-buyer .v2-card-title { margin-top: 0; }
+.v2-buyer-links { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-top: 14px; }
+
+/* slot 6: reviews as Apple "quick answers" bubbles */
+.v2-bubbles { display: grid; gap: 20px; }
+@media (min-width: 900px) { .v2-bubbles { grid-template-columns: repeat(3, 1fr); } }
+.v2-bubble { position: relative; margin: 0; padding: 30px 24px 22px; border-radius: 22px; background: var(--card); border: 1px solid var(--line); }
+.v2-avatar { position: absolute; top: -18px; left: 24px; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 600; font-size: 16px; color: #0a0a0a; background: linear-gradient(135deg, #e9eef7, #b9c6e0); box-shadow: 0 0 0 4px #0a0a0a; }
+.v2-bubble blockquote { margin: 0; font-size: 18px; line-height: 1.45; color: var(--ink); }
+.v2-bubble figcaption { margin-top: 14px; font-size: 13px; color: var(--dim); }
+@media (max-width: 899px) { .v2-bubbles { gap: 28px; } }
+
+/* slot 7: pricing as compare rows */
+.v2-table { margin-top: 32px; border-top: 1px solid var(--line); }
+.v2-tr { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 15px; line-height: 1.5; color: var(--mut); }
+.v2-th { padding: 12px 0; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+.v2-td-f { font-weight: 600; color: var(--ink); }
+@media (max-width: 767px) {
+  .v2-th { display: none; }
+  .v2-tr { grid-template-columns: 1fr; gap: 4px; padding: 16px 0; }
+  .v2-tr span:nth-child(2)::before { content: "Less: "; color: var(--dim); }
+  .v2-tr span:nth-child(3)::before { content: "More: "; color: var(--dim); }
+}
+
+/* slot 8: related services as "Learn more ›" tiles */
+.v2-related { margin-top: 56px; }
+.v2-related-h { font-family: var(--font-oliveira), serif; font-weight: 400; font-size: clamp(24px, 2.4vw, 32px); }
+.v2-related-grid { margin-top: 20px; display: grid; gap: 12px; }
+@media (min-width: 768px) { .v2-related-grid { grid-template-columns: repeat(3, 1fr); } }
+.v2-related-item { display: flex; flex-direction: column; gap: 6px; padding: 20px 22px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); transition: border-color 200ms ease, transform 160ms var(--ease-out); }
+.v2-related-item:active { transform: scale(0.98); }
+@media (hover: hover) and (pointer: fine) { .v2-related-item:hover { border-color: rgba(255, 255, 255, 0.22); } }
+.v2-related-label { font-size: 17px; font-weight: 600; color: var(--ink); }
+.v2-related-copy { font-size: 14px; line-height: 1.5; color: var(--mut); }
+.v2-related-item .v2-learn { margin-top: 4px; }
+
 /* ---------- phone polish (17 Nov) ---------- */
 .v2-figure-title { font-family: var(--font-inter), sans-serif; }
 .v2-quote-wrap { padding-bottom: 0; }
