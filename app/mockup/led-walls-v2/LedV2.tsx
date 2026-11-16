@@ -237,7 +237,7 @@ export default function LedV2() {
             <h2 id="work-h" className="v2-h2">LED walls we&apos;ve built for events</h2>
           </div>
         </div>
-        <WorkCarousel projects={LED_PROJECTS} wa={WA} />
+        <WorkCarousel projects={LED_PROJECTS} />
       </section>
 
       {/* 3. LED walls (LUSTRE): chapters with a sticky photo that changes */}

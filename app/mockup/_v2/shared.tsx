@@ -236,7 +236,7 @@ export function FloatingWa({ wa }: { wa: string }) {
    auto-advances every 6 s while on screen; dot bar where the current dot stretches into a filling progress line;
    round play/pause button. Stops for good once the visitor swipes or clicks. No autoplay under reduced motion. */
 const SLIDE_MS = 6000;
-export function WorkCarousel({ projects, wa }: { projects: Project[]; wa: string }) {
+export function WorkCarousel({ projects }: { projects: Project[] }) {
   const root = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);
   const [i, setI] = useState(0);
@@ -310,9 +310,6 @@ export function WorkCarousel({ projects, wa }: { projects: Project[]; wa: string
                 <h3 className="v2-gal-title">{p.title}</h3>
                 <p className="v2-gal-sub">{p.spec.join(" · ")}</p>
               </div>
-              <a href={wa} target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-wa v2-btn-xs" tabIndex={k === i ? 0 : -1}>
-                <WaIcon /> Get a similar quote
-              </a>
             </div>
             {p.tag && <span className="v2-chip v2-chip-light v2-gal-tag">{p.tag}</span>}
           </article>
