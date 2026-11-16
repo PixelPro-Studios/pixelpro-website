@@ -134,7 +134,14 @@
   .v2-svc-row .v2-row-n { display: none; }
 }
 .v2-row.v2-row-text-only { grid-template-columns: 40px 1fr auto; }
-@media (max-width: 767px) { .v2-row.v2-row-text-only { grid-template-columns: 1fr; } .v2-row.v2-row-text-only .v2-row-text .v2-card-line { display: block; } }
+.v2-rows-tight { margin-top: 20px; }
+.v2-rows-tight .v2-row { padding: 18px 0; }
+.v2-rows-tight .v2-row-title { font-size: clamp(20px, 1.8vw, 26px); }
+.v2-home-lead { aspect-ratio: 16 / 7; }
+@media (max-width: 767px) {
+  .v2-row.v2-row-text-only { grid-template-columns: 1fr; gap: 4px; }
+  .v2-rows-tight .v2-row-spec { display: block; }
+}
 
 /* ---------- desktop section bar (under the site navbar) ---------- */
 .v2-secbar { position: fixed; z-index: 40; top: 84px; left: 50%; display: none; align-items: center; gap: 4px; padding: 6px 6px 6px 10px; border-radius: 999px; background: rgba(20, 20, 20, 0.82); border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(14px); opacity: 0; transform: translate(-50%, -8px); pointer-events: none; transition: opacity 250ms ease, transform 250ms var(--ease-out); overflow: hidden; }

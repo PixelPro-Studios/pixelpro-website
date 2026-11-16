@@ -112,7 +112,7 @@ export default function HomeV2() {
             See all projects →
           </a>
         </div>
-        <article className="v2-lead-job">
+        <article className="v2-lead-job v2-home-lead">
           <Image src={LEAD.img} alt={LEAD.alt} fill sizes="(min-width: 1280px) 1160px, 100vw" className="v2-cover v2-photo" />
           <div className="v2-lead-job-text">
             <div className="v2-chips">
@@ -123,17 +123,14 @@ export default function HomeV2() {
               ))}
             </div>
             <h3 className="v2-h3">{LEAD.title}</h3>
-            <p className="v2-card-line">{LEAD.line}</p>
           </div>
         </article>
-        <ul className="v2-rows">
+        {/* One line per job: number, name, the screen it used */}
+        <ul className="v2-rows v2-rows-tight">
           {ROWS.map((p, i) => (
             <li key={p.title} className="v2-row v2-row-text-only">
               <span className="v2-row-n">0{i + 2}</span>
-              <div className="v2-row-text">
-                <h3 className="v2-row-title">{p.title}</h3>
-                <p className="v2-card-line">{p.line}</p>
-              </div>
+              <h3 className="v2-row-title">{p.title}</h3>
               <span className="v2-row-spec">{p.spec[0]}</span>
             </li>
           ))}
