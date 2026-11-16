@@ -86,7 +86,7 @@ const c: EventContent = {
     { question: "How early should we book for Chinese New Year?", answer: "We recommend at least two to four weeks ahead for standard events, and earlier for LED walls and peak season. CNY is peak season, so book as soon as your date and venue are fixed." },
     { question: "Can you show our lucky draw on the screen?", answer: "Yes. Send us your lucky-draw graphics and videos and we run them on the LED wall on cue. We can also set up a walk-up mic for the winners." },
     { question: "Can you arrange an emcee or performers?", answer: "Yes, through our partners. We arrange bilingual emcees and performers to suit your event, and coordinate them with the sound and screen so you have one contact." },
-    { question: "What if something goes wrong during the dinner?", answer: "Our crew stays on site the whole time and we carry spare LED panels and backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
+    { question: "What if something goes wrong during the dinner?", answer: "Our crew stays on site the whole time and we carry spare LED panels and backup mics. If a technical issue comes up, we respond quickly to fix it." },
   ],
   related: [
     { label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" },

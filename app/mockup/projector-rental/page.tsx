@@ -126,7 +126,7 @@ const c: ServiceContent = {
   faqs: [
     { question: "How much does projector rental cost?", answer: "We quote per event, because the price depends on the screen size, how bright the room is, how many screens you need, how long the event runs and venue access. Send us your brief and we'll reply with a setup and a quote." },
     { question: "I'm not technical. What do I need to do?", answer: "Send us your slides and videos, and bring your laptop early if you're presenting from it. We set up, align and test everything with you before guests arrive." },
-    { question: "What if something goes wrong in the middle of the event?", answer: "We carry backup projection equipment and have someone on site. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
+    { question: "What if something goes wrong in the middle of the event?", answer: "We carry backup projection equipment and have someone on site. If a technical issue comes up, we respond quickly to fix it." },
     { question: "How big a screen can you provide?", answer: "We have a 100-inch fabric screen, two 120-inch fast-fold screens (our go-to portable option) and a 250-inch fast-fold screen for large rooms and outdoor screenings." },
     { question: "Will a projector work in a bright room?", answer: "Our high-brightness and laser projectors handle lit halls well. For very bright venues, mall atriums or daylight outdoors, an LED wall gives a clearer picture, and we'll tell you if that's the better choice." },
     { question: "Do you have short-throw projectors?", answer: "Yes. Short-throw and ultra-short-throw projectors sit close to the screen, which helps in small rooms and stops people casting shadows." },

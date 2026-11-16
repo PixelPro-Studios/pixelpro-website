@@ -79,7 +79,7 @@ const c: EventContent = {
     { question: "How many mics do we need for the Q&A?", answer: "It depends on the room. A small room may need one or two handhelds; a large hall needs more, so runners can reach the floor quickly. Tell us your room and attendee count and we'll recommend a number." },
     { question: "Can staff join the town hall online?", answer: "Yes. We run compact livestreams with up to four cameras, so remote staff see the presenters and slides. For large broadcast productions, we'll tell you honestly that it's outside our compact setup." },
     { question: "Can you handle an AGM as well?", answer: "Yes. AGMs need the same things as a town hall: clear mics for the chair and speakers, mics for shareholder questions and slides on screen." },
-    { question: "What if a mic fails during the session?", answer: "Our engineer is on site with backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
+    { question: "What if a mic fails during the session?", answer: "Our engineer is on site with backup mics. If a technical issue comes up, we respond quickly to fix it." },
   ],
   related: [
     { label: "Conference AV rental", href: "/mockup/events/conference-av-rental" },

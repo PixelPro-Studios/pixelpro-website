@@ -21,6 +21,13 @@ export type ServiceContent = {
   heroImages: string[];
   heroAlt: string;
   pains: { worry: string; fix: string; spec: string }[];
+  // "Why choose PixelPro" cards (Jovin, 16 Nov). When set, they replace the pain cards.
+  why?: { title: string; items: { title: string; copy: string }[] };
+  // Support block in place of the old 30-minute guarantee banner (guarantee is T&Cs only, Jovin 16 Nov)
+  support?: { title: string; body: string };
+  pricingIntro?: string;
+  includedIntro?: string;
+  addOnsTitle?: string;
   reviewsFirst?: string[]; // reviewer names to show first (reviews about this service)
   story?: {
     eyebrow: string;
@@ -50,10 +57,11 @@ export type ServiceContent = {
   related: LinkT[];
 };
 
-export const trust = ["5.0 on Google (25 reviews)", "GeBIZ registered", "bizSAFE Level 3", "Resolved within 30 minutes, or a rebate (terms in your quote)"];
+// No review count and no 30-minute guarantee (Lukas 15 Nov, Jovin 16 Nov).
+export const trust = ["Rated 5.0 on Google", "GeBIZ registered", "bizSAFE Level 3"];
 
-// A real job from Jovin's write-ups (deepagent: clients/pixelpro/research/jovin-jobs/2026-11-15-job-writeups.md). Facts only.
-export type SetupBlock = { eyebrow?: string; title: string; rows: [string, string][]; note?: string };
+// "Featured Project" (was "A real job", Jovin 16 Nov): a short case summary, then the key facts.
+export type SetupBlock = { eyebrow?: string; title: string; summary?: string; rows: [string, string][]; note?: string };
 
 export function FactRows({ rows }: { rows: [string, string][] }) {
   return (
@@ -71,21 +79,28 @@ export function FactRows({ rows }: { rows: [string, string][] }) {
 export function SetupSection({ s, className = "" }: { s: SetupBlock; className?: string }) {
   return (
     <section className={`rounded-3xl border border-white/10 bg-brand-charcoal/60 p-7 md:p-10 ${className}`}>
-      <Eyebrow>{s.eyebrow ?? "A real job"}</Eyebrow>
+      <Eyebrow>{s.eyebrow ?? "Featured Project"}</Eyebrow>
       <h2 className="mt-4 font-display text-3xl text-brand-off-white md:text-4xl">{s.title}</h2>
+      {s.summary && <p className="mt-4 max-w-3xl font-sans leading-relaxed text-brand-off-white/75">{s.summary}</p>}
       <div className="mt-6"><FactRows rows={s.rows} /></div>
       {s.note && <p className="mt-6 font-sans text-sm text-brand-silver/70">{s.note}</p>}
     </section>
   );
 }
 
+// Jovin's 5 stages (16 Nov). No deposit terms.
 export const defaultSteps: [string, string][] = [
-  ["Send us your brief", "Date, venue, guest count and your programme. WhatsApp is fastest."],
-  ["Site visit if needed", "We check the space, power and access for larger or unusual setups."],
-  ["Quote and confirm", "A 50% deposit confirms your date."],
-  ["Setup and testing", "We build, run through your slides and sound check everything before guests arrive."],
-  ["Event and pack-down", "Our crew runs everything throughout, then packs it all away."],
+  ["Enquiry", "Share your event date, venue, audience size and what you need."],
+  ["Consultation and planning", "We check the venue, recommend a setup and flag anything else the event needs."],
+  ["Quotation and confirmation", "You receive a customised quotation for the equipment and services. Confirm your booking on the agreed payment terms."],
+  ["Installation and testing", "Our crew delivers, installs and tests everything ahead of your event."],
+  ["Live operation and tear-down", "Our team supports the event as booked, then handles the tear-down."],
 ];
+
+export const defaultSupport = {
+  title: "Technical support throughout your event",
+  body: "We test every setup before your event. Where on-site technical support is included, our crew stays on site to monitor the systems and respond quickly if anything needs attention.",
+};
 
 // Real Google review excerpts (deepagent: clients/pixelpro/research/google-reviews-2026-11-04.md). Excerpts only, never reworded.
 export const allReviews = [
@@ -153,7 +168,7 @@ export function Cards2({ items }: { items: [string, string][] }) {
   );
 }
 
-export function ReviewsAndPromise({ first = [] }: { first?: string[] }) {
+export function ReviewsAndPromise({ first = [], support = defaultSupport }: { first?: string[]; support?: { title: string; body: string } }) {
   const reviews = [...allReviews].sort((a, b) => (first.includes(b.who) ? 1 : 0) - (first.includes(a.who) ? 1 : 0));
   return (
     <section className="pt-12 md:pt-16" aria-label="Google reviews">
@@ -165,7 +180,7 @@ export function ReviewsAndPromise({ first = [] }: { first?: string[] }) {
       `}</style>
       <div className="flex items-center gap-3 font-sans text-brand-off-white">
         <Stars />
-        <span className="text-sm text-brand-silver">5.0 from 25 Google reviews</span>
+        <span className="text-sm text-brand-silver">Rated 5.0 on Google</span>
       </div>
       <div className="pp-marquee relative mt-5 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
         <ul className="pp-track flex w-max gap-4">
@@ -183,10 +198,8 @@ export function ReviewsAndPromise({ first = [] }: { first?: string[] }) {
       <div className="mt-6 flex items-start gap-4 rounded-2xl border border-blue-300/30 bg-brand-blue/10 p-6">
         <ShieldCheck className="h-7 w-7 shrink-0 text-blue-300" />
         <div>
-          <h2 className="font-display text-xl text-brand-off-white md:text-2xl">Worried it&apos;ll fail mid-speech?</h2>
-          <p className="mt-1.5 font-sans leading-relaxed text-brand-off-white/75">
-            If a technical issue ever happens during your event, our team resolves it within thirty minutes or you receive a rebate, as set out in your quote.
-          </p>
+          <h2 className="font-display text-xl text-brand-off-white md:text-2xl">{support.title}</h2>
+          <p className="mt-1.5 font-sans leading-relaxed text-brand-off-white/75">{support.body}</p>
         </div>
       </div>
     </section>
@@ -227,7 +240,21 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
         </header>
         </div>
 
-        {/* 3. Value prop, pain first */}
+        {/* 3. Value prop: "Why choose PixelPro" cards when set, else the pain cards */}
+        {c.why ? (
+          <section className="pt-16 md:pt-24">
+            <Eyebrow>Why choose PixelPro</Eyebrow>
+            <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight text-brand-off-white md:text-5xl">{c.why.title}</h2>
+            <div className="mt-10 grid gap-4 md:grid-cols-2">
+              {c.why.items.map((w) => (
+                <article key={w.title} className="rounded-2xl border border-white/10 bg-brand-charcoal/70 p-6 md:p-8">
+                  <h3 className="font-display text-2xl leading-snug text-brand-off-white">{w.title}</h3>
+                  <p className="mt-4 font-sans leading-relaxed text-brand-silver/85">{w.copy}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : (
         <section className="pt-16 md:pt-24">
           <Eyebrow>Why organisers book us</Eyebrow>
           <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight text-brand-off-white md:text-5xl">Common event worries, and how we handle them</h2>
@@ -244,9 +271,10 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
             ))}
           </div>
         </section>
+        )}
 
         {/* 4. Credibility straight after the value prop */}
-        <ReviewsAndPromise first={first} />
+        <ReviewsAndPromise first={first} support={c.support} />
 
         {/* 5b. Services overview (umbrella pages): PixelPro's own section headings and intros, linking to each service page */}
         {c.services && (
@@ -353,14 +381,14 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
 
         {/* 8. What affects the price (table; stacks on phones) */}
         <section id="pricing" className="scroll-mt-24 pt-20 md:pt-28">
-          <Eyebrow>Pricing</Eyebrow>
-          <h2 className="mt-4 font-display text-4xl text-brand-off-white md:text-5xl">What affects the price</h2>
-          <p className="mt-4 max-w-2xl font-sans text-brand-off-white/70">Every event is different, so we quote per event. These are the things that move the price:</p>
+          <Eyebrow>Pricing factor</Eyebrow>
+          <h2 className="mt-4 font-display text-4xl text-brand-off-white md:text-5xl">What Affects the Quotation</h2>
+          <p className="mt-4 max-w-2xl font-sans text-brand-off-white/70">{c.pricingIntro ?? "Every event is different, so we quote per event. These are the things that affect your quotation:"}</p>
           <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
             <table className="w-full border-collapse font-sans text-sm">
               <thead className="hidden bg-brand-charcoal sm:table-header-group">
                 <tr className="text-left text-xs uppercase tracking-wider text-brand-silver/60">
-                  <th className="px-6 py-4 font-semibold">What changes the price</th>
+                  <th className="px-6 py-4 font-semibold">Factor</th>
                   <th className="px-6 py-4 font-semibold">Costs less when</th>
                   <th className="px-6 py-4 font-semibold">Costs more when</th>
                 </tr>
@@ -382,7 +410,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
               </tbody>
             </table>
           </div>
-          <p className="mt-6 font-sans text-sm text-brand-silver/80">Transparent, competitive rates. Send us your brief and we&apos;ll reply with a setup and a quote.</p>
+          <p className="mt-6 font-sans text-sm text-brand-silver/80">Customised quotations with clear, competitive pricing. Share your event details and we&apos;ll send a quotation with a clear breakdown of the equipment, installation and technical services.</p>
         </section>
 
         {/* 9. Comparison */}
@@ -428,6 +456,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
           <div>
             <Eyebrow>Included</Eyebrow>
             <h2 className="mt-4 font-display text-4xl text-brand-off-white md:text-5xl">{c.includedTitle}</h2>
+            {c.includedIntro && <p className="mt-4 font-sans leading-relaxed text-brand-off-white/70">{c.includedIntro}</p>}
             <ul className="mt-8 space-y-4">
               {c.included.map((i) => (
                 <li key={i} className="flex items-start gap-3 font-sans text-brand-silver/85">
@@ -439,7 +468,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
           </div>
           <div>
             <Eyebrow>Add to the same booking</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl text-brand-off-white md:text-5xl">One team for the whole event</h2>
+            <h2 className="mt-4 font-display text-4xl text-brand-off-white md:text-5xl">{c.addOnsTitle ?? "Everything else your event needs"}</h2>
             <div className="mt-8 space-y-4">
               {c.addOns.map((a) => (
                 <SafeCard key={a.label} href={a.href} className="group block rounded-2xl border border-white/10 bg-brand-charcoal/70 p-6 transition-colors hover:border-white/30">
@@ -456,8 +485,8 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
 
         {/* 13. How it works */}
         <section className="pt-20 md:pt-28">
-          <Eyebrow>How it works</Eyebrow>
-          <h2 className="mt-4 font-display text-4xl text-brand-off-white md:text-5xl">From WhatsApp to show day</h2>
+          <Eyebrow>Our process</Eyebrow>
+          <h2 className="mt-4 font-display text-4xl text-brand-off-white md:text-5xl">From Enquiry to Event Execution</h2>
           <ol className="mt-10 grid gap-4 md:grid-cols-5">
             {steps.map(([t, d], i) => (
               <li key={t} className="rounded-2xl border border-white/10 bg-brand-charcoal/70 p-6">
@@ -474,7 +503,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
               <h2 className="font-display text-4xl text-brand-off-white md:text-5xl">{c.quote.title}</h2>
-              <p className="mt-4 font-sans text-brand-off-white/70">Send us these and we&apos;ll reply with a setup and a quote. Urgent? WhatsApp works after office hours too.</p>
+              <p className="mt-4 font-sans text-brand-off-white/70">Give us a call or drop us a WhatsApp message! Our WhatsApp is available 24/7, and we&apos;ll get back to you as soon as we can. For urgent enquiries, feel free to give us a call directly.</p>
               <div className="mt-8">
                 <WhatsAppButton href={wa} label="WhatsApp +65 8860 5489" />
               </div>
@@ -482,7 +511,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
                 Need a formal quotation or documents? Email{" "}
                 <a href="mailto:hello@pixelprostudios.sg" className="font-semibold text-blue-300 hover:text-blue-200">hello@pixelprostudios.sg</a>
               </p>
-              <p className="mt-2 font-sans text-xs text-brand-silver/60">Office Mon–Sun 9am–10pm · WhatsApp for urgent requests after hours</p>
+              <p className="mt-2 font-sans text-xs text-brand-silver/60">Office Mon–Sun 9am–10pm · Call +65 8860 5489 for urgent enquiries</p>
             </div>
             <ul className="grid gap-3 sm:grid-cols-2">
               {c.quote.checklist.map((i) => (

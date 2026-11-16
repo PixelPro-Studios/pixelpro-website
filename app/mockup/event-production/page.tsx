@@ -23,7 +23,7 @@ const c: ServiceContent = {
     { worry: "“I'm managing five vendors who don't talk to each other.”", fix: "Sound, screen, stage, lighting, photos and video from one team, planned together so everything fits on the day.", spec: "One vendor, one team, one workflow" },
     { worry: "“I also need emcees, ushers and registration crew.”", fix: "We arrange them through our partner network, and stay your one point of contact for all of it.", spec: "Emcees, DJs, bands, ushers, registration crew via partners" },
     { worry: "“Our event doesn't fit a standard package.”", fix: "Tell us the idea. Not all events fit into a fixed list, so we design the setup around your concept.", spec: "Custom setups on request" },
-    { worry: "“If something goes wrong, who's responsible?”", fix: "We are. Our crew is on site throughout, and any technical issue is resolved within thirty minutes or you get a rebate, as set out in your quote.", spec: "One accountable technical partner from setup to strike" },
+    { worry: "“If something goes wrong, who's responsible?”", fix: "We are. Our crew is on site throughout, and we respond quickly if a technical issue comes up.", spec: "One accountable technical partner from setup to strike" },
   ],
   reviewsFirst: ["Candy Mak", "Tan Hee Pheng", "Gwendolyn Anne David"],
   story: {
@@ -125,7 +125,7 @@ const c: ServiceContent = {
     { question: "Do you handle emcees, ushers and registration?", answer: "Yes, through our partner network. Emcees are freelance partners matched to your event and language needs, and we stay your one point of contact." },
     { question: "Do you work with event agencies?", answer: "Yes. We work as the AV and technical production partner for event agencies, as well as directly with companies hosting events." },
     { question: "Do you provide on-site crew and technical support?", answer: "Yes. Our team handles delivery, setup, live operation during your event, and teardown so your programme runs smoothly from start to finish." },
-    { question: "What if something goes wrong in the middle of the event?", answer: "Our crew is on site the whole time with spare screen panels and backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
+    { question: "What if something goes wrong in the middle of the event?", answer: "Our crew is on site the whole time with spare screen panels and backup mics. If a technical issue comes up, we respond quickly to fix it." },
     { question: "Are you a GeBIZ registered supplier?", answer: "Yes. PixelPro Studios is a Singapore Government registered supplier on GeBIZ, and we regularly support schools, public agencies, and institutional events." },
     { question: "Do you cover events across Singapore?", answer: "Yes. We support corporate events, schools, government agencies, and community organisations island-wide, with crew and equipment sized to your venue and run-of-show." },
     { question: "How do I get a quote or start planning?", answer: "Share your event brief on WhatsApp or by email and we will scope a proposal for you. You can also download our services deck for an overview of capabilities." },

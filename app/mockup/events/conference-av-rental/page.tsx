@@ -89,7 +89,7 @@ const c: EventContent = {
     { question: "Can you livestream our conference?", answer: "Yes, as a compact setup with up to four cameras. We're not a large broadcast company, and we'll tell you if your plan needs one." },
     { question: "Do you work with event agencies?", answer: "Yes. We work as the AV and technical production partner for event agencies, with our own crew or as equipment-only rental at a fixed rate." },
     { question: "Can you supply projectors for breakout rooms?", answer: "Yes. We have projectors and screens for smaller rooms, set up and tested along with the main hall." },
-    { question: "What if something fails mid-session?", answer: "Our crew stays on site with backup mics and spare LED panels. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
+    { question: "What if something fails mid-session?", answer: "Our crew stays on site with backup mics and spare LED panels. If a technical issue comes up, we respond quickly to fix it." },
   ],
   related: [
     { label: "Town hall sound", href: "/mockup/events/town-hall-sound-system" },

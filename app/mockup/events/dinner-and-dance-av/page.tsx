@@ -87,7 +87,7 @@ const c: EventContent = {
     { question: "It's my first time organising a D&D. What do I need to do?", answer: "Send us your date, venue, pax and a rough run sheet. We'll recommend a setup, then build, test and run it on the day. You don't need to know anything technical." },
     { question: "Can you put our lucky draw on the screen?", answer: "Yes. Send us your lucky-draw graphics and videos and we run them on the LED wall on cue, with a walk-up mic for the winners." },
     { question: "Can you arrange an emcee, DJ or band?", answer: "Yes, through our partners. We arrange emcees, DJs and live bands to suit your event and coordinate them with the sound and screen." },
-    { question: "What if something goes wrong during the event?", answer: "Our crew is on site the whole time with spare LED panels and backup mics. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
+    { question: "What if something goes wrong during the event?", answer: "Our crew is on site the whole time with spare LED panels and backup mics. If a technical issue comes up, we respond quickly to fix it." },
   ],
   related: [
     { label: "Chinese New Year event AV", href: "/mockup/events/cny-event-av" },

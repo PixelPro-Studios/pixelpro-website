@@ -24,7 +24,7 @@ const c: ServiceContent = {
   pains: [
     { worry: "“I'm already chasing five vendors.”", fix: "Sound, screen, stage and projection from one team, planned together. One quote, one person to call.", spec: "Sound · LED walls · stages · projectors · photo and video" },
     { worry: "“I don't know what AV I actually need.”", fix: "Send us your venue, guest count and programme. We'll recommend a setup that fits your room and programme.", spec: "Recommendations from your brief · site visit if needed" },
-    { worry: "“What if something fails mid-event?”", fix: "Our crew stays on site the whole time. If a technical issue happens, we resolve it within thirty minutes or you get a rebate, as set out in your quote.", spec: "Crew on site from setup to pack-down" },
+    { worry: "“What if something fails mid-event?”", fix: "Our crew stays on site the whole time. If a technical issue comes up, we respond quickly to fix it.", spec: "Crew on site from setup to pack-down" },
     { worry: "“The programme keeps changing.”", fix: "We reply quickly and adjust the setup. Organisers in our Google reviews mention last-minute requests handled with calm efficiency.", spec: "Quick replies for urgent and last-minute requests" },
   ],
   reviewsFirst: ["Gwendolyn Anne David", "Candy Mak", "Tan Hee Pheng"],
@@ -131,7 +131,7 @@ const c: ServiceContent = {
     { question: "I'm not technical. What do I need to do?", answer: "Tell us your venue, guest count and programme. We recommend the setup, then plan, build, run and pack it away." },
     { question: "How far in advance should I book AV rental?", answer: "We recommend booking at least two to four weeks ahead for standard events. Larger productions, LED walls, or peak seasons may need earlier confirmation so we can reserve crew and equipment. If you need urgent support, feel free to reach out — we respond fast." },
     { question: "Do you provide setup and technical support on site?", answer: "Yes. Our team handles delivery, setup, live operation during your event, and teardown so your programme runs smoothly from start to finish." },
-    { question: "What if something goes wrong in the middle of the event?", answer: "Our crew is on site the whole time. If a technical issue happens, we resolve it within thirty minutes or you receive a rebate, as set out in your quote." },
+    { question: "What if something goes wrong in the middle of the event?", answer: "Our crew is on site the whole time. If a technical issue comes up, we respond quickly to fix it." },
     { question: "Can you livestream the event?", answer: "Yes, for compact setups: up to four cameras streamed online. Cameras that move around the room need wireless links, so they cost more." },
     { question: "Are you a GeBIZ registered supplier?", answer: "Yes. PixelPro Studios is a Singapore Government registered supplier on GeBIZ, and we regularly support schools, public agencies, and institutional events." },
     { question: "Do you cover all of Singapore?", answer: "Yes. We provide audio visual rental island-wide, with crew and equipment sized to your venue and run-of-show." },
