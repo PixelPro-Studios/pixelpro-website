@@ -216,56 +216,57 @@ function Setup({ s }: { s: NonNullable<ServiceV2Content["setup"]> }) {
   const [w, h] = p ? p.options[k] : [0, 0];
   return (
     <section id="setup" className="v2-wrap v2-sec" aria-labelledby="setup-h">
-      <div className="v2-setup-head">
-        <h2 id="setup-h" className="v2-h2">{s.title}</h2>
-        <p className="v2-body">{s.intro}</p>
-      </div>
-      {s.columns && (
-        <div className="v2-compare">
-          {s.columns.map((col) => (
-            <div key={col.big} className="v2-compare-col">
-              <span className="v2-compare-big">{col.big}</span>
-              <h3 className="v2-compare-label">{col.label}</h3>
-              {col.lines.map((l) => (
-                <p key={l}>{l}</p>
+      {/* compact: text and specs on the left, the picker on the right */}
+      <div className="v2-setup">
+        <div className="v2-setup-head">
+          <h2 id="setup-h" className="v2-h2">{s.title}</h2>
+          <p className="v2-body">{s.intro}</p>
+          {s.columns && (
+            <div className="v2-compare">
+              {s.columns.map((col) => (
+                <div key={col.big} className="v2-compare-col">
+                  <span className="v2-compare-big">{col.big}</span>
+                  <h3 className="v2-compare-label">{col.label}</h3>
+                  <p>{col.lines.join(" ")}</p>
+                </div>
               ))}
             </div>
-          ))}
-        </div>
-      )}
-      {p && (
-        <div className="v2-sizer v2-sizer-wide">
-          <div className="v2-sizer-tabs" role="radiogroup" aria-label={p.caption}>
-            {p.options.map(([a, b], i) => (
-              <button key={i} type="button" role="radio" aria-checked={k === i} onClick={() => setK(i)} className={k === i ? "is-active" : ""}>
-                {a} × {b} m
-              </button>
-            ))}
-          </div>
-          {p.kind === "wall" ? (
-            /* front view, to scale: frame 9.5 m × 5 m, person 1.7 m, base wall 8 m × 4 m */
-            <div className="v2-sizer-frame">
-              <svg className="v2-sizer-person" viewBox="0 0 20 68" aria-hidden>
-                <circle cx="10" cy="6" r="5" fill="currentColor" />
-                <path d="M3 16h14l-1.5 24H14v28H6V40H4.5z" fill="currentColor" />
-              </svg>
-              <div className="v2-sizer-wall" style={{ transform: `scale(${w / 8}, ${h / 4})` }} />
-            </div>
-          ) : (
-            /* top view, to scale: frame 10 m × 6 m, base stage 8 m × 4 m, one person ≈ 0.5 m */
-            <div className="v2-plan-frame">
-              <div className="v2-plan-stage" style={{ transform: `scale(${w / 8}, ${h / 4})` }} />
-              <span className="v2-plan-person" aria-hidden />
-              <span className="v2-plan-tag">Top view</span>
-            </div>
           )}
-          <p className="v2-sizer-label" aria-live="polite">
-            {w} m × {h} m{p.kind === "plan" ? ` · ${w * h} m²` : ""} <span>· {p.kind === "wall" ? "person shown at 1.7 m for scale" : "dot shows one person for scale"}</span>
-          </p>
-          {s.sizesLine && <p className="v2-note">{s.sizesLine}</p>}
-          {s.note && <p className="v2-body v2-setup-note">{s.note}</p>}
+          {s.note && <p className="v2-note">{s.note}</p>}
         </div>
-      )}
+        {p && (
+          <div className="v2-sizer v2-sizer-wide">
+            <div className="v2-sizer-tabs" role="radiogroup" aria-label={p.caption}>
+              {p.options.map(([a, b], i) => (
+                <button key={i} type="button" role="radio" aria-checked={k === i} onClick={() => setK(i)} className={k === i ? "is-active" : ""}>
+                  {a} × {b} m
+                </button>
+              ))}
+            </div>
+            {p.kind === "wall" ? (
+              /* front view, to scale: frame 9.5 m × 5 m, person 1.7 m, base wall 8 m × 4 m */
+              <div className="v2-sizer-frame">
+                <svg className="v2-sizer-person" viewBox="0 0 20 68" aria-hidden>
+                  <circle cx="10" cy="6" r="5" fill="currentColor" />
+                  <path d="M3 16h14l-1.5 24H14v28H6V40H4.5z" fill="currentColor" />
+                </svg>
+                <div className="v2-sizer-wall" style={{ transform: `scale(${w / 8}, ${h / 4})` }} />
+              </div>
+            ) : (
+              /* top view, to scale: frame 10 m × 6 m, base stage 8 m × 4 m, one person ≈ 0.5 m */
+              <div className="v2-plan-frame">
+                <div className="v2-plan-stage" style={{ transform: `scale(${w / 8}, ${h / 4})` }} />
+                <span className="v2-plan-person" aria-hidden />
+                <span className="v2-plan-tag">Top view</span>
+              </div>
+            )}
+            <p className="v2-sizer-label" aria-live="polite">
+              {w} m × {h} m{p.kind === "plan" ? ` · ${w * h} m²` : ""} <span>· {p.kind === "wall" ? "person shown at 1.7 m for scale" : "dot shows one person for scale"}</span>
+            </p>
+            {s.sizesLine && <p className="v2-note">{s.sizesLine}</p>}
+          </div>
+        )}
+      </div>
     </section>
   );
 }

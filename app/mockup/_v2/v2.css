@@ -475,6 +475,27 @@
   .v2-sizer-wide { margin-top: 40px; }
 }
 
+/* slot 3, compact (17 Nov): text + specs left, picker right; overrides the centred version above */
+.v2-setup { display: grid; gap: 40px; align-items: start; }
+@media (min-width: 1024px) { .v2-setup { grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; } }
+.v2-setup .v2-compare { margin-top: 28px; grid-template-columns: 1fr 1fr; gap: 24px; border-top: 0; }
+.v2-setup .v2-compare-col { padding: 18px 0 0; text-align: left; border-top: 1px solid var(--line); }
+.v2-setup .v2-compare-col + .v2-compare-col { border-left: 0; border-top: 1px solid var(--line); }
+.v2-setup .v2-compare-big { font-size: clamp(36px, 3.4vw, 48px); }
+.v2-setup .v2-compare-label { margin-top: 8px; font-size: 15px; }
+.v2-setup .v2-compare-col p { max-width: none; margin: 6px 0 0; font-size: 14px; }
+.v2-setup > .v2-setup-head > .v2-note { margin-top: 20px; }
+.v2-setup .v2-sizer-wide { max-width: none; margin: 0; text-align: left; padding: 24px; border-radius: 24px; background: var(--card); border: 1px solid var(--line); }
+.v2-setup .v2-sizer-wide .v2-sizer-tabs { justify-content: flex-start; }
+.v2-setup .v2-sizer-tabs button { min-height: 40px; padding: 0 14px; font-size: 13px; }
+.v2-setup .v2-sizer-wide .v2-sizer-label, .v2-setup .v2-sizer-wide .v2-note { text-align: left; }
+.v2-setup .v2-sizer-label { font-size: 16px; }
+@media (max-width: 767px) {
+  .v2-setup .v2-compare { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .v2-setup .v2-compare-col + .v2-compare-col { border-top: 1px solid var(--line); }
+  .v2-setup .v2-sizer-wide { padding: 18px; }
+}
+
 /* slot 4: what's included, compare-style rows in two columns */
 .v2-inc { display: grid; gap: 32px; }
 @media (min-width: 1024px) { .v2-inc { grid-template-columns: 0.8fr 1.2fr; gap: 72px; align-items: start; } }
