@@ -5,7 +5,7 @@
 // 6 reviews (Apple "quick answers" bubbles) · 7 what affects the quotation (compare rows)
 // 8 get a quote · 9 FAQ
 import Image from "next/image";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FloatingWa, PhoneBar, RatingBlock, SideTicks, TrustChip, WaIcon, WorkCarousel, allReviews, goTo, useActiveSection, useReveal, type Project } from "./shared";
 
 type Link = { label: string; href: string };
@@ -202,6 +202,24 @@ export default function ServiceV2({ c }: { c: ServiceV2Content }) {
 function Setup({ s }: { s: NonNullable<ServiceV2Content["setup"]> }) {
   const [k, setK] = useState(s.picker?.start ?? 0);
   const p = s.picker;
+  // Steps to the next size every 3 s while on screen; stops for good once the visitor picks one
+  const [auto, setAuto] = useState(true);
+  const [seen, setSeen] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+  const count = p?.options.length ?? 0;
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setAuto(false);
+    const el = box.current;
+    if (!el) return;
+    const o = new IntersectionObserver(([e]) => setSeen(e.isIntersecting), { threshold: 0.4 });
+    o.observe(el);
+    return () => o.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!auto || !seen || count < 2) return;
+    const t = setTimeout(() => setK((v) => (v + 1) % count), 3000);
+    return () => clearTimeout(t);
+  }, [auto, seen, k, count]);
   const [w, h] = p ? p.options[k] : [0, 0];
   return (
     <section id="setup" className="v2-wrap v2-sec" aria-labelledby="setup-h">
@@ -224,10 +242,10 @@ function Setup({ s }: { s: NonNullable<ServiceV2Content["setup"]> }) {
           {s.note && <p className="v2-note">{s.note}</p>}
         </div>
         {p && (
-          <div className="v2-sizer v2-sizer-wide">
+          <div ref={box} className="v2-sizer v2-sizer-wide">
             <div className="v2-sizer-tabs" role="radiogroup" aria-label={p.caption}>
               {p.options.map(([a, b], i) => (
-                <button key={i} type="button" role="radio" aria-checked={k === i} onClick={() => setK(i)} className={k === i ? "is-active" : ""}>
+                <button key={i} type="button" role="radio" aria-checked={k === i} onClick={() => (setAuto(false), setK(i))} className={k === i ? "is-active" : ""}>
                   {a} × {b} m
                 </button>
               ))}

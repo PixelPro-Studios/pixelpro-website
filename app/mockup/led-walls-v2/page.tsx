@@ -66,7 +66,7 @@ const c: ServiceV2Content = {
     ],
     footer: "Customised quotations with clear, competitive pricing.",
   },
-  quote: { title: "Request an LED Wall Rental Quotation", checklist: ["Event date", "Venue", "Event name and type", "Number of rental days", "LED wall size (if you know it)", "Indoor or outdoor", "What you'll show: slides, video, graphics", "Need an operator on site?"] },
+  quote: { title: "Request an LED Wall Rental Quotation", checklist: ["Date", "Venue", "Event type", "Wall size", "Indoor or outdoor"] },
   faqTitle: "LED wall rental questions",
   faqs: [
     { q: "How much does LED screen rental cost?", a: "We quote per event, because the price depends on the screen size, indoor or outdoor, the number of rental days, venue access and setup timing, and the technical support you need. Share your event details and we'll send a quotation." },
