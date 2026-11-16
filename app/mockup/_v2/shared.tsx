@@ -233,9 +233,9 @@ export function FloatingWa({ wa }: { wa: string }) {
 }
 
 /* Apple-style gallery (apple.com/iphone "media card gallery"): one big card at a time with the next one peeking,
-   auto-advances every 6 s while on screen; dot bar where the current dot stretches into a filling progress line;
+   auto-advances every 4 s while on screen; dot bar where the current dot stretches into a filling progress line;
    round play/pause button. Stops for good once the visitor swipes or clicks. No autoplay under reduced motion. */
-const SLIDE_MS = 6000;
+const SLIDE_MS = 4000;
 export function WorkCarousel({ projects }: { projects: Project[] }) {
   const root = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);

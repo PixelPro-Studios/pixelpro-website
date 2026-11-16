@@ -447,6 +447,40 @@
 .v2-cta .v2-body { max-width: 520px; }
 .v2-cta .v2-btns { justify-content: center; }
 
+/* ---------- phone polish (17 Nov) ---------- */
+.v2-figure-title { font-family: var(--font-inter), sans-serif; }
+.v2-quote-wrap { padding-bottom: 0; }
+@media (max-width: 767px) {
+  /* hero: 3 lines of intro (full text stays in the page), thumb-width buttons */
+  .v2-hero-split .v2-lead { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .v2-hero-split .v2-btns, .v2-hero-pixel .v2-btns, .v2-quote .v2-btns, .v2-cta .v2-btns { flex-direction: column; align-items: stretch; width: 100%; }
+  .v2-btns .v2-btn { width: 100%; }
+  /* tighter vertical rhythm */
+  .v2-sec, .v2-walls, .v2-quote-wrap { padding-top: 72px; }
+  .v2-faq { padding-top: 72px; padding-bottom: 96px; }
+  .v2-statement { padding-top: 80px; }
+  .v2-walls-grid { margin-top: 28px; gap: 56px; }
+  .v2-head-row { margin-bottom: 28px; }
+  .v2-chapter-img { aspect-ratio: 16 / 10; }
+  .v2-facts dt { font-size: 16px; }
+  .v2-facts dd { font-size: 12px; }
+  /* gentler reveal on small screens */
+  .v2-reveal { transform: translateY(16px); transition-duration: 450ms, 600ms; }
+  /* events: a swipe row instead of a tall stack; gear chips on one line */
+  .v2-events { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; margin: 0 -20px; padding: 0 20px 4px; scrollbar-width: none; }
+  .v2-events::-webkit-scrollbar { display: none; }
+  .v2-event { flex: none; width: 84%; scroll-snap-align: start; }
+  .v2-event-gear { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: -24px; padding-right: 24px; }
+  .v2-event-gear::-webkit-scrollbar { display: none; }
+  .v2-event-gear li { flex: none; }
+  /* why: number beside the text, not above it */
+  .v2-figures { gap: 0; margin-top: 24px; }
+  .v2-figure { display: grid; grid-template-columns: 84px 1fr; gap: 4px 16px; padding: 20px 0; }
+  .v2-figure-n { grid-row: span 2; font-size: 44px; }
+  .v2-figure-title { margin-top: 0; font-size: 16px; }
+  .v2-figure .v2-card-line { margin-top: 0; font-size: 14px; }
+}
+
 /* reduced motion: keep fades, drop movement */
 @media (prefers-reduced-motion: reduce) {
   .v2-rise { animation: v2-fade-in 200ms ease forwards; }
