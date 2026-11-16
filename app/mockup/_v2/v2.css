@@ -552,6 +552,22 @@
 .v2-related-copy { font-size: 14px; line-height: 1.5; color: var(--mut); }
 .v2-related-item .v2-learn { margin-top: 4px; }
 
+/* ---------- less wordy pass (17 Nov) ---------- */
+.v2-pricing { display: grid; gap: 28px; }
+@media (min-width: 1024px) { .v2-pricing { grid-template-columns: 0.8fr 1.2fr; gap: 72px; align-items: start; } }
+.v2-pricing .v2-table { margin-top: 0; }
+.v2-pricing .v2-tr { grid-template-columns: 0.8fr 1.2fr; padding: 14px 0; }
+.v2-pricing .v2-th { padding: 10px 0; }
+@media (max-width: 767px) { .v2-pricing .v2-tr span:nth-child(2)::before { content: ""; } }
+.v2-checks li { padding: 14px 0; }
+/* "what to send us" as chips, not a long list */
+.v2-quote-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.v2-quote-list li { padding: 0 14px; min-height: 36px; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 999px; font-size: 14px; gap: 0; }
+.v2-quote-list li::before { display: none; }
+@media (min-width: 1024px) { .v2-quote { align-items: center; } }
+.v2-faq-more { margin-top: 24px; }
+.v2-acc-item[hidden] { display: none; }
+
 /* ---------- phone polish (17 Nov) ---------- */
 .v2-figure-title { font-family: var(--font-inter), sans-serif; }
 .v2-quote-wrap { padding-bottom: 0; }

@@ -140,26 +140,28 @@ export default function ServiceV2({ c }: { c: ServiceV2Content }) {
 
       {/* 7. What affects the quotation (Jovin's heading; compare rows) */}
       <section id="pricing" className="v2-wrap v2-sec" aria-labelledby="pricing-h">
-        <p className="v2-eyebrow">Pricing Factor</p>
-        <h2 id="pricing-h" className="v2-h2">What Affects the Quotation</h2>
-        <p className="v2-body">{c.pricing.intro}</p>
+        <div className="v2-pricing">
+          <div>
+            <p className="v2-eyebrow">Pricing Factor</p>
+            <h2 id="pricing-h" className="v2-h2">What Affects the Quotation</h2>
+            <p className="v2-body">{c.pricing.intro}</p>
+            <p className="v2-note">{c.pricing.footer}</p>
+          </div>
         <div className="v2-table" role="table" aria-label="What affects the quotation">
           <div className="v2-tr v2-th" role="row">
             <span role="columnheader">Factor</span>
-            <span role="columnheader">Costs less when</span>
             <span role="columnheader">Costs more when</span>
           </div>
-          {c.pricing.rows.map(([f, less, more]) => (
+          {c.pricing.rows.map(([f, , more]) => (
             <div key={f} className="v2-tr" role="row">
               <span role="cell" className="v2-td-f">
                 {f}
               </span>
-              <span role="cell">{less}</span>
               <span role="cell">{more}</span>
             </div>
           ))}
         </div>
-        <p className="v2-note">{c.pricing.footer}</p>
+        </div>
       </section>
 
       {/* 8. Get a quote */}
@@ -310,6 +312,8 @@ function Buyers({ b }: { b: ServiceV2Content["buyers"] }) {
 /* ---------- slot 9: FAQ ---------- */
 function FaqBlock({ title, faqs }: { title: string; faqs: Faq[] }) {
   const [open, setOpen] = useState<number | null>(0);
+  const [all, setAll] = useState(false);
+  const FIRST = 6;
   return (
     <section id="faq" className="v2-faq v2-wrap" aria-labelledby="faq-h">
       <div className="v2-faq-side">
@@ -318,7 +322,7 @@ function FaqBlock({ title, faqs }: { title: string; faqs: Faq[] }) {
       </div>
       <div className="v2-acc">
         {faqs.map((f, i) => (
-          <div key={f.q} className={`v2-acc-item ${open === i ? "is-open" : ""}`}>
+          <div key={f.q} className={`v2-acc-item ${open === i ? "is-open" : ""}`} hidden={!all && i >= FIRST ? true : undefined}>
             <h3>
               <button type="button" aria-expanded={open === i} aria-controls={`faq-${i}`} onClick={() => setOpen(open === i ? null : i)}>
                 {f.q}
@@ -346,6 +350,11 @@ function FaqBlock({ title, faqs }: { title: string; faqs: Faq[] }) {
             </div>
           </div>
         ))}
+        {!all && faqs.length > FIRST && (
+          <button type="button" className="v2-btn v2-btn-ghost v2-btn-sm v2-faq-more" onClick={() => setAll(true)}>
+            Show all {faqs.length} questions
+          </button>
+        )}
       </div>
     </section>
   );
