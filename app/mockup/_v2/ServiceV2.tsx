@@ -3,7 +3,7 @@
 // 1 hero · 2 our work (Apple media gallery) · 3 choose your setup (Apple compare columns + picker; optional)
 // 4 what's included (compare-style checklist) · 5 who we set up for (Apple Trade In pill switch)
 // 6 reviews (Apple "quick answers" bubbles) · 7 what affects the quotation (compare rows)
-// 8 get a quote + related "Learn more ›" links · 9 FAQ
+// 8 get a quote · 9 FAQ
 import Image from "next/image";
 import { useLayoutEffect, useRef, useState } from "react";
 import { FloatingWa, PhoneBar, RatingBlock, SideTicks, TrustChip, WaIcon, WorkCarousel, allReviews, goTo, useActiveSection, useReveal, type Project } from "./shared";
@@ -32,7 +32,6 @@ export type ServiceV2Content = {
   reviews: string[]; // three reviewer names from allReviews
   pricing: { intro: string; rows: [string, string, string][]; footer: string };
   quote: { title: string; checklist: string[] };
-  related: { title: string; items: { label: string; copy: string; href: string }[] };
   faqTitle: string;
   faqs: Faq[];
 };
@@ -163,7 +162,7 @@ export default function ServiceV2({ c }: { c: ServiceV2Content }) {
         <p className="v2-note">{c.pricing.footer}</p>
       </section>
 
-      {/* 8. Get a quote + related services */}
+      {/* 8. Get a quote */}
       <section id="quote" className="v2-wrap v2-quote-wrap" aria-labelledby="quote-h">
         <div className="v2-quote">
           <div>
@@ -187,18 +186,6 @@ export default function ServiceV2({ c }: { c: ServiceV2Content }) {
                 <li key={x}>{x}</li>
               ))}
             </ul>
-          </div>
-        </div>
-        <div className="v2-related">
-          <h3 className="v2-related-h">{c.related.title}</h3>
-          <div className="v2-related-grid">
-            {c.related.items.map((r) => (
-              <a key={r.label} href={r.href} className="v2-related-item">
-                <span className="v2-related-label">{r.label}</span>
-                <span className="v2-related-copy">{r.copy}</span>
-                <span className="v2-learn">Learn more ›</span>
-              </a>
-            ))}
           </div>
         </div>
       </section>

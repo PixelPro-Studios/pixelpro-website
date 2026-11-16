@@ -77,14 +77,6 @@ const c: ServiceV2Content = {
     footer: "Customised quotations with clear, competitive pricing.",
   },
   quote: { title: "Request a Stage Rental Quotation", checklist: ["Event date", "Venue", "Number of guests", "What happens on stage", "Stage size (if you know it)", "Preferred height", "Skirting colour", "Need a screen or sound too?"] },
-  related: {
-    title: "More Than Just Stages", // NEW
-    items: [
-      { label: "LED wall", copy: "A screen behind the stage for slides, videos and branding", href: "/mockup/led-walls-v2" },
-      { label: "Sound", copy: "Speakers, wireless and headset mics, and a sound engineer", href: "/mockup/sound-system-rental" },
-      { label: "Photo and video", copy: "Event photography, highlight films and social clips", href: "/services/photography" },
-    ],
-  },
   faqTitle: "Stage rental questions",
   faqs: [
     { q: "How much does stage rental cost?", a: "We quote per event, because the price depends on the stage size and height, skirting, any safety extras like guardrails, and venue access and timing. Send us your brief and we'll reply with a setup and a quotation." },

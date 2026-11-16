@@ -69,14 +69,6 @@ const c: ServiceV2Content = {
     footer: "Customised quotations with clear, competitive pricing. Share your event details and we'll send a quotation with a clear breakdown of the equipment, installation and technical services.",
   },
   quote: { title: "Request an LED Wall Rental Quotation", checklist: ["Event date", "Venue", "Event name and type", "Number of rental days", "LED wall size (if you know it)", "Indoor or outdoor", "What you'll show: slides, video, graphics", "Need an operator on site?"] },
-  related: {
-    title: "More Than Just LED Walls",
-    items: [
-      { label: "Stage", copy: "Modular stage platforms with skirting and steps", href: "/mockup/stage-rental-v2" },
-      { label: "Sound", copy: "Speakers, wireless and headset mics, and a sound engineer", href: "/mockup/sound-system-rental" },
-      { label: "Photo and video", copy: "Event photography, highlight films and social clips", href: "/services/photography" },
-    ],
-  },
   faqTitle: "LED wall rental questions",
   faqs: [
     { q: "How much does LED screen rental cost?", a: "We quote per event, because the price depends on the screen size, indoor or outdoor, the number of rental days, venue access and setup timing, and the technical support you need. Share your event details and we'll send a quotation." },
