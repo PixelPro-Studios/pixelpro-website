@@ -84,11 +84,17 @@ export function TrustChip() {
   return (
     <p className="v2-trust">
       <Stars size={13} />
-      <span>5.0 on Google</span>
+      <span>
+        5.0<span className="v2-long"> on Google</span>
+      </span>
       <i aria-hidden />
-      <span>GeBIZ registered</span>
+      <span>
+        GeBIZ<span className="v2-long"> registered</span>
+      </span>
       <i aria-hidden />
-      <span>bizSAFE Level 3</span>
+      <span>
+        bizSAFE<span className="v2-long"> Level</span> 3
+      </span>
     </p>
   );
 }
@@ -112,6 +118,22 @@ export function useActiveSection(ids: readonly string[]) {
     };
   }, [ids]);
   return active;
+}
+
+/** Desktop: thin ticks on the right edge (Abel's pick, 17 Nov). Labels show for the current section and on hover. */
+export function SideTicks({ sections, active }: { sections: readonly (readonly [string, string])[]; active: string | null }) {
+  return (
+    <nav className={`v2-ticks ${active ? "is-on" : ""}`} aria-label="Page sections" inert={!active}>
+      {sections.map(([id, label], i) => (
+        <a key={id} href={`#${id}`} aria-current={active === id ? "location" : undefined} onClick={(e) => (e.preventDefault(), goTo(id))}>
+          <span className="v2-tick-label">
+            <span className="v2-secbar-n">0{i + 1}</span> {label}
+          </span>
+          <span className="v2-tick" />
+        </a>
+      ))}
+    </nav>
+  );
 }
 
 /** Desktop: numbered section bar under the site navbar, with the main action on the right (T SERVIS / Apple local nav) */

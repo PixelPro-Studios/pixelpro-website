@@ -80,6 +80,61 @@
   .v2-lead { font-size: 16px; }
 }
 
+@media (max-width: 767px) {
+  .v2-trust { flex-wrap: nowrap; white-space: nowrap; font-size: 12px; gap: 8px; padding: 7px 12px; }
+  .v2-long { display: none; }
+}
+
+/* ---------- home hero: the live pixel-spotlight backdrop ---------- */
+.v2-hero-pixel { position: relative; min-height: min(86svh, 820px); display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.v2-hero-pixel-in { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; max-width: 900px; padding: 140px 20px 100px; pointer-events: none; }
+.v2-hero-pixel-in > * { pointer-events: auto; }
+.v2-hero-pixel .v2-lead { max-width: 600px; }
+.v2-hero-pixel .v2-btns { justify-content: center; }
+.v2-hero-pixel .v2-h1 { text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5); }
+@media (max-width: 767px) { .v2-hero-pixel { min-height: 0; } .v2-hero-pixel-in { padding: 120px 20px 56px; } }
+.v2-logos-live { padding: 8px 0 0; }
+
+/* ---------- desktop side ticks (right edge) ---------- */
+.v2-ticks { position: fixed; z-index: 40; right: 20px; top: 50%; display: none; flex-direction: column; align-items: flex-end; gap: 2px; opacity: 0; transform: translate(8px, -50%); pointer-events: none; transition: opacity 250ms ease, transform 250ms var(--ease-out); }
+.v2-ticks.is-on { opacity: 1; transform: translate(0, -50%); pointer-events: auto; }
+@media (min-width: 1280px) { .v2-ticks { display: flex; } }
+.v2-ticks a { display: flex; align-items: center; gap: 10px; min-height: 28px; padding: 2px 0; }
+.v2-tick { width: 28px; height: 2px; border-radius: 2px; background: rgba(255, 255, 255, 0.3); transform: scaleX(0.45); transform-origin: right; transition: transform 250ms var(--ease-out), background-color 200ms ease; }
+.v2-tick-label { padding: 4px 10px; border-radius: 999px; font-size: 12px; color: var(--ink); white-space: nowrap; background: rgba(20, 20, 20, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); opacity: 0; transform: translateX(6px); transition: opacity 200ms ease, transform 200ms var(--ease-out); pointer-events: none; }
+.v2-ticks a[aria-current] .v2-tick { transform: scaleX(1); background: var(--ink); }
+/* labels stay hidden while reading (so they never sit on content); they appear when you point at the ticks or tab to them */
+.v2-ticks:focus-within .v2-tick-label { opacity: 1; transform: none; }
+.v2-phonebar-row > .v2-phonebar-wa:only-child { flex: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .v2-ticks:hover .v2-tick-label { opacity: 1; transform: none; }
+  .v2-ticks a:hover .v2-tick { background: var(--ink); }
+}
+
+/* ---------- home: services as a big-type list, photo on hover ---------- */
+.v2-svc-list { position: relative; list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.v2-svc-row { display: grid; grid-template-columns: 40px minmax(0, 1.1fr) minmax(0, 1fr) 40px; align-items: center; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--line); transition: padding 250ms var(--ease-out); }
+.v2-svc-title { font-family: var(--font-oliveira), serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 48px); line-height: 1.05; letter-spacing: -0.015em; color: var(--ink); transition: transform 250ms var(--ease-out); }
+.v2-svc-copy { font-size: 15px; line-height: 1.55; color: var(--mut); max-width: 380px; }
+@media (hover: hover) and (pointer: fine) {
+  .v2-svc-row:hover .v2-svc-title { transform: translateX(8px); }
+  .v2-svc-row:hover .v2-arrow { transform: translateX(3px); background: var(--ink); color: #0a0a0a; }
+}
+.v2-svc-peek { position: absolute; z-index: 2; top: 50%; right: 64px; width: 300px; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; pointer-events: none; opacity: 0; transform: translateY(-50%) scale(0.96); transition: opacity 200ms ease, transform 250ms var(--ease-out); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); }
+.v2-svc-peek.is-on { opacity: 1; transform: translateY(-50%) scale(1); }
+.v2-svc-peek-img { position: absolute; inset: 0; opacity: 0; transition: opacity 200ms ease; }
+.v2-svc-peek-img.is-active { opacity: 1; }
+.v2-svc-list:has(.v2-svc-peek.is-on) .v2-svc-copy { opacity: 0.35; transition: opacity 200ms ease; }
+@media (max-width: 1023px), (hover: none) { .v2-svc-peek { display: none; } .v2-svc-list .v2-svc-copy { opacity: 1 !important; } }
+@media (max-width: 767px) {
+  .v2-svc-row { grid-template-columns: 1fr 40px; gap: 6px 16px; padding: 20px 0; }
+  .v2-svc-row .v2-row-n { display: none; }
+  .v2-svc-copy { grid-column: 1; grid-row: 2; }
+  .v2-svc-row .v2-arrow { grid-column: 2; grid-row: 1 / span 2; }
+}
+.v2-row.v2-row-text-only { grid-template-columns: 40px 1fr auto; }
+@media (max-width: 767px) { .v2-row.v2-row-text-only { grid-template-columns: 1fr; } .v2-row.v2-row-text-only .v2-row-text .v2-card-line { display: block; } }
+
 /* ---------- desktop section bar (under the site navbar) ---------- */
 .v2-secbar { position: fixed; z-index: 40; top: 84px; left: 50%; display: none; align-items: center; gap: 4px; padding: 6px 6px 6px 10px; border-radius: 999px; background: rgba(20, 20, 20, 0.82); border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(14px); opacity: 0; transform: translate(-50%, -8px); pointer-events: none; transition: opacity 250ms ease, transform 250ms var(--ease-out); overflow: hidden; }
 .v2-secbar.is-on { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
@@ -280,7 +335,7 @@
 @media (max-width: 767px) { .v2-statement { padding-top: 112px; } }
 .v2-why-photo { position: relative; margin-top: 40px; aspect-ratio: 21 / 8; min-height: 280px; }
 .v2-why-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, #0a0a0a 0%, rgba(10, 10, 10, 0) 40%), linear-gradient(180deg, #0a0a0a 0%, rgba(10, 10, 10, 0) 18%); }
-.v2-figures { display: grid; gap: 32px; margin-top: 8px; }
+.v2-figures { display: grid; gap: 32px; margin-top: 40px; }
 @media (min-width: 900px) { .v2-figures { grid-template-columns: repeat(3, 1fr); gap: 40px; } }
 .v2-figure { padding-top: 24px; border-top: 1px solid var(--line); }
 .v2-figure-n { display: block; font-size: clamp(56px, 6vw, 80px); line-height: 1; letter-spacing: -0.02em; }

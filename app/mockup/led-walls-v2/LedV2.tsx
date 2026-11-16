@@ -3,7 +3,7 @@
 // Copy from ../led-walls/page.tsx.
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { LED_PROJECTS, PhoneBar, RatingBlock, ReviewsMarquee, SectionBar, TrustChip, WaIcon, WorkCarousel, goTo, useActiveSection, waLink } from "../_v2/shared";
+import { LED_PROJECTS, PhoneBar, RatingBlock, ReviewsMarquee, SideTicks, TrustChip, WaIcon, WorkCarousel, goTo, useActiveSection, waLink } from "../_v2/shared";
 
 const WA = waLink(
   "Hi PixelPro, I'd like a quote for an LED wall (from your LED wall rental page).\nDate: \nVenue: \nEvent name & type: \nLED wall size: \nIndoor or outdoor: \nNeed operator on-site: Yes/No",
@@ -202,7 +202,7 @@ export default function LedV2() {
 
   return (
     <main className="v2">
-      <SectionBar sections={SECTIONS} active={active} wa={WA} />
+      <SideTicks sections={SECTIONS} active={active} />
       <PhoneBar sections={SECTIONS} active={active} wa={WA} hideIds={["quote"]} />
 
       {/* 1. Hero: photo on the right, solid black behind the text (Netflix pattern), one-line trust chip */}
