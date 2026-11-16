@@ -212,6 +212,26 @@ export function PhoneBar({ sections, active, wa, hideIds = [] }: { sections?: re
   );
 }
 
+/** Desktop: a WhatsApp button in the bottom-right corner, shown only when no other WhatsApp button is on screen */
+export function FloatingWa({ wa }: { wa: string }) {
+  const [shown, setShown] = useState(false);
+  useEffect(() => {
+    const targets = Array.from(document.querySelectorAll<HTMLElement>(".v2-btn-wa:not(.v2-float):not(.v2-phonebar-wa):not(.v2-btn-xs)"));
+    const visible = new Set<Element>();
+    const obs = new IntersectionObserver((es) => {
+      es.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+      setShown(visible.size === 0);
+    });
+    targets.forEach((t) => obs.observe(t));
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <a href={wa} target="_blank" rel="noopener noreferrer" className={`v2-btn v2-btn-wa v2-float ${shown ? "is-on" : ""}`} inert={!shown} aria-label="WhatsApp us for a quote">
+      <WaIcon /> <span>Get a quote</span>
+    </a>
+  );
+}
+
 /* Apple-style carousel: cards side by side, ‹ › arrows, swipe on phones */
 export function WorkCarousel({ projects }: { projects: Project[] }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -240,7 +260,7 @@ export function WorkCarousel({ projects }: { projects: Project[] }) {
     el.scrollBy({ left: dir * ((card?.offsetWidth ?? 400) + 20), behavior: scrollBehavior() });
   };
   return (
-    <div className="v2-car">
+    <div className="v2-car v2-wrap">
       <div ref={ref} className="v2-car-track">
         {projects.map((p) => (
           <article key={p.title} className="v2-car-card">
@@ -263,7 +283,7 @@ export function WorkCarousel({ projects }: { projects: Project[] }) {
           </article>
         ))}
       </div>
-      <div className="v2-wrap v2-car-nav">
+      <div className="v2-car-nav">
         <button type="button" aria-label="Previous project" disabled={at.start} onClick={() => move(-1)}>
           ‹
         </button>
@@ -277,10 +297,9 @@ export function WorkCarousel({ projects }: { projects: Project[] }) {
 
 /* Review row that slides by itself (Jovin likes it). Visible pause button; static swipe row on phones and for reduced motion. */
 export function ReviewsMarquee({ first = "Candy Mak" }: { first?: string }) {
-  const [paused, setPaused] = useState(false);
   const reviews = [...allReviews].sort((a, b) => (b.who === first ? 1 : 0) - (a.who === first ? 1 : 0));
   return (
-    <div className={`v2-marquee ${paused ? "is-paused" : ""}`}>
+    <div className="v2-marquee">
       <ul className="v2-track">
         {[...reviews, ...reviews].map((r, i) => (
           <li key={i} aria-hidden={i >= reviews.length} className={`v2-review ${i >= reviews.length ? "is-dup" : ""}`}>
@@ -292,9 +311,6 @@ export function ReviewsMarquee({ first = "Candy Mak" }: { first?: string }) {
           </li>
         ))}
       </ul>
-      <button type="button" className="v2-pause" aria-pressed={paused} onClick={() => setPaused(!paused)}>
-        {paused ? "▶ Play" : "❚❚ Pause"}
-      </button>
     </div>
   );
 }

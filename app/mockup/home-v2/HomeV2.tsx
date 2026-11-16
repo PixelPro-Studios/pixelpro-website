@@ -6,7 +6,7 @@ import { useState } from "react";
 import Image from "next/image";
 import HeroPixelSpotlight from "@/components/HeroPixelSpotlight";
 import { LOGOS, LogoRow } from "@/components/LogoSection";
-import { LED_PROJECTS, PhoneBar, RatingBlock, ReviewsMarquee, TrustChip, WaIcon, waLink } from "../_v2/shared";
+import { FloatingWa, PhoneBar, RatingBlock, ReviewsMarquee, TrustChip, WaIcon, waLink } from "../_v2/shared";
 
 const WA = waLink("Hi PixelPro, I'd like a quote for an event (from your website).\nDate: \nVenue: \nEvent name & type: \nWhat you need: ");
 const CAL = "https://cal.com/pixelpro/consultation";
@@ -19,14 +19,59 @@ const SERVICES = [
   { title: "Entertainment & Talent", copy: "Hosts, entertainment and performances for your programme.", img: "/services-talent/pixelpro-studios-talent-and-entertainment-singapore.jpg", href: "/services/talent" },
 ];
 
-// Recent work as a spec sheet per event type. Facts from Jovin's job write-ups only; no client names.
-const [uni, forum, mall, school] = LED_PROJECTS;
-const JOBS: { type: string; p: (typeof LED_PROJECTS)[number]; rows: [string, string][] }[] = [
-  { type: "Conference", p: forum, rows: [["Event", "Three-day international forum"], ["Venue", "Hotel ballroom"], ["Audience", "About 100 delegates"], ["Screen", "3.5 m × 2.5 m LED wall + 50-inch confidence monitor"]] },
-  { type: "Mall event", p: mall, rows: [["Event", "Public event on a stage"], ["Venue", "Mall atrium"], ["Screen", "5.5 m × 3 m LED display"], ["Also", "7 m × 4 m stage, built overnight"]] },
-  { type: "University", p: uni, rows: [["Event", "Innovation showcase"], ["Venue", "University"], ["Screen", "6 m × 2.5 m LED wall"], ["Also", "Sound, mics and crew on site"]] },
-  { type: "School", p: school, rows: [["Event", "Prize-day ceremony"], ["Venue", "School hall"], ["Screen", "Four 1 m × 2 m LED panels"]] },
+// Events from Jovin's write-ups (research/jovin-jobs/2026-11-15-job-writeups.md), National Day first (writing rules).
+// Client names left out until PixelPro confirms them. Photos are the ones Lukas uploaded for each job.
+const J = "/portfolio-jobs/";
+type Ev = { title: string; type: string; where: string; gear: string[]; imgs: [string, string][] };
+const EVENTS: Ev[] = [
+  { title: "National Day celebration at Marina Barrage", type: "Government · Outdoor", where: "Marina Barrage", gear: ["5 m × 3 m outdoor LED wall", "Sound covering over 100 m", "Stage lighting"], imgs: [[J + "event-production_sound-engineer-marina-barrage.webp", "PixelPro crew on site at Marina Barrage on National Day"]] },
+  { title: "Three-day international forum", type: "Conference", where: "Hotel ballroom · about 100 participants", gear: ["3.5 m × 2.5 m LED wall", "50-inch confidence monitor", "LED technician all 3 days"], imgs: [[J + "conference-av-rental_led-wall-hotel-ballroom-forum.webp", "LED wall in a hotel ballroom for an international forum"], [J + "conference-av-rental_panel-discussion-led-wall.webp", "Panel discussion in front of the LED wall"], [J + "conference-av-rental_confidence-monitor.webp", "Confidence monitor for the speakers"]] },
+  { title: "Caregiving Week in a mall atrium", type: "Community roadshow", where: "Mall atrium · built overnight", gear: ["5.5 m × 3 m LED wall", "7 m × 4 m stage", "Sound and wireless mics"], imgs: [[J + "led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", "LED wall above a stage in a mall atrium"], [J + "roadshow-led-screen-rental_mall-atrium-crowd.webp", "Audience watching the stage in the mall atrium"], [J + "event-av-planning_control-desk-beside-the-stage.webp", "PixelPro control desk beside the stage"]] },
+  { title: "University innovation showcase", type: "University · Pitching", where: "Campus centre", gear: ["6 m × 2.5 m LED wall", "Sound and rostrum mics", "Sound engineer on site"], imgs: [[J + "led-wall-rental_6x2-5m-led-wall-pitch-day.webp", "LED wall at a university pitch day"]] },
+  { title: "School speech and prize day", type: "School", where: "School hall and outdoor stage at the same time", gear: ["Four 1 m × 2 m LED panels", "Stage lighting", "Two sound crews"], imgs: [[J + "school-sound-system-rental_prize-day-stage-led-and-lighting.webp", "School hall stage with LED panels and lighting"], [J + "school-sound-system-rental_speech-at-the-rostrum.webp", "Speech at the rostrum with LED panels behind"]] },
+  { title: "Junior college orientation at a fountain plaza", type: "School · Outdoor", where: "Outdoor plaza", gear: ["8 outdoor speakers", "Generator and power", "Permits and LEW handled"], imgs: [[J + "school-sound-system-rental_outdoor-orientation-speakers.webp", "Outdoor speakers set up for a school orientation"], [J + "event-av-planning_generator-and-safety-fencing.webp", "Generator with safety fencing for the outdoor event"]] },
+  { title: "Community club music night", type: "Community", where: "Community club hall", gear: ["Two 120-inch screens", "Live band sound", "Projectors"], imgs: [[J + "sound-system-rental_community-club-hall-full-house.webp", "Full community club hall with PixelPro screens and speakers"], [J + "projector-rental_two-120-inch-screens-community-club.webp", "Two 120-inch screens in a community club"]] },
 ];
+const FIRST = 4;
+
+function EventsGallery() {
+  const [all, setAll] = useState(false);
+  const list = all ? EVENTS : EVENTS.slice(0, FIRST);
+  return (
+    <>
+      <div className="v2-events">
+        {list.map((e, i) => (
+          <article key={e.title} className={`v2-event ${i >= FIRST ? "is-new" : ""}`}>
+            <div className={`v2-event-photos n${Math.min(e.imgs.length, 3)}`}>
+              {e.imgs.slice(0, 3).map(([src, alt], k) => (
+                <div key={src} className="v2-event-photo">
+                  <Image src={src} alt={alt} fill sizes={k === 0 ? "(min-width: 1024px) 400px, 70vw" : "200px"} className="v2-cover v2-photo" />
+                </div>
+              ))}
+            </div>
+            <div className="v2-event-text">
+              <p className="v2-event-type">{e.type}</p>
+              <h3 className="v2-card-title">{e.title}</h3>
+              <p className="v2-note">{e.where}</p>
+              <ul className="v2-event-gear">
+                {e.gear.map((g) => (
+                  <li key={g}>{g}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+      {!all && (
+        <div className="v2-events-more">
+          <button type="button" className="v2-btn v2-btn-ghost v2-btn-sm" onClick={() => setAll(true)}>
+            View all {EVENTS.length} events
+          </button>
+        </div>
+      )}
+    </>
+  );
+}
 
 /** The live site's logo marquee, as one row instead of two (Abel, 17 Nov) */
 function LogosOneRow() {
@@ -50,10 +95,10 @@ const FIGURES = [
 export default function HomeV2() {
   const [hover, setHover] = useState<number | null>(null);
   const shown = hover ?? 0;
-  const [job, setJob] = useState(0);
   return (
     <main className="v2">
       <PhoneBar active={null} wa={WA} hideIds={["cta"]} />
+      <FloatingWa wa={WA} />
 
       {/* 1. Hero: the live site's pixel-spotlight backdrop (Abel likes it), text centred as on the live site */}
       <header id="top" className="v2-hero-pixel">
@@ -130,35 +175,7 @@ export default function HomeV2() {
         </div>
         {/* A buyer checks three things: "have they done my kind of event?", "can they handle my venue and size?", "is it real?".
             So: pick the event type, see one real photo and a short spec sheet. No paragraphs. */}
-        <div className="v2-jobs">
-          <div className="v2-jobs-tabs" role="group" aria-label="Choose a type of event">
-            {JOBS.map((j, i) => (
-              <button key={j.type} type="button" aria-pressed={job === i} className={job === i ? "is-active" : ""} onClick={() => setJob(i)}>
-                {j.type}
-              </button>
-            ))}
-          </div>
-          <div className="v2-jobs-card">
-            <div className="v2-jobs-media">
-              {JOBS.map((j, i) => (
-                <div key={j.type} className={`v2-jobs-img ${job === i ? "is-active" : ""}`}>
-                  <Image src={j.p.img} alt={j.p.alt} fill sizes="(min-width: 1024px) 640px, 100vw" className="v2-cover v2-photo" />
-                </div>
-              ))}
-            </div>
-            <div className="v2-jobs-spec">
-              <h3 className="v2-card-title">{JOBS[job].p.title}</h3>
-              <dl>
-                {JOBS[job].rows.map(([k, v]) => (
-                  <div key={k}>
-                    <dt>{k}</dt>
-                    <dd>{v}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
-        </div>
+        <EventsGallery />
       </section>
 
       {/* 5. Statement: text only, one big line */}

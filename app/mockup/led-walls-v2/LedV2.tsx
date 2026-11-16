@@ -3,7 +3,7 @@
 // Copy from ../led-walls/page.tsx.
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { LED_PROJECTS, PhoneBar, RatingBlock, ReviewsMarquee, SideTicks, TrustChip, WaIcon, WorkCarousel, goTo, useActiveSection, waLink } from "../_v2/shared";
+import { FloatingWa, LED_PROJECTS, PhoneBar, RatingBlock, ReviewsMarquee, SideTicks, TrustChip, WaIcon, WorkCarousel, goTo, useActiveSection, waLink } from "../_v2/shared";
 
 const WA = waLink(
   "Hi PixelPro, I'd like a quote for an LED wall (from your LED wall rental page).\nDate: \nVenue: \nEvent name & type: \nLED wall size: \nIndoor or outdoor: \nNeed operator on-site: Yes/No",
@@ -13,8 +13,8 @@ const SECTIONS = [
   ["work", "Our work"],
   ["walls", "LED walls"],
   ["reviews", "Reviews"],
-  ["faq", "Questions"],
   ["quote", "Get a quote"],
+  ["faq", "Questions"],
 ] as const;
 const SECTION_IDS = SECTIONS.map(([id]) => id);
 
@@ -203,6 +203,7 @@ export default function LedV2() {
   return (
     <main className="v2">
       <SideTicks sections={SECTIONS} active={active} />
+      <FloatingWa wa={WA} />
       <PhoneBar sections={SECTIONS} active={active} wa={WA} hideIds={["quote"]} />
 
       {/* 1. Hero: photo on the right, solid black behind the text (Netflix pattern), one-line trust chip */}
@@ -317,7 +318,43 @@ export default function LedV2() {
         <ReviewsMarquee />
       </section>
 
-      {/* 5. Questions */}
+      {/* 5. Quote (before the FAQ, Abel 17 Nov) */}
+      <section id="quote" className="v2-wrap v2-quote-wrap" aria-labelledby="quote-h">
+        <div className="v2-quote">
+          <div>
+            <p className="v2-eyebrow">04 · Get a quote</p>
+            <h2 id="quote-h" className="v2-h2">Request an LED Wall Rental Quotation</h2>
+            <p className="v2-body">WhatsApp available 24/7 for enquiries and quotations. We reply as soon as we can.</p>
+            <div className="v2-btns">
+              <a href={WA} target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-wa">
+                <WaIcon /> WhatsApp us for a quote
+              </a>
+              <a href="tel:+6588605489" className="v2-btn v2-btn-ghost">
+                Call +65 8860 5489
+              </a>
+            </div>
+            <p className="v2-note">Office Mon–Sun 9am–10pm</p>
+          </div>
+          <div>
+            <h3 className="v2-quote-list-h">What to send us</h3>
+            <ul className="v2-quote-list">
+              {CHECKLIST.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="v2-more">
+          <h3>More than just LED walls</h3>
+          <div className="v2-more-links">
+            <a href="/mockup/stage-rental">Stage rental →</a>
+            <a href="/mockup/sound-system-rental">Sound system rental →</a>
+            <a href="/mockup/projector-rental">Projector and screen rental →</a>
+            <a href="/mockup/av-systems">AV rental →</a>
+          </div>
+        </div>
+      </section>
+      {/* 6. Questions */}
       <section id="faq" className="v2-faq v2-wrap" aria-labelledby="faq-h">
         <div className="v2-faq-side">
           <h2 id="faq-h" className="v2-h2">LED wall rental questions</h2>
@@ -358,42 +395,6 @@ export default function LedV2() {
         </div>
       </section>
 
-      {/* 6. Quote */}
-      <section id="quote" className="v2-wrap v2-quote-wrap" aria-labelledby="quote-h">
-        <div className="v2-quote">
-          <div>
-            <p className="v2-eyebrow">05 · Get a quote</p>
-            <h2 id="quote-h" className="v2-h2">Request an LED Wall Rental Quotation</h2>
-            <p className="v2-body">WhatsApp available 24/7 for enquiries and quotations. We reply as soon as we can.</p>
-            <div className="v2-btns">
-              <a href={WA} target="_blank" rel="noopener noreferrer" className="v2-btn v2-btn-wa">
-                <WaIcon /> WhatsApp us for a quote
-              </a>
-              <a href="tel:+6588605489" className="v2-btn v2-btn-ghost">
-                Call +65 8860 5489
-              </a>
-            </div>
-            <p className="v2-note">Office Mon–Sun 9am–10pm</p>
-          </div>
-          <div>
-            <h3 className="v2-quote-list-h">What to send us</h3>
-            <ul className="v2-quote-list">
-              {CHECKLIST.map((c) => (
-                <li key={c}>{c}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="v2-more">
-          <h3>More than just LED walls</h3>
-          <div className="v2-more-links">
-            <a href="/mockup/stage-rental">Stage rental →</a>
-            <a href="/mockup/sound-system-rental">Sound system rental →</a>
-            <a href="/mockup/projector-rental">Projector and screen rental →</a>
-            <a href="/mockup/av-systems">AV rental →</a>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

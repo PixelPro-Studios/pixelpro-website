@@ -134,6 +134,32 @@
   .v2-svc-row .v2-row-n { display: none; }
 }
 .v2-row.v2-row-text-only { grid-template-columns: 40px 1fr auto; }
+/* floating WhatsApp button (desktop), only when no other WhatsApp button is on screen */
+.v2-float { position: fixed; z-index: 45; right: 24px; bottom: 24px; min-height: 52px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45); opacity: 0; transform: translateY(12px) scale(0.96); pointer-events: none; transition: opacity 200ms ease, transform 250ms var(--ease-out); }
+.v2-float.is-on { opacity: 1; transform: none; pointer-events: auto; }
+@media (max-width: 1023px) { .v2-float { display: none; } }
+.v2-faq { padding-bottom: 120px; }
+
+/* home: events, a few photos each, "view all" */
+.v2-events { display: grid; gap: 20px; }
+@media (min-width: 900px) { .v2-events { grid-template-columns: 1fr 1fr; } }
+.v2-event { border-radius: 24px; overflow: hidden; background: var(--card); border: 1px solid var(--line); }
+.v2-event.is-new { animation: v2-rise 400ms var(--ease-out); }
+.v2-event-photos { display: grid; gap: 3px; aspect-ratio: 16 / 9; background: #111; }
+.v2-event-photos.n1 { grid-template-columns: 1fr; }
+.v2-event-photos.n2 { grid-template-columns: 1fr 1fr; }
+.v2-event-photos.n3 { grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; }
+.v2-event-photos.n3 .v2-event-photo:first-child { grid-row: span 2; }
+.v2-event-photo { position: relative; overflow: hidden; }
+.v2-event-photo .v2-cover { transition: transform 600ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .v2-event:hover .v2-event-photo .v2-cover { transform: scale(1.03); } }
+.v2-event-text { padding: 22px 24px 26px; }
+.v2-event-type { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+.v2-event-text .v2-note { margin-top: 6px; }
+.v2-event-gear { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+.v2-event-gear li { display: inline-flex; align-items: center; min-height: 30px; padding: 0 12px; border-radius: 999px; font-size: 12px; color: var(--ink); border: 1px solid rgba(255, 255, 255, 0.16); }
+.v2-events-more { display: flex; justify-content: center; margin-top: 28px; }
+
 /* home: recent work as event-type tabs + photo + spec sheet */
 .v2-logos-label { text-align: center; margin-bottom: 4px; }
 .v2-jobs-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
@@ -205,9 +231,12 @@
 .v2-chip-light { background: var(--ink); color: #0a0a0a; border-color: var(--ink); font-weight: 600; }
 
 /* ---------- work carousel ---------- */
-.v2-car-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: max(20px, calc((100vw - 1240px) / 2 + 40px)); padding: 0 max(20px, calc((100vw - 1240px) / 2 + 40px)) 8px; scrollbar-width: none; }
+/* contained in the page column (centred), 3 cards on desktop, 2 on tablets, 1.15 on phones */
+.v2-car-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
 .v2-car-track::-webkit-scrollbar { display: none; }
-.v2-car-card { flex: none; width: min(460px, 82vw); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: var(--card); border: 1px solid var(--line); }
+.v2-car-card { flex: none; width: calc((100% - 40px) / 3); scroll-snap-align: start; border-radius: 24px; overflow: hidden; background: var(--card); border: 1px solid var(--line); }
+@media (max-width: 1023px) { .v2-car-card { width: calc((100% - 20px) / 2); } }
+@media (max-width: 767px) { .v2-car-card { width: 86%; } }
 .v2-car-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
 .v2-car-media .v2-cover { transition: transform 600ms var(--ease-out); }
 @media (hover: hover) and (pointer: fine) { .v2-car-card:hover .v2-car-media .v2-cover { transform: scale(1.03); } }
