@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { ServiceV2Content } from "../_v2/ServiceV2";
 import { allReviews } from "../_v2/data";
-import { Accordion, ArrowLink, Badge, FloatingWa, PeekCarousel, Stars, WaIcon, goTo, reduced, useInView, useReveal } from "./parts";
+import { Accordion, ArrowLink, Badge, FloatingWa, PeekCarousel, Stars, WaComposer, WaIcon, goTo, reduced, useInView, useReveal } from "./parts";
 
 export default function ServiceV3({ c }: { c: ServiceV2Content }) {
   useReveal();
@@ -153,12 +153,12 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
       {/* 7. Get a quote (before the FAQ, Abel 17 Nov) */}
       <section id="quote" className="v3-sheet v3-sheet-black" aria-labelledby="quote-h">
         <div className="v3-wrap">
-          <div className="v3-head" style={{ marginBottom: 32 }} data-rv>
-            <h2 id="quote-h" className="v3-h2">
-              {c.quote.title}
-            </h2>
-            <div>
-              <p className="v3-mono" style={{ color: "var(--dim)" }}>
+          <div className="v3-cta2">
+            <div data-rv>
+              <h2 id="quote-h" className="v3-h2 v3-cta2-h">
+                {c.quote.title}
+              </h2>
+              <p className="v3-mono" style={{ color: "var(--dim)", marginTop: 28 }}>
                 What to send us
               </p>
               <ul className="v3-chips">
@@ -166,17 +166,15 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
                   <li key={x}>{x}</li>
                 ))}
               </ul>
+              <div className="v3-links v3-cta2-links">
+                <ArrowLink href="tel:+6588605489">Prefer to talk? Call +65 8860 5489</ArrowLink>
+              </div>
+              <p className="v3-note">Office Mon–Sun 9am–10pm</p>
+            </div>
+            <div data-rv>
+              <WaComposer template={decodeURIComponent(c.wa.split("?text=")[1] ?? "")} greeting="Hi! Send us these details and we'll send you a quotation." />
             </div>
           </div>
-          <div className="v3-cta-btns" data-rv>
-            <a href={c.wa} target="_blank" rel="noopener noreferrer" className="v3-cta-btn is-wa">
-              <WaIcon /> WhatsApp us for a quote
-            </a>
-            <a href="tel:+6588605489" className="v3-cta-btn is-call">
-              Call +65 8860 5489
-            </a>
-          </div>
-          <p className="v3-cta-note">WhatsApp available 24/7 for enquiries and quotations. Office Mon–Sun 9am–10pm.</p>
         </div>
       </section>
 

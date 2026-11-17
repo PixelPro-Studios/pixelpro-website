@@ -255,3 +255,84 @@ export function Accordion({ faqs, first = 6, id = "v3-faq" }: { faqs: FaqItem[];
     </div>
   );
 }
+
+/* WhatsApp composer: looks like a chat. The visitor taps a few chips, the message bubble fills in as they tap,
+   and the green button opens WhatsApp with that message ready to send (they can still edit it there). */
+const EVENT_TYPES = ["Conference", "Dinner and dance", "School event", "Roadshow", "Community event", "Something else"];
+export function WaComposer({ template, needs, greeting = "Hi! Tell us about your event and we'll send you a quotation." }: { template: string; needs?: string[]; greeting?: string }) {
+  const [ref, inView] = useInView<HTMLDivElement>(0.3);
+  const [type, setType] = useState<string | null>(null);
+  const [picked, setPicked] = useState<string[]>([]);
+  const toggle = (n: string) => setPicked((v) => (v.includes(n) ? v.filter((x) => x !== n) : [...v, n]));
+  // fill the two lines of the template that the chips answer
+  let hasType = false;
+  let hasNeed = false;
+  const lines = template.split("\n").map((l) => {
+    if (/^Event name & type:/i.test(l)) {
+      hasType = true;
+      return type && type !== "Something else" ? `Event name & type: ${type}` : l;
+    }
+    if (/^What you need:/i.test(l)) {
+      hasNeed = true;
+      return picked.length ? `What you need: ${picked.join(", ")}` : l;
+    }
+    return l;
+  });
+  if (!hasType && type && type !== "Something else") lines.push(`Event type: ${type}`);
+  if (!hasNeed && picked.length) lines.push(`Also need: ${picked.join(", ")}`);
+  const text = lines.join("\n");
+  const href = "https://wa.me/6588605489?text=" + encodeURIComponent(text);
+  return (
+    <div ref={ref} className={`v3-chat ${inView ? "is-in" : ""}`}>
+      <div className="v3-chat-head">
+        <span className="v3-chat-avatar" aria-hidden>
+          <WaIcon />
+        </span>
+        <div>
+          <p className="v3-chat-name">PixelPro Studios</p>
+          <p className="v3-chat-sub">WhatsApp · 24/7 for enquiries and quotations</p>
+        </div>
+      </div>
+      <div className="v3-chat-body">
+        <p className="v3-bubble v3-bubble-in" style={{ "--k": 0 } as React.CSSProperties}>
+          {greeting}
+        </p>
+        <div className="v3-chat-ask" style={{ "--k": 1 } as React.CSSProperties}>
+          <p className="v3-chat-q">What kind of event is it?</p>
+          <div className="v3-chat-chips" role="group" aria-label="Kind of event">
+            {EVENT_TYPES.map((x) => (
+              <button key={x} type="button" aria-pressed={type === x} className={type === x ? "is-on" : ""} onClick={() => setType(type === x ? null : x)}>
+                {x}
+              </button>
+            ))}
+          </div>
+        </div>
+        {needs && (
+          <div className="v3-chat-ask" style={{ "--k": 2 } as React.CSSProperties}>
+            <p className="v3-chat-q">What do you need? Pick any.</p>
+            <div className="v3-chat-chips" role="group" aria-label="What you need">
+              {needs.map((x) => (
+                <button key={x} type="button" aria-pressed={picked.includes(x)} className={picked.includes(x) ? "is-on" : ""} onClick={() => toggle(x)}>
+                  {x}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+        <div className="v3-bubble v3-bubble-out" style={{ "--k": 3 } as React.CSSProperties} aria-live="polite">
+          <p className="v3-bubble-label">Your message</p>
+          <p className="v3-bubble-text">{text}</p>
+        </div>
+      </div>
+      <div className="v3-chat-foot">
+        <a href={href} target="_blank" rel="noopener noreferrer" className="v3-chat-send">
+          <WaIcon /> Send on WhatsApp
+          <span className="v3-chat-send-arrow" aria-hidden>
+            <Arrow />
+          </span>
+        </a>
+        <p className="v3-chat-note">Opens WhatsApp with this message. You can edit it before you send.</p>
+      </div>
+    </div>
+  );
+}

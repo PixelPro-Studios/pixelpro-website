@@ -320,3 +320,40 @@
   .v3-specs { gap: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .v3-buyer { animation: none; } .v3-sizer-wall, .v3-plan-stage { transition: none; } }
+
+/* =====================================================================
+   Closing sheet: heading on the left, a WhatsApp chat you can tap on the right
+   ===================================================================== */
+.v3-cta2 { display: grid; gap: 40px; align-items: center; }
+@media (min-width: 960px) { .v3-cta2 { grid-template-columns: 1fr minmax(0, 520px); gap: 72px; } }
+.v3-cta2-h { font-size: clamp(36px, 4.6vw, 64px); line-height: 1; letter-spacing: -0.05em; }
+.v3-cta2-links { margin-top: 32px; max-width: 420px; }
+.v3-chat { border-radius: 30px; overflow: hidden; background: #111b21; color: #e9edef; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 40px 90px rgba(0, 0, 0, 0.5); }
+.v3-chat-head { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: #202c33; }
+.v3-chat-avatar { position: relative; flex: none; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--wa); color: #03200e; }
+.v3-chat-avatar::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); animation: v3-ping 2.4s var(--ease-out) infinite; }
+@keyframes v3-ping { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); } 70%, 100% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); } }
+.v3-chat-name { font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
+.v3-chat-sub { margin-top: 2px; font-size: 12.5px; color: #8696a0; }
+.v3-chat-body { display: flex; flex-direction: column; gap: 14px; padding: 20px; background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px); background-size: 18px 18px; }
+.v3-chat-body > * { opacity: 0; transform: translateY(12px) scale(0.98); transition: opacity 500ms var(--ease-out), transform 600ms var(--ease-out); transition-delay: calc(var(--k, 0) * 220ms + 150ms); }
+.v3-chat.is-in .v3-chat-body > * { opacity: 1; transform: none; }
+.v3-bubble { max-width: 88%; padding: 10px 14px; border-radius: 16px; font-size: 15px; line-height: 1.45; }
+.v3-bubble-in { align-self: flex-start; background: #202c33; border-top-left-radius: 4px; transform-origin: 0 0; }
+.v3-bubble-out { align-self: flex-end; background: #005c4b; border-top-right-radius: 4px; transform-origin: 100% 0; }
+.v3-bubble-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(233, 237, 239, 0.6); }
+.v3-bubble-text { margin-top: 4px; white-space: pre-wrap; font-size: 14.5px; }
+.v3-chat-q { font-size: 13px; color: #8696a0; }
+.v3-chat-chips { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+.v3-chat-chips button { min-height: 38px; padding: 0 14px; border-radius: 999px; font-size: 14px; font-weight: 500; color: #e9edef; background: rgba(255, 255, 255, 0.06); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14); transition: background-color 180ms ease, color 180ms ease, transform 160ms var(--ease-out), box-shadow 180ms ease; }
+.v3-chat-chips button:active { transform: scale(0.95); }
+.v3-chat-chips button.is-on { background: var(--wa); color: #03200e; box-shadow: none; }
+@media (hover: hover) and (pointer: fine) { .v3-chat-chips button:not(.is-on):hover { background: rgba(255, 255, 255, 0.12); } }
+.v3-chat-foot { padding: 16px 20px 20px; background: #202c33; }
+.v3-chat-send { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 58px; border-radius: 999px; background: var(--wa); color: #03200e; font-size: 17px; font-weight: 600; letter-spacing: -0.02em; transition: transform 160ms var(--ease-out), background-color 200ms ease; }
+.v3-chat-send:active { transform: scale(0.98); }
+.v3-chat-send-arrow { display: inline-grid; transition: transform 250ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .v3-chat-send:hover { background: #2ee173; } .v3-chat-send:hover .v3-chat-send-arrow { transform: translateX(5px); } }
+.v3-chat-note { margin-top: 10px; text-align: center; font-size: 12.5px; color: #8696a0; }
+@media (max-width: 767px) { .v3-chat { border-radius: 24px; } .v3-chat-body { padding: 16px; } .v3-chat-head, .v3-chat-foot { padding-left: 16px; padding-right: 16px; } }
+@media (prefers-reduced-motion: reduce) { .v3-chat-body > * { opacity: 1; transform: none; transition: none; } .v3-chat-avatar::after { animation: none; } }

@@ -7,9 +7,10 @@ import Image from "next/image";
 import HeroPixelSpotlight from "@/components/HeroPixelSpotlight";
 import { LOGOS } from "@/components/LogoSection";
 import { allReviews, waLink } from "../_v2/data";
-import { Accordion, Arrow, ArrowLink, Badge, FloatingWa, PeekCarousel, Stars, WaIcon, reduced, useInView, useReveal } from "../_v3/parts";
+import { Accordion, Arrow, ArrowLink, Badge, FloatingWa, PeekCarousel, WaComposer, Stars, WaIcon, reduced, useInView, useReveal } from "../_v3/parts";
 
-const WA = waLink("Hi PixelPro, I'd like a quote for an event (from your website).\nDate: \nVenue: \nEvent name & type: \nWhat you need: ");
+const WA_TEXT = "Hi PixelPro, I'd like a quote for an event (from your website).\nDate: \nVenue: \nEvent name & type: \nWhat you need: ";
+const WA = waLink(WA_TEXT);
 const CAL = "https://cal.com/pixelpro/consultation";
 /* ---------- 1. services demo: tabs step by themselves, one sentence, one photo ---------- */
 const SERVICES = [
@@ -357,23 +358,25 @@ export default function HomeV3() {
       {/* Sheet 5: two wide buttons, then one line and a link */}
       <section id="cta" className="v3-sheet v3-sheet-black v3-sheet-last" aria-labelledby="cta-h">
         <div className="v3-wrap">
-          <div className="v3-cta-btns" data-rv>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="v3-cta-btn is-wa">
-              <WaIcon /> WhatsApp us
-            </a>
-            <a href={CAL} target="_blank" rel="noopener noreferrer" className="v3-cta-btn is-call">
-              Book a call
-            </a>
-          </div>
-          <p className="v3-cta-note">WhatsApp is available 24/7 for enquiries and quotations.</p>
-          <div className="v3-head v3-cta-head" data-rv>
-            <h2 id="cta-h" className="v3-h2">
-              Let&apos;s bring your event to life.
-            </h2>
-            <div className="v3-links">
-              <ArrowLink href="https://www.instagram.com/pixelprostudios.sg/" external>
-                Recent setups on Instagram
-              </ArrowLink>
+          <div className="v3-cta2">
+            <div data-rv>
+              <h2 id="cta-h" className="v3-h2 v3-cta2-h">
+                Let&apos;s bring your event to life.
+              </h2>
+              <p className="v3-lead" style={{ marginTop: 18, maxWidth: 420 }}>
+                Tap what fits your event. We write the WhatsApp message for you.
+              </p>
+              <div className="v3-links v3-cta2-links">
+                <ArrowLink href={CAL} external>
+                  Prefer to talk? Book a call
+                </ArrowLink>
+                <ArrowLink href="https://www.instagram.com/pixelprostudios.sg/" external>
+                  Recent setups on Instagram
+                </ArrowLink>
+              </div>
+            </div>
+            <div data-rv>
+              <WaComposer template={WA_TEXT} needs={["LED wall", "Sound system", "Stage", "Lighting", "Projector", "Photography", "Videography"]} />
             </div>
           </div>
         </div>
