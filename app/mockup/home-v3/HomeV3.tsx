@@ -45,7 +45,7 @@ function ArrowLink({ href, children, external }: { href: string; children: React
     <a href={href} className="v3-alink" {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
       <span>{children}</span>
       <span className="v3-alink-arrow" aria-hidden>
-        →
+        ↗
       </span>
     </a>
   );
@@ -237,13 +237,13 @@ function PeekCarousel() {
         <button type="button" className="v3-sq is-prev" aria-label="Previous event" onClick={() => go(i - 1)}>
           <Arrow dir="prev" />
         </button>
+        <span className="v3-count" aria-live="polite">
+          {i + 1} / {n}
+        </span>
         <button type="button" className="v3-sq is-next" aria-label="Next event" onClick={() => go(i + 1)}>
           <Arrow />
         </button>
       </div>
-      <p className="v3-peek-count" aria-live="polite">
-        {i + 1} / {n}
-      </p>
     </div>
   );
 }
@@ -386,12 +386,17 @@ function ReviewQuote() {
         </p>
       </div>
       <div className="v3-quote-nav">
-        <button type="button" className="v3-sq is-prev" aria-label="Previous review" onClick={() => setI((i - 1 + n) % n)}>
-          <Arrow dir="prev" />
-        </button>
-        <button type="button" className="v3-sq is-next" aria-label="Next review" onClick={() => setI((i + 1) % n)}>
-          <Arrow />
-        </button>
+        <div className="v3-arrows">
+          <button type="button" className="v3-sq is-prev" aria-label="Previous review" onClick={() => setI((i - 1 + n) % n)}>
+            <Arrow dir="prev" />
+          </button>
+          <span className="v3-count">
+            {i + 1} / {n}
+          </span>
+          <button type="button" className="v3-sq is-next" aria-label="Next review" onClick={() => setI((i + 1) % n)}>
+            <Arrow />
+          </button>
+        </div>
       </div>
     </div>
   );
