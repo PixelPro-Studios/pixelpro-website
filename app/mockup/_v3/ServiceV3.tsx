@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import type { ServiceV2Content } from "../_v2/ServiceV2";
 import { allReviews } from "../_v2/data";
 import { Accordion, ArrowLink, Badge, FloatingWa, PeekCarousel, Stars, WaComposer, WaIcon, goTo, reduced, useInView, useReveal } from "./parts";
+import { StagePlan, WallScene } from "./sizer";
 
 export default function ServiceV3({ c }: { c: ServiceV2Content }) {
   useReveal();
@@ -59,7 +60,7 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
       </section>
 
       {/* 3. Choose your setup (optional) */}
-      {c.setup && <Setup s={c.setup} tone={tone()} />}
+      {c.setup && <Setup s={c.setup} tone={tone()} wa={c.wa} />}
 
       {/* 4. What's included */}
       <section id="included" className={`v3-sheet ${tone()}`} aria-labelledby="inc-h">
@@ -121,7 +122,13 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
             ))}
           </div>
 
-          <div id="pricing" className="v3-price v3-dark-card" data-rv>
+        </div>
+      </section>
+
+      {/* 6b. What affects the quotation, its own section as in Design 1 */}
+      <section id="pricing" className="v3-sheet v3-sheet-charcoal" aria-label="What affects the quotation">
+        <div className="v3-wrap">
+          <div className="v3-price is-flat" data-rv>
             <div>
               <h2 className="v3-h2" style={{ marginTop: 12 }}>
                 What Affects the Quotation
@@ -187,9 +194,20 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
   );
 }
 
+/* the page's WhatsApp message with the chosen size, and venue for a wall, filled in */
+function askLink(wa: string, w: number, h: number, venue: string | null) {
+  const [base, q = ""] = wa.split("?text=");
+  const text = decodeURIComponent(q)
+    .split("\n")
+    .map((l) => (/^(LED wall size|Stage size[^:]*):/i.test(l) ? `${l.split(":")[0]}: ${w} m × ${h} m` : venue && /^Indoor or outdoor:/i.test(l) ? `Indoor or outdoor: ${venue}` : l))
+    .join("\n");
+  return `${base}?text=${encodeURIComponent(text)}`;
+}
+
 /* ---------- slot 3: two big specs on the left, a to-scale size picker on the right ---------- */
-function Setup({ s, tone }: { s: NonNullable<ServiceV2Content["setup"]>; tone: string }) {
+function Setup({ s, tone, wa }: { s: NonNullable<ServiceV2Content["setup"]>; tone: string; wa: string }) {
   const p = s.picker;
+  const [venue, setVenue] = useState<"Indoor" | "Outdoor">("Indoor");
   const [k, setK] = useState(p?.start ?? 0);
   const [auto, setAuto] = useState(true);
   const [box, seen] = useInView<HTMLDivElement>(0.4);
@@ -236,26 +254,24 @@ function Setup({ s, tone }: { s: NonNullable<ServiceV2Content["setup"]>; tone: s
                 </button>
               ))}
             </div>
-            {p.kind === "wall" ? (
-              /* front view, to scale: frame 9.5 m × 5 m, person 1.7 m, base wall 8 m × 4 m */
-              <div className="v3-sizer-frame">
-                <svg className="v3-sizer-person" viewBox="0 0 20 68" aria-hidden>
-                  <circle cx="10" cy="6" r="5" fill="currentColor" />
-                  <path d="M3 16h14l-1.5 24H14v28H6V40H4.5z" fill="currentColor" />
-                </svg>
-                <div className="v3-sizer-wall" style={{ transform: `scale(${w / 8}, ${h / 4})` }} />
-              </div>
-            ) : (
-              /* top view, to scale: frame 10 m × 6 m, base stage 8 m × 4 m, one person ≈ 0.5 m */
-              <div className="v3-plan-frame">
-                <div className="v3-plan-stage" style={{ transform: `scale(${w / 8}, ${h / 4})` }} />
-                <span className="v3-plan-person" aria-hidden />
-                <span className="v3-plan-tag v3-mono">Top view</span>
+            {p.kind === "wall" && (
+              <div className="v3-tabs v3-sizer-tabs v3-venue" role="radiogroup" aria-label="Indoor or outdoor">
+                {(["Indoor", "Outdoor"] as const).map((v) => (
+                  <button key={v} type="button" role="radio" aria-checked={venue === v} onClick={() => setVenue(v)} className={`v3-tab ${venue === v ? "is-active" : ""}`}>
+                    {v}
+                  </button>
+                ))}
               </div>
             )}
-            <p className="v3-sizer-label" aria-live="polite">
-              {w} m × {h} m{p.kind === "plan" ? ` · ${w * h} m²` : ""} <span>· {p.kind === "wall" ? "person shown at 1.7 m for scale" : "dot shows one person for scale"}</span>
-            </p>
+            <div className="v3-scene-box">{p.kind === "wall" ? <WallScene w={w} h={h} venue={venue} /> : <StagePlan w={w} h={h} />}</div>
+            <div className="v3-sizer-read">
+              <p className="v3-sizer-label" aria-live="polite">
+                {w} m × {h} m <span>· {Math.round(w * h * 100) / 100} m² · {p.kind === "wall" ? (venue === "Indoor" ? "P2.5 indoor LED wall" : "P3.9 outdoor LED wall") : `${(w * h) / 2} platforms of 2 m × 1 m`}</span>
+              </p>
+              <a className="v3-sizer-ask" href={askLink(wa, w, h, p.kind === "wall" ? venue : null)} target="_blank" rel="noopener noreferrer">
+                <WaIcon /> Ask about this size
+              </a>
+            </div>
             {s.sizesLine && <p className="v3-note">{s.sizesLine}</p>}
           </div>
         )}

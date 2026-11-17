@@ -261,6 +261,11 @@ export function Accordion({ faqs, first = 6, id = "v3-faq" }: { faqs: FaqItem[];
 const EVENT_TYPES = ["Conference", "Dinner and dance", "School event", "Roadshow", "Community event", "Something else"];
 export function WaComposer({ template, needs, greeting = "Hi! Tell us about your event and we'll send you a quotation." }: { template: string; needs?: string[]; greeting?: string }) {
   const [ref, inView] = useInView<HTMLDivElement>(0.3);
+  // once the chat has played in, it stays: scrolling away must not empty the panel
+  const [shown, setShown] = useState(false);
+  useEffect(() => {
+    if (inView) setShown(true);
+  }, [inView]);
   const [type, setType] = useState<string | null>(null);
   const [picked, setPicked] = useState<string[]>([]);
   const toggle = (n: string) => setPicked((v) => (v.includes(n) ? v.filter((x) => x !== n) : [...v, n]));
@@ -283,23 +288,29 @@ export function WaComposer({ template, needs, greeting = "Hi! Tell us about your
   const text = lines.join("\n");
   const href = "https://wa.me/6588605489?text=" + encodeURIComponent(text);
   return (
-    <div ref={ref} className={`v3-chat ${inView ? "is-in" : ""}`}>
+    <div ref={ref} className={`v3-chat ${shown ? "is-in" : ""}`}>
       <div className="v3-chat-head">
+        <svg className="v3-chat-back" viewBox="0 0 24 24" aria-hidden>
+          <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
         <span className="v3-chat-avatar" aria-hidden>
-          <WaIcon />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logos/pixelpro_logo_light.svg" alt="" />
         </span>
         <div>
           <p className="v3-chat-name">PixelPro Studios</p>
-          <p className="v3-chat-sub">WhatsApp · 24/7 for enquiries and quotations</p>
+          <p className="v3-chat-sub">Business account</p>
         </div>
       </div>
       <div className="v3-chat-body">
-        <p className="v3-bubble v3-bubble-in" style={{ "--k": 0 } as React.CSSProperties}>
-          {greeting}
-        </p>
-        <div className="v3-chat-ask" style={{ "--k": 1 } as React.CSSProperties}>
-          <p className="v3-chat-q">What kind of event is it?</p>
-          <div className="v3-chat-chips" role="group" aria-label="Kind of event">
+        <p className="v3-chat-day" style={{ "--k": 0 } as React.CSSProperties}>Today</p>
+        <div className="v3-bubble v3-bubble-in" style={{ "--k": 1 } as React.CSSProperties}>
+          <p>{greeting}</p>
+          <span className="v3-bubble-time">9:41</span>
+        </div>
+        <div className="v3-replies" style={{ "--k": 2 } as React.CSSProperties}>
+          <p className="v3-replies-q">What kind of event is it?</p>
+          <div className="v3-replies-grid" role="group" aria-label="Kind of event">
             {EVENT_TYPES.map((x) => (
               <button key={x} type="button" aria-pressed={type === x} className={type === x ? "is-on" : ""} onClick={() => setType(type === x ? null : x)}>
                 {x}
@@ -308,9 +319,9 @@ export function WaComposer({ template, needs, greeting = "Hi! Tell us about your
           </div>
         </div>
         {needs && (
-          <div className="v3-chat-ask" style={{ "--k": 2 } as React.CSSProperties}>
-            <p className="v3-chat-q">What do you need? Pick any.</p>
-            <div className="v3-chat-chips" role="group" aria-label="What you need">
+          <div className="v3-replies" style={{ "--k": 3 } as React.CSSProperties}>
+            <p className="v3-replies-q">What do you need? Pick any.</p>
+            <div className="v3-replies-grid" role="group" aria-label="What you need">
               {needs.map((x) => (
                 <button key={x} type="button" aria-pressed={picked.includes(x)} className={picked.includes(x) ? "is-on" : ""} onClick={() => toggle(x)}>
                   {x}
@@ -319,20 +330,25 @@ export function WaComposer({ template, needs, greeting = "Hi! Tell us about your
             </div>
           </div>
         )}
-        <div className="v3-bubble v3-bubble-out" style={{ "--k": 3 } as React.CSSProperties} aria-live="polite">
-          <p className="v3-bubble-label">Your message</p>
+        <div className="v3-bubble v3-bubble-out" style={{ "--k": 4 } as React.CSSProperties} aria-live="polite">
           <p className="v3-bubble-text">{text}</p>
+          <span className="v3-bubble-time">
+            9:42
+            <svg viewBox="0 0 16 11" aria-hidden>
+              <path d="M1 6l3 3 6-8M6 9l1 1 6-8" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
         </div>
       </div>
-      <div className="v3-chat-foot">
-        <a href={href} target="_blank" rel="noopener noreferrer" className="v3-chat-send">
-          <WaIcon /> Send on WhatsApp
-          <span className="v3-chat-send-arrow" aria-hidden>
-            <Arrow />
-          </span>
-        </a>
-        <p className="v3-chat-note">Opens WhatsApp with this message. You can edit it before you send.</p>
-      </div>
+      <a href={href} target="_blank" rel="noopener noreferrer" className="v3-chat-bar">
+        <span className="v3-chat-input">Send this on WhatsApp</span>
+        <span className="v3-chat-sendbtn" aria-hidden>
+          <svg viewBox="0 0 24 24">
+            <path d="M3 20l18-8L3 4l2.6 7L14 12l-8.4 1z" fill="currentColor" />
+          </svg>
+        </span>
+      </a>
+      <p className="v3-chat-note">Opens WhatsApp with this message. You can edit it before you send.</p>
     </div>
   );
 }

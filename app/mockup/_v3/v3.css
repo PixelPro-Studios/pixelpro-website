@@ -25,7 +25,8 @@
 @media (min-width: 768px) { .v3-wrap { padding: 0 40px; } }
 
 /* ---------- type: one family, medium weight, letters pulled close ---------- */
-.v3 :is(h1, h2, h3) { font-family: var(--font-oliveira), Georgia, serif; } /* headings in the live site's serif (Abhishek, 18 Nov) */
+.v3 :is(h1, h2, h3) { font-family: var(--font-inter), system-ui, sans-serif; }
+.v3 :is(.v3-h1, .v3-h2, .v3-h3, .v3-card-title, .v3-cta2-h) { font-family: var(--font-oliveira), Georgia, serif; } /* headlines in the live site's serif; small headings and FAQ questions stay in Inter (Abhishek, 18 Nov) */
 .v3-h1 { font-size: clamp(42px, 6vw, 84px); line-height: 1; font-weight: 400; letter-spacing: -0.02em; text-wrap: balance; }
 .v3-h2 { font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; font-weight: 400; letter-spacing: -0.015em; text-wrap: balance; }
 .v3-h3 { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.1; font-weight: 400; letter-spacing: -0.01em; text-wrap: balance; }
@@ -328,32 +329,54 @@
 @media (min-width: 960px) { .v3-cta2 { grid-template-columns: 1fr minmax(0, 520px); gap: 72px; } }
 .v3-cta2-h { font-size: clamp(36px, 4.6vw, 64px); line-height: 1; letter-spacing: -0.02em; }
 .v3-cta2-links { margin-top: 32px; max-width: 420px; }
-.v3-chat { border-radius: 30px; overflow: hidden; background: #111b21; color: #e9edef; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 40px 90px rgba(0, 0, 0, 0.5); }
-.v3-chat-head { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: #202c33; }
-.v3-chat-avatar { position: relative; flex: none; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--wa); color: #03200e; }
-.v3-chat-avatar::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); animation: v3-ping 2.4s var(--ease-out) infinite; }
-@keyframes v3-ping { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); } 70%, 100% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); } }
-.v3-chat-name { font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
-.v3-chat-sub { margin-top: 2px; font-size: 12.5px; color: #8696a0; }
-.v3-chat-body { display: flex; flex-direction: column; gap: 14px; padding: 20px; background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px); background-size: 18px 18px; }
-.v3-chat-body > * { opacity: 0; transform: translateY(12px) scale(0.98); transition: opacity 500ms var(--ease-out), transform 600ms var(--ease-out); transition-delay: calc(var(--k, 0) * 220ms + 150ms); }
+.v3-chat { width: 100%; max-width: 440px; margin-left: auto; border-radius: 28px; overflow: hidden; background: #0b141a; color: #e9edef; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 30px 80px rgba(0, 0, 0, 0.5); }
+.v3-chat-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #202c33; }
+.v3-chat-back { width: 22px; height: 22px; color: #aebac1; flex: none; }
+.v3-chat-avatar { width: 40px; height: 40px; flex: none; border-radius: 50%; background: #0a0a0a; display: grid; place-items: center; overflow: hidden; }
+.v3-chat-avatar img { width: 22px; height: 22px; }
+.v3-chat-name { font-size: 16px; font-weight: 500; color: #e9edef; }
+.v3-chat-sub { margin-top: 1px; font-size: 12.5px; color: #8696a0; }
+.v3-chat-body { display: flex; flex-direction: column; gap: 8px; padding: 14px 16px 16px; background-color: #0b141a; background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1.3px); background-size: 18px 18px; }
+.v3-chat-body > * { opacity: 0; transform: translateY(8px); transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); transition-delay: calc(var(--k, 0) * 110ms); }
 .v3-chat.is-in .v3-chat-body > * { opacity: 1; transform: none; }
-.v3-bubble { max-width: 88%; padding: 10px 14px; border-radius: 16px; font-size: 15px; line-height: 1.45; }
-.v3-bubble-in { align-self: flex-start; background: #202c33; border-top-left-radius: 4px; transform-origin: 0 0; }
-.v3-bubble-out { align-self: flex-end; background: #005c4b; border-top-right-radius: 4px; transform-origin: 100% 0; }
-.v3-bubble-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(233, 237, 239, 0.6); }
-.v3-bubble-text { margin-top: 4px; white-space: pre-wrap; font-size: 14.5px; }
-.v3-chat-q { font-size: 13px; color: #8696a0; }
-.v3-chat-chips { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px; }
-.v3-chat-chips button { min-height: 38px; padding: 0 14px; border-radius: 999px; font-size: 14px; font-weight: 500; color: #e9edef; background: rgba(255, 255, 255, 0.06); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14); transition: background-color 180ms ease, color 180ms ease, transform 160ms var(--ease-out), box-shadow 180ms ease; }
-.v3-chat-chips button:active { transform: scale(0.95); }
-.v3-chat-chips button.is-on { background: var(--wa); color: #03200e; box-shadow: none; }
-@media (hover: hover) and (pointer: fine) { .v3-chat-chips button:not(.is-on):hover { background: rgba(255, 255, 255, 0.12); } }
-.v3-chat-foot { padding: 16px 20px 20px; background: #202c33; }
-.v3-chat-send { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 58px; border-radius: 999px; background: var(--wa); color: #03200e; font-size: 17px; font-weight: 600; letter-spacing: -0.02em; transition: transform 160ms var(--ease-out), background-color 200ms ease; }
-.v3-chat-send:active { transform: scale(0.98); }
-.v3-chat-send-arrow { display: inline-grid; transition: transform 250ms var(--ease-out); }
-@media (hover: hover) and (pointer: fine) { .v3-chat-send:hover { background: #2ee173; } .v3-chat-send:hover .v3-chat-send-arrow { transform: translateX(5px); } }
-.v3-chat-note { margin-top: 10px; text-align: center; font-size: 12.5px; color: #8696a0; }
+.v3-chat-day { align-self: center; padding: 4px 10px; border-radius: 8px; background: #182229; font-size: 12px; color: #8696a0; }
+.v3-bubble { position: relative; max-width: 86%; padding: 7px 10px 20px; border-radius: 8px; font-size: 14.2px; line-height: 1.4; box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13); }
+.v3-bubble-in { align-self: flex-start; background: #202c33; border-top-left-radius: 0; }
+.v3-bubble-out { align-self: flex-end; min-width: 62%; background: #005c4b; border-top-right-radius: 0; }
+.v3-bubble-in::before, .v3-bubble-out::before { content: ""; position: absolute; top: 0; width: 8px; height: 13px; }
+.v3-bubble-in::before { left: -8px; background: #202c33; clip-path: polygon(100% 0, 0 0, 100% 100%); }
+.v3-bubble-out::before { right: -8px; background: #005c4b; clip-path: polygon(0 0, 100% 0, 0 100%); }
+.v3-bubble-text { white-space: pre-wrap; }
+.v3-bubble-time { position: absolute; right: 8px; bottom: 4px; display: inline-flex; align-items: center; gap: 3px; font-size: 11px; color: rgba(233, 237, 239, 0.6); }
+.v3-bubble-time svg { width: 16px; height: 11px; color: #53bdeb; }
+.v3-replies { align-self: flex-start; width: 86%; border-radius: 8px; overflow: hidden; background: #202c33; }
+.v3-replies-q { padding: 8px 10px 7px; font-size: 13px; color: #8696a0; }
+.v3-replies-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(134, 150, 160, 0.16); }
+.v3-replies-grid button { min-height: 42px; padding: 8px; border: 0; border-bottom: 1px solid rgba(134, 150, 160, 0.16); background: transparent; color: #00a884; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 150ms; }
+.v3-replies-grid button:nth-child(odd) { border-right: 1px solid rgba(134, 150, 160, 0.16); }
+.v3-replies-grid button:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
+.v3-replies-grid button:hover { background: rgba(255, 255, 255, 0.04); }
+.v3-replies-grid button.is-on { background: rgba(0, 168, 132, 0.18); color: #e9edef; }
+.v3-chat-bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px 10px; background: #0b141a; text-decoration: none; }
+.v3-chat-input { flex: 1; min-height: 48px; display: flex; align-items: center; padding: 0 18px; border-radius: 999px; background: #202c33; color: #e9edef; font-size: 15px; }
+.v3-chat-sendbtn { width: 48px; height: 48px; flex: none; border-radius: 50%; display: grid; place-items: center; background: #00a884; transition: background 150ms, transform 120ms ease-out; }
+.v3-chat-sendbtn svg { width: 22px; height: 22px; color: #0b141a; }
+.v3-chat-bar:hover .v3-chat-sendbtn { background: #06cf9c; }
+.v3-chat-bar:active .v3-chat-sendbtn { transform: scale(0.94); }
+.v3-chat-note { padding: 0 16px 14px; background: #0b141a; text-align: center; font-size: 12px; color: #8696a0; }
+@media (prefers-reduced-motion: reduce) { .v3-chat-body > * { opacity: 1; transform: none; transition: none; } }
 @media (max-width: 767px) { .v3-chat { border-radius: 24px; } .v3-chat-body { padding: 16px; } .v3-chat-head, .v3-chat-foot { padding-left: 16px; padding-right: 16px; } }
 @media (prefers-reduced-motion: reduce) { .v3-chat-body > * { opacity: 1; transform: none; transition: none; } .v3-chat-avatar::after { animation: none; } }
+
+/* size scenes (Abhishek, 18 Nov): the wall on a stage, or the stage from above, with an ask-about-this-size link */
+.v3-venue { margin-top: 10px; }
+.v3-scene-box { margin-top: 16px; border-radius: 16px; overflow: hidden; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06); }
+.v3-scene { display: block; width: 100%; height: auto; }
+.v3-sizer-read { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; }
+.v3-sizer-read .v3-sizer-label { margin-top: 0; }
+.v3-sizer-ask { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: 999px; background: var(--wa); color: #03200e; font-size: 14px; font-weight: 600; text-decoration: none; transition: transform 120ms ease-out; }
+.v3-sizer-ask:active { transform: scale(0.97); }
+.v3-sizer-ask svg { width: 16px; height: 16px; }
+/* what affects the quotation, as its own section (no card inside a card) */
+.v3-price.is-flat { margin-top: 0; padding: 0; background: none; border-radius: 0; box-shadow: none; }
+.v3-phead span { font-family: inherit; font-size: 12px; font-weight: 600 !important; letter-spacing: 0.02em; text-transform: none; }

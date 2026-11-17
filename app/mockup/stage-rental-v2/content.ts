@@ -27,7 +27,7 @@ export const c: ServiceV2Content = {
       { big: "600 kg/m²", label: "Load", lines: ["Enough for bands, dance items and equipment."] },
     ],
     picker: { kind: "plan", caption: "Common stage sizes", options: [[4, 2], [6, 3], [7, 4], [8, 4]], start: 2 },
-    sizesLine: "Built from 2 m × 1 m platforms: up to 32 m² (8 m × 4 m) from our own stock. Larger stages on request.",
+    sizesLine: "Built from 2 m × 1 m platforms, so we size the stage to your programme and venue.",
     note: "Send us your programme and venue and we'll recommend a size and height.",
   },
   included: {
@@ -57,7 +57,7 @@ export const c: ServiceV2Content = {
   pricing: {
     intro: "Your quotation depends on the factors below, and we'll recommend a practical, cost-effective stage for your programme.",
     rows: [
-      ["Stage size", "A small speaking platform", "A full performance stage, up to 32 m²"],
+      ["Stage size", "A small speaking platform", "A larger stage: more platforms, crew and setup time"],
       ["Height", "A low platform", "A higher stage, with more steps"],
       ["Skirting", "Standard black skirting", "Custom skirting colours"],
       ["Safety extras", "A low stage with steps", "Guardrails for higher stages"],
@@ -71,7 +71,7 @@ export const c: ServiceV2Content = {
   faqTitle: "Stage rental questions",
   faqs: [
     { q: "How much does stage rental cost?", a: "We quote per event, because the price depends on the stage size and height, skirting, any safety extras like guardrails, and venue access and timing. Send us your brief and we'll reply with a setup and a quotation." },
-    { q: "How big can the stage be?", a: "Up to 32 m² from our own stock, built from 2 m × 1 m sections, so it works as a portable stage for venues that don't have one. Ask us about larger stages." },
+    { q: "How big can the stage be?", a: "Whatever size your programme needs. It's built from 2 m × 1 m sections, so it works as a portable stage for venues that don't have one, and we plan the size around your venue." },
     { q: "How high is the stage?", a: "The height is adjustable from 60 cm to 100 cm, depending on your room and what happens on stage." },
     { q: "Do you provide steps and guardrails?", a: "Steps come with the stage. Guardrails aren't included as standard, but we can arrange them when your stage needs them." },
     { q: "Can the skirting match our theme?", a: "Black skirting is standard. We can arrange other colours on request." },

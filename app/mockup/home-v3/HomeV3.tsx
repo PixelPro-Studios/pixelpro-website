@@ -181,8 +181,8 @@ function LogoWave() {
 /* ---------- 4. why card ---------- */
 const WHY = [
   { n: "24/7", t: "Quick replies, any day", h: "WhatsApp for enquiries and quotations at any hour", p: "Send us the date, venue and what you need. For urgent requests, call +65 8860 5489.", rows: [["WhatsApp", "24/7"], ["Office", "Mon–Sun, 9am–10pm"], ["Urgent requests", "+65 8860 5489"]] },
-  { n: "1", t: "One contact, one quotation", h: "One quotation with a clear breakdown", p: "Sound systems, LED walls, staging, photography and videography, planned and run by our own crew.", rows: [["Equipment", "In the breakdown"], ["Installation", "In the breakdown"], ["Technical services", "In the breakdown"]] },
-  { n: "Lv 3", t: "bizSAFE and GeBIZ registered", h: "Registered for schools and government agencies", p: "PixelPro Studios is bizSAFE Level 3 and a GeBIZ-registered vendor.", rows: [["bizSAFE", "Level 3"], ["GeBIZ", "Registered vendor"], ["Google rating", "5.0"]] },
+  { n: "5.0", t: "Rated on Google", h: "Customised quotations with a clear breakdown", p: "Sound systems, LED walls, staging, photography and videography, planned and run by our own crew.", rows: [["Google rating", "5.0"], ["Quotation", "Equipment, installation and crew itemised"], ["Crew", "Our own technicians"]] },
+  { n: "Lv 3", t: "bizSAFE and GeBIZ registered", h: "Registered for schools and government agencies", p: "PixelPro Studios is bizSAFE Level 3 and a GeBIZ-registered vendor.", rows: [["bizSAFE", "Level 3"], ["GeBIZ", "Registered vendor"], ["Purchases", "GeBIZ, SAP Ariba, e-invoicing"]] },
 ];
 function WhyCard() {
   const [i, setI] = useState(0);
