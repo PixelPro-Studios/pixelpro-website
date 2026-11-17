@@ -207,8 +207,13 @@
 .v3-acc-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 350ms var(--ease-out); }
 .v3-acc-item.is-open .v3-acc-a { grid-template-rows: 1fr; }
 .v3-acc-a > div { overflow: hidden; }
-.v3-acc-a p { padding: 0 32px 20px 0; max-width: 44em; opacity: 0; transition: opacity 250ms ease; }
-.v3-acc-item.is-open .v3-acc-a p { opacity: 1; transition-delay: 100ms; }
+.v3-acc-pad { padding: 0 32px 20px 0; max-width: 44em; opacity: 0; transition: opacity 250ms ease; }
+.v3-acc-item.is-open .v3-acc-pad { opacity: 1; transition-delay: 100ms; }
+.v3-acc-pad ol { margin-top: 12px; padding-left: 1.3em; list-style: decimal; font-size: 15px; line-height: 1.6; color: var(--mut); }
+.v3-acc-pad ol li { padding: 3px 0; }
+.v3-acc-link { margin-top: 14px; max-width: 320px; border-top: 1px solid var(--line); }
+.v3-acc-more { margin-top: 28px; text-align: center; }
+.v3-acc-item[hidden] { display: none; }
 
 /* ---------- closing sheet: two wide buttons ---------- */
 .v3-cta-btns { display: grid; gap: 8px; }
@@ -240,3 +245,78 @@
 }
 
 @media (max-width: 767px) { .v3 { --sheet-r: 28px; } .v3-card { border-radius: 18px; } .v3-demo-stage { border-radius: 18px; } }
+
+/* =====================================================================
+   Service pages (Design 2)
+   ===================================================================== */
+.v3-note { margin-top: 14px; font-size: 13px; line-height: 1.5; color: var(--dim); }
+.v3-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.v3-two { display: grid; gap: 40px; align-items: start; }
+@media (min-width: 900px) { .v3-two { grid-template-columns: 1fr 1fr; gap: 72px; } }
+.v3-dark-card { background: var(--black); color: var(--paper); --mut: #b7b9ba; --dim: #8f9193; --line: rgba(255, 255, 255, 0.12); }
+
+/* hero with the service photo as a backdrop */
+.v3-hero-bg { position: absolute; inset: 0; }
+.v3-hero-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(10, 10, 10, 0.62), rgba(10, 10, 10, 0.82) 70%), linear-gradient(to bottom, rgba(10, 10, 10, 0.6), transparent 30%, rgba(10, 10, 10, 0.9)); }
+.v3-hero-photo .v3-h1 { font-size: clamp(40px, 5.4vw, 76px); }
+.v3-hero-photo .v3-lead { max-width: 620px; color: #d5d7d8; }
+
+/* what's included: a ruled checklist */
+.v3-checks { border-top: 1px solid var(--line); }
+.v3-checks li { display: flex; align-items: center; gap: 14px; padding: 15px 2px; border-bottom: 1px solid var(--line); font-size: 17px; font-weight: 500; letter-spacing: -0.02em; }
+.v3-check { flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--paper); position: relative; }
+.v3-check::after { content: ""; position: absolute; left: 8px; top: 5px; width: 5px; height: 9px; border-right: 2px solid var(--black); border-bottom: 2px solid var(--black); transform: rotate(45deg); }
+
+/* setup: big specs and the to-scale picker */
+.v3-specs { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.v3-spec-big { display: block; font-size: clamp(36px, 3.6vw, 52px); line-height: 1; font-weight: 500; letter-spacing: -0.06em; }
+.v3-spec-label { margin-top: 12px; font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
+.v3-spec-text { margin-top: 6px; font-size: 14px; line-height: 1.5; color: var(--mut); }
+.v3-sizer { border-radius: 28px; padding: clamp(16px, 2.2vw, 28px); background: rgba(255, 255, 255, 0.05); box-shadow: inset 0 0 0 1px var(--line); }
+.v3-sizer-tabs { justify-content: flex-start; flex-wrap: wrap; margin: 0; padding: 0; overflow: visible; }
+.v3-sizer-tabs .v3-tab { min-height: 40px; padding: 0 14px; font-size: 13px; font-variant-numeric: tabular-nums; }
+.v3-sizer-tabs .v3-tab.is-active { background: var(--paper); color: var(--black); border-color: var(--paper); }
+.v3-sizer-frame { position: relative; margin-top: 22px; aspect-ratio: 9.5 / 5; border-bottom: 1px solid rgba(255, 255, 255, 0.35); }
+.v3-sizer-wall { position: absolute; left: 12%; bottom: 0; width: 84.2%; height: 80%; transform-origin: 50% 100%; transition: transform 700ms var(--ease-out); border-radius: 3px; background-color: #dfe6ee; background-image: linear-gradient(rgba(10, 10, 10, 0.16) 1px, transparent 1px), linear-gradient(90deg, rgba(10, 10, 10, 0.16) 1px, transparent 1px); background-size: 12.5% 25%; }
+.v3-sizer-person { position: absolute; left: 1%; bottom: 0; height: 34%; width: auto; color: var(--dim); }
+.v3-plan-frame { position: relative; margin-top: 22px; aspect-ratio: 10 / 6; border-radius: 14px; background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px); background-size: 10% 16.667%; box-shadow: inset 0 0 0 1px var(--line); }
+.v3-plan-stage { position: absolute; left: 10%; top: 16.667%; width: 80%; height: 66.667%; transform-origin: 50% 50%; transition: transform 700ms var(--ease-out); border-radius: 4px; background: #dfe6ee; }
+.v3-plan-person { position: absolute; left: 3%; bottom: 5%; width: 5%; aspect-ratio: 1; border-radius: 50%; background: var(--dim); }
+.v3-plan-tag { position: absolute; right: 12px; top: 10px; font-size: 10px; color: var(--dim); }
+.v3-sizer-label { margin-top: 16px; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.v3-sizer-label span { font-weight: 400; color: var(--dim); }
+
+/* who it's for */
+.v3-buyer { margin-top: 32px; display: grid; gap: 28px; align-items: end; padding: clamp(22px, 3vw, 40px); border-radius: 28px; background: rgba(255, 255, 255, 0.05); box-shadow: inset 0 0 0 1px var(--line); animation: v3-rise 450ms var(--ease-out) both; }
+@media (min-width: 900px) { .v3-buyer { grid-template-columns: 1.3fr 1fr; gap: 56px; } }
+
+/* reviews: three cards that don't move */
+.v3-rating { display: flex; align-items: center; gap: 14px; font-size: 13px; line-height: 1.4; color: var(--mut); }
+.v3-rating > span:first-child { font-size: 52px; line-height: 1; font-weight: 500; letter-spacing: -0.06em; color: var(--black); }
+.v3-revs { display: grid; gap: 12px; }
+@media (min-width: 900px) { .v3-revs { grid-template-columns: repeat(3, 1fr); } }
+.v3-rev { display: flex; flex-direction: column; gap: 14px; padding: clamp(20px, 2.2vw, 28px); border-radius: 24px; background: #eef1f3; }
+.v3-rev blockquote { flex: 1; font-size: clamp(19px, 1.7vw, 24px); line-height: 1.22; font-weight: 500; letter-spacing: -0.04em; text-wrap: balance; }
+.v3-rev figcaption { font-size: 13px; color: var(--mut); }
+
+/* what affects the quotation */
+.v3-price { margin-top: 20px; display: grid; gap: 28px; padding: clamp(22px, 3.4vw, 48px); border-radius: 28px; }
+@media (min-width: 900px) { .v3-price { grid-template-columns: 0.8fr 1.2fr; gap: 56px; } }
+.v3-ptable { border-top: 1px solid var(--line); }
+.v3-prow { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.45; }
+.v3-prow span:first-child { font-weight: 600; }
+.v3-prow span:last-child { color: var(--mut); }
+.v3-phead span { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 11px; font-weight: 400 !important; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim) !important; }
+
+/* get a quote */
+.v3-chips { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+.v3-chips li { padding: 8px 14px; border-radius: 999px; font-size: 14px; border: 1px solid var(--line); }
+.v3-sheet-last .v3-acc { margin-top: 36px; }
+
+@media (max-width: 767px) {
+  .v3-checks li { font-size: 16px; }
+  .v3-prow { grid-template-columns: 1fr; gap: 4px; }
+  .v3-phead span:last-child { display: none; }
+  .v3-specs { gap: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .v3-buyer { animation: none; } .v3-sizer-wall, .v3-plan-stage { transition: none; } }
