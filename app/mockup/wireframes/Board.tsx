@@ -7,6 +7,14 @@ const PAGES = [
   { key: "led", label: "LED wall rental", src: "/mockup/led-walls-v2/" },
   { key: "stage", label: "Stage rental", src: "/mockup/stage-rental-v2/" },
   { key: "tpl", label: "Service template", src: "/mockup/service-template-v2/" },
+  // Options A (Reel), B (Plan it), C (Explorer): static pages in public/mockup/wireframes/options/
+  ...["a", "b", "c"].flatMap((o) =>
+    [["home", "Home"], ["led", "LED"], ["cny", "CNY"]].map(([p, name]) => ({
+      key: `${o}-${p}`,
+      label: `${o.toUpperCase()} · ${name}`,
+      src: `/mockup/wireframes/options/${o}-${p}.html`,
+    })),
+  ),
 ];
 
 export default function Board() {
@@ -29,15 +37,15 @@ export default function Board() {
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 100, background: "#1c1c1e", color: "#ececec", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
       <div style={{ height: 64, display: "flex", alignItems: "center", gap: 16, padding: "0 24px", background: "#141416", borderBottom: "1px solid #2a2a2e" }}>
-        <strong style={{ fontSize: 15 }}>PixelPro · Design board</strong>
+        <strong style={{ fontSize: 15, flex: "none" }}>PixelPro · Design board</strong>
         <span style={{ fontSize: 12, color: "#9a9aa2" }}>v2 mockups · scroll inside each screen</span>
-        <div style={{ display: "flex", gap: 4, background: "#232327", borderRadius: 10, padding: 4, marginLeft: 12 }}>
+        <div style={{ display: "flex", gap: 4, background: "#232327", borderRadius: 10, padding: 4, marginLeft: 12, minWidth: 0, overflowX: "auto" }}>
           {PAGES.map((p) => (
             <button
               key={p.key}
               type="button"
               onClick={() => setPage(p)}
-              style={{ padding: "7px 14px", borderRadius: 7, fontSize: 13, color: page.key === p.key ? "#fff" : "#bbb", background: page.key === p.key ? "#3a3a40" : "transparent" }}
+              style={{ flex: "none", whiteSpace: "nowrap", padding: "7px 14px", borderRadius: 7, fontSize: 13, color: page.key === p.key ? "#fff" : "#bbb", background: page.key === p.key ? "#3a3a40" : "transparent" }}
             >
               {p.label}
             </button>
