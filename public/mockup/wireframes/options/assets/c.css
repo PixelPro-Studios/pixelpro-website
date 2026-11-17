@@ -1,4 +1,4 @@
-/* Option C, "Explorer": FinLab-style pills and a light panel, inside PixelPro's dark world */
+/* Option C: Explorer */
 .hero-c { padding: 140px 0 0; text-align: center; }
 .hero-c .lead { margin-inline: auto; }
 .hero-c__copy { display: grid; justify-items: center; gap: 22px; }
@@ -25,7 +25,7 @@
 @keyframes fadeup { from { opacity: 0; transform: translateY(8px); } }
 @media (max-width: 760px) { .who { grid-template-columns: 1fr; } }
 
-/* light paper section: the FinLab nod */
+/* light section */
 .paper { background: var(--paper); color: var(--ink); border-radius: var(--r-lg); padding: clamp(28px, 5vw, 72px); }
 .paper .muted, .paper p { color: #4A5163; }
 .paper .chip { border-color: rgba(14,18,32,.14); background: #fff; color: var(--ink); }
@@ -46,7 +46,7 @@
 @media (max-width: 860px) { .paper .tabbody { grid-template-columns: 1fr; } .included { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .included { grid-template-columns: 1fr; } }
 
-/* FinLab-style carousel: rounded photo, title underneath */
+/* carousel: rounded photo, title underneath */
 .cards { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(260px, 28vw, 360px); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
   padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2)); scroll-padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2)); }
 .cards::-webkit-scrollbar { display: none; }

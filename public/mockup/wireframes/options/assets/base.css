@@ -1,4 +1,4 @@
-/* PixelPro page prototype: shared system, taken from pixelprostudios.sg (colours, Oliveira display, Inter body) */
+/* Shared styles: colours, type, components */
 @font-face { font-family: "Oliveira"; src: url("fonts/oliveira.otf") format("opentype"); font-display: swap; }
 
 :root {
@@ -50,7 +50,7 @@ html { scrollbar-color: var(--graphite) var(--black); }
 .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: clamp(28px, 4vw, 48px); }
 .section-head p { margin: 12px 0 0; color: var(--silver); max-width: 52ch; }
 
-/* nav: the floating pill from the live site */
+/* nav */
 .nav { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 50; width: min(100% - 24px, 680px);
   display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 8px 8px 10px;
   background: rgba(22, 22, 24, 0.72); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
@@ -131,7 +131,7 @@ html { scrollbar-color: var(--graphite) var(--black); }
 .wa__bubble { background: #DCF8C6; border-radius: 12px 12px 4px 12px; padding: 12px 14px; font: 0.9rem/1.55 var(--sans); white-space: pre-line; }
 .wa__sheet .btn { width: 100%; justify-content: center; margin-top: 12px; background: #25D366; color: #fff; }
 
-/* one authored entrance per page: the hero settles in, nothing else animates on load */
+/* hero entrance on load */
 .enter > * { animation: enter .9s var(--ease) both; }
 .enter > *:nth-child(2) { animation-delay: .08s; }
 .enter > *:nth-child(3) { animation-delay: .16s; }
@@ -143,7 +143,7 @@ html { scrollbar-color: var(--graphite) var(--black); }
 }
 @media (prefers-reduced-transparency: reduce) { .nav { background: #161618; backdrop-filter: none; } }
 
-/* prototype switcher, top-left, for reviewing only */
+/* option switcher, top-left */
 .proto { position: fixed; left: 14px; top: 18px; z-index: 70; display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(0,0,0,.7); border: 1px solid var(--line); font: 600 .72rem/1 var(--ui); }
 .proto a { text-decoration: none; padding: 8px 10px; border-radius: 999px; color: var(--silver); }
 .proto a[aria-current] { background: var(--blue); color: #fff; }

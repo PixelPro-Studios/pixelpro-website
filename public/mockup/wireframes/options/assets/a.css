@@ -1,4 +1,4 @@
-/* Option A, "Reel": photo-led, calm, one moving thing per screen */
+/* Option A: Reel */
 .hero-a { position: relative; min-height: 100svh; display: grid; align-items: end; padding: 120px 0 clamp(40px, 7vw, 88px); overflow: hidden; isolation: isolate; }
 .hero-a__bg { position: absolute; inset: 0; z-index: -2; }
 .hero-a__bg img { width: 100%; height: 100%; object-fit: cover; animation: drift 24s ease-out both; }

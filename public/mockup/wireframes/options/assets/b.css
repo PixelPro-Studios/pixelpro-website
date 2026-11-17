@@ -1,10 +1,10 @@
-/* Option B, "Plan it": interactive tools carry the page */
+/* Option B: Plan it */
 .hero-b { padding: 132px 0 clamp(56px, 8vw, 104px); }
 .hero-b__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
 .hero-b__copy { display: grid; gap: 22px; }
 @media (max-width: 960px) { .hero-b__grid { grid-template-columns: 1fr; } }
 
-/* panel: the one surface tools sit on */
+/* panel */
 .panel { background: var(--charcoal); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(16px, 2.4vw, 26px); }
 
 /* LED wall visualiser */
