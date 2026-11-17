@@ -153,7 +153,7 @@ export function PeekCarousel({ items, label, noun = "item" }: { items: PeekItem[
               </div>
               <div className="v3-card-shade" aria-hidden />
               <div className="v3-card-text">
-                <p className="v3-card-meta">{it.meta}</p>
+                
                 <div>
                   <h3 className="v3-card-title">{it.title}</h3>
                   <ul className="v3-card-gear">

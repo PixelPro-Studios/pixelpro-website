@@ -25,10 +25,10 @@
 @media (min-width: 768px) { .v3-wrap { padding: 0 40px; } }
 
 /* ---------- type: one family, medium weight, letters pulled close ---------- */
-.v3 :is(h1, h2, h3) { font-family: var(--font-inter), system-ui, sans-serif; } /* the site sets a serif on headings; Design 2 uses one family */
-.v3-h1 { font-size: clamp(42px, 6vw, 84px); line-height: 1; font-weight: 500; letter-spacing: -0.05em; text-wrap: balance; }
-.v3-h2 { font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; font-weight: 500; letter-spacing: -0.045em; text-wrap: balance; }
-.v3-h3 { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.1; font-weight: 500; letter-spacing: -0.04em; text-wrap: balance; }
+.v3 :is(h1, h2, h3) { font-family: var(--font-oliveira), Georgia, serif; } /* headings in the live site's serif (Abhishek, 18 Nov) */
+.v3-h1 { font-size: clamp(42px, 6vw, 84px); line-height: 1; font-weight: 400; letter-spacing: -0.02em; text-wrap: balance; }
+.v3-h2 { font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; font-weight: 400; letter-spacing: -0.015em; text-wrap: balance; }
+.v3-h3 { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.1; font-weight: 400; letter-spacing: -0.01em; text-wrap: balance; }
 .v3-lead { font-size: clamp(16px, 1.25vw, 19px); line-height: 1.5; color: var(--mut); text-wrap: pretty; }
 .v3-body { font-size: 16px; line-height: 1.6; color: var(--mut); text-wrap: pretty; }
 .v3-mono { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
@@ -146,7 +146,7 @@
 .v3-card-text { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(18px, 2.2vw, 28px); opacity: 0; transition: opacity 250ms ease; width: 62vw; max-width: 760px; }
 .v3-card.d0 .v3-card-text { opacity: 1; transition: opacity 500ms ease 300ms; width: auto; max-width: none; }
 .v3-card-meta { font-size: 13px; color: #dfe1e2; }
-.v3-card-title { max-width: 12em; font-size: clamp(26px, 3.4vw, 46px); line-height: 1.02; font-weight: 500; letter-spacing: -0.05em; text-wrap: balance; }
+.v3-card-title { max-width: 12em; font-size: clamp(26px, 3.4vw, 46px); line-height: 1.02; font-weight: 500; letter-spacing: -0.02em; text-wrap: balance; }
 .v3-card-gear { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px 8px; }
 .v3-card-gear li { padding: 5px 10px; border-radius: 999px; font-size: 12px; background: rgba(10, 10, 10, 0.55); border: 1px solid rgba(255, 255, 255, 0.18); backdrop-filter: blur(8px); }
 @media (max-width: 767px) {
@@ -326,7 +326,7 @@
    ===================================================================== */
 .v3-cta2 { display: grid; gap: 40px; align-items: center; }
 @media (min-width: 960px) { .v3-cta2 { grid-template-columns: 1fr minmax(0, 520px); gap: 72px; } }
-.v3-cta2-h { font-size: clamp(36px, 4.6vw, 64px); line-height: 1; letter-spacing: -0.05em; }
+.v3-cta2-h { font-size: clamp(36px, 4.6vw, 64px); line-height: 1; letter-spacing: -0.02em; }
 .v3-cta2-links { margin-top: 32px; max-width: 420px; }
 .v3-chat { border-radius: 30px; overflow: hidden; background: #111b21; color: #e9edef; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 40px 90px rgba(0, 0, 0, 0.5); }
 .v3-chat-head { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: #202c33; }

@@ -123,9 +123,6 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
 
           <div id="pricing" className="v3-price v3-dark-card" data-rv>
             <div>
-              <p className="v3-mono" style={{ color: "var(--dim)" }}>
-                Pricing factor
-              </p>
               <h2 className="v3-h2" style={{ marginTop: 12 }}>
                 What Affects the Quotation
               </h2>
@@ -158,10 +155,7 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
               <h2 id="quote-h" className="v3-h2 v3-cta2-h">
                 {c.quote.title}
               </h2>
-              <p className="v3-mono" style={{ color: "var(--dim)", marginTop: 28 }}>
-                What to send us
-              </p>
-              <ul className="v3-chips">
+              <ul className="v3-chips" style={{ marginTop: 28 }}>
                 {c.quote.checklist.map((x) => (
                   <li key={x}>{x}</li>
                 ))}
@@ -290,9 +284,6 @@ function Buyers({ b, tone }: { b: ServiceV2Content["buyers"]; tone: string }) {
           </div>
           <div key={i} className="v3-buyer" role="tabpanel">
             <div>
-              <p className="v3-mono" style={{ color: "var(--dim)" }}>
-                {cur.events}
-              </p>
               <h3 className="v3-h3" style={{ marginTop: 12 }}>
                 {cur.who}
               </h3>
