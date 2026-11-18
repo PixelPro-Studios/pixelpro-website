@@ -94,18 +94,8 @@ const c: ServiceContent = {
   jobs: {
     title: "Events we've produced",
     items: [
-      { img: "/portfolio-jobs/conference-av-rental_led-wall-hotel-ballroom-forum.webp", alt: "AV rental for an international forum: delegates facing a PixelPro LED wall in a hotel ballroom", caption: "3.5 m × 2.5 m LED wall, presentation switcher and a confidence monitor for a three-day international forum, hotel ballroom" },
       { img: "/portfolio-jobs/led-wall-rental_6x2-5m-led-wall-pitch-day.webp", alt: "AV rental for a pitch day: a 6 m × 2.5 m PixelPro LED wall and speakers in a university atrium", caption: "6 m × 2.5 m LED wall, 2 speakers, a mixer and 5 mics for a university pitch day at SUTD" },
       { img: "/portfolio-live-music/av-rental_stage-speakers-and-mixer.webp", alt: "AV rental for a live music show: PixelPro speakers on stands either side of the stage", caption: "Speakers, stage monitors, wireless mics, a digital mixer and a sound engineer for a record show with live bands, convention centre" },
-    ],
-  },
-  typicalSetup: {
-    title: "A three-day international forum in a hotel ballroom",
-    rows: [
-      ["Event", "Railway Accident Investigation International Forum 2026, hosted by the Ministry of Transport's Transport Safety Investigation Bureau: about 100 delegates from 37 agencies"],
-      ["Screen", "3.5 m × 2.5 m LED wall as the main display, with a 4K presentation switcher for the speakers' laptops"],
-      ["For speakers", "A 50-inch confidence monitor on a foldback stand, so presenters see their slides while facing the room"],
-      ["Crew", "An LED technician for startup, monitoring and shutdown on all three days"],
     ],
   },
   includedTitle: "You don't have to touch a thing",

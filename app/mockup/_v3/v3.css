@@ -409,6 +409,9 @@
 .v3-pkgs { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .v3-pkg { display: grid; gap: 12px; align-content: start; padding: clamp(20px, 2.4vw, 28px); border-radius: 22px; background: rgba(255, 255, 255, 0.05); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08); }
 .v3-pkg-best { color: var(--mut); font-size: 15px; }
+.v3-pkg-price { display: flex; align-items: baseline; gap: 10px; margin: 0; }
+.v3-pkg-price b { font-weight: 600; font-size: clamp(28px, 2.6vw, 34px); letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+.v3-pkg-price s { color: var(--mut); font-size: 16px; }
 .v3-pkg ul { margin: 4px 0 8px; padding: 0; list-style: none; display: grid; gap: 9px; }
 .v3-pkg li { padding-left: 18px; position: relative; font-size: 15px; line-height: 1.4; }
 .v3-pkg li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 7px; height: 7px; border-radius: 50%; background: var(--wa); }

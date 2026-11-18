@@ -87,7 +87,6 @@ function ServicesDemo() {
 const J = "/portfolio-jobs/";
 const EVENTS = [
   { title: "National Day celebration at Marina Barrage", meta: "Government · Outdoor", gear: ["5 m × 3 m outdoor LED wall", "Sound covering over 100 m", "Stage lighting"], img: J + "event-production_sound-engineer-marina-barrage.webp", alt: "PixelPro crew on site at Marina Barrage on National Day" },
-  { title: "Three-day international forum", meta: "Conference · Hotel ballroom", gear: ["3.5 m × 2.5 m LED wall", "50-inch confidence monitor", "LED technician all 3 days"], img: J + "conference-av-rental_led-wall-hotel-ballroom-forum.webp", alt: "LED wall in a hotel ballroom for an international forum" },
   { title: "Caregiving Week in a mall atrium", meta: "Community roadshow · Built overnight", gear: ["5.5 m × 3 m LED wall", "7 m × 4 m stage", "Sound and wireless mics"], img: J + "led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", alt: "LED wall above a stage in a mall atrium" },
   { title: "University innovation showcase", meta: "University · Pitching", gear: ["6 m × 2.5 m LED wall", "Sound and rostrum mics", "Sound engineer on site"], img: J + "led-wall-rental_6x2-5m-led-wall-pitch-day.webp", alt: "LED wall at a university pitch day" },
   { title: "School speech and prize day", meta: "School · Hall and outdoor stage", gear: ["Four 1 m × 2 m LED panels", "Stage lighting", "Two sound crews"], img: J + "school-sound-system-rental_prize-day-stage-led-and-lighting.webp", alt: "School hall stage with LED panels and lighting" },
@@ -266,8 +265,8 @@ const IG_PHOTOS = [
 ];
 
 const PROMOS = [
-  { title: "Festive packages for Chinese New Year", line: "Three sound and lighting packages for your company dinner or lo hei, with an engineer, setup and tear-down included.", cta: "See the festive packages", href: "/mockup/cny-event-av-v3/#packages", img: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall set up for a Chinese New Year dinner" },
-  { title: "For charities and NPOs", line: "Registered charities and NPOs get 10% off their package, and we donate 5% of the booking value back to their cause.", cta: "Read the promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/", img: "/promotions/promotion-charity-singapore-led-walls-event.webp", alt: "PixelPro charity support promotion" },
+  { title: "Festive packages for Chinese New Year", line: "Three sound and lighting packages for your company dinner or lo hei, from S$888 with an engineer, setup and tear-down included.", cta: "See the festive packages", href: "/mockup/cny-event-av-v3/#packages", img: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall set up for a Chinese New Year dinner" },
+  { title: "For charities and NPOs", line: "Registered charities and NPOs get 10% off their package, and we donate 5% of the discounted booking value to their cause.", cta: "Read the promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/", img: "/promotions/promotion-charity-singapore-led-walls-event.webp", alt: "PixelPro charity support promotion" },
 ];
 
 /* rotating promotions: one card at a time, steps every 5 s while on screen, pauses on hover, dots to pick */

@@ -14,7 +14,7 @@ export const c: ServiceV2Content = {
     title: "[Service] we've built for events",
     projects: [
       { img: J + "led-wall-rental_6x2-5m-led-wall-pitch-day.webp", alt: "[What the photo shows]", tag: "Featured project", spec: ["[Main spec, e.g. size]", "[Second spec]"], title: "[Job name, no client name]", line: "" },
-      { img: J + "conference-av-rental_led-wall-hotel-ballroom-forum.webp", alt: "[What the photo shows]", spec: ["[Main spec]", "[Second spec]"], title: "[Job name: type of event + venue type]", line: "" },
+      { img: J + "school-sound-system-rental_prize-day-stage-led-and-lighting.webp", alt: "[What the photo shows]", spec: ["[Main spec]", "[Second spec]"], title: "[Job name: type of event + venue type]", line: "" },
       { img: J + "led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", alt: "[What the photo shows]", spec: ["[Main spec]"], title: "[2 to 5 real jobs. One photo = one still card]", line: "" },
     ],
   },

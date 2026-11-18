@@ -27,13 +27,6 @@ export const LED_PROJECTS: Project[] = [
     line: "The LED display carried pitch presentations, countdown timers and sponsor visuals, with our technical team on site throughout the event.",
   },
   {
-    img: "/portfolio-jobs/conference-av-rental_led-wall-hotel-ballroom-forum.webp",
-    alt: "3.5 m × 2.5 m LED wall in a hotel ballroom for a three-day international forum",
-    spec: ["3.5 m × 2.5 m LED wall", "50-inch confidence monitor"],
-    title: "A three-day international forum",
-    line: "Presentations and visual content for about 100 delegates in a hotel ballroom.",
-  },
-  {
     img: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp",
     alt: "5.5 m × 3 m LED display above a 7 m × 4 m stage in a mall atrium, set up by PixelPro",
     spec: ["5.5 m × 3 m LED display", "7 m × 4 m stage"],

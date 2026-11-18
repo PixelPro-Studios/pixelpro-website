@@ -97,7 +97,6 @@ const c: ServiceContent = {
   jobs: {
     title: "LED screens we've built for events",
     items: [
-      { img: "/portfolio-jobs/conference-av-rental_led-wall-hotel-ballroom-forum.webp", alt: "3.5 m × 2.5 m LED wall in a hotel ballroom for a three-day international forum", caption: "We delivered a 3.5 m × 2.5 m LED wall with a dedicated 50-inch confidence monitor for a three-day international forum. The setup carried presentations and visual content for about 100 delegates in a hotel ballroom." },
       { img: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", alt: "5.5 m × 3 m LED display above a 7 m × 4 m stage in a mall atrium, set up by PixelPro", caption: "We installed a 5.5 m × 3 m LED display alongside a 7 m × 4 m stage in a mall atrium. The build was done overnight within the venue's access window, so everything was ready before the mall opened." },
       { img: "/portfolio-jobs/school-sound-system-rental_prize-day-stage-led-and-lighting.webp", alt: "Four upright PixelPro LED panels on a school hall stage for a prize day", caption: "Four 1 m × 2 m upright LED panels framed a school hall stage for a prize-day ceremony. The panels carried the programme visuals for students, parents and guests." },
     ],

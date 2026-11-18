@@ -107,6 +107,17 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
               {c.packages.items.map((p) => (
                 <div key={p.name} className="v3-pkg" data-rv>
                   <h3 className="v3-h3">{p.name}</h3>
+                  {p.price && (
+                    <p className="v3-pkg-price">
+                      <b>{p.price}</b>
+                      {p.was && (
+                        <s>
+                          <span className="sr-only">Usual price </span>
+                          {p.was}
+                        </s>
+                      )}
+                    </p>
+                  )}
                   <p className="v3-pkg-best">{p.best}</p>
                   <ul>
                     {p.includes.map((x) => (

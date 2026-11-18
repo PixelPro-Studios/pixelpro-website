@@ -49,12 +49,12 @@ export const c: ServiceV2Content = {
   },
   packages: {
     title: "Festive Packages",
-    intro: "Three sound and lighting packages for Chinese New Year. Message us for the festive price.",
+    intro: "Three sound and lighting packages for Chinese New Year, at a festive price.",
     note: "Get 10% off additional AV equipment rentals with any festive package. The discount excludes manpower, transport, setup and tear-down, overtime, PE and LEW endorsements and other third-party services, cannot be combined with other offers and is subject to equipment availability.",
     items: [
-      { name: "Festive Essentials", best: "Speeches, lo hei and background music", includes: ["Two 15-inch full-range speakers with stands and skirting", "Two microphones of your choice: wireless, rostrum or lavalier", "16-channel digital mixer", "A sound engineer for 3 hours", "Transport, setup and tear-down"] },
-      { name: "Festive Plus", best: "A full dinner programme with stage lighting", includes: ["Four 15-inch full-range speakers with stands and skirting", "Four microphones of your choice", "16-channel digital mixer", "Four RGBAW PAR lights with T-stands", "Lighting controller", "A sound engineer and a lighting engineer for 3 hours", "Transport, setup and tear-down"] },
-      { name: "Festive Premium", best: "Performances, a band and a big room", includes: ["Four 15-inch full-range speakers and an 18-inch subwoofer", "Six microphones of your choice, with a Shure antenna distribution system", "16-channel digital mixer", "Six RGBAW PAR lights and two moving heads", "GrandMA2 lighting console", "A sound engineer and a lighting engineer for 3 hours", "Transport, setup and tear-down"] },
+      { name: "Festive Essentials", price: "S$888", was: "S$1,088", best: "Speeches, lo hei and background music", includes: ["Two 15-inch full-range speakers with stands and skirting", "Two microphones of your choice: wireless, rostrum or lavalier", "16-channel digital mixer", "A sound engineer for 3 hours", "Transport, setup and tear-down"] },
+      { name: "Festive Plus", price: "S$1,888", was: "S$2,188", best: "A full dinner programme with stage lighting", includes: ["Four 15-inch full-range speakers with stands and skirting", "Four microphones of your choice", "16-channel digital mixer", "Four RGBAW PAR lights with T-stands", "Lighting controller", "A sound engineer and a lighting engineer for 3 hours", "Transport, setup and tear-down"] },
+      { name: "Festive Premium", price: "S$2,888", was: "S$3,288", best: "Performances, a band and a big room", includes: ["Four 15-inch full-range speakers and an 18-inch subwoofer", "Six microphones of your choice, with a Shure antenna distribution system", "16-channel digital mixer", "Six RGBAW PAR lights and two moving heads", "GrandMA2 lighting console", "A sound engineer and a lighting engineer for 3 hours", "Transport, setup and tear-down"] },
     ],
   },
   buyers: {

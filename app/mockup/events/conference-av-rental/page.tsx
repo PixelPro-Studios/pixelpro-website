@@ -43,16 +43,6 @@ const c: EventContent = {
       ["Pack-down", "We pack everything away after the last session."],
     ],
   },
-  typicalSetup: {
-    title: "A three-day international forum for about 100 delegates",
-    rows: [
-      ["Event", "Railway Accident Investigation International Forum 2026, hosted by the Ministry of Transport's Transport Safety Investigation Bureau, hotel ballroom"],
-      ["Delegates", "About 100 participants from 37 agencies, over three days of talks and panels"],
-      ["Main screen", "3.5 m × 2.5 m LED wall, with a 4K presentation switcher and a video splitter for speakers' laptops"],
-      ["For speakers", "A 50-inch confidence monitor on a foldback stand, so presenters see their slides while facing the room"],
-      ["Crew", "An LED technician for startup, monitoring, troubleshooting and shutdown each day"],
-    ],
-  },
   coreTitle: "Built to keep every session on time",
   priceFactors: [
     ["Attendees and main hall size", "A seminar room", "A ballroom or auditorium for several hundred delegates"],
@@ -65,9 +55,9 @@ const c: EventContent = {
   photos: {
     title: "Talks and panels we've run",
     items: [
-      { img: "/portfolio-jobs/conference-av-rental_led-wall-hotel-ballroom-forum.webp", alt: "Conference AV rental: delegates facing a 3.5 m × 2.5 m PixelPro LED wall in a hotel ballroom", caption: "3.5 m × 2.5 m LED wall for a three-day international forum, about 100 delegates from 37 agencies, hotel ballroom" },
-      { img: "/portfolio-jobs/conference-av-rental_panel-discussion-led-wall.webp", alt: "Panel discussion in front of a PixelPro LED wall at an international forum", caption: "Panel discussion at the same forum, with the session title on the LED wall" },
-      { img: "/portfolio-jobs/conference-av-rental_confidence-monitor.webp", alt: "Confidence monitor with a 30-minute countdown facing the speaker", caption: "Confidence monitor at the stage edge: speakers see their slides and a countdown timer while facing the room" },
+      { img: "/portfolio-jobs/town-hall-sound-system_full-atrium-led-wall.webp", alt: "Conference AV rental: a full atrium audience facing a speaker, LED wall and PixelPro speakers", caption: "A full atrium for a university tech commercialisation day: speakers either side of the stage and an LED wall behind the presenter" },
+      { img: "/portfolio-jobs/led-wall-rental_6x2-5m-led-wall-pitch-day.webp", alt: "AV rental for a pitch day: a 6 m × 2.5 m PixelPro LED wall and speakers in a university atrium", caption: "6 m × 2.5 m LED wall, 2 speakers, a mixer and 5 mics for a university pitch day at SUTD" },
+      { img: "/portfolio-jobs/school-sound-system-rental_speech-at-the-rostrum.webp", alt: "A speech at the rostrum with PixelPro LED panels behind", caption: "Rostrum mic, wireless mics and upright LED panels for a school prize day, linked to the hall's own sound system" },
     ],
   },
   included: [
