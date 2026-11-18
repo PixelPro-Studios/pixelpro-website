@@ -119,14 +119,14 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
                     </p>
                   )}
                   <p className="v3-pkg-best">{p.best}</p>
+                  <a className="v3-sizer-ask" href={pkgLink(c.wa, p.name)} target="_blank" rel="noopener noreferrer">
+                    <WaIcon /> Ask about {p.name}
+                  </a>
                   <ul>
                     {p.includes.map((x) => (
                       <li key={x}>{x}</li>
                     ))}
                   </ul>
-                  <a className="v3-sizer-ask" href={pkgLink(c.wa, p.name)} target="_blank" rel="noopener noreferrer">
-                    <WaIcon /> Ask about {p.name}
-                  </a>
                 </div>
               ))}
             </div>

@@ -382,7 +382,10 @@
 .v3-phead span { font-family: inherit; font-size: 12px; font-weight: 600 !important; letter-spacing: 0.02em; text-transform: none; }
 
 /* Jovin's feedback, 18 Nov: links under the events carousel, rotating promotions, calm logo row, Instagram, festive packages */
-.v3-links-row { margin-top: 28px; max-width: 420px; }
+.v3-links-row { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0 32px; margin-top: 14px; border-top: 0; }
+.v3-links-row .v3-alink { display: inline-flex; gap: 8px; padding: 10px 2px; border: 0; font-size: 16px; letter-spacing: -0.01em; }
+@media (hover: hover) and (pointer: fine) { .v3-links-row .v3-alink:hover > span:first-child { transform: none; } }
+@media (max-width: 600px) { .v3-links-row { gap: 0 22px; } }
 .v3-promo { position: relative; margin-top: 28px; min-height: 360px; }
 .v3-promo-card { position: absolute; inset: 0; display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(20px, 3vw, 40px); align-items: center; color: inherit; text-decoration: none; opacity: 0; transform: translateY(8px); transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); pointer-events: none; }
 .v3-promo-card.is-on { opacity: 1; transform: none; pointer-events: auto; }
@@ -407,13 +410,14 @@
 .v3-ig-grid a { position: absolute; inset: 0; display: block; }
 @media (max-width: 860px) { .v3-ig-grid { grid-template-columns: repeat(3, 1fr); } }
 .v3-pkgs { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@supports (grid-template-rows: subgrid) { .v3-pkg { grid-row: span 5; grid-template-rows: subgrid; row-gap: 12px; } } /* name, price, use, button, list line up across cards */
 .v3-pkg { display: grid; gap: 12px; align-content: start; padding: clamp(20px, 2.4vw, 28px); border-radius: 22px; background: rgba(255, 255, 255, 0.05); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08); }
 .v3-pkg-best { color: var(--mut); font-size: 15px; }
 .v3-pkg-price { display: flex; align-items: baseline; gap: 10px; margin: 0; }
 .v3-pkg-price b { font-weight: 600; font-size: clamp(28px, 2.6vw, 34px); letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
 .v3-pkg-price s { color: var(--mut); font-size: 16px; }
-.v3-pkg ul { margin: 4px 0 8px; padding: 0; list-style: none; display: grid; gap: 9px; }
-.v3-pkg li { padding-left: 18px; position: relative; font-size: 15px; line-height: 1.4; }
-.v3-pkg li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 7px; height: 7px; border-radius: 50%; background: var(--wa); }
-.v3-pkg .v3-sizer-ask { justify-self: start; margin-top: auto; }
+.v3-pkg ul { margin: 8px 0 0; padding: 20px 0 0; border-top: 1px solid rgba(255, 255, 255, 0.1); list-style: none; display: grid; gap: 10px; align-content: start; }
+.v3-pkg li { padding-left: 24px; position: relative; font-size: 15px; line-height: 1.4; }
+.v3-pkg li::before { content: ""; position: absolute; left: 2px; top: 0.36em; width: 10px; height: 5px; border-left: 2px solid var(--wa); border-bottom: 2px solid var(--wa); transform: rotate(-45deg); }
+.v3-pkg .v3-sizer-ask { justify-self: start; align-self: start; margin-top: 4px; }
 @media (max-width: 960px) { .v3-pkgs { grid-template-columns: 1fr; } }
