@@ -7,7 +7,7 @@ import Image from "next/image";
 import HeroPixelSpotlight from "@/components/HeroPixelSpotlight";
 import { LOGOS } from "@/components/LogoSection";
 import { allReviews, waLink } from "../_v2/data";
-import { Accordion, Arrow, ArrowLink, Badge, FloatingWa, PeekCarousel, WaComposer, Stars, WaIcon, reduced, useInView, useReveal } from "../_v3/parts";
+import { Accordion, Arrow, ArrowLink, Badge, FloatingWa, PeekCarousel, type PeekItem, WaComposer, Stars, WaIcon, reduced, useInView, useReveal } from "../_v3/parts";
 
 const WA_TEXT = "Hi PixelPro, I'd like a quote for an event (from your website).\nDate: \nVenue: \nEvent name & type: \nWhat you need: ";
 const WA = waLink(WA_TEXT);
@@ -264,43 +264,11 @@ const IG_PHOTOS = [
   { src: "/portfolio-live-music/sound-system-rental_live-band-stage-monitors.webp", alt: "Live band with stage monitors" },
 ];
 
-const PROMOS = [
-  { title: "Festive packages for Chinese New Year", line: "Three sound and lighting packages for your company dinner or lo hei, from S$888 with an engineer, setup and tear-down included.", cta: "See the festive packages", href: "/mockup/cny-event-av-v3/#packages", img: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall set up for a Chinese New Year dinner" },
-  { title: "For charities and NPOs", line: "Registered charities and NPOs get 10% off their package, and we donate 5% of the discounted booking value to their cause.", cta: "Read the promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/", img: "/promotions/promotion-charity-singapore-led-walls-event.webp", alt: "PixelPro charity support promotion" },
+/* Promotions use the same peek carousel as "Events we've supported" (Jovin, 18 Nov) */
+const PROMOS: PeekItem[] = [
+  { title: "Festive packages for Chinese New Year", line: "Three sound and lighting packages for your company dinner or lo hei, from S$888 with an engineer, setup and tear-down included.", cta: "See the festive packages", href: "/mockup/cny-event-av-v3/#packages", gear: [], img: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall set up for a Chinese New Year dinner" },
+  { title: "For charities and NPOs", line: "Registered charities and NPOs get 10% off their package, and we donate 5% of the discounted booking value to their cause.", cta: "Read the promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/", gear: [], img: "/portfolio-jobs/sound-system-rental_community-club-hall-full-house.webp", alt: "Full community club hall at an event with PixelPro sound" },
 ];
-
-/* rotating promotions: one card at a time, steps every 5 s while on screen, pauses on hover, dots to pick */
-function Promotions() {
-  const [i, setI] = useState(0);
-  const [hold, setHold] = useState(false);
-  const [box, seen] = useInView<HTMLDivElement>(0.3);
-  useEffect(() => {
-    if (hold || !seen || reduced()) return;
-    const t = setTimeout(() => setI((k) => (k + 1) % PROMOS.length), 5000);
-    return () => clearTimeout(t);
-  }, [i, hold, seen]);
-  return (
-    <div ref={box} className="v3-promo" onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)}>
-      {PROMOS.map((p, k) => (
-        <a key={p.title} href={p.href} className={`v3-promo-card ${k === i ? "is-on" : ""}`} aria-hidden={k !== i} tabIndex={k === i ? 0 : -1}>
-          <span className="v3-promo-img">
-            <Image src={p.img} alt={p.alt} fill sizes="(max-width: 900px) 100vw, 50vw" className="v3-cover" />
-          </span>
-          <span className="v3-promo-text">
-            <span className="v3-h3">{p.title}</span>
-            <span className="v3-body">{p.line}</span>
-            <span className="v3-promo-cta">{p.cta} <Arrow /></span>
-          </span>
-        </a>
-      ))}
-      <div className="v3-promo-dots" role="tablist" aria-label="Promotions">
-        {PROMOS.map((p, k) => (
-          <button key={p.title} type="button" role="tab" aria-selected={k === i} aria-label={p.title} className={k === i ? "is-on" : ""} onClick={() => setI(k)} />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function HomeV3() {
   useReveal();
@@ -359,14 +327,16 @@ export default function HomeV3() {
         </div>
       </section>
 
-      {/* Promotions: one card at a time, rotating (Jovin, 18 Nov) */}
+      {/* Promotions: same peek carousel as the events, steps by itself every 6 s (Jovin, 18 Nov) */}
       <section className="v3-sheet v3-sheet-charcoal" aria-labelledby="promo-h">
         <div className="v3-wrap">
-          <h2 id="promo-h" className="v3-h2" data-rv>
-            Promotions
-          </h2>
+          <div className="v3-head" data-rv>
+            <h2 id="promo-h" className="v3-h2">
+              Promotions
+            </h2>
+          </div>
           <div data-rv>
-            <Promotions />
+            <PeekCarousel items={PROMOS} label="Promotions" noun="promotion" fill auto={6000} />
           </div>
         </div>
       </section>

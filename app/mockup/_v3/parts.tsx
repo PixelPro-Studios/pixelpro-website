@@ -106,10 +106,15 @@ export function useInView<T extends HTMLElement>(threshold = 0.4) {
 
 /* Peek carousel: the active card is wide, its neighbours show as slices. One pill holds the arrows and the count.
    Click a slice, swipe, or use the arrow keys. */
-export type PeekItem = { title: string; meta?: string; gear: string[]; img: string; alt: string; pos?: string };
+export type PeekItem = { title: string; meta?: string; gear: string[]; img: string; alt: string; pos?: string; line?: string; href?: string; cta?: string };
 const D_CLASS: Record<string, string> = { "0": "d0", "1": "dp1", "-1": "dn1", "2": "dp2", "-2": "dn2", "3": "dp3", "-3": "dn3" };
-export function PeekCarousel({ items, label, noun = "item" }: { items: PeekItem[]; label: string; noun?: string }) {
-  const n = items.length;
+/* `fill`: with fewer than 5 items, repeat them so slices show on both sides (the count still shows the real number).
+   `auto`: step by itself every `auto` ms while on screen; stops on hover or focus. */
+export function PeekCarousel({ items, label, noun = "item", fill = false, auto = 0 }: { items: PeekItem[]; label: string; noun?: string; fill?: boolean; auto?: number }) {
+  const real = items.length;
+  const reps = fill && real > 1 && real < 5 ? Math.ceil(5 / real) : 1;
+  const slides = reps > 1 ? Array.from({ length: real * reps }, (_, k) => items[k % real]) : items;
+  const n = slides.length;
   const half = Math.floor(n / 2);
   const [i, setI] = useState(0);
   const prev = useRef(0);
@@ -119,32 +124,46 @@ export function PeekCarousel({ items, label, noun = "item" }: { items: PeekItem[
     prev.current = i;
   }, [i]);
   const drag = useRef<number | null>(null);
+  const dragged = useRef(false);
+  const [hold, setHold] = useState(false);
+  const [box, seen] = useInView<HTMLDivElement>(0.3);
+  useEffect(() => {
+    if (!auto || hold || !seen || n < 2 || reduced()) return;
+    const t = setTimeout(() => setI((k) => (k + 1) % n), auto);
+    return () => clearTimeout(t);
+  }, [i, auto, hold, seen, n]);
   return (
-    <div aria-roledescription="carousel" aria-label={label}>
+    <div ref={box} aria-roledescription="carousel" aria-label={label} onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)} onFocus={() => setHold(true)} onBlur={() => setHold(false)}>
       <div
         className="v3-peek"
         tabIndex={0}
         onKeyDown={(e) => (e.key === "ArrowRight" ? go(i + 1) : e.key === "ArrowLeft" ? go(i - 1) : null)}
-        onPointerDown={(e) => (drag.current = e.clientX)}
+        onPointerDown={(e) => {
+          drag.current = e.clientX;
+          dragged.current = false;
+        }}
         onPointerUp={(e) => {
           if (drag.current === null) return;
           const dx = e.clientX - drag.current;
           drag.current = null;
-          if (Math.abs(dx) > 40 && n > 1) go(i + (dx < 0 ? 1 : -1));
+          if (Math.abs(dx) > 40 && n > 1) {
+            dragged.current = true;
+            go(i + (dx < 0 ? 1 : -1));
+          }
         }}
         onPointerCancel={() => (drag.current = null)}
       >
-        {items.map((it, k) => {
+        {slides.map((it, k) => {
           const d = offset(k, i);
           const was = offset(k, prev.current);
           const c = Math.max(-3, Math.min(3, d));
           const wrapped = Math.abs(d - was) > 1; // jumped from one end to the other: move it without a visible slide
           return (
             <article
-              key={it.title}
-              className={`v3-card ${D_CLASS[String(c)]} ${wrapped ? "no-move" : ""}`}
+              key={k}
+              className={`v3-card ${D_CLASS[String(c)]} ${wrapped ? "no-move" : ""} ${it.line ? "has-line" : ""}`}
               aria-roledescription="slide"
-              aria-label={`${k + 1} of ${n}: ${it.title}`}
+              aria-label={`${(k % real) + 1} of ${real}: ${it.title}`}
               aria-hidden={d !== 0}
               onClick={() => d !== 0 && Math.abs(d) <= 2 && go(k)}
             >
@@ -156,11 +175,19 @@ export function PeekCarousel({ items, label, noun = "item" }: { items: PeekItem[
                 
                 <div>
                   <h3 className="v3-card-title">{it.title}</h3>
-                  <ul className="v3-card-gear">
-                    {it.gear.map((g) => (
-                      <li key={g}>{g}</li>
-                    ))}
-                  </ul>
+                  {it.line && <p className="v3-card-line">{it.line}</p>}
+                  {it.gear.length > 0 && (
+                    <ul className="v3-card-gear">
+                      {it.gear.map((g) => (
+                        <li key={g}>{g}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {it.href && (
+                    <a className="v3-card-cta" href={it.href} tabIndex={d === 0 ? 0 : -1} onClick={(e) => dragged.current && e.preventDefault()}>
+                      {it.cta ?? "Read more"} <Arrow />
+                    </a>
+                  )}
                 </div>
               </div>
             </article>
@@ -173,7 +200,7 @@ export function PeekCarousel({ items, label, noun = "item" }: { items: PeekItem[
             <Arrow dir="prev" />
           </button>
           <span className="v3-count" aria-live="polite">
-            {i + 1} / {n}
+            {(i % real) + 1} / {real}
           </span>
           <button type="button" className="v3-sq is-next" aria-label={`Next ${noun}`} onClick={() => go(i + 1)}>
             <Arrow />
