@@ -92,6 +92,38 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
       </section>
 
       {/* 5. Who it's for: tabs */}
+      {c.packages && (
+        <section id="packages" className={`v3-sheet ${tone()}`} aria-labelledby="pkg-h">
+          <div className="v3-wrap">
+            <div className="v3-head" data-rv>
+              <h2 id="pkg-h" className="v3-h2">
+                {c.packages.title}
+              </h2>
+              <p className="v3-body" style={{ maxWidth: 440 }}>
+                {c.packages.intro}
+              </p>
+            </div>
+            <div className="v3-pkgs">
+              {c.packages.items.map((p) => (
+                <div key={p.name} className="v3-pkg" data-rv>
+                  <h3 className="v3-h3">{p.name}</h3>
+                  <p className="v3-pkg-best">{p.best}</p>
+                  <ul>
+                    {p.includes.map((x) => (
+                      <li key={x}>{x}</li>
+                    ))}
+                  </ul>
+                  <a className="v3-sizer-ask" href={pkgLink(c.wa, p.name)} target="_blank" rel="noopener noreferrer">
+                    <WaIcon /> Ask about {p.name}
+                  </a>
+                </div>
+              ))}
+            </div>
+            {c.packages.note && <p className="v3-note" style={{ marginTop: 22 }}>{c.packages.note}</p>}
+          </div>
+        </section>
+      )}
+
       <Buyers b={c.buyers} tone={tone()} />
 
       {/* 6. Light sheet: three reviews, then what affects the quotation */}
@@ -192,6 +224,14 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
       </section>
     </main>
   );
+}
+
+/* the page's WhatsApp message with the package named on its first line */
+function pkgLink(wa: string, name: string) {
+  const [base, q = ""] = wa.split("?text=");
+  const lines = decodeURIComponent(q).split("\n");
+  lines[0] = lines[0].replace(/\s*\(from your[^)]*\)/i, "").replace(/\.$/, "") + ` (${name} package).`;
+  return `${base}?text=${encodeURIComponent(lines.join("\n"))}`;
 }
 
 /* the page's WhatsApp message with the chosen size, and venue for a wall, filled in */

@@ -256,6 +256,53 @@ const FAQS = [
   { q: "Do you work with schools and government agencies?", a: "Yes. PixelPro Studios is a GeBIZ-registered vendor and is bizSAFE Level 3." },
 ];
 
+const IG_PHOTOS = [
+  { src: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall with an LED wall and stage" },
+  { src: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-6.jpg", alt: "Chinese orchestra on stage in front of an LED wall" },
+  { src: "/portfolio-jobs/led-wall-rental_6x2-5m-led-wall-pitch-day.webp", alt: "LED wall at a university pitch day" },
+  { src: "/portfolio-jobs/event-production_sound-engineer-marina-barrage.webp", alt: "Sound engineer at Marina Barrage" },
+  { src: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", alt: "LED wall and stage in a mall atrium" },
+  { src: "/portfolio-live-music/sound-system-rental_live-band-stage-monitors.webp", alt: "Live band with stage monitors" },
+];
+
+const PROMOS = [
+  { title: "Festive packages for Chinese New Year", line: "Three sound and lighting packages for your company dinner or lo hei, with an engineer, setup and tear-down included.", cta: "See the festive packages", href: "/mockup/cny-event-av-v3/#packages", img: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall set up for a Chinese New Year dinner" },
+  { title: "For charities and NPOs", line: "Registered charities and NPOs get 10% off their package, and we donate 5% of the booking value back to their cause.", cta: "Read the promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/", img: "/promotions/promotion-charity-singapore-led-walls-event.webp", alt: "PixelPro charity support promotion" },
+];
+
+/* rotating promotions: one card at a time, steps every 5 s while on screen, pauses on hover, dots to pick */
+function Promotions() {
+  const [i, setI] = useState(0);
+  const [hold, setHold] = useState(false);
+  const [box, seen] = useInView<HTMLDivElement>(0.3);
+  useEffect(() => {
+    if (hold || !seen || reduced()) return;
+    const t = setTimeout(() => setI((k) => (k + 1) % PROMOS.length), 5000);
+    return () => clearTimeout(t);
+  }, [i, hold, seen]);
+  return (
+    <div ref={box} className="v3-promo" onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)}>
+      {PROMOS.map((p, k) => (
+        <a key={p.title} href={p.href} className={`v3-promo-card ${k === i ? "is-on" : ""}`} aria-hidden={k !== i} tabIndex={k === i ? 0 : -1}>
+          <span className="v3-promo-img">
+            <Image src={p.img} alt={p.alt} fill sizes="(max-width: 900px) 100vw, 50vw" className="v3-cover" />
+          </span>
+          <span className="v3-promo-text">
+            <span className="v3-h3">{p.title}</span>
+            <span className="v3-body">{p.line}</span>
+            <span className="v3-promo-cta">{p.cta} <Arrow /></span>
+          </span>
+        </a>
+      ))}
+      <div className="v3-promo-dots" role="tablist" aria-label="Promotions">
+        {PROMOS.map((p, k) => (
+          <button key={p.title} type="button" role="tab" aria-selected={k === i} aria-label={p.title} className={k === i ? "is-on" : ""} onClick={() => setI(k)} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function HomeV3() {
   useReveal();
   return (
@@ -301,21 +348,42 @@ export default function HomeV3() {
             <h2 id="work-h" className="v3-h2">
               Events we&apos;ve supported
             </h2>
-            <div className="v3-links">
-              <ArrowLink href="/portfolio">See all projects</ArrowLink>
-              <ArrowLink href="/mockup/led-walls-v3">LED wall rental</ArrowLink>
-              <ArrowLink href="/mockup/stage-rental-v3">Stage rental</ArrowLink>
-            </div>
           </div>
           <div data-rv>
             <PeekCarousel items={EVENTS} label="Events we have supported" noun="event" />
+          </div>
+          <div className="v3-links v3-links-row" data-rv>
+            <ArrowLink href="/portfolio">See all projects</ArrowLink>
+            <ArrowLink href="/mockup/led-walls-v3">LED wall rental</ArrowLink>
+            <ArrowLink href="/mockup/stage-rental-v3">Stage rental</ArrowLink>
+          </div>
+        </div>
+      </section>
+
+      {/* Promotions: one card at a time, rotating (Jovin, 18 Nov) */}
+      <section className="v3-sheet v3-sheet-charcoal" aria-labelledby="promo-h">
+        <div className="v3-wrap">
+          <h2 id="promo-h" className="v3-h2" data-rv>
+            Promotions
+          </h2>
+          <div data-rv>
+            <Promotions />
           </div>
         </div>
       </section>
 
       {/* Sheet 3: client logos on a wave, heading left and links right */}
-      <section className="v3-sheet v3-sheet-charcoal" aria-labelledby="logo-h" style={{ paddingTop: 0 }}>
-        <LogoWave />
+      <section className="v3-sheet v3-sheet-black" aria-labelledby="logo-h">
+        <div className="v3-wrap">
+          <ul className="v3-logo-row" aria-label="Clients we have worked with">
+            {LOGOS.map((l) => (
+              <li key={l.file}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/client_logos_greyscale/${l.file}`} alt={l.alt} loading="lazy" />
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className="v3-wrap v3-wave-text">
           <div className="v3-head" data-rv>
             <h2 id="logo-h" className="v3-h2">
@@ -352,6 +420,30 @@ export default function HomeV3() {
               <Accordion faqs={FAQS} />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Instagram (Jovin, 18 Nov) */}
+      <section className="v3-sheet v3-sheet-charcoal" aria-labelledby="ig-h">
+        <div className="v3-wrap">
+          <div className="v3-head" data-rv>
+            <h2 id="ig-h" className="v3-h2">
+              Follow our setups on Instagram
+            </h2>
+            <a className="v3-ig-btn" href="https://www.instagram.com/pixelprostudios.sg/" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" /></svg>
+              @pixelprostudios.sg
+            </a>
+          </div>
+          <ul className="v3-ig-grid" data-rv>
+            {IG_PHOTOS.map((p) => (
+              <li key={p.src}>
+                <a href="https://www.instagram.com/pixelprostudios.sg/" target="_blank" rel="noopener noreferrer" aria-label={`${p.alt}, on Instagram`}>
+                  <Image src={p.src} alt={p.alt} fill sizes="(max-width: 700px) 50vw, 16vw" className="v3-cover" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

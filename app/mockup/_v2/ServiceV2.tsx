@@ -28,6 +28,7 @@ export type ServiceV2Content = {
     note?: string;
   };
   included: { title: string; intro?: string; items: string[]; support?: string };
+  packages?: { title: string; intro: string; note?: string; items: { name: string; best: string; includes: string[] }[] };
   buyers: { title: string; items: { tab: string; who: string; events: string; copy: string; links: Link[] }[] };
   reviews: string[]; // three reviewer names from allReviews
   pricing: { intro: string; rows: [string, string, string][]; footer: string };

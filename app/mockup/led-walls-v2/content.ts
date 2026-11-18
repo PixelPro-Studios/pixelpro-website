@@ -18,7 +18,7 @@ export const c: ServiceV2Content = {
       { big: "P2.5", label: "Indoor LED wall", lines: ["Sharp slides and video for conferences and indoor events."] },
       { big: "P3.9", label: "Outdoor LED wall", lines: ["Bright, weather-resistant panels for outdoor and bright venues."] },
     ],
-    picker: { kind: "wall", caption: "Common LED wall sizes", options: [[3.5, 2.5], [5.5, 3], [6, 2.5], [6, 4], [8, 3]], start: 3 },
+    picker: { kind: "wall", caption: "Common LED wall sizes", options: [[4, 2.5], [5.5, 3], [6, 2.5], [6, 4], [8, 3]], start: 3 },
     sizesLine: "Custom sizes and multiple-screen setups too.",
     note: "Not sure? Book a free consultation and we'll recommend a size.",
   },
