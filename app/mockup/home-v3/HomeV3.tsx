@@ -2,7 +2,7 @@
 // MOCKUP by Rankr (17 Nov 2026). Home page, "Design 2": layout and motion patterns from voltade.com, PixelPro colours.
 // Same facts and copy as Design 1 (home-v2): services from components/ServicesSection.tsx, events from Jovin's write-ups,
 // review excerpts never reworded. No guarantee, no "one-stop", client names left out (writing rules).
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import Image from "next/image";
 import HeroPixelSpotlight from "@/components/HeroPixelSpotlight";
 import { LOGOS } from "@/components/LogoSection";
@@ -255,6 +255,13 @@ const FAQS = [
   { q: "Do you work with schools and government agencies?", a: "Yes. PixelPro Studios is a GeBIZ-registered vendor and is bizSAFE Level 3." },
 ];
 
+/* client logos from Jovin's services deck, "Trusted By." page, same three rows and order (18 Nov). MOT left out: they asked not to be online */
+const CLIENT_LOGOS: [string, string][][] = [
+  [["r1-01.webp", "People's Action Party"], ["r1-02.webp", "Singapore Airlines"], ["r1-03.webp", "Mediacorp"], ["r1-04.webp", "Land Transport Authority"], ["r1-06.webp", "PUB"], ["r1-07.webp", "People's Association"], ["r1-08.webp", "Ministry of Education Singapore"], ["r1-09.webp", "Singapore Schools Sports Council"]],
+  [["r2-01.webp", "Camp Challenge"], ["r2-02.webp", "Nanyang Technological University"], ["r2-03.webp", "Singapore Management University"], ["r2-04.webp", "Singapore University of Technology and Design"], ["r2-05.webp", "The University of Chicago"], ["r2-06.webp", "Nanyang Junior College"], ["r2-07.webp", "Victoria Junior College"], ["r2-08.webp", "Victoria School"], ["r2-09.webp", "Ngee Ann Secondary School"], ["r2-10.webp", "Ahmad Ibrahim Secondary School"], ["r2-11.webp", "Serangoon Secondary School"], ["r2-12.webp", "Mosta Records"]],
+  [["r3-01.webp", "Citrus"], ["r3-02.webp", "Blissful Brides"], ["r3-03.webp", "Clubpets"], ["r3-04.webp", "Coach"], ["r3-05.webp", "Hard Rock Cafe Singapore"], ["r3-06.webp", "Paradigm"], ["r3-07.webp", "Gushcloud"], ["r3-08.webp", "Universal Studios Singapore"], ["r3-09.webp", "Mega Beauty Festival"], ["r3-10.webp", "air"], ["r3-11.webp", "Grand Cru Wine Concierge"]],
+];
+
 const IG_PHOTOS = [
   { src: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall with an LED wall and stage" },
   { src: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-6.jpg", alt: "Chinese orchestra on stage in front of an LED wall" },
@@ -341,19 +348,9 @@ export default function HomeV3() {
         </div>
       </section>
 
-      {/* Sheet 3: client logos on a wave, heading left and links right */}
-      <section className="v3-sheet v3-sheet-black" aria-labelledby="logo-h">
+      {/* Sheet 3 (white, like the deck's "Trusted By." page): heading and links, then the deck's three logo rows in colour */}
+      <section className="v3-sheet v3-sheet-light v3-sheet-logos" aria-labelledby="logo-h">
         <div className="v3-wrap">
-          <ul className="v3-logo-row" aria-label="Clients we have worked with">
-            {LOGOS.map((l) => (
-              <li key={l.file}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/client_logos_greyscale/${l.file}`} alt={l.alt} loading="lazy" />
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="v3-wrap v3-wave-text">
           <div className="v3-head" data-rv>
             <h2 id="logo-h" className="v3-h2">
               Trusted by schools, agencies and event teams
@@ -364,6 +361,19 @@ export default function HomeV3() {
               <ArrowLink href="/mockup/events/roadshow-led-screen-rental">Roadshows</ArrowLink>
               <ArrowLink href="/mockup/events/dinner-and-dance-av">Dinner and dance</ArrowLink>
             </div>
+          </div>
+          <div className="v3-logo-wall" data-rv>
+            {CLIENT_LOGOS.map((row, r) => (
+              <ul key={r} className="v3-logo-group" style={{ "--n": row.length } as CSSProperties}>
+                {row.map(([file, alt]) => (
+                  <li key={file}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={`/client_logos_2026/${file}`} alt={alt} loading="lazy" />
+                  </li>
+                ))}
+              </ul>
+            ))}
+            <p className="v3-logo-more">And more.</p>
           </div>
         </div>
       </section>
