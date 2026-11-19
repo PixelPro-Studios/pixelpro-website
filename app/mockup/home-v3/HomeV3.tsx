@@ -410,16 +410,18 @@ export default function HomeV3() {
       {/* Instagram (Jovin, 18 Nov) */}
       <section className="v3-sheet v3-sheet-charcoal" aria-labelledby="ig-h">
         <div className="v3-wrap">
-          <div className="v3-head" data-rv>
-            <h2 id="ig-h" className="v3-h2">
-              Follow our setups on Instagram
-            </h2>
-            <a className="v3-ig-btn" href="https://www.instagram.com/pixelprostudios.sg/" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" aria-hidden><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" /></svg>
-              @pixelprostudios.sg
-            </a>
+          <div className="v3-ig-split">
+            <div className="v3-head" data-rv>
+              <h2 id="ig-h" className="v3-h2">
+                Follow our setups on Instagram
+              </h2>
+              <a className="v3-ig-btn" href="https://www.instagram.com/pixelprostudios.sg/" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" /></svg>
+                @pixelprostudios.sg
+              </a>
+            </div>
+            <IgEmbed />
           </div>
-          <IgEmbed />
         </div>
       </section>
 
