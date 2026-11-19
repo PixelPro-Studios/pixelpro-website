@@ -262,14 +262,19 @@ const CLIENT_LOGOS: [string, string][][] = [
   [["r3-01.webp", "Citrus"], ["r3-02.webp", "Blissful Brides"], ["r3-03.webp", "Clubpets"], ["r3-04.webp", "Coach"], ["r3-05.webp", "Hard Rock Cafe Singapore"], ["r3-06.webp", "Paradigm"], ["r3-07.webp", "Gushcloud"], ["r3-08.webp", "Universal Studios Singapore"], ["r3-09.webp", "Mega Beauty Festival"], ["r3-10.webp", "air"], ["r3-11.webp", "Grand Cru Wine Concierge"]],
 ];
 
-const IG_PHOTOS = [
-  { src: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall with an LED wall and stage" },
-  { src: "/portfolio-av-stage/pixelpro-studios-stage-productions-singapore-6.jpg", alt: "Chinese orchestra on stage in front of an LED wall" },
-  { src: "/portfolio-jobs/led-wall-rental_6x2-5m-led-wall-pitch-day.webp", alt: "LED wall at a university pitch day" },
-  { src: "/portfolio-jobs/event-production_sound-engineer-marina-barrage.webp", alt: "Sound engineer at Marina Barrage" },
-  { src: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", alt: "LED wall and stage in a mall atrium" },
-  { src: "/portfolio-live-music/sound-system-rental_live-band-stage-monitors.webp", alt: "Live band with stage monitors" },
-];
+/* Instagram's own profile embed, as on the live site: shows their latest posts by itself. Loads when scrolled to. */
+function IgEmbed() {
+  const [box, near] = useInView<HTMLDivElement>(0);
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    if (near) setOn(true);
+  }, [near]);
+  return (
+    <div ref={box} className="v3-ig-embed" data-rv>
+      <div className="v3-ig-frame">{on && <iframe src="https://www.instagram.com/pixelprostudios.sg/embed/" title="Latest Instagram posts from PixelPro Studios" loading="lazy" allow="encrypted-media" />}</div>
+    </div>
+  );
+}
 
 /* Promotions use the same peek carousel as "Events we've supported" (Jovin, 18 Nov) */
 const PROMOS: PeekItem[] = [
@@ -414,15 +419,7 @@ export default function HomeV3() {
               @pixelprostudios.sg
             </a>
           </div>
-          <ul className="v3-ig-grid" data-rv>
-            {IG_PHOTOS.map((p) => (
-              <li key={p.src}>
-                <a href="https://www.instagram.com/pixelprostudios.sg/" target="_blank" rel="noopener noreferrer" aria-label={`${p.alt}, on Instagram`}>
-                  <Image src={p.src} alt={p.alt} fill sizes="(max-width: 700px) 50vw, 16vw" className="v3-cover" />
-                </a>
-              </li>
-            ))}
-          </ul>
+          <IgEmbed />
         </div>
       </section>
 
