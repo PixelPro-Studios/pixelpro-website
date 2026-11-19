@@ -157,6 +157,30 @@
 .v3-card-cta svg { width: 14px; height: 14px; }
 .v3-card-cta:active { transform: scale(0.97); }
 .v3-card:not(.d0) .v3-card-cta { pointer-events: none; }
+
+/* ---------- strip gallery (promotions): one wide card, the rest as thin photo strips ---------- */
+.v3-strip-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.v3-strip-nav { display: flex; gap: 8px; flex: none; }
+.v3-strips { display: flex; gap: 10px; margin-top: 32px; height: clamp(340px, 36vw, 480px); touch-action: pan-y; outline-offset: 4px; }
+.v3-strip { position: relative; flex: 0 0 clamp(64px, 8vw, 110px); min-width: 0; border-radius: 22px; overflow: hidden; background: var(--charcoal); cursor: pointer; transition: flex-grow 700ms var(--ease-in-out), flex-basis 700ms var(--ease-in-out); }
+.v3-strip.is-on { flex: 1 0 clamp(64px, 8vw, 110px); cursor: default; }
+.v3-strip .v3-photo { filter: brightness(0.7) saturate(0.85); transition: filter 400ms ease; }
+.v3-strip.is-on .v3-photo { filter: none; }
+@media (hover: hover) and (pointer: fine) { .v3-strip:not(.is-on):hover .v3-photo { filter: brightness(0.95); } }
+.v3-strip-shade { position: absolute; inset: 0; opacity: 0; transition: opacity 400ms ease; background: linear-gradient(to top, rgba(10, 10, 10, 0.88), rgba(10, 10, 10, 0.45) 45%, transparent 75%), linear-gradient(to right, rgba(10, 10, 10, 0.5), transparent 60%); }
+.v3-strip.is-on .v3-strip-shade { opacity: 1; }
+.v3-strip-text { position: absolute; left: 0; bottom: 0; width: clamp(280px, 46vw, 580px); padding: clamp(18px, 2.4vw, 30px); opacity: 0; transform: translateY(8px); transition: opacity 200ms ease, transform 200ms ease; pointer-events: none; }
+.v3-strip.is-on .v3-strip-text { opacity: 1; transform: none; transition: opacity 500ms ease 350ms, transform 500ms var(--ease-out) 350ms; pointer-events: auto; }
+.v3-strip-pill { display: inline-block; margin-bottom: 12px; padding: 5px 12px; border-radius: 999px; background: var(--paper, #fafdff); color: #0a0a0a; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; }
+.v3-strip .v3-card-title { font-size: clamp(24px, 3vw, 40px); }
+@media (max-width: 767px) {
+  .v3-strips { gap: 6px; height: 440px; margin-top: 24px; }
+  .v3-strip { flex-basis: 40px; border-radius: 18px; }
+  .v3-strip.is-on { flex-basis: 40px; }
+  .v3-strip-text { width: calc(100vw - 40px - 46px); padding: 18px; }
+  .v3-strip .v3-card-line { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .v3-strip, .v3-strip-text, .v3-strip-shade { transition-duration: 1ms; transition-delay: 0ms; } }
 @media (max-width: 767px) {
   .v3-peek { height: 400px; margin-left: -20px; margin-right: -20px; }
   .v3-card.d0 { left: 8%; width: 84%; }

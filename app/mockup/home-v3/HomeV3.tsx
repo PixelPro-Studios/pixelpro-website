@@ -7,7 +7,7 @@ import Image from "next/image";
 import HeroPixelSpotlight from "@/components/HeroPixelSpotlight";
 import { LOGOS } from "@/components/LogoSection";
 import { allReviews, waLink } from "../_v2/data";
-import { Accordion, Arrow, ArrowLink, Badge, FloatingWa, PeekCarousel, type PeekItem, WaComposer, Stars, WaIcon, reduced, useInView, useReveal } from "../_v3/parts";
+import { Accordion, Arrow, ArrowLink, Badge, FloatingWa, PeekCarousel, type PeekItem, StripGallery, WaComposer, Stars, WaIcon, reduced, useInView, useReveal } from "../_v3/parts";
 
 const WA_TEXT = "Hi PixelPro, I'd like a quote for an event (from your website).\nDate: \nVenue: \nEvent name & type: \nWhat you need: ";
 const WA = waLink(WA_TEXT);
@@ -276,10 +276,10 @@ function IgEmbed() {
   );
 }
 
-/* Promotions use the same peek carousel as "Events we've supported" (Jovin, 18 Nov) */
+/* Promotions: shown in the strip gallery. `meta` is the small white label on the open card. */
 const PROMOS: PeekItem[] = [
-  { title: "Festive packages for Chinese New Year", line: "Three sound and lighting packages for your company dinner or lo hei, from S$888 with an engineer, setup and tear-down included.", cta: "See the festive packages", href: "/mockup/cny-event-av-v3/#packages", gear: [], img: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall set up for a Chinese New Year dinner" },
-  { title: "For charities and NPOs", line: "Registered charities and NPOs get 10% off their package, and we donate 5% of the discounted booking value to their cause.", cta: "Read the promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/", gear: [], img: "/portfolio-jobs/sound-system-rental_community-club-hall-full-house.webp", alt: "Full community club hall at an event with PixelPro sound" },
+  { meta: "Festive promotion", title: "Festive packages for Chinese New Year", line: "Three sound and lighting packages for your company dinner or lo hei, from S$888 with an engineer, setup and tear-down included.", cta: "See the festive packages", href: "/mockup/cny-event-av-v3/#packages", gear: [], img: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall set up for a Chinese New Year dinner" },
+  { meta: "Charity promotion", title: "For charities and NPOs", line: "Registered charities and NPOs get 10% off their package, and we donate 5% of the discounted booking value to their cause.", cta: "Read the promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/", gear: [], img: "/portfolio-jobs/sound-system-rental_community-club-hall-full-house.webp", alt: "Full community club hall at an event with PixelPro sound" },
 ];
 
 export default function HomeV3() {
@@ -339,17 +339,10 @@ export default function HomeV3() {
         </div>
       </section>
 
-      {/* Promotions: same peek carousel as the events, steps by itself every 6 s (Jovin, 18 Nov) */}
+      {/* Promotions: a strip gallery, so it does not look the same as the events carousel above (Abel + Jovin, 19 Nov). Opens the next card every 6 s. */}
       <section className="v3-sheet v3-sheet-charcoal" aria-labelledby="promo-h">
         <div className="v3-wrap">
-          <div className="v3-head" data-rv>
-            <h2 id="promo-h" className="v3-h2">
-              Promotions
-            </h2>
-          </div>
-          <div data-rv>
-            <PeekCarousel items={PROMOS} label="Promotions" noun="promotion" fill auto={6000} />
-          </div>
+          <StripGallery items={PROMOS} heading="Promotions" headingId="promo-h" label="Promotions" noun="promotion" auto={6000} />
         </div>
       </section>
 

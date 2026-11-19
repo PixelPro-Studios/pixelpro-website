@@ -211,6 +211,93 @@ export function PeekCarousel({ items, label, noun = "item", fill = false, auto =
   );
 }
 
+/* Strip gallery: the open card is wide, the others stand next to it as thin photo strips.
+   Arrows sit at the top right, beside the heading. Click a strip, swipe, or use the arrow keys.
+   `auto`: open the next card every `auto` ms while on screen; stops on hover or focus. (Promotions, Abel + Jovin, 19 Nov) */
+export function StripGallery({ items, heading, headingId, label, noun = "item", auto = 0 }: { items: PeekItem[]; heading: React.ReactNode; headingId: string; label: string; noun?: string; auto?: number }) {
+  const n = items.length;
+  const [i, setI] = useState(0);
+  const go = (k: number) => setI(((k % n) + n) % n);
+  const drag = useRef<number | null>(null);
+  const dragged = useRef(false);
+  const [hold, setHold] = useState(false);
+  const [box, seen] = useInView<HTMLDivElement>(0.3);
+  useEffect(() => {
+    if (!auto || hold || !seen || n < 2 || reduced()) return;
+    const t = setTimeout(() => setI((k) => (k + 1) % n), auto);
+    return () => clearTimeout(t);
+  }, [i, auto, hold, seen, n]);
+  return (
+    <div ref={box} aria-roledescription="carousel" aria-label={label} onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)} onFocus={() => setHold(true)} onBlur={() => setHold(false)}>
+      <div className="v3-strip-head" data-rv>
+        <h2 id={headingId} className="v3-h2">
+          {heading}
+        </h2>
+        {n > 1 && (
+          <div className="v3-strip-nav">
+            <button type="button" className="v3-sq is-prev" aria-label={`Previous ${noun}`} onClick={() => go(i - 1)}>
+              <Arrow dir="prev" />
+            </button>
+            <button type="button" className="v3-sq is-next" aria-label={`Next ${noun}`} onClick={() => go(i + 1)}>
+              <Arrow />
+            </button>
+          </div>
+        )}
+      </div>
+      <div
+        className="v3-strips"
+        data-rv
+        tabIndex={0}
+        onKeyDown={(e) => (e.key === "ArrowRight" ? go(i + 1) : e.key === "ArrowLeft" ? go(i - 1) : null)}
+        onPointerDown={(e) => {
+          drag.current = e.clientX;
+          dragged.current = false;
+        }}
+        onPointerUp={(e) => {
+          if (drag.current === null) return;
+          const dx = e.clientX - drag.current;
+          drag.current = null;
+          if (Math.abs(dx) > 40 && n > 1) {
+            dragged.current = true;
+            go(i + (dx < 0 ? 1 : -1));
+          }
+        }}
+        onPointerCancel={() => (drag.current = null)}
+      >
+        {items.map((it, k) => {
+          const on = k === i;
+          return (
+            <article
+              key={it.title}
+              className={`v3-strip ${on ? "is-on" : ""}`}
+              aria-roledescription="slide"
+              aria-label={`${k + 1} of ${n}: ${it.title}`}
+              aria-current={on}
+              onClick={() => !on && !dragged.current && go(k)}
+            >
+              <Image src={it.img} alt={on ? it.alt : ""} fill sizes="(min-width: 1240px) 1100px, 100vw" className="v3-cover v3-photo" style={it.pos ? { objectPosition: it.pos } : undefined} />
+              <div className="v3-strip-shade" aria-hidden />
+              <div className="v3-strip-text" aria-hidden={!on}>
+                <p className="v3-strip-pill">{it.meta ?? noun}</p>
+                <h3 className="v3-card-title">{it.title}</h3>
+                {it.line && <p className="v3-card-line">{it.line}</p>}
+                {it.href && (
+                  <a className="v3-card-cta" href={it.href} tabIndex={on ? 0 : -1} onClick={(e) => dragged.current && e.preventDefault()}>
+                    {it.cta ?? "Read more"} <Arrow />
+                  </a>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+      <p className="v3-sr" aria-live="polite">
+        {`${noun} ${i + 1} of ${n}: ${items[i]?.title ?? ""}`}
+      </p>
+    </div>
+  );
+}
+
 /** WhatsApp button in the corner: shows after the hero, hides when the section with `endId` is on screen */
 export function FloatingWa({ wa, endId = "cta" }: { wa: string; endId?: string }) {
   const [on, setOn] = useState(false);
