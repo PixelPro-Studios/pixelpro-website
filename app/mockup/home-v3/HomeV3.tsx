@@ -15,7 +15,10 @@ const CAL = "https://cal.com/pixelpro/consultation";
 /* ---------- 1. services demo: tabs step by themselves, one sentence, one photo ---------- */
 const SERVICES = [
   { tab: "LED walls", pre: "Indoor and outdoor LED walls, ", hl: "configured to your venue", post: " and operated on site.", foot: "Indoor and outdoor LED wall systems, configured to your venue and operated on site.", img: "/services-hero/services_led-walls.webp", href: "/mockup/led-walls-v3", cta: "LED wall rental" },
-  { tab: "Sound, lighting, projection", pre: "Sound, stage lighting and projection for ", hl: "events of any scale", post: ".", foot: "Sound reinforcement, stage lighting, projection and technical support for events of any scale.", img: "/services-hero/services_av-systems.webp", href: "/mockup/av-systems", cta: "Audio visual systems" },
+  /* Sound, lighting and projection are three tabs, each with its own button (Jovin, 19 Nov) */
+  { tab: "Sound", pre: "Speakers, mics and a sound engineer, ", hl: "tuned to your room", post: ".", foot: "Sound systems for speeches, bands and shows, set up and run by our own engineer.", img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-1.jpg", href: "/mockup/sound-system-rental", cta: "Sound system rental" },
+  { tab: "Lighting", pre: "Stage lighting that ", hl: "sets the mood", post: " for your stage.", foot: "Stage and event lighting, planned with your programme and run on the day.", img: "/services-av-lighting/pixelpro-studios-stage-lighting-singapore.jpg", href: "/mockup/av-systems", cta: "Audio visual systems" },
+  { tab: "Projection", pre: "Projectors and screens for ", hl: "talks and movie nights", post: ".", foot: "Projectors and screens for talks, screenings and movie nights, indoors or under a void deck.", img: "/portfolio-jobs/projector-rental_movie-screening-crowd.webp", href: "/mockup/projector-rental", cta: "Projector rental" },
   { tab: "Photography", pre: "Event coverage, ", hl: "corporate headshots", post: " and brand photography.", foot: "Event coverage, corporate headshots and brand photography.", img: "/services-photo/pixelpro-studios-photography-service-singapore.jpg", href: "/services/photography", cta: "Photography" },
   { tab: "Videography", pre: "Event coverage, ", hl: "highlight reels", post: " and corporate videos.", foot: "Event coverage, highlight reels and corporate videos.", img: "/services-video/pixelpro-studios-videography-services-singapore.jpg", href: "/services/videography", cta: "Videography" },
   { tab: "Entertainment", pre: "", hl: "Hosts and performances", post: " for your programme.", foot: "Hosts, entertainment and performances for your programme.", img: "/services-talent/pixelpro-studios-talent-and-entertainment-singapore.jpg", href: "/services/talent", cta: "Entertainment and talent" },
@@ -353,12 +356,6 @@ export default function HomeV3() {
             <h2 id="logo-h" className="v3-h2">
               Trusted by schools, agencies and event teams
             </h2>
-            <div className="v3-links">
-              <ArrowLink href="/mockup/events/conference-av-rental">Conference AV</ArrowLink>
-              <ArrowLink href="/mockup/events/school-sound-system-rental">School events</ArrowLink>
-              <ArrowLink href="/mockup/events/roadshow-led-screen-rental">Roadshows</ArrowLink>
-              <ArrowLink href="/mockup/events/dinner-and-dance-av">Dinner and dance</ArrowLink>
-            </div>
           </div>
           <div className="v3-logo-wall" data-rv>
             {CLIENT_LOGOS.map((row, r) => (
@@ -372,6 +369,13 @@ export default function HomeV3() {
               </ul>
             ))}
             <p className="v3-logo-more">And more.</p>
+          </div>
+          {/* Links under the logos, in one row like the events section (Jovin, 19 Nov) */}
+          <div className="v3-links v3-links-row" data-rv>
+            <ArrowLink href="/mockup/events/conference-av-rental">Conference AV</ArrowLink>
+            <ArrowLink href="/mockup/events/school-sound-system-rental">School events</ArrowLink>
+            <ArrowLink href="/mockup/events/roadshow-led-screen-rental">Roadshows</ArrowLink>
+            <ArrowLink href="/mockup/events/dinner-and-dance-av">Dinner and dance</ArrowLink>
           </div>
         </div>
       </section>
