@@ -14,14 +14,15 @@ const WA = waLink(WA_TEXT);
 const CAL = "https://cal.com/pixelpro/consultation";
 /* ---------- 1. services demo: tabs step by themselves, one sentence, one photo ---------- */
 const SERVICES = [
-  { tab: "LED walls", pre: "Indoor and outdoor LED walls, ", hl: "configured to your venue", post: " and operated on site.", foot: "Indoor and outdoor LED wall systems, configured to your venue and operated on site.", img: "/services-hero/services_led-walls.webp", href: "/mockup/led-walls-v3", cta: "LED wall rental" },
+  /* Copy draft 3 (Abel, 21 Nov): each small line says what we can do, from the service page the tab links to */
+  { tab: "LED walls", pre: "Indoor and outdoor LED walls, ", hl: "built to the size you need", post: ".", foot: "We supply P2.5 indoor and P3.9 outdoor walls and arrange the permits. Our technicians stay on standby throughout your event.", img: "/services-hero/services_led-walls.webp", href: "/mockup/led-walls-v3", cta: "LED wall rental" },
   /* Sound, lighting and projection are three tabs, each with its own button (Jovin, 19 Nov) */
-  { tab: "Sound", pre: "Speakers, mics and a sound engineer, ", hl: "tuned to your room", post: ".", foot: "Sound systems for speeches, bands and shows, set up and run by our own engineer.", img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-1.jpg", href: "/mockup/sound-system-rental", cta: "Sound system rental" },
-  { tab: "Lighting", pre: "Stage lighting that ", hl: "sets the mood", post: " for your stage.", foot: "Stage and event lighting, planned with your programme and run on the day.", img: "/services-av-lighting/pixelpro-studios-stage-lighting-singapore.jpg", href: "/mockup/av-systems", cta: "Audio visual systems" },
-  { tab: "Projection", pre: "Projectors and screens for ", hl: "talks and movie nights", post: ".", foot: "Projectors and screens for talks, screenings and movie nights, indoors or under a void deck.", img: "/portfolio-jobs/projector-rental_movie-screening-crowd.webp", href: "/mockup/projector-rental", cta: "Projector rental" },
-  { tab: "Photography", pre: "Event coverage, ", hl: "corporate headshots", post: " and brand photography.", foot: "Event coverage, corporate headshots and brand photography.", img: "/services-photo/pixelpro-studios-photography-service-singapore.jpg", href: "/services/photography", cta: "Photography" },
-  { tab: "Videography", pre: "Event coverage, ", hl: "highlight reels", post: " and corporate videos.", foot: "Event coverage, highlight reels and corporate videos.", img: "/services-video/pixelpro-studios-videography-services-singapore.jpg", href: "/services/videography", cta: "Videography" },
-  { tab: "Entertainment", pre: "", hl: "Hosts and performances", post: " for your programme.", foot: "Hosts, entertainment and performances for your programme.", img: "/services-talent/pixelpro-studios-talent-and-entertainment-singapore.jpg", href: "/services/talent", cta: "Entertainment and talent" },
+  { tab: "Sound", pre: "Sound for speeches and live bands, ", hl: "tested before doors open", post: ".", foot: "We mic up your speakers, mix your band and cover big outdoor spaces. Our engineer stays on site where on-site technical support is included.", img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-1.jpg", href: "/mockup/sound-system-rental", cta: "Sound system rental" },
+  { tab: "Lighting", pre: "Stage lighting, ", hl: "planned with your programme", post: ".", foot: "We light your stage and speakers, add effect lighting for performances, and run the cues on the day.", img: "/services-av-lighting/pixelpro-studios-stage-lighting-singapore.jpg", href: "/mockup/av-systems", cta: "Audio visual systems" },
+  { tab: "Projection", pre: "Projectors and screens, ", hl: "matched to your room", post: ".", foot: "We bring laser projectors for bright halls and short-throw projectors for tight rooms. We test your laptop and slides before you start.", img: "/portfolio-jobs/projector-rental_movie-screening-crowd.webp", href: "/mockup/projector-rental", cta: "Projector rental" },
+  { tab: "Photography", pre: "Event photos and on-site headshots, ", hl: "delivered promptly", post: ".", foot: "We capture the speeches, the candid moments and your group and VIP shots. If you need photos the same day, we can send quick selects from the event.", img: "/services-photo/pixelpro-studios-photography-service-singapore.jpg", href: "/services/photography", cta: "Photography" },
+  { tab: "Videography", pre: "Event coverage and ", hl: "highlight reels", post: ", filmed and edited by our team.", foot: "We can film with several cameras or a drone, cut a same-day edit on request, and make vertical reels for your socials.", img: "/services-video/pixelpro-studios-videography-services-singapore.jpg", href: "/services/videography", cta: "Videography" },
+  { tab: "Entertainment", pre: "Emcees, DJs and live performers ", hl: "for your programme", post: ".", foot: "We arrange bilingual hosts, live bands and cultural performers, and plan their sound checks and cues with our AV crew.", img: "/services-talent/pixelpro-studios-talent-and-entertainment-singapore.jpg", href: "/services/talent", cta: "Entertainment and talent" },
 ];
 const TAB_MS = 4500;
 function ServicesDemo() {
@@ -182,9 +183,9 @@ function LogoWave() {
 
 /* ---------- 4. why card ---------- */
 const WHY = [
-  { n: "24/7", t: "Quick replies, any day", h: "WhatsApp for enquiries and quotations at any hour", p: "Send us the date, venue and what you need. For urgent requests, call +65 8860 5489.", rows: [["WhatsApp", "24/7"], ["Office", "Mon–Sun, 9am–10pm"], ["Urgent requests", "+65 8860 5489"]] },
-  { n: "5.0", t: "Rated on Google", h: "Customised quotations with a clear breakdown", p: "Sound systems, LED walls, staging, photography and videography, planned and run by our own crew.", rows: [["Google rating", "5.0"], ["Quotation", "Equipment, installation and crew itemised"], ["Crew", "Our own technicians"]] },
-  { n: "Lv 3", t: "bizSAFE and GeBIZ registered", h: "Registered for schools and government agencies", p: "PixelPro Studios is bizSAFE Level 3 and a GeBIZ-registered vendor.", rows: [["bizSAFE", "Level 3"], ["GeBIZ", "Registered vendor"], ["Purchases", "GeBIZ, SAP Ariba, e-invoicing"]] },
+  { n: "24/7", t: "Quick replies, any day", h: "WhatsApp us any time, even for last-minute requests", p: "Send us your date, venue and what you need. We reply as soon as we can. For urgent enquiries, call us directly.", rows: [["WhatsApp", "24/7"], ["Office", "Mon–Sun, 9am–10pm"], ["Urgent enquiries", "+65 8860 5489"]] },
+  { n: "5.0", t: "Rated on Google", h: "Clear quotations, charged per rental day", p: "Your quotation lists the equipment, the setup and the crew, so you see what you pay for. Most equipment is charged per rental day, not per hour.", rows: [["Quotation", "Itemised"], ["Equipment", "Charged per rental day"], ["Google rating", "5.0"]] },
+  { n: "Lv 3", t: "bizSAFE and GeBIZ registered", h: "A dedicated technical lead on every setup", p: "Our technicians test everything before your event, and a dedicated technical lead oversees every setup. It is part of our bizSAFE Level 3 safety practice.", rows: [["bizSAFE", "Level 3"], ["GeBIZ", "Registered vendor"], ["Purchases", "GeBIZ, SAP Ariba, e-invoicing"]] },
 ];
 function WhyCard() {
   const [i, setI] = useState(0);
@@ -252,10 +253,13 @@ function ReviewQuote() {
 
 /* ---------- 6. FAQ (answers use only facts already on the site) ---------- */
 const FAQS = [
-  { q: "What does PixelPro Studios provide?", a: "Sound systems, LED walls, staging, stage lighting, projection, photography, videography, and hosts and performances for events across Singapore." },
-  { q: "How do I get a quotation?", a: "WhatsApp us the date, venue, event type and what you need. You get one quotation with a clear breakdown of the equipment, installation and technical services." },
-  { q: "When can I reach you?", a: "WhatsApp is available 24/7 for enquiries and quotations. The office is open Monday to Sunday, 9am to 10pm. For urgent requests, call +65 8860 5489." },
-  { q: "Do you work with schools and government agencies?", a: "Yes. PixelPro Studios is a GeBIZ-registered vendor and is bizSAFE Level 3." },
+  { q: "What does PixelPro Studios do?", a: "We're an audio visual company in Singapore. We supply and run LED walls, sound systems, staging, lighting and projection for events, and we cover events on photo and video. We can also arrange emcees and performers." },
+  { q: "How much does it cost?", a: "Every quotation is customised. Most equipment is charged per rental day, however many hours you use it that day. Technician charges can vary with the working hours. Send us your date, venue and what you need, and we'll send you a clear breakdown." },
+  { q: "What size LED wall can you build?", a: "Whatever size you have in mind, we can build it. Common sizes include 6 m × 4 m and 8 m × 3 m. Book a free consultation with our team." },
+  { q: "Does your team stay during the event?", a: "Our LED wall technicians are on standby throughout the event. For sound and our other services, our crew stays on site to monitor the systems where on-site technical support is included." },
+  { q: "Do you handle permits and endorsements?", a: "Yes. We arrange LEW and PE endorsements where required, and all necessary permits, tailored to your venue." },
+  { q: "Do you work with schools and government agencies?", a: "Yes. We regularly work with MOE schools and understand their procurement processes. As a GeBIZ-registered vendor listed on GeBIZ Mall, we support purchases through GeBIZ and SAP Ariba, as well as e-invoicing." },
+  { q: "How do I get a quotation?", a: "Give us a call or drop us a WhatsApp message! Our WhatsApp is available 24/7, and we'll get back to you as soon as we can. For urgent enquiries, feel free to give us a call directly." },
 ];
 
 /* client logos from Jovin's services deck, "Trusted By." page, same three rows and order (18 Nov). MOT left out: they asked not to be online */
@@ -298,7 +302,7 @@ export default function HomeV3() {
           <Badge />
           <h1 className="v3-h1 v3-rise-h">Events made effortless, every time.</h1>
           <p className="v3-lead v3-rise" style={{ animationDelay: "80ms" }}>
-            Sound systems, LED walls, staging, photography and videography for events across Singapore, planned and run by our own crew.
+            We&apos;re an audio visual company in Singapore, trusted by government agencies and MOE schools. Our team sets up and runs the LED walls, sound and staging for your event, and covers it on photo and video.
           </p>
           <div className="v3-btns v3-rise" style={{ animationDelay: "140ms" }}>
             <a href={WA} target="_blank" rel="noopener noreferrer" className="v3-btn v3-btn-wa">
@@ -354,7 +358,7 @@ export default function HomeV3() {
         <div className="v3-wrap">
           <div className="v3-head" data-rv>
             <h2 id="logo-h" className="v3-h2">
-              Trusted by schools, agencies and event teams
+              Trusted by government agencies, schools and brands
             </h2>
           </div>
           <div className="v3-logo-wall" data-rv>
@@ -431,7 +435,7 @@ export default function HomeV3() {
                 Let&apos;s bring your event to life.
               </h2>
               <p className="v3-lead" style={{ marginTop: 18, maxWidth: 420 }}>
-                Tap what fits your event. We write the WhatsApp message for you.
+                Tick what you need, and we&apos;ll write the WhatsApp message for you.
               </p>
               <div className="v3-links v3-cta2-links">
                 <ArrowLink href={CAL} external>

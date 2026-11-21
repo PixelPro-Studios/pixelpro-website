@@ -130,7 +130,8 @@
 .v3-demo-foot p { max-width: 30em; font-size: 15px; line-height: 1.5; color: #e9ebec; }
 .v3-pp { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: rgba(250, 253, 255, 0.92); color: var(--black); transition: transform 160ms var(--ease-out); }
 .v3-pp:active { transform: scale(0.94); }
-@media (max-width: 767px) { .v3-demo-stage { aspect-ratio: 4 / 3.4; } .v3-demo-foot p { font-size: 14px; } }
+/* Phone: taller photo, so the longer "what we can do" line leaves the picture visible (copy draft 3, 21 Nov) */
+@media (max-width: 767px) { .v3-demo-stage { aspect-ratio: 4 / 5; } .v3-demo-shade { background: linear-gradient(to top, rgba(10, 10, 10, 0.85), transparent 60%); } .v3-demo-foot p { font-size: 14px; } }
 
 /* ---------- peek carousel: the active card is wide, its neighbours show as slices ---------- */
 .v3-peek { position: relative; margin-top: 40px; height: clamp(320px, 34vw, 460px); touch-action: pan-y; }
