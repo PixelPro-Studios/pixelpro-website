@@ -14,17 +14,21 @@ const WA = waLink(WA_TEXT);
 const CAL = "https://cal.com/pixelpro/consultation";
 /* ---------- 1. services demo: tabs step by themselves, one sentence, one photo ---------- */
 const SERVICES = [
-  /* Copy draft 3 (Abel, 21 Nov): each small line says what we can do, from the service page the tab links to */
-  { tab: "LED walls", pre: "Indoor and outdoor LED walls, ", hl: "built to the size you need", post: ".", foot: "We supply P2.5 indoor and P3.9 outdoor walls and arrange the permits. Our technicians stay on standby throughout your event.", img: "/services-hero/services_led-walls.webp", href: "/mockup/led-walls-v3", cta: "LED wall rental" },
+  /* Copy: Jovin's own text (WhatsApp, 23 Nov 5:02-5:10 pm), word for word, except Lukas's banned words:
+     "seamless setup" -> "professional setup", "seamless coordination" -> "smooth coordination".
+     Staging tab: Jovin asked to add it; the text is ours in his style, for him to check. */
+  { tab: "LED walls", pre: "Stunning LED Displays That ", hl: "Bring Your Event to Life", post: ".", foot: ["Transform any event space with vibrant, high-resolution indoor and outdoor LED walls, customised to suit your venue and event requirements.", "From corporate conferences and exhibitions to concerts and large-scale celebrations, we provide complete LED wall solutions, including installation, content display management and dedicated technical support throughout your event."], img: "/services-hero/services_led-walls.webp", href: "/mockup/led-walls-v3", cta: "LED wall rental" },
   /* Sound, lighting and projection are three tabs, each with its own button (Jovin, 19 Nov) */
-  { tab: "Sound", pre: "Sound for speeches and live bands, ", hl: "tested before doors open", post: ".", foot: "We mic up your speakers, mix your band and cover big outdoor spaces. Our engineer stays on site where on-site technical support is included.", img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-1.jpg", href: "/mockup/sound-system-rental", cta: "Sound system rental" },
-  { tab: "Lighting", pre: "Stage lighting, ", hl: "planned with your programme", post: ".", foot: "We light your stage and speakers, add effect lighting for performances, and run the cues on the day.", img: "/services-av-lighting/pixelpro-studios-stage-lighting-singapore.jpg", href: "/mockup/av-systems", cta: "Audio visual systems" },
-  { tab: "Projection", pre: "Projectors and screens, ", hl: "matched to your room", post: ".", foot: "We bring laser projectors for bright halls and short-throw projectors for tight rooms. We test your laptop and slides before you start.", img: "/portfolio-jobs/projector-rental_movie-screening-crowd.webp", href: "/mockup/projector-rental", cta: "Projector rental" },
-  { tab: "Photography", pre: "Event photos and on-site headshots, ", hl: "delivered promptly", post: ".", foot: "We capture the speeches, the candid moments and your group and VIP shots. If you need photos the same day, we can send quick selects from the event.", img: "/services-photo/pixelpro-studios-photography-service-singapore.jpg", href: "/services/photography", cta: "Photography" },
-  { tab: "Videography", pre: "Event coverage and ", hl: "highlight reels", post: ", filmed and edited by our team.", foot: "We can film with several cameras or a drone, cut a same-day edit on request, and make vertical reels for your socials.", img: "/services-video/pixelpro-studios-videography-services-singapore.jpg", href: "/services/videography", cta: "Videography" },
-  { tab: "Entertainment", pre: "Emcees, DJs and live performers ", hl: "for your programme", post: ".", foot: "We arrange bilingual hosts, live bands and cultural performers, and plan their sound checks and cues with our AV crew.", img: "/services-talent/pixelpro-studios-talent-and-entertainment-singapore.jpg", href: "/services/talent", cta: "Entertainment and talent" },
+  { tab: "Sound", pre: "", hl: "Crystal-Clear Sound", post: " for Every Occasion.", foot: ["Deliver exceptional audio experiences with professional sound systems tailored to your event's scale, venue and requirements.", "From corporate presentations and conferences to live performances and outdoor events, we provide quality speakers, microphones, digital mixing systems and experienced sound engineers to ensure every word and performance is heard clearly."], img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-1.jpg", href: "/mockup/sound-system-rental", cta: "Sound system rental" },
+  { tab: "Lighting", pre: "Set the Mood. ", hl: "Illuminate Every Moment", post: ".", foot: ["Elevate your event with professional lighting solutions designed to create atmosphere, enhance performances and captivate your audience.", "From elegant stage washes and ambient lighting to dynamic moving heads and synchronised lighting effects, our team delivers tailored lighting setups for corporate events, concerts, performances and celebrations."], img: "/services-av-lighting/pixelpro-studios-stage-lighting-singapore.jpg", href: "/mockup/av-systems", cta: "Audio visual systems" },
+  { tab: "Projection", pre: "", hl: "Clear, Brilliant Visuals", post: " for Every Presentation.", foot: ["Make every presentation, video and visual count with professional projection solutions tailored to your venue.", "Whether it's a corporate seminar, conference, exhibition or community event, we provide high-quality projectors, projection screens, professional setup and technical support for a smooth viewing experience."], img: "/portfolio-jobs/projector-rental_movie-screening-crowd.webp", href: "/mockup/projector-rental", cta: "Projector rental" },
+  { tab: "Staging", pre: "Solid Stages, ", hl: "Built Around Your Event", post: ".", foot: ["Give your speakers and performers a stable, professional platform with modular stage rental.", "We plan the stage size and height with you, set it up with skirting and steps, and handle the tear-down after your event."], img: "/services-hero/services_stage-rental.webp", href: "/mockup/stage-rental-v3", cta: "Stage rental" },
+  /* Photo changed (Jovin, 23 Nov): an event moment instead of the studio headshot */
+  { tab: "Photography", pre: "Capturing ", hl: "Moments That Matter", post: ".", foot: ["Preserve the highlights of your event with professional photography that tells your story.", "From corporate functions and conferences to award ceremonies and celebrations, our photographers capture key moments, candid interactions, VIP engagements and memorable experiences with creativity and attention to detail.", "Same-day photo selections can also be arranged upon request."], img: "/portfolio-jobs/school-sound-system-rental_speech-at-the-rostrum.webp", href: "/services/photography", cta: "Photography" },
+  { tab: "Videography", pre: "Your Event. Your Story. ", hl: "Beautifully Captured", post: ".", foot: ["Bring your event to life beyond the occasion with professional videography and video production services.", "From multi-camera event coverage and cinematic highlights to promotional videos and social media reels, our team captures and transforms memorable moments into compelling visual content.", "Same-day edits and customised video deliverables are available upon request."], img: "/services-video/pixelpro-studios-videography-services-singapore.jpg", href: "/services/videography", cta: "Videography" },
+  { tab: "Entertainment", pre: "", hl: "Unforgettable Entertainment", post: " for Every Occasion.", foot: ["Bring energy, excitement and unforgettable experiences to your event with our curated entertainment and talent solutions.", "From professional emcees and DJs to live bands, musicians and cultural performances, we connect you with the right talent to complement your event's theme, audience and atmosphere.", "Together with our AV production team, we ensure smooth coordination between performers, sound, lighting and event programming."], img: "/services-talent/pixelpro-studios-talent-and-entertainment-singapore.jpg", href: "/services/talent", cta: "Entertainment and talent" },
 ];
-const TAB_MS = 4500;
+const TAB_MS = 9000; /* longer text since Jovin's copy (23 Nov): time to read before the next tab */
 function ServicesDemo() {
   const [i, setI] = useState(0);
   const [playing, setPlaying] = useState(true);
@@ -64,10 +68,7 @@ function ServicesDemo() {
         <div className="v3-demo-shade" aria-hidden />
         <div className="v3-demo-foot">
           <div>
-            <p>{s.foot}</p>
-            <div style={{ marginTop: 10 }}>
-              <ArrowLink href={s.href}>{s.cta}</ArrowLink>
-            </div>
+            <ArrowLink href={s.href}>{s.cta}</ArrowLink>
           </div>
           <button type="button" className="v3-pp" aria-label={playing ? "Pause" : "Play"} onClick={() => setPlaying(!playing)}>
             {playing ? (
@@ -82,6 +83,16 @@ function ServicesDemo() {
             )}
           </button>
         </div>
+      </div>
+      {/* Jovin's paragraphs sit under the photo (too long to lay over it). All are stacked in one grid cell, so the height never jumps between tabs. */}
+      <div className="v3-demo-copy">
+        {SERVICES.map((x, k) => (
+          <div key={x.tab} className={k === i ? "is-active" : ""} aria-hidden={k !== i}>
+            {x.foot.map((t) => (
+              <p key={t}>{t}</p>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -285,8 +296,9 @@ function IgEmbed() {
 
 /* Promotions: shown in the strip gallery. `meta` is the small white label on the open card. */
 const PROMOS: PeekItem[] = [
-  { meta: "Festive promotion", title: "Festive packages for Chinese New Year", line: "Three sound and lighting packages for your company dinner or lo hei, from S$888 with an engineer, setup and tear-down included.", cta: "See the festive packages", href: "/mockup/cny-event-av-v3/#packages", gear: [], img: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall set up for a Chinese New Year dinner" },
-  { meta: "Charity promotion", title: "For charities and NPOs", line: "Registered charities and NPOs get 10% off their package, and we donate 5% of the discounted booking value to their cause.", cta: "Read the promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/", gear: [], img: "/portfolio-jobs/sound-system-rental_community-club-hall-full-house.webp", alt: "Full community club hall at an event with PixelPro sound" },
+  /* Promotion text: Jovin's own (WhatsApp, 23 Nov), word for word */
+  { meta: "Festive promotion", title: "Celebrate Chinese New Year with Our Festive AV Packages!", line: "Make your company's Chinese New Year celebration an occasion to remember with professional sound and lighting solutions. From corporate reunion dinners and festive gatherings to lively lo hei celebrations, our specially curated AV packages start from just S$888, with setup, dismantling and technical support included.", cta: "Explore Festive Packages", href: "/mockup/cny-event-av-v3/#packages", gear: [], img: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall set up for a Chinese New Year dinner" },
+  { meta: "Charity promotion", title: "Supporting Communities. Creating Meaningful Events.", line: "At PixelPro Studios, we believe great events can make a meaningful difference. As part of our commitment to giving back, eligible registered charities and non-profit organisations enjoy 10% off our event AV packages. We'll also contribute an additional 5% of the discounted booking value towards their charitable cause. Together, let's create impactful events that give back to the community.", cta: "Discover Our Charity Initiative", href: "/promotions/promotion-charity-singapore-led-walls-event/", gear: [], img: "/portfolio-jobs/sound-system-rental_community-club-hall-full-house.webp", alt: "Full community club hall at an event with PixelPro sound" },
 ];
 
 export default function HomeV3() {
@@ -302,7 +314,7 @@ export default function HomeV3() {
           <Badge />
           <h1 className="v3-h1 v3-rise-h">Events made effortless, every time.</h1>
           <p className="v3-lead v3-rise" style={{ animationDelay: "80ms" }}>
-            We&apos;re an audio visual company in Singapore, trusted by government agencies and MOE schools. Our team sets up and runs the LED walls, sound and staging for your event, and covers it on photo and video.
+            Your trusted partner for professional audio visual solutions and event production in Singapore.
           </p>
           <div className="v3-btns v3-rise" style={{ animationDelay: "140ms" }}>
             <a href={WA} target="_blank" rel="noopener noreferrer" className="v3-btn v3-btn-wa">
@@ -318,9 +330,13 @@ export default function HomeV3() {
       {/* Sheet 1: services, as a tab demo that steps by itself */}
       <section className="v3-sheet v3-sheet-charcoal" aria-labelledby="svc-h">
         <div className="v3-wrap">
-          <h2 id="svc-h" className="v3-h2" style={{ textAlign: "center", margin: "0 auto 28px" }} data-rv>
+          <h2 id="svc-h" className="v3-h2" style={{ textAlign: "center", margin: "0 auto 16px" }} data-rv>
             Event AV and media services
           </h2>
+          {/* Jovin's hero paragraph 2 (23 Nov), moved here so the hero stays one line. "seamless, end-to-end" -> "complete" (Lukas's banned words) */}
+          <p className="v3-lead" style={{ textAlign: "center", margin: "0 auto 28px", maxWidth: 640 }} data-rv>
+            From LED walls, sound systems, lighting and staging to photography, videography and entertainment, PixelPro Studios delivers complete event solutions.
+          </p>
           <div data-rv>
             <ServicesDemo />
           </div>
@@ -360,6 +376,10 @@ export default function HomeV3() {
             <h2 id="logo-h" className="v3-h2">
               Trusted by government agencies, schools and brands
             </h2>
+            {/* Jovin's hero paragraph 3 (23 Nov), moved under the logo heading */}
+            <p className="v3-body" style={{ marginTop: 14, maxWidth: 620 }}>
+              Trusted by government agencies, educational institutions and corporate clients, we bring your vision to life with reliable equipment, experienced professionals and dedicated on-site support.
+            </p>
           </div>
           <div className="v3-logo-wall" data-rv>
             {CLIENT_LOGOS.map((row, r) => (
