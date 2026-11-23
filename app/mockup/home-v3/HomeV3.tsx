@@ -374,7 +374,7 @@ export default function HomeV3() {
         <div className="v3-wrap">
           <div className="v3-head" data-rv>
             <h2 id="logo-h" className="v3-h2">
-              Trusted by government agencies, schools and brands
+              Who we&apos;ve worked with
             </h2>
             {/* Jovin's hero paragraph 3 (23 Nov), moved under the logo heading */}
             <p className="v3-body" style={{ marginTop: 14, maxWidth: 620 }}>
