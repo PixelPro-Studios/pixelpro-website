@@ -86,7 +86,7 @@ const PAGE_PROMOTIONS: PromotionMeta[] = [
     slug: "festive-av-packages-singapore",
     title: "Celebrate Chinese New Year with Our Festive AV Packages!",
     description: "Make your company's Chinese New Year celebration an occasion to remember with professional sound and lighting solutions.",
-    date: "2026-11-25",
+    date: "2026-11-24",
     author: "PixelPro Studios",
     image: "/events-hero/events_cny-event-av.webp",
     imageAlt: "Banquet hall set up for a company Chinese New Year dinner",
