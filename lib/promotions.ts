@@ -83,13 +83,23 @@ export function getPromotionBySlug(slug: string): Promotion {
 // like the MDX ones, but getPromotionSlugs() leaves them out, so app/promotions/[slug] never builds them.
 const PAGE_PROMOTIONS: PromotionMeta[] = [
   {
+    slug: "christmas-av-packages-singapore",
+    title: "Christmas 2026 Promotion",
+    description: "Sound and lighting packages from S$888, plus 10% off additional AV rentals. Promotion ends 31 December 2026.",
+    date: "2026-11-25",
+    author: "PixelPro Studios",
+    image: "/promotions/christmas-2026-promotion.webp",
+    imageAlt: "Christmas 2026 Promotion by PixelPro Studios: from $888 plus 10% off additional AV rentals",
+    relatedServices: [],
+  },
+  {
     slug: "festive-av-packages-singapore",
-    title: "Celebrate Chinese New Year with Our Festive AV Packages!",
-    description: "Make your company's Chinese New Year celebration an occasion to remember with professional sound and lighting solutions.",
+    title: "Chinese New Year 2027 Promotion",
+    description: "Make your company's Chinese New Year celebration an occasion to remember with professional sound and lighting solutions. Promotion ends 28 February 2027.",
     date: "2026-11-24",
     author: "PixelPro Studios",
-    image: "/events-hero/events_cny-event-av.webp",
-    imageAlt: "Banquet hall set up for a company Chinese New Year dinner",
+    image: "/promotions/cny-2027-promotion.webp",
+    imageAlt: "Chinese New Year 2027 Promotion by PixelPro Studios: from $888 plus 10% off additional AV rentals",
     relatedServices: [],
   },
 ];

@@ -212,9 +212,10 @@ function IgEmbed() {
 
 /* Promotions: shown in the strip gallery. `meta` is the small white label on the open card. */
 const PROMOS: PeekItem[] = [
-  /* Promotion text: Jovin's own (WhatsApp, 23 Nov), word for word */
-  { meta: "Festive promotion", title: "Celebrate Chinese New Year with Our Festive AV Packages!", line: "Make your company's Chinese New Year celebration an occasion to remember with professional sound and lighting solutions. From corporate reunion dinners and festive gatherings to lively lo hei celebrations, our specially curated AV packages start from just S$888, with setup, dismantling and technical support included.", cta: "Explore Festive Packages", href: "/promotions/festive-av-packages-singapore/", gear: [], img: "/events-hero/events_cny-event-av.webp", alt: "Banquet hall set up for a Chinese New Year dinner" },
-  { meta: "Charity promotion", title: "Supporting Communities. Creating Meaningful Events.", line: "At PixelPro Studios, we believe great events can make a meaningful difference. As part of our commitment to giving back, eligible registered charities and non-profit organisations enjoy 10% off our event AV packages. We'll also contribute an additional 5% of the discounted booking value towards their charitable cause. Together, let's create impactful events that give back to the community.", cta: "Discover Our Charity Initiative", href: "/promotions/promotion-charity-singapore-led-walls-event/", gear: [], img: "/portfolio-jobs/sound-system-rental_community-club-hall-full-house.webp", alt: "Full community club hall at an event with PixelPro sound" },
+  /* Jovin's three promotion artworks (25 Nov); each card opens its promotion page */
+  { art: true, bg: "#7d1b18", meta: "Christmas promotion", title: "Christmas 2026 Promotion", cta: "see the packages", href: "/promotions/christmas-av-packages-singapore/", gear: [], img: "/promotions/christmas-2026-promotion.webp", alt: "Christmas 2026 Promotion: from $888 plus 10% off additional AV rentals" },
+  { art: true, bg: "#7a0000", meta: "Chinese New Year promotion", title: "Chinese New Year 2027 Promotion", cta: "see the packages", href: "/promotions/festive-av-packages-singapore/", gear: [], img: "/promotions/cny-2027-promotion.webp", alt: "Chinese New Year 2027 Promotion: from $888 plus 10% off additional AV rentals" },
+  { art: true, bg: "#f1f1f1", meta: "Charity promotion", title: "Giving back. One event at a time.", cta: "read the promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/", gear: [], img: "/promotions/charity-giving-back-promotion.webp", alt: "Giving back, one event at a time: 10% off plus we donate 5%, for registered charities and NPOs" },
 ];
 
 export default function HomeV3() {
