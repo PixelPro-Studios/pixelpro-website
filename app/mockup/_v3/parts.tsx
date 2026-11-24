@@ -212,7 +212,7 @@ export function PeekCarousel({ items, label, noun = "item", fill = false, auto =
 }
 
 /* Strip gallery: the open card is wide, the others stand next to it as thin photo strips.
-   Arrows sit at the top right, beside the heading. Click a strip, swipe, or use the arrow keys.
+   Arrows sit under the cards, centred, like the events carousel. Click a strip, swipe, or use the arrow keys.
    `auto`: open the next card every `auto` ms while on screen; stops on hover or focus. (Promotions, Abel + Jovin, 19 Nov) */
 export function StripGallery({ items, heading, headingId, label, noun = "item", auto = 0 }: { items: PeekItem[]; heading: React.ReactNode; headingId: string; label: string; noun?: string; auto?: number }) {
   const n = items.length;
@@ -233,16 +233,6 @@ export function StripGallery({ items, heading, headingId, label, noun = "item", 
         <h2 id={headingId} className="v3-h2">
           {heading}
         </h2>
-        {n > 1 && (
-          <div className="v3-strip-nav">
-            <button type="button" className="v3-sq is-prev" aria-label={`Previous ${noun}`} onClick={() => go(i - 1)}>
-              <Arrow dir="prev" />
-            </button>
-            <button type="button" className="v3-sq is-next" aria-label={`Next ${noun}`} onClick={() => go(i + 1)}>
-              <Arrow />
-            </button>
-          </div>
-        )}
       </div>
       <div
         className="v3-strips"
@@ -291,6 +281,20 @@ export function StripGallery({ items, heading, headingId, label, noun = "item", 
           );
         })}
       </div>
+      {/* arrows under the cards in the same pill as the events carousel (Jovin, 24 Nov: "can we move the arrows to the btm") */}
+      {n > 1 && (
+        <div className="v3-arrows" data-rv>
+          <button type="button" className="v3-sq is-prev" aria-label={`Previous ${noun}`} onClick={() => go(i - 1)}>
+            <Arrow dir="prev" />
+          </button>
+          <span className="v3-count" aria-live="polite">
+            {i + 1} / {n}
+          </span>
+          <button type="button" className="v3-sq is-next" aria-label={`Next ${noun}`} onClick={() => go(i + 1)}>
+            <Arrow />
+          </button>
+        </div>
+      )}
       <p className="v3-sr" aria-live="polite">
         {`${noun} ${i + 1} of ${n}: ${items[i]?.title ?? ""}`}
       </p>
