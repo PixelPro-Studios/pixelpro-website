@@ -1,19 +1,7 @@
-import Hero from "@/components/HeroSection";
-import InfiniteLogos from "@/components/LogoSection";
-import WhyUs from "@/components/WhySection";
-import Services from "@/components/ServicesSection";
-import TestimonialSection from "@/components/TestimonialSection";
-import CTA from "@/components/CTASection";
+// Home page: Design 2, approved by PixelPro (Jovin, 24 Nov 2026). Title, description and canonical come from app/layout.tsx.
+// The previous home (Hero, LogoSection, Services, WhySection, TestimonialSection, CTASection) is kept in git: tag backup/home-before-redesign-2026-11-24.
+import HomeV3 from "./mockup/home-v3/HomeV3";
 
 export default function HomePage() {
-  return (
-    <main className="min-h-screen flex flex-col bg-brand-black/90">
-      <Hero />
-      <InfiniteLogos />
-      <Services />
-      <WhyUs />
-      <TestimonialSection />
-      <CTA />
-    </main>
-  );
+  return <HomeV3 />;
 }
