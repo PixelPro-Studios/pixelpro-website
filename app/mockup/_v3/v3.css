@@ -17,7 +17,7 @@
   --sheet-r: 40px;
   background: var(--black);
   color: var(--ink);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-montserrat), system-ui, sans-serif;
   overflow-x: clip;
 }
 .v3 :is(a, button):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 4px; }
@@ -25,8 +25,10 @@
 @media (min-width: 768px) { .v3-wrap { padding: 0 40px; } }
 
 /* ---------- type: one family, medium weight, letters pulled close ---------- */
-.v3 :is(h1, h2, h3) { font-family: var(--font-inter), system-ui, sans-serif; }
-.v3 :is(.v3-h1, .v3-h2, .v3-h3, .v3-card-title, .v3-cta2-h) { font-family: var(--font-oliveira), Georgia, serif; } /* headlines in the live site's serif; small headings and FAQ questions stay in Inter (Abhishek, 18 Nov) */
+.v3 :is(h1, h2, h3) { font-family: var(--font-montserrat), system-ui, sans-serif; }
+/* Montserrat everywhere; the serif stays only on the page headline (Jovin, 25 Nov: "all the font to be montserrat font. Except for the pixelated header font") */
+.v3 .v3-h1 { font-family: var(--font-oliveira), Georgia, serif; }
+.v3 :is(.v3-h2, .v3-h3, .v3-card-title, .v3-cta2-h) { font-weight: 600; letter-spacing: -0.025em; }
 .v3-h1 { font-size: clamp(42px, 6vw, 84px); line-height: 1; font-weight: 400; letter-spacing: -0.02em; text-wrap: balance; }
 .v3-h2 { font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; font-weight: 400; letter-spacing: -0.015em; text-wrap: balance; }
 .v3-h3 { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.1; font-weight: 400; letter-spacing: -0.01em; text-wrap: balance; }
@@ -183,6 +185,16 @@
 .v3-strip.is-on .v3-strip-shade { opacity: 1; }
 .v3-strip-text { position: absolute; left: 0; bottom: 0; width: clamp(280px, 46vw, 580px); padding: clamp(18px, 2.4vw, 30px); opacity: 0; transform: translateY(8px); transition: opacity 200ms ease, transform 200ms ease; pointer-events: none; }
 .v3-strip.is-on .v3-strip-text { opacity: 1; transform: none; transition: opacity 500ms ease 350ms, transform 500ms var(--ease-out) 350ms; pointer-events: auto; }
+/* artwork cards: the art fills the open card; on phones (a tall card) it shows whole on its own background colour until a phone version exists */
+.v3-strip-art { position: absolute; inset: 0; display: block; }
+.v3-strip .v3-art { object-fit: cover; transition: filter 400ms ease; }
+.v3-strip:not(.is-on) .v3-art { filter: brightness(0.7); }
+@media (max-width: 767px) {
+  .v3-strip.is-on .v3-art { object-fit: contain; }
+  /* all-artwork galleries on phones: thin side strips and an open card in the artwork's own shape (1440 x 920), so the art fills it */
+  .v3-strips.is-art { height: calc((100vw - 40px - (var(--n, 3) - 1) * 24px) / 1.565); }
+  .v3-strips.is-art .v3-strip:not(.is-on) { flex-basis: 18px; }
+}
 .v3-strip-pill { display: inline-block; margin-bottom: 12px; padding: 5px 12px; border-radius: 999px; background: var(--paper, #fafdff); color: #0a0a0a; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; }
 .v3-strip .v3-card-title { font-size: clamp(24px, 3vw, 40px); }
 @media (max-width: 767px) {
@@ -463,3 +475,14 @@
 .v3-pkg li::before { content: ""; position: absolute; left: 2px; top: 0.36em; width: 10px; height: 5px; border-left: 2px solid var(--wa); border-bottom: 2px solid var(--wa); transform: rotate(-45deg); }
 .v3-pkg .v3-sizer-ask { justify-self: start; align-self: start; margin-top: 4px; }
 @media (max-width: 960px) { .v3-pkgs { grid-template-columns: 1fr; } }
+
+/* festive promotion pages: headline, offer and end date beside Jovin's artwork */
+.v3-fp-hero { background: var(--black); padding: clamp(120px, 13vw, 168px) 0 calc(clamp(56px, 6vw, 88px) + var(--sheet-r)); }
+.v3-fp-grid { display: grid; gap: 32px; align-items: center; }
+@media (min-width: 900px) { .v3-fp-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(36px, 4vw, 64px); } }
+.v3-fp-text .v3-h1 { font-size: clamp(40px, 4.6vw, 68px); }
+.v3-fp-text .v3-lead { margin-top: 18px; }
+.v3-fp-text .v3-btns { justify-content: flex-start; }
+.v3-fp-ends { margin-top: 12px; font-weight: 600; color: var(--paper, #fafdff); }
+.v3-fp-art { position: relative; aspect-ratio: 1440 / 920; border-radius: 22px; overflow: hidden; box-shadow: 0 0 0 1px var(--line), 0 24px 70px rgba(0, 0, 0, 0.5); }
+.v3-fp-art img { object-fit: cover; }

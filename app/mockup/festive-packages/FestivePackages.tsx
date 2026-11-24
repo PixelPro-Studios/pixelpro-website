@@ -1,39 +1,43 @@
 "use client";
-// Festive packages page (Jovin, 24 Nov: "like another link to the packages", for his Wednesday post).
-// Only approved content: the headline and both paragraphs are Jovin's festive promotion text (WhatsApp, 23 Nov), the
-// packages come from _v2/festive.ts (his "Festive Promotions" sheet), shared with the CNY page so prices stay in one place.
-// Hero photo: the same banquet photo as the festive promotion card on the home page (no LED wall claim here).
+// Festive promotion page: one per promotion (Christmas 2026, Chinese New Year 2027), the same three packages on each
+// (Jovin, 17 Nov: "its just 3 packages then we can reuse for all"). Top: his artwork beside the headline, the offer and
+// the end date; then the packages from _v2/festive.ts with a WhatsApp button per package.
 import Image from "next/image";
 import { waLink } from "../_v2/data";
-import { FESTIVE_PACKAGES } from "../_v2/festive";
+import { FESTIVE_PACKAGES, type FestivePromo } from "../_v2/festive";
 import { Badge, FloatingWa, WaIcon, goTo, pkgLink, useReveal } from "../_v3/parts";
 
-const WA = waLink("Hi PixelPro, I'd like to ask about your festive Chinese New Year packages (from your festive packages page).\nDate: \nVenue: \nNumber of guests: ");
 const P = FESTIVE_PACKAGES;
 
-export default function FestivePackages() {
+export default function FestivePackages({ p }: { p: FestivePromo }) {
   useReveal();
+  const WA = waLink(`Hi PixelPro, I'd like to ask about ${p.ask} (from your website).\nDate: \nVenue: \nNumber of guests: `);
   return (
     <main className="v3">
       <FloatingWa wa={WA} />
 
-      <header id="top" className="v3-hero v3-hero-photo">
-        <div className="v3-hero-bg">
-          <Image src="/events-hero/events_cny-event-av.webp" alt="Banquet hall set up for a company Chinese New Year dinner" fill priority quality={70} sizes="100vw" className="v3-cover v3-photo" style={{ objectPosition: "50% 45%" }} />
-        </div>
-        <div className="v3-hero-in">
-          <Badge />
-          <h1 className="v3-h1 v3-rise-h">Celebrate Chinese New Year with Our Festive AV Packages!</h1>
-          <p className="v3-lead v3-rise" style={{ animationDelay: "80ms" }}>
-            Make your company&apos;s Chinese New Year celebration an occasion to remember with professional sound and lighting solutions.
-          </p>
-          <div className="v3-btns v3-rise" style={{ animationDelay: "140ms" }}>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="v3-btn v3-btn-wa">
-              <WaIcon /> WhatsApp us
-            </a>
-            <button type="button" onClick={() => goTo("packages")} className="v3-btn v3-btn-line">
-              See the packages
-            </button>
+      <header id="top" className="v3-fp-hero">
+        <div className="v3-wrap v3-fp-grid">
+          <div className="v3-fp-text">
+            <Badge />
+            <h1 className="v3-h1 v3-rise-h">{p.h1}</h1>
+            <p className="v3-lead v3-rise" style={{ animationDelay: "80ms" }}>
+              {p.lead}
+            </p>
+            <p className="v3-fp-ends v3-rise" style={{ animationDelay: "110ms" }}>
+              {p.ends}
+            </p>
+            <div className="v3-btns v3-rise" style={{ animationDelay: "140ms" }}>
+              <a href={WA} target="_blank" rel="noopener noreferrer" className="v3-btn v3-btn-wa">
+                <WaIcon /> WhatsApp us
+              </a>
+              <button type="button" onClick={() => goTo("packages")} className="v3-btn v3-btn-line">
+                See the packages
+              </button>
+            </div>
+          </div>
+          <div className="v3-fp-art v3-rise" style={{ animationDelay: "120ms", background: p.bg }}>
+            <Image src={p.art} alt={p.artAlt} fill priority sizes="(min-width: 900px) 600px, 100vw" />
           </div>
         </div>
       </header>
@@ -45,30 +49,30 @@ export default function FestivePackages() {
               {P.title}
             </h2>
             <p className="v3-body" style={{ maxWidth: 460 }}>
-              From corporate reunion dinners and festive gatherings to lively lo hei celebrations, our specially curated AV packages start from just S$888, with setup, dismantling and technical support included.
+              {p.intro}
             </p>
           </div>
           <div className="v3-pkgs">
-            {P.items.map((p) => (
-              <div key={p.name} className="v3-pkg" data-rv>
-                <h3 className="v3-h3">{p.name}</h3>
-                {p.price && (
+            {P.items.map((it) => (
+              <div key={it.name} className="v3-pkg" data-rv>
+                <h3 className="v3-h3">{it.name}</h3>
+                {it.price && (
                   <p className="v3-pkg-price">
-                    <b>{p.price}</b>
-                    {p.was && (
+                    <b>{it.price}</b>
+                    {it.was && (
                       <s>
                         <span className="sr-only">Usual price </span>
-                        {p.was}
+                        {it.was}
                       </s>
                     )}
                   </p>
                 )}
-                <p className="v3-pkg-best">{p.best}</p>
-                <a className="v3-sizer-ask" href={pkgLink(WA, p.name)} target="_blank" rel="noopener noreferrer">
-                  <WaIcon /> Ask about {p.name}
+                <p className="v3-pkg-best">{it.best}</p>
+                <a className="v3-sizer-ask" href={pkgLink(WA, it.name)} target="_blank" rel="noopener noreferrer">
+                  <WaIcon /> Ask about {it.name}
                 </a>
                 <ul>
-                  {p.includes.map((x) => (
+                  {it.includes.map((x) => (
                     <li key={x}>{x}</li>
                   ))}
                 </ul>
@@ -77,7 +81,7 @@ export default function FestivePackages() {
           </div>
           {P.note && (
             <p className="v3-note" style={{ marginTop: 22 }}>
-              {P.note}
+              {P.note} {p.ends}
             </p>
           )}
         </div>

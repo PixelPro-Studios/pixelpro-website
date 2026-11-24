@@ -106,7 +106,7 @@ export function useInView<T extends HTMLElement>(threshold = 0.4) {
 
 /* Peek carousel: the active card is wide, its neighbours show as slices. One pill holds the arrows and the count.
    Click a slice, swipe, or use the arrow keys. */
-export type PeekItem = { title: string; meta?: string; gear: string[]; img: string; alt: string; pos?: string; line?: string; href?: string; cta?: string };
+export type PeekItem = { title: string; meta?: string; gear: string[]; img: string; alt: string; pos?: string; line?: string; href?: string; cta?: string; art?: boolean; bg?: string };
 const D_CLASS: Record<string, string> = { "0": "d0", "1": "dp1", "-1": "dn1", "2": "dp2", "-2": "dn2", "3": "dp3", "-3": "dn3" };
 /* `fill`: with fewer than 5 items, repeat them so slices show on both sides (the count still shows the real number).
    `auto`: step by itself every `auto` ms while on screen; stops on hover or focus. */
@@ -235,7 +235,8 @@ export function StripGallery({ items, heading, headingId, label, noun = "item", 
         </h2>
       </div>
       <div
-        className="v3-strips"
+        className={`v3-strips ${items.every((it) => it.art) ? "is-art" : ""}`}
+        style={{ "--n": n } as React.CSSProperties}
         data-rv
         tabIndex={0}
         onKeyDown={(e) => (e.key === "ArrowRight" ? go(i + 1) : e.key === "ArrowLeft" ? go(i - 1) : null)}
@@ -265,9 +266,16 @@ export function StripGallery({ items, heading, headingId, label, noun = "item", 
               aria-current={on}
               onClick={() => !on && !dragged.current && go(k)}
             >
+              {/* artwork card (PixelPro's own promo art, words in the image): no shade or text on top, the whole card is the link */}
+              {it.art ? (
+                <a className="v3-strip-art" href={it.href} aria-label={`${it.title}: ${it.cta ?? "find out more"}`} tabIndex={on ? 0 : -1} style={it.bg ? { background: it.bg } : undefined} onClick={(e) => (!on || dragged.current) && e.preventDefault()}>
+                  <Image src={it.img} alt={on ? it.alt : ""} fill sizes="(min-width: 1240px) 1100px, 100vw" className="v3-art" />
+                </a>
+              ) : (
               <Image src={it.img} alt={on ? it.alt : ""} fill sizes="(min-width: 1240px) 1100px, 100vw" className="v3-cover v3-photo" style={it.pos ? { objectPosition: it.pos } : undefined} />
-              <div className="v3-strip-shade" aria-hidden />
-              <div className="v3-strip-text" aria-hidden={!on}>
+              )}
+              {!it.art && <div className="v3-strip-shade" aria-hidden />}
+              {!it.art && <div className="v3-strip-text" aria-hidden={!on}>
                 <p className="v3-strip-pill">{it.meta ?? noun}</p>
                 <h3 className="v3-card-title">{it.title}</h3>
                 {it.line && <p className="v3-card-line">{it.line}</p>}
@@ -276,7 +284,7 @@ export function StripGallery({ items, heading, headingId, label, noun = "item", 
                     {it.cta ?? "Read more"} <Arrow />
                   </a>
                 )}
-              </div>
+              </div>}
             </article>
           );
         })}
