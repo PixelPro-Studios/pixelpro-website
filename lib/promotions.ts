@@ -79,7 +79,26 @@ export function getPromotionBySlug(slug: string): Promotion {
   };
 }
 
+// Promotions built as their own page instead of an MDX file. They are listed on /promotions and in the sitemap
+// like the MDX ones, but getPromotionSlugs() leaves them out, so app/promotions/[slug] never builds them.
+const PAGE_PROMOTIONS: PromotionMeta[] = [
+  {
+    slug: "festive-av-packages-singapore",
+    title: "Celebrate Chinese New Year with Our Festive AV Packages!",
+    description: "Make your company's Chinese New Year celebration an occasion to remember with professional sound and lighting solutions.",
+    date: "2026-11-25",
+    author: "PixelPro Studios",
+    image: "/events-hero/events_cny-event-av.webp",
+    imageAlt: "Banquet hall set up for a company Chinese New Year dinner",
+    relatedServices: [],
+  },
+];
+
 export function getAllPromotions(): PromotionMeta[] {
+  return [...PAGE_PROMOTIONS, ...getMdxPromotions()].sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+function getMdxPromotions(): PromotionMeta[] {
   return getPromotionSlugs()
     .map((slug) => {
       const promotion = getPromotionBySlug(slug);
@@ -93,6 +112,5 @@ export function getAllPromotions(): PromotionMeta[] {
         imageAlt: promotion.imageAlt,
         relatedServices: promotion.relatedServices,
       };
-    })
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
+    });
 }
