@@ -451,6 +451,7 @@
   .v3-ig-split .v3-ig-embed { margin: 0; max-width: none; }
 }
 .v3-pkgs { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.v3 #packages { scroll-margin-top: 48px; } /* a link to #packages stops with the heading clear of the floating nav */
 @supports (grid-template-rows: subgrid) { .v3-pkg { grid-row: span 5; grid-template-rows: subgrid; row-gap: 12px; } } /* name, price, use, button, list line up across cards */
 .v3-pkg { display: grid; gap: 12px; align-content: start; padding: clamp(20px, 2.4vw, 28px); border-radius: 22px; background: rgba(255, 255, 255, 0.05); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08); }
 .v3-pkg-best { color: var(--mut); font-size: 15px; }

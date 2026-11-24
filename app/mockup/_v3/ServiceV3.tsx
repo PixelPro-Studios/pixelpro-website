@@ -238,7 +238,7 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
 }
 
 /* the page's WhatsApp message with the package named on its first line */
-function pkgLink(wa: string, name: string) {
+export function pkgLink(wa: string, name: string) {
   const [base, q = ""] = wa.split("?text=");
   const lines = decodeURIComponent(q).split("\n");
   lines[0] = lines[0].replace(/\s*\(from your[^)]*\)/i, "").replace(/\.$/, "") + ` (${name} package).`;
