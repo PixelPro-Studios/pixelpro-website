@@ -1,16 +1,15 @@
 "use client";
 // Festive packages page (Jovin, 24 Nov: "like another link to the packages", for his Wednesday post).
 // Only approved content: the headline and both paragraphs are Jovin's festive promotion text (WhatsApp, 23 Nov), the
-// packages come from the CNY page's data (his "Festive Promotions" sheet), so prices and contents stay in one place.
+// packages come from _v2/festive.ts (his "Festive Promotions" sheet), shared with the CNY page so prices stay in one place.
 // Hero photo: the same banquet photo as the festive promotion card on the home page (no LED wall claim here).
 import Image from "next/image";
 import { waLink } from "../_v2/data";
-import { Badge, FloatingWa, WaIcon, goTo, useReveal } from "../_v3/parts";
-import { pkgLink } from "../_v3/ServiceV3";
-import { c } from "../cny-event-av-v3/content";
+import { FESTIVE_PACKAGES } from "../_v2/festive";
+import { Badge, FloatingWa, WaIcon, goTo, pkgLink, useReveal } from "../_v3/parts";
 
 const WA = waLink("Hi PixelPro, I'd like to ask about your festive Chinese New Year packages (from your festive packages page).\nDate: \nVenue: \nNumber of guests: ");
-const P = c.packages!;
+const P = FESTIVE_PACKAGES;
 
 export default function FestivePackages() {
   useReveal();

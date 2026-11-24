@@ -470,3 +470,11 @@ export function WaComposer({ template, needs, greeting = "Hi! Tell us about your
     </div>
   );
 }
+
+/* WhatsApp link for one package: the page's message with the package named on its first line */
+export function pkgLink(wa: string, name: string) {
+  const [base, q = ""] = wa.split("?text=");
+  const lines = decodeURIComponent(q).split("\n");
+  lines[0] = lines[0].replace(/\s*\(from your[^)]*\)/i, "").replace(/\.$/, "") + ` (${name} package).`;
+  return `${base}?text=${encodeURIComponent(lines.join("\n"))}`;
+}

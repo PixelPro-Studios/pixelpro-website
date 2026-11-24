@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { ServiceV2Content } from "../_v2/ServiceV2";
 import { allReviews } from "../_v2/data";
-import { Accordion, ArrowLink, Badge, FloatingWa, PeekCarousel, Stars, WaComposer, WaIcon, goTo, reduced, useInView, useReveal } from "./parts";
+import { Accordion, ArrowLink, Badge, FloatingWa, PeekCarousel, Stars, WaComposer, WaIcon, goTo, pkgLink, reduced, useInView, useReveal } from "./parts";
 import { StagePlan, WallScene } from "./sizer";
 
 export default function ServiceV3({ c }: { c: ServiceV2Content }) {
@@ -238,12 +238,6 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
 }
 
 /* the page's WhatsApp message with the package named on its first line */
-export function pkgLink(wa: string, name: string) {
-  const [base, q = ""] = wa.split("?text=");
-  const lines = decodeURIComponent(q).split("\n");
-  lines[0] = lines[0].replace(/\s*\(from your[^)]*\)/i, "").replace(/\.$/, "") + ` (${name} package).`;
-  return `${base}?text=${encodeURIComponent(lines.join("\n"))}`;
-}
 
 /* the page's WhatsApp message with the chosen size, and venue for a wall, filled in */
 function askLink(wa: string, w: number, h: number, venue: string | null) {
