@@ -11,15 +11,16 @@ import "./services.css";
 
 const WA = waLink("Hi PixelPro, I'd like a quote for an event (from your services page).\nDate: \nVenue: \nEvent name & type: \nNumber of guests: \nWhat I need: \nIndoor or outdoor: ");
 
+// Card = service name (largest) + one short line to make them click. Lines from the product bible and the voice guide.
 const SERVICES = [
-  { name: "LED wall rental", h: "Stunning LED Displays That Bring Your Event to Life.", p: "Transform any event space with vibrant, high-resolution indoor and outdoor LED walls, customised to suit your venue and event requirements.", img: "/portfolio-jobs/led-wall-rental_ndp-marina-barrage-flag-led-wall.webp", alt: "PixelPro outdoor LED wall at the National Day 2026 celebrations at Marina Barrage", href: "/mockup/led-walls-v3/" },
-  { name: "Sound system rental", h: "Crystal-Clear Sound for Every Occasion.", p: "Deliver exceptional audio experiences with professional sound systems tailored to your event's scale, venue and requirements.", img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-1.jpg", alt: "PixelPro sound system set up for an event", href: "/mockup/sound-system-rental-v3/" },
-  { name: "Stage rental", h: "Solid Stages, Built Around Your Event.", p: "Give your speakers and performers a stable, professional platform with modular stage rental.", img: "/portfolio-jobs/stage-rental_caregiving-week-mall-stage.webp", alt: "PixelPro modular stage with skirting at a community event in a mall", href: "/mockup/stage-rental-v3/" },
-  { name: "Lighting", h: "Set the Mood. Illuminate Every Moment.", p: "Elevate your event with professional lighting solutions designed to create atmosphere, enhance performances and captivate your audience.", img: "/services-av-lighting/pixelpro-studios-stage-lighting-singapore.jpg", alt: "PixelPro stage lighting at an event", href: "/mockup/av-systems-v3/" },
-  { name: "Projector rental", h: "Clear, Brilliant Visuals for Every Presentation.", p: "Make every presentation, video and visual count with professional projection solutions tailored to your venue.", img: "/portfolio-jobs/projector-rental_movie-screening-crowd.webp", alt: "Crowd watching a PixelPro projection screen at an outdoor screening", href: "/mockup/projector-rental/" },
-  { name: "Photography", h: "Capturing Moments That Matter.", p: "Preserve the highlights of your event with professional photography that tells your story.", img: "/portfolio-jobs/event-photography_guest-of-honour-eye-dotting.webp", alt: "Guest of honour at an eye-dotting ceremony, photographed by PixelPro", href: "/services/photography/" },
-  { name: "Videography", h: "Your Event. Your Story. Beautifully Captured.", p: "Bring your event to life beyond the occasion with professional videography and video production services.", img: "/services-video/pixelpro-studios-videography-services-singapore.jpg", alt: "PixelPro videographer filming an event", href: "/services/videography/" },
-  { name: "Entertainment", h: "Unforgettable Entertainment for Every Occasion.", p: "Bring energy, excitement and unforgettable experiences to your event with our curated entertainment and talent solutions.", img: "/services-talent/pixelpro-studios-talent-and-entertainment-singapore.jpg", alt: "Performers on stage at an event supported by PixelPro", href: "/services/talent/" },
+  { name: "LED Wall Rental", p: "Bright indoor and outdoor LED walls, with our technicians on standby throughout your event.", img: "/portfolio-jobs/led-wall-rental_ndp-marina-barrage-flag-led-wall.webp", alt: "PixelPro outdoor LED wall at the National Day 2026 celebrations at Marina Barrage", href: "/mockup/led-walls-v3/" },
+  { name: "Sound System Rental", p: "Clear sound for every speech and performance, set up and sound-checked by our engineers.", img: "/portfolio-av-audio/pixelpro-studios-sound-system-rental-singapore-1.jpg", alt: "PixelPro sound system set up for an event", href: "/mockup/sound-system-rental-v3/" },
+  { name: "Stage Rental", p: "A stable stage for your speakers and performers, sized and built around your programme.", img: "/portfolio-jobs/stage-rental_caregiving-week-mall-stage.webp", alt: "PixelPro modular stage with skirting at a community event in a mall", href: "/mockup/stage-rental-v3/" },
+  { name: "Stage Lighting", p: "Lighting that sets the mood and puts your performers in the spotlight.", img: "/services-av-lighting/pixelpro-studios-stage-lighting-singapore.jpg", alt: "PixelPro stage lighting at an event", href: "/mockup/av-systems-v3/" },
+  { name: "Projector Rental", p: "Projectors and screens for presentations, seminars and screenings, set up and tested for you.", img: "/portfolio-jobs/projector-rental_movie-screening-crowd.webp", alt: "Crowd watching a PixelPro projection screen at an outdoor screening", href: "/mockup/projector-rental/" },
+  { name: "Event Photography", p: "Key moments and candid shots of your event, with same-day selections on request.", img: "/portfolio-jobs/event-photography_guest-of-honour-eye-dotting.webp", alt: "Guest of honour at an eye-dotting ceremony, photographed by PixelPro", href: "/services/photography/" },
+  { name: "Event Videography", p: "Highlight films and social clips of your event, with same-day edits on request.", img: "/services-video/pixelpro-studios-videography-services-singapore.jpg", alt: "PixelPro videographer filming an event", href: "/services/videography/" },
+  { name: "Entertainment & Talent", p: "Emcees, DJs and live bands, coordinated with our AV team on the day.", img: "/services-talent/pixelpro-studios-talent-and-entertainment-singapore.jpg", alt: "Performers on stage at an event supported by PixelPro", href: "/services/talent/" },
 ];
 
 const FAQS = [
@@ -63,14 +64,9 @@ export default function ServicesV3() {
       {/* Services */}
       <section id="services" className="v3-sheet v3-sheet-charcoal" aria-labelledby="services-h">
         <div className="v3-wrap">
-          <div className="v3-head" data-rv>
-            <h2 id="services-h" className="v3-h2">
-              Our services
-            </h2>
-            <div className="v3-links">
-              <ArrowLink href="/mockup/av-systems-v3/">Need several? See AV rental</ArrowLink>
-            </div>
-          </div>
+          <h2 id="services-h" className="v3-h2" style={{ marginBottom: 28 }} data-rv>
+            Our services
+          </h2>
           <ul className="v3-s-grid">
             {SERVICES.map((s) => (
               <li key={s.name} data-rv>
@@ -79,8 +75,7 @@ export default function ServicesV3() {
                     <Image src={s.img} alt={s.alt} fill sizes="(min-width: 1100px) 33vw, (min-width: 700px) 50vw, 100vw" quality={70} className="v3-cover" />
                   </span>
                   <span className="v3-s-text">
-                    <span className="v3-s-name">{s.name}</span>
-                    <span className="v3-s-h">{s.h}</span>
+                    <span className="v3-s-h">{s.name}</span>
                     <span className="v3-body">{s.p}</span>
                     <span className="v3-s-more">
                       Learn more <span aria-hidden>→</span>
