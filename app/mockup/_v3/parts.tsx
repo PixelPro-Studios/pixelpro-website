@@ -270,6 +270,8 @@ export function StripGallery({ items, heading, headingId, label, noun = "item", 
               {it.art ? (
                 <a className="v3-strip-art" href={it.href} aria-label={`${it.title}: ${it.cta ?? "find out more"}`} tabIndex={on ? 0 : -1} style={it.bg ? { background: it.bg } : undefined} onClick={(e) => (!on || dragged.current) && e.preventDefault()}>
                   <Image src={it.img} alt={on ? it.alt : ""} fill sizes="(min-width: 1240px) 1100px, 100vw" className="v3-art" />
+                  {/* button back on the art (Jovin, 25 Nov: "should we put back this button"); a span, as the whole card is already the link */}
+                  {it.cta && <span className="v3-card-cta v3-strip-art-cta" aria-hidden>{it.cta} <Arrow /></span>}
                 </a>
               ) : (
               <Image src={it.img} alt={on ? it.alt : ""} fill sizes="(min-width: 1240px) 1100px, 100vw" className="v3-cover v3-photo" style={it.pos ? { objectPosition: it.pos } : undefined} />
