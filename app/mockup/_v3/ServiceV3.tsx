@@ -529,11 +529,18 @@ function Buyers({ b, tone }: { b: ServiceV2Content["buyers"]; tone: string }) {
             </div>
             {cur.links.length > 0 && (
               <div className="v3-links">
-                {cur.links.map((l) => (
-                  <ArrowLink key={l.href} href={l.href}>
-                    {l.label}
-                  </ArrowLink>
-                ))}
+                {/* href "" = that page is not live yet: show the words, no link */}
+                {cur.links.map((l) =>
+                  l.href ? (
+                    <ArrowLink key={l.label} href={l.href}>
+                      {l.label}
+                    </ArrowLink>
+                  ) : (
+                    <span key={l.label} className="v3-alink">
+                      <span>{l.label}</span>
+                    </span>
+                  ),
+                )}
               </div>
             )}
           </div>
