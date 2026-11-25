@@ -1,7 +1,8 @@
-// MOCKUP by Rankr (18 Nov 2026). LED wall rental, "Design 2" (_v3/ServiceV3.tsx). Same content as Design 1. Review only.
+// MOCKUP by Rankr. LED wall rental, "Design 2" on the service template (_v3/ServiceV3.tsx), with the wording of the
+// Design 1 page PixelPro reviewed (../led-walls) and their feedback applied. See ./content.ts. Review only.
 import type { Metadata } from "next";
 import ServiceV3 from "../_v3/ServiceV3";
-import { c } from "../led-walls-v2/content";
+import { c } from "./content";
 
 export const metadata: Metadata = {
   title: "LED Wall Rental Singapore | Crew Included",
