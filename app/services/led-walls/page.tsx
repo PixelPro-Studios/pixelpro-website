@@ -1,12 +1,13 @@
+// Design 2 since 25 Nov 2026 (Jovin approved, WhatsApp 7:58 PM). Content: app/mockup/led-walls-v3/content.ts. Old page: LEDWallsPageClient.tsx, kept unused.
 import type { Metadata } from "next";
 import JsonLd, {
   breadcrumbJsonLd,
   faqPageJsonLd,
   serviceJsonLd,
 } from "@/components/JsonLd";
-import { ledWallsFaqs } from "@/lib/faqs";
 import { pageMetadata } from "@/lib/seo";
-import LEDWallsPageClient from "./LEDWallsPageClient";
+import ServiceV3 from "@/app/mockup/_v3/ServiceV3";
+import { c } from "@/app/mockup/led-walls-v3/content";
 
 const title = "LED Wall Rental Singapore";
 const description =
@@ -38,8 +39,8 @@ export default function LEDWallsPage() {
           { name: "LED Walls", path },
         ])}
       />
-      <JsonLd data={faqPageJsonLd(ledWallsFaqs)} />
-      <LEDWallsPageClient />
+      <JsonLd data={faqPageJsonLd(c.faqs.map((f) => ({ question: f.q, answer: f.a })))} />
+      <ServiceV3 c={c} />
     </>
   );
 }

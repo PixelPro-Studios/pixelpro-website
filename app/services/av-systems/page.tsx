@@ -1,11 +1,12 @@
+// Design 2 since 25 Nov 2026 (Jovin approved, WhatsApp 7:58 PM). Content: app/mockup/av-systems-v3/content.ts. Old page: AVSystemsPageClient.tsx, kept unused.
 import type { Metadata } from "next";
-import AVSystemsPageClient from "./AVSystemsPageClient";
+import ServiceV3 from "@/app/mockup/_v3/ServiceV3";
+import { c } from "@/app/mockup/av-systems-v3/content";
 import JsonLd, {
   breadcrumbJsonLd,
   faqPageJsonLd,
   serviceJsonLd,
 } from "@/components/JsonLd";
-import { avSystemsFaqs } from "@/lib/faqs";
 import { pageMetadata } from "@/lib/seo";
 
 const title = "AV Systems";
@@ -37,8 +38,8 @@ export default function AVSystemsPage() {
           { name: "AV Systems", path },
         ])}
       />
-      <JsonLd data={faqPageJsonLd(avSystemsFaqs)} />
-      <AVSystemsPageClient />
+      <JsonLd data={faqPageJsonLd(c.faqs.map((f) => ({ question: f.q, answer: f.a })))} />
+      <ServiceV3 c={c} />
     </>
   );
 }
