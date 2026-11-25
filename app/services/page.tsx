@@ -1,7 +1,8 @@
+// Design 2 since 25 Nov 2026 (Jovin approved). Page: app/mockup/services-v3/ServicesV3.tsx. Old page: ServicesPageClient.tsx, kept unused.
 import type { Metadata } from "next";
-import ServicesPageClient from "./ServicesPageClient";
+import ServicesV3 from "@/app/mockup/services-v3/ServicesV3";
+import { FAQS } from "@/app/mockup/services-v3/faqs";
 import JsonLd, { faqPageJsonLd } from "@/components/JsonLd";
-import { servicesFaqs } from "@/lib/faqs";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -14,8 +15,8 @@ export const metadata: Metadata = pageMetadata({
 export default function ServicesPage() {
   return (
     <>
-      <JsonLd data={faqPageJsonLd(servicesFaqs)} />
-      <ServicesPageClient />
+      <JsonLd data={faqPageJsonLd(FAQS.map((f) => ({ question: f.q, answer: f.a })))} />
+      <ServicesV3 />
     </>
   );
 }
