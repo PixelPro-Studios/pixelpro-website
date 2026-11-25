@@ -2,12 +2,8 @@
 // MOCKUP by Rankr (18 Nov 2026). Shared SERVICE page template, "Design 2". It takes the same content object as
 // Design 1 (_v2/ServiceV2.tsx), so the wording and facts are the same on both designs. Same slot order as Design 1:
 // hero · our work · setup (optional) · what's included · who it's for · reviews + pricing · get a quote · FAQ.
-// Optional sections (25 Nov, for pages where PixelPro wrote copy for them): kicker, subhead, second intro, tagline,
-// why choose us, story, service cards, support block, comparison, process. Pages without them look as before.
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import "./extras.css";
 import type { ServiceV2Content } from "../_v2/ServiceV2";
 import { allReviews } from "../_v2/data";
 import { Accordion, ArrowLink, Badge, FloatingWa, PeekCarousel, Stars, WaComposer, WaIcon, goTo, pkgLink, reduced, useInView, useReveal } from "./parts";
@@ -31,22 +27,10 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
         </div>
         <div className="v3-hero-in">
           <Badge />
-          {c.kicker && <p className="v3-mono v3-rise v3-x-kicker">{c.kicker}</p>}
           <h1 className="v3-h1 v3-rise-h">{c.h1}</h1>
-          {c.subhead && <p className="v3-x-subhead v3-rise">{c.subhead}</p>}
           <p className="v3-lead v3-rise" style={{ animationDelay: "80ms" }}>
             {c.intro}
           </p>
-          {c.intro2 && (
-            <p className="v3-lead v3-rise v3-x-intro2" style={{ animationDelay: "100ms" }}>
-              {c.intro2}
-            </p>
-          )}
-          {c.tagline && (
-            <p className="v3-x-tagline v3-rise" style={{ animationDelay: "120ms" }}>
-              {c.tagline}
-            </p>
-          )}
           <div className="v3-btns v3-rise" style={{ animationDelay: "140ms" }}>
             <a href={c.wa} target="_blank" rel="noopener noreferrer" className="v3-btn v3-btn-wa">
               <WaIcon /> WhatsApp us for a quote
@@ -57,26 +41,6 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
           </div>
         </div>
       </header>
-
-      {/* 1b. Why choose PixelPro (optional) */}
-      {c.why && (
-        <section id="why" className={`v3-sheet ${tone()}`} aria-labelledby="why-h">
-          <div className="v3-wrap">
-            <h2 id="why-h" className="v3-h2" data-rv>
-              {c.why.title}
-            </h2>
-            <ol className="v3-x-grid">
-              {c.why.items.map((w, k) => (
-                <li key={w.title} className="v3-x-card" data-rv>
-                  <span className="v3-x-n">{String(k + 1).padStart(2, "0")}</span>
-                  <h3 className="v3-x-t">{w.title}</h3>
-                  <p className="v3-body">{w.copy}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-      )}
 
       {/* 2. Our work: peek carousel */}
       <section id="work" className={`v3-sheet ${tone()}`} aria-labelledby="work-h">
@@ -90,64 +54,10 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
             </div>
           </div>
           <div data-rv>
-            <PeekCarousel label={c.work.title} noun="project" items={c.work.projects.map((p) => ({ title: p.title, meta: p.tag, gear: p.spec, img: p.img, alt: p.alt, pos: p.pos, line: c.work.showLines ? p.line : undefined }))} />
+            <PeekCarousel label={c.work.title} noun="project" items={c.work.projects.map((p) => ({ title: p.title, meta: p.tag, gear: p.spec, img: p.img, alt: p.alt, pos: p.pos }))} />
           </div>
         </div>
       </section>
-
-      {/* 2b. Story (optional) */}
-      {c.story && (
-        <section id="story" className={`v3-sheet ${tone()}`} aria-labelledby="story-h">
-          <div className="v3-wrap v3-x-story" data-rv>
-            <h2 id="story-h" className="v3-h2">
-              {c.story.title}
-            </h2>
-            <div>
-              {c.story.paragraphs.map((p) => (
-                <p key={p} className="v3-body">
-                  {p}
-                </p>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 2c. Service cards (optional, umbrella pages) */}
-      {c.services && (
-        <section id="services" className={`v3-sheet ${tone()}`} aria-labelledby="services-h">
-          <div className="v3-wrap">
-            <div className="v3-head" data-rv>
-              <h2 id="services-h" className="v3-h2">
-                {c.services.title}
-              </h2>
-              {c.services.intro && (
-                <p className="v3-body" style={{ maxWidth: 440 }}>
-                  {c.services.intro}
-                </p>
-              )}
-            </div>
-            <div className="v3-x-svcs">
-              {c.services.items.map((s) => (
-                <Link key={s.title} href={s.href} className={`v3-x-svc ${s.small || !s.img ? "is-small" : ""}`} data-rv>
-                  {s.img && !s.small && (
-                    <span className="v3-x-svc-img">
-                      <Image src={s.img} alt={s.alt ?? ""} fill sizes="(min-width: 760px) 50vw, 100vw" quality={70} className="v3-cover" />
-                    </span>
-                  )}
-                  <span className="v3-x-svc-text">
-                    <span className="v3-x-t">{s.title}</span>
-                    <span className="v3-body">{s.copy}</span>
-                    <span className="v3-x-more">
-                      {s.href.startsWith("#") ? "Ask us" : "Learn more"} <span aria-hidden>→</span>
-                    </span>
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* 3. Choose your setup (optional) */}
       {c.setup && <Setup s={c.setup} tone={tone()} wa={c.wa} />}
@@ -159,7 +69,6 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
             <h2 id="inc-h" className="v3-h2">
               {c.included.title}
             </h2>
-            {c.included.subtitle && <p className="v3-x-sub">{c.included.subtitle}</p>}
             {c.included.intro && (
               <p className="v3-body" style={{ marginTop: 16 }}>
                 {c.included.intro}
@@ -169,12 +78,6 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
               <p className="v3-body" style={{ marginTop: 16 }}>
                 {c.included.support}
               </p>
-            )}
-            {c.included.more && (
-              <div className="v3-x-more-box">
-                <h3 className="v3-x-t">{c.included.more.title}</h3>
-                <p className="v3-body">{c.included.more.body}</p>
-              </div>
             )}
           </div>
           <ul className="v3-checks" data-rv>
@@ -232,74 +135,7 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
         </section>
       )}
 
-      {/* 4b. Support block (optional; replaces the 30-minute guarantee) */}
-      {c.supportBlock && (
-        <section id="support" className={`v3-sheet ${tone()}`} aria-labelledby="support-h">
-          <div className="v3-wrap v3-x-story" data-rv>
-            <h2 id="support-h" className="v3-h2">
-              {c.supportBlock.title}
-            </h2>
-            <div>
-              <p className="v3-body">{c.supportBlock.body}</p>
-            </div>
-          </div>
-        </section>
-      )}
-
       <Buyers b={c.buyers} tone={tone()} />
-
-      {/* 5b. Comparison (optional) */}
-      {c.compare && (
-        <section id="compare" className={`v3-sheet ${tone()}`} aria-labelledby="compare-h">
-          <div className="v3-wrap v3-two">
-            <div data-rv>
-              <h2 id="compare-h" className="v3-h2">
-                {c.compare.title}
-              </h2>
-              {c.compare.paragraphs.map((p) => (
-                <p key={p} className="v3-body" style={{ marginTop: 16 }}>
-                  {p}
-                </p>
-              ))}
-              {c.compare.link && (
-                <div className="v3-links" style={{ marginTop: 22 }}>
-                  <ArrowLink href={c.compare.link.href}>{c.compare.link.label}</ArrowLink>
-                </div>
-              )}
-            </div>
-            {c.compare.points && (
-              <ul className="v3-x-points" data-rv>
-                {c.compare.points.map(([h, b]) => (
-                  <li key={h}>
-                    <h3 className="v3-x-t">{h}</h3>
-                    <p className="v3-body">{b}</p>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </section>
-      )}
-
-      {/* 5c. Process (optional) */}
-      {c.steps && (
-        <section id="process" className={`v3-sheet ${tone()}`} aria-labelledby="process-h">
-          <div className="v3-wrap">
-            <h2 id="process-h" className="v3-h2" data-rv>
-              {c.steps.title}
-            </h2>
-            <ol className="v3-x-steps">
-              {c.steps.items.map(([h, b], k) => (
-                <li key={h} data-rv>
-                  <span className="v3-x-n">{k + 1}</span>
-                  <h3 className="v3-x-t">{h}</h3>
-                  <p className="v3-body">{b}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-      )}
 
       {/* 6. Light sheet: three reviews, then what affects the quotation */}
       <section id="reviews" className="v3-sheet v3-sheet-light" aria-labelledby="reviews-h">
@@ -338,16 +174,11 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
           <div className="v3-price is-flat" data-rv>
             <div>
               <h2 className="v3-h2" style={{ marginTop: 12 }}>
-                {c.pricing.title ?? "What Affects the Quotation"}
+                What Affects the Quotation
               </h2>
               <p className="v3-body" style={{ marginTop: 14 }}>
                 {c.pricing.intro}
               </p>
-              {c.pricing.more?.map((p) => (
-                <p key={p} className="v3-body" style={{ marginTop: 14 }}>
-                  {p}
-                </p>
-              ))}
               <p className="v3-note">{c.pricing.footer}</p>
             </div>
             <div role="table" aria-label="What affects the quotation" className="v3-ptable">
@@ -374,11 +205,6 @@ export default function ServiceV3({ c }: { c: ServiceV2Content }) {
               <h2 id="quote-h" className="v3-h2 v3-cta2-h">
                 {c.quote.title}
               </h2>
-              {c.quote.intro && (
-                <p className="v3-body" style={{ marginTop: 16 }}>
-                  {c.quote.intro}
-                </p>
-              )}
               <ul className="v3-chips" style={{ marginTop: 28 }}>
                 {c.quote.checklist.map((x) => (
                   <li key={x}>{x}</li>

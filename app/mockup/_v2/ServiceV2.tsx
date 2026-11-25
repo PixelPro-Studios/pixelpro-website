@@ -17,7 +17,7 @@ export type ServiceV2Content = {
   intro: string;
   hero: { img: string; alt: string; pos?: string };
   seeWorkLabel: string;
-  work: { title: string; projects: Project[]; showLines?: boolean };
+  work: { title: string; projects: Project[] };
   setup?: {
     label: string; // tracker label
     title: string;
@@ -27,25 +27,14 @@ export type ServiceV2Content = {
     sizesLine?: string;
     note?: string;
   };
-  included: { title: string; subtitle?: string; intro?: string; items: string[]; support?: string; more?: { title: string; body: string } };
+  included: { title: string; intro?: string; items: string[]; support?: string };
   packages?: { title: string; intro: string; note?: string; items: { name: string; price?: string; was?: string; best: string; includes: string[] }[] };
   buyers: { title: string; items: { tab: string; who: string; events: string; copy: string; links: Link[] }[] };
   reviews: string[]; // three reviewer names from allReviews
-  pricing: { title?: string; intro: string; more?: string[]; rows: [string, string, string][]; footer: string };
-  quote: { title: string; intro?: string; checklist: string[] };
+  pricing: { intro: string; rows: [string, string, string][]; footer: string };
+  quote: { title: string; checklist: string[] };
   faqTitle: string;
   faqs: Faq[];
-  // Optional sections, Design 2 only (_v3/ServiceV3.tsx). Used where PixelPro wrote copy for them (Jovin's doc, 16 Nov).
-  kicker?: string; // small line above the H1
-  subhead?: string; // line under the H1
-  intro2?: string; // second hero paragraph
-  tagline?: string; // short line under the hero text
-  why?: { title: string; items: { title: string; copy: string }[] };
-  story?: { title: string; paragraphs: string[] };
-  services?: { title: string; intro?: string; items: { title: string; copy: string; href: string; img?: string; alt?: string; small?: boolean }[] };
-  supportBlock?: { title: string; body: string };
-  compare?: { title: string; paragraphs: string[]; points?: [string, string][]; link?: Link };
-  steps?: { title: string; items: [string, string][] };
 };
 
 export default function ServiceV2({ c }: { c: ServiceV2Content }) {
