@@ -1,11 +1,12 @@
-// MOCKUP by Rankr (18 Nov 2026). Stage rental, "Design 2" (_v3/ServiceV3.tsx). Same content as Design 1. Review only.
+// MOCKUP by Rankr. Stage rental, "Design 2" on the service template (_v3/ServiceV3.tsx), written to the voice guide (25 Nov).
+// See ./content.ts. Review only.
 import type { Metadata } from "next";
 import ServiceV3 from "../_v3/ServiceV3";
-import { c } from "../stage-rental-v2/content";
+import { c } from "./content";
 
 export const metadata: Metadata = {
   title: "Stage Platform Rental Singapore | Crew Included",
-  description: "Stage platform rental in Singapore: modular stages 60 to 100 cm high, with skirting and steps, built and packed away by our crew.",
+  description: "Stage platform rental in Singapore: modular stages 60 to 100 cm high, with skirting and steps, set up and torn down by our crew.",
   robots: { index: false, follow: false },
 };
 
