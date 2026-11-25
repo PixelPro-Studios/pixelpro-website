@@ -213,9 +213,9 @@ function IgEmbed() {
 /* Promotions: shown in the strip gallery. `meta` is the small white label on the open card. */
 const PROMOS: PeekItem[] = [
   /* Jovin's three promotion artworks (25 Nov); each card opens its promotion page */
-  { art: true, bg: "#7d1b18", meta: "Christmas promotion", title: "Christmas 2026 Promotion", cta: "see the packages", href: "/promotions/christmas-av-packages-singapore/", gear: [], img: "/promotions/christmas-2026-promotion.webp", alt: "Christmas 2026 Promotion: from $888 plus 10% off additional AV rentals" },
-  { art: true, bg: "#7a0000", meta: "Chinese New Year promotion", title: "Chinese New Year 2027 Promotion", cta: "see the packages", href: "/promotions/festive-av-packages-singapore/", gear: [], img: "/promotions/cny-2027-promotion.webp", alt: "Chinese New Year 2027 Promotion: from $888 plus 10% off additional AV rentals" },
-  { art: true, bg: "#f1f1f1", meta: "Charity promotion", title: "Giving back. One event at a time.", cta: "read the promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/", gear: [], img: "/promotions/charity-giving-back-promotion.webp", alt: "Giving back, one event at a time: 10% off plus we donate 5%, for registered charities and NPOs" },
+  { art: true, bg: "#7d1b18", meta: "Christmas promotion", title: "Christmas 2026 Promotion", cta: "Explore Festive Packages", href: "/promotions/christmas-av-packages-singapore/", gear: [], img: "/promotions/christmas-2026-promotion.webp", alt: "Christmas 2026 Promotion: from $888 plus 10% off additional AV rentals" },
+  { art: true, bg: "#7a0000", meta: "Chinese New Year promotion", title: "Chinese New Year 2027 Promotion", cta: "Explore Festive Packages", href: "/promotions/festive-av-packages-singapore/", gear: [], img: "/promotions/cny-2027-promotion.webp", alt: "Chinese New Year 2027 Promotion: from $888 plus 10% off additional AV rentals" },
+  { art: true, bg: "#f1f1f1", meta: "Charity promotion", title: "Giving back. One event at a time.", cta: "Find Out More", href: "/promotions/promotion-charity-singapore-led-walls-event/", gear: [], img: "/promotions/charity-giving-back-promotion.webp", alt: "Giving back, one event at a time: 10% off plus we donate 5%, for registered charities and NPOs" },
 ];
 
 export default function HomeV3() {

@@ -189,10 +189,18 @@
 .v3-strip-art { position: absolute; inset: 0; display: block; }
 .v3-strip .v3-art { object-fit: cover; transition: filter 400ms ease; }
 .v3-strip:not(.is-on) .v3-art { filter: brightness(0.7); }
+.v3-strip-art-cta { position: absolute; left: clamp(18px, 2.4vw, 30px); bottom: clamp(18px, 2.4vw, 30px); margin: 0; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); opacity: 0; transition: opacity 200ms ease; }
+.v3-strip.is-on .v3-strip-art-cta { opacity: 1; transition: opacity 500ms ease 350ms; }
+@media (hover: hover) and (pointer: fine) { .v3-strip-art:hover .v3-strip-art-cta svg { transform: translateX(3px); } .v3-strip-art-cta svg { transition: transform 200ms ease; } }
+/* phones: the art is small, so the button sits in a band under the art instead of over its words */
+@media (max-width: 767px) {
+  .v3-strip-art-cta { left: 50%; bottom: 10px; transform: translateX(-50%); margin: 0; padding: 8px 14px; font-size: 13px; white-space: nowrap; }
+  .v3-strips.is-art .v3-strip.is-on .v3-art { object-position: top; height: calc(100% - 52px) !important; }
+}
 @media (max-width: 767px) {
   .v3-strip.is-on .v3-art { object-fit: contain; }
   /* all-artwork galleries on phones: thin side strips and an open card in the artwork's own shape (1440 x 920), so the art fills it */
-  .v3-strips.is-art { height: calc((100vw - 40px - (var(--n, 3) - 1) * 24px) / 1.565); }
+  .v3-strips.is-art { height: calc((100vw - 40px - (var(--n, 3) - 1) * 24px) / 1.565 + 52px); }
   .v3-strips.is-art .v3-strip:not(.is-on) { flex-basis: 18px; }
 }
 .v3-strip-pill { display: inline-block; margin-bottom: 12px; padding: 5px 12px; border-radius: 999px; background: var(--paper, #fafdff); color: #0a0a0a; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; }
