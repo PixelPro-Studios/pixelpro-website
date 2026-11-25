@@ -48,7 +48,7 @@ export default function ServicesV3() {
           <Badge />
           <h1 className="v3-h1 v3-rise-h">Event AV & Production Services in Singapore</h1>
           <p className="v3-lead v3-rise" style={{ animationDelay: "80ms" }}>
-            LED walls, sound, staging, lighting, projection, photo and video for your event. Book one service, or let our team plan them together.
+            From planning to tear-down, our team handles the technical side of your event. A dedicated technical lead oversees every setup, so you can focus on your guests.
           </p>
           <div className="v3-btns v3-rise" style={{ animationDelay: "140ms" }}>
             <a href={WA} target="_blank" rel="noopener noreferrer" className="v3-btn v3-btn-wa">
