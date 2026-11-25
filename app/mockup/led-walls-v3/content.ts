@@ -17,7 +17,8 @@ export const c: ServiceV2Content = {
   subhead: "Professional Indoor & Outdoor LED Display Solutions for Every Event",
   intro: "Bring your event to life with high-resolution LED walls designed for corporate functions, conferences, exhibitions, concerts, roadshows and large-scale productions.",
   intro2: "From screen configuration and installation to content playback and on-site technical support, PixelPro Studios delivers complete LED wall solutions tailored to your venue and event requirements.",
-  hero: { img: "/services-hero/services_led-walls.webp", alt: "LED wall rental in Singapore: a PixelPro LED wall at a live event" },
+  // hero photo: Jovin picked the PUB NDP folder (25 Nov); DSC_0091, the outdoor LED wall and crowd at Marina Barrage
+  hero: { img: "/services-hero/led-wall-rental_ndp-marina-barrage-crowd.webp", alt: "LED wall rental in Singapore: PixelPro's outdoor LED wall at the National Day 2026 celebrations at Marina Barrage", pos: "50% 45%" },
   seeWorkLabel: "See our LED work",
   why: {
     title: "Why choose PixelPro Studios?",
