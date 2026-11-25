@@ -5,7 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import posthog from "posthog-js";
+
+// MOCKUP by Rankr (25 Nov 2026): on review pages (/mockup/...) the menu opens the Design 2 mockup of a page where one exists.
+// Real pages are not affected.
+const MOCKUP_LINKS: Record<string, string> = { "/services": "/mockup/services-v3/" };
 
 const navLinks = [
   { name: "Portfolio", href: "/portfolio" },
@@ -19,6 +24,7 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const onMockup = (usePathname() ?? "").startsWith("/mockup");
 
   // Handle scroll effect for navbar background
   useEffect(() => {
@@ -165,7 +171,7 @@ export default function Navbar() {
                             whileTap={{ y: 2, scale: 0.98 }}
                           >
                             <Link
-                              href={link.href}
+                              href={onMockup ? (MOCKUP_LINKS[link.href] ?? link.href) : link.href}
                               onClick={() => {
                                 toggleMenu();
                                 posthog.capture('nav_link_clicked', { link_name: link.name, href: link.href });

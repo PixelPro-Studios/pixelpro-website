@@ -21,6 +21,7 @@ const sections: Section[] = [
       { href: "/mockup/home-v3/", title: "Home", note: "The live home page since 24 Nov.", live: "/" },
       { href: "/mockup/christmas-packages/", title: "Christmas 2026 promotion", note: "Three festive packages. Ends 31 December 2026.", live: "/promotions/christmas-av-packages-singapore/" },
       { href: "/mockup/festive-packages/", title: "Chinese New Year 2027 promotion", note: "The same three packages. Ends 28 February 2027.", live: "/promotions/festive-av-packages-singapore/" },
+      { href: "/mockup/services-v3/", title: "Services", note: "The page behind Services in the menu: every service as a card, with Jovin's wording. Waiting for Jovin's OK." },
       { href: "/mockup/led-walls-v3/", title: "LED wall rental", note: "Service page with Jovin's wording. Waiting for Jovin's OK." },
       { href: "/mockup/av-systems-v3/", title: "AV rental", note: "Service page with Jovin's wording. Waiting for Jovin's OK." },
       { href: "/mockup/stage-rental-v3/", title: "Stage rental", note: "Service page, rewritten to the voice guide (25 Nov). Draft for Abel." },
