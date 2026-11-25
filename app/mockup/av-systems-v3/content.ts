@@ -1,23 +1,38 @@
-// MOCKUP by Rankr (25 Nov 2026). AV rental in Design 2, on the service template (_v3/ServiceV3.tsx), template sections only (Abel, 25 Nov).
-// Wording: the Design 1 page PixelPro reviewed (../av-systems/page.tsx) with Jovin's AV-page copy from his doc
-// "[2] First Draft Feedback (Jovin)" (16 Nov) and the decided rules (deepagent clients/pixelpro/WRITING-RULES.md):
-// - The big "Stage Lighting Rental" section is gone (Jovin; lighting is not a main service).
-// - Support block in place of the 30-minute guarantee; "Number of rental days"; tear down; no "partners" or gear models.
-// - Crew wording "where on-site technical support is included"; GeBIZ: the agreed purchases line, not "quotations".
-// - No sentence lists 3 or more event types; "seamless" swapped for plain words.
-// - Our work: National Day 2026 first. Hero photo changed (Jovin): stand-in, final photo still to confirm.
+// MOCKUP by Rankr (25 Nov 2026). AV rental in Design 2, on the service template (_v3/ServiceV3.tsx).
+// Wording: Jovin's own AV-page copy, word for word, from his doc "[2] First Draft Feedback (Jovin)" (16 Nov; Free-otion voice guide §10),
+// wherever he wrote copy (Abel, 25 Nov). Only changes, each one their own decision:
+// - Big "Stage Lighting Rental" section removed; lighting is his 5th card (Jovin, 16 Nov).
+// - "seamless" → plain words (Lukas's banned words). No 30-minute guarantee (Jovin).
+// - Schools: his "including quotations … through … GeBIZ" sentence uses the agreed GeBIZ line until Lukas confirms quotations [pending].
+// - H1 stays "AV Rental in Singapore" for search; his headline is the line under it.
+// - For the parts he covered with "Same feedback as LED Wall Rental Page" (what's included, process), his LED wording, made general.
+// - Hero photo changed (Jovin): stand-in until he picks one. Sections he wrote no copy for (work captions, FAQs) keep our text.
 import type { ServiceV2Content } from "../_v2/ServiceV2";
 import { waLink } from "../_v2/data";
 
 export const c: ServiceV2Content = {
   wa: waLink("Hi PixelPro, I'd like a quote for event AV (from your AV rental page).\nDate: \nVenue: \nEvent name & type: \nNumber of guests: \nWhat I need: \nIndoor or outdoor: \nNeed operator on-site: Yes/No"),
   eyebrow: "Professional Event AV Services · Singapore",
+  kicker: "Professional Event AV Services · Singapore",
   h1: "AV Rental in Singapore",
-  intro: "AV rental in Singapore, from a single sound system for a corporate presentation to a full production for a large-scale event. We supply sound systems, LED walls, projectors, staging, lighting and media production, with our technical crew from installation through live event operation.",
+  subhead: "Professional Audio, Visual & Event Production Solutions",
+  intro: "From corporate conferences and dinner and dances to concerts, exhibitions, roadshows and large-scale events, PixelPro Studios provides professional audiovisual equipment and technical production services tailored to your event.",
+  intro2: "Our solutions include sound systems, LED walls, projectors, staging, lighting and media production, supported by experienced technical crews from installation through live event operation.",
+  tagline: "Reliable Equipment · Experienced Technical Crew · Integrated AV Solutions",
   hero: { img: "/portfolio-jobs/event-av-planning_control-desk-beside-the-stage.webp", alt: "AV rental in Singapore: PixelPro's AV control desk beside the stage at an event", pos: "50% 45%" },
   seeWorkLabel: "See our work",
+  why: {
+    title: "Why Choose PixelPro Studios?",
+    items: [
+      { title: "Complete Audiovisual Solutions", copy: "From professional sound reinforcement and LED displays to staging, lighting and media production, we provide integrated audiovisual solutions to support your event's technical requirements." },
+      { title: "Professional Equipment & Technical Expertise", copy: "Our team works with professional AV equipment and carefully plans each setup according to venue conditions, audience size, programme requirements and event objectives." },
+      { title: "Experienced On-Site Technical Support", copy: "Our technicians and operators manage equipment installation, configuration, testing and live event operation, helping ensure consistent technical performance throughout your programme." },
+      { title: "Flexible Solutions for Every Event", copy: "Whether you require a simple sound system for a corporate presentation or a comprehensive audiovisual setup for a large-scale production, we recommend equipment and manpower arrangements suited to your event and budget." },
+    ],
+  },
   work: {
     title: "Events we've produced",
+    showLines: true,
     projects: [
       {
         img: "/portfolio-jobs/led-wall-rental_ndp-marina-barrage-flag-led-wall.webp",
@@ -25,7 +40,7 @@ export const c: ServiceV2Content = {
         tag: "Government · Outdoor",
         spec: ["5 m × 3 m outdoor LED wall", "Sound covering over 100 m", "Stage lighting"],
         title: "National Day 2026 celebrations at Marina Barrage",
-        line: "Outdoor LED wall, sound and lighting for a public celebration, planned with site visits ahead of the day.",
+        line: "Delivered the outdoor LED wall, sound and lighting for a public National Day celebration. Site visits ahead of the event shaped an outdoor setup the whole crowd could see and hear.",
       },
       {
         img: "/portfolio-jobs/led-wall-rental_6x2-5m-led-wall-pitch-day.webp",
@@ -33,7 +48,7 @@ export const c: ServiceV2Content = {
         tag: "University · Indoor",
         spec: ["6 m × 2.5 m LED wall", "Sound and a sound engineer"],
         title: "A university innovation showcase",
-        line: "The LED wall carried pitch slides, countdown timers and sponsor visuals, with a sound engineer on site for the whole programme.",
+        line: "Provided an integrated LED wall and audio solution for a university innovation showcase. The 6 m × 2.5 m LED display supported pitch presentations, countdown timers and sponsor visuals, complemented by professional audio equipment and dedicated technical operators throughout the event.",
       },
       {
         img: "/portfolio-live-music/av-rental_stage-speakers-and-mixer.webp",
@@ -41,7 +56,7 @@ export const c: ServiceV2Content = {
         tag: "Live music · Convention centre",
         spec: ["Speakers and stage monitors", "Digital mixer and wireless mics"],
         title: "A record show with live bands",
-        line: "Speakers, stage monitors and wireless mics for a run of live bands, mixed by our sound engineer.",
+        line: "Provided speakers, stage monitors, wireless microphones and a digital mixer for a record show with live bands at a convention centre, with our sound engineer running the show.",
       },
       {
         img: "/portfolio-jobs/school-sound-system-rental_prize-day-stage-led-and-lighting.webp",
@@ -49,36 +64,80 @@ export const c: ServiceV2Content = {
         tag: "School · Indoor",
         spec: ["Four 1 m × 2 m LED panels", "Stage lighting and sound"],
         title: "A school prize-day ceremony",
-        line: "LED panels, lighting and sound framed the stage for students, parents and guests.",
+        line: "Set up LED panels, stage lighting and sound to frame a school hall stage for a prize-day ceremony, for students, parents and guests.",
       },
+    ],
+  },
+  services: {
+    title: "What we supply",
+    items: [
+      { title: "Audio System Rental", copy: "PixelPro Studios provides professional sound reinforcement solutions for corporate events, conferences, live performances, roadshows and public gatherings. Our services include loudspeakers, subwoofers, microphones, digital audio mixers and monitoring systems, with experienced sound engineers available for setup and live event operation.", href: "/mockup/sound-system-rental", img: "/portfolio-live-music/sound-system-rental_mixing-desk-sound-engineer.webp", alt: "PixelPro sound engineer at a digital mixing desk during a live event" },
+      { title: "LED Wall Rental", copy: "Create impactful event visuals with our indoor and outdoor LED wall solutions. From presentations and stage backdrops to public screenings and exhibitions, our modular LED displays can be configured to suit different venues, viewing requirements and production layouts.", href: "/mockup/led-walls-v3", img: "/portfolio-jobs/led-wall-rental_5-5x3m-led-wall-mall-atrium.webp", alt: "5.5 m × 3 m PixelPro LED display above a stage in a mall atrium" },
+      { title: "Projector & Screen Rental", copy: "We provide projection and screen solutions for presentations, seminars, conferences, exhibitions and screenings. Our team can recommend suitable projection equipment based on venue lighting, screen dimensions, viewing distance and audience requirements.", href: "/mockup/projector-rental", img: "/services-av-projector/pixelpro-studios-projector-rental-singapore.jpg", alt: "PixelPro projector for event rental" },
+      { title: "Stage Rental", copy: "Our modular stage platforms offer flexible configurations for corporate functions, performances, ceremonies and community events. We provide stage installation, skirting and access steps, with configurations planned according to event requirements and venue conditions.", href: "/mockup/stage-rental-v3", img: "/portfolio-jobs/stage-rental_caregiving-week-mall-stage.webp", alt: "PixelPro modular stage with skirting set up in a mall for a community event" },
+      { title: "Stage & Event Lighting Rental", copy: "Enhance your event with professional lighting solutions for stage illumination, performances, presentations and ambience. Our equipment includes LED PAR fixtures, moving heads, outdoor-rated lighting and DMX control systems, supported by experienced lighting technicians.", href: "#quote", small: true },
     ],
   },
   included: {
     title: "Complete AV Rental & Technical Support",
-    intro: "Our AV team takes care of everything from LED walls and staging to sound, so there's just one team to liaise with, one quotation and one payment to settle. A dedicated technical lead oversees every setup, so you can focus on your event.",
+    subtitle: "From Installation to Live Event Operation",
+    intro: "Every AV rental is supported by our experienced technical team to ensure professional installation, reliable performance and a smooth event experience.",
     items: [
-      "We plan the AV around your venue, guest count and programme",
-      "We deliver, set up and test everything before your guests arrive",
-      "Sound checks, screen checks and a run-through with you",
-      "Our crew runs the systems where on-site technical support is included",
-      "Safety checks on cables, power and rigging",
-      "We handle the tear-down after your event",
+      "Pre-event technical consultation and venue assessment, where required",
+      "Equipment delivery, installation and configuration",
+      "Sound checks, system testing and calibration",
+      "Pre-event testing and content verification",
+      "On-site technical operation, where on-site technical support is included",
+      "Post-event dismantling and equipment removal",
     ],
-    support: "Our technical team checks the equipment, tests the systems and prepares everything before your event to keep disruptions to a minimum. Where on-site technical support is included, our crew stays on site to monitor the systems, run the live operation and respond promptly to technical issues.",
+    more: { title: "More Than Just Equipment", body: "Complete your event production with our additional services, including photography, videography and live video production." },
+  },
+  supportBlock: {
+    title: "Reliable Technical Support Throughout Your Event",
+    body: "Our technical team conducts thorough equipment checks, system testing and pre-event preparations to minimise the risk of disruptions. Where on-site technical support is included, our crew remains available to monitor the systems, manage live operations and respond promptly to technical issues.",
   },
   buyers: {
     title: "Who we work with",
     items: [
-      { tab: "Corporate", who: "Corporate Events & Functions", events: "Conferences, dinner and dances", copy: "From corporate conferences to the company dinner and dance, we provide sound, LED displays, projection, staging and lighting, with our technical crew managing the setup and live requirements. We work closely with organisers for polished presentations and clear audio.", links: [{ label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" }, { label: "CNY event AV", href: "/mockup/cny-event-av-v3" }] },
-      { tab: "Schools", who: "Schools & Educational Institutions", events: "Speech days, graduations", copy: "From speech days to graduation ceremonies, we plan AV for school halls with clear communication, safe installations and reliable equipment. We regularly work with MOE schools and understand their procurement processes. As a GeBIZ-registered vendor listed on GeBIZ Mall, we support purchases through GeBIZ and SAP Ariba, as well as e-invoicing.", links: [{ label: "School sound system rental", href: "/mockup/events/school-sound-system-rental" }] },
-      { tab: "Government", who: "Government & Community Events", events: "National celebrations, community programmes", copy: "We provide sound, LED displays, stage lighting and technical operations for public events and outdoor gatherings, including the National Day 2026 celebrations at Marina Barrage. PixelPro Studios is GeBIZ registered and bizSAFE Level 3 certified. Registered charities and NPOs get 10% off.", links: [{ label: "Our charity promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/" }] },
-      { tab: "Brands", who: "Brand Activations & Roadshows", events: "Roadshows, retail activations", copy: "LED displays, sound, staging, lighting and media production for roadshows and retail activations. Our team coordinates the AV to suit your visual direction, venue and technical needs.", links: [{ label: "Roadshow LED screen", href: "/mockup/events/roadshow-led-screen-rental" }] },
-      { tab: "Agencies", who: "Event Agencies & Organisers", events: "Technical AV production partner", copy: "We work with event agencies and organisers as their technical AV team, from equipment and technical planning to installation and live operation. You coordinate the technical side through one AV partner, and book only what each project needs.", links: [{ label: "Event production", href: "/mockup/event-production" }] },
+      { tab: "Corporate", who: "Corporate Events & Functions", events: "Conferences, dinner and dances", copy: "From corporate conferences and town halls to dinner and dances, award ceremonies and company celebrations, we provide integrated audiovisual solutions for professional event environments. Our services include sound systems, LED displays, projection, staging and lighting, supported by technical crews to manage setup and live event requirements. We work closely with corporate organisers to deliver polished presentations, clear audio and coordinated event production.", links: [{ label: "Dinner and dance AV", href: "/mockup/events/dinner-and-dance-av" }, { label: "CNY event AV", href: "/mockup/cny-event-av-v3" }] },
+      { tab: "Schools", who: "Schools & Educational Institutions", events: "Speech days, graduations", copy: "From speech days and graduation ceremonies to school concerts, orientation programmes and celebrations, we provide audiovisual solutions tailored to educational environments. Our team understands the importance of clear communication, safe installations, reliable equipment and professional event execution. We regularly work with MOE schools and understand their procurement processes. As a GeBIZ-registered vendor listed on GeBIZ Mall, we support purchases through GeBIZ and SAP Ariba, as well as e-invoicing.", links: [{ label: "School sound system rental", href: "/mockup/events/school-sound-system-rental" }] },
+      { tab: "Government", who: "Government & Community Events", events: "National celebrations, community programmes", copy: "We provide audiovisual production services for public events, community programmes, national celebrations and outdoor gatherings. Our capabilities include sound reinforcement, LED displays, stage lighting and technical operations for a variety of event environments. PixelPro Studios is GeBIZ registered and bizSAFE Level 3 certified, with experience supporting large-scale public events, including the National Day 2026 celebrations at Marina Barrage.", links: [{ label: "Our charity promotion", href: "/promotions/promotion-charity-singapore-led-walls-event/" }] },
+      { tab: "Brands", who: "Brand Activations & Roadshows", events: "Roadshows, retail activations", copy: "Create engaging brand experiences with professional audiovisual solutions for product launches, promotional roadshows, retail activations and exhibitions. We provide LED displays, sound systems, staging, lighting and media production services to support impactful presentations and audience engagement. Our team can coordinate multiple AV elements to suit the event's visual direction, venue and technical requirements.", links: [{ label: "Roadshow LED screen", href: "/mockup/events/roadshow-led-screen-rental" }] },
+      { tab: "Agencies", who: "Event Agencies & Organisers", events: "Technical AV production partner", copy: "PixelPro Studios works with event agencies and professional organisers as a technical audiovisual production partner. From equipment rental and technical planning to installation and live operation, we support event productions with professional AV systems and experienced crews. Our integrated services allow agencies to coordinate multiple technical requirements through a single AV partner while maintaining flexibility across different project scopes.", links: [{ label: "Event production", href: "/mockup/event-production" }] },
+    ],
+  },
+  compare: {
+    title: "Integrated AV Planning & Technical Coordination",
+    paragraphs: [
+      "Successful event production requires more than individual pieces of equipment. Sound, visuals, lighting and staging must be planned together to suit the venue, programme and audience.",
+      "Our team coordinates audiovisual requirements from initial planning through installation, testing and live operation, helping ensure that the different technical elements work together effectively.",
+      "By consolidating your AV requirements with PixelPro Studios, you benefit from clearer communication, coordinated technical planning and a single point of contact throughout the project.",
+    ],
+    points: [
+      ["Coordinated Technical Planning", "We consider the interaction between sound, visuals, lighting, staging and venue infrastructure when developing the event setup."],
+      ["Efficient Installation & Testing", "Our technical team coordinates equipment installation and testing according to the event schedule and venue requirements."],
+      ["Simplified Project Communication", "Clients benefit from a central point of contact for audiovisual planning, coordination and technical requirements."],
+      ["Flexible Production Support", "Our services can be provided individually or combined into an integrated audiovisual package based on your event requirements."],
+    ],
+  },
+  steps: {
+    title: "Our Process: From Enquiry to Event Execution",
+    items: [
+      ["Enquiry & Requirements", "Share your event date, venue, audience size and technical requirements."],
+      ["Consultation & Planning", "We assess the venue, recommend a suitable AV configuration and identify any additional technical requirements."],
+      ["Quotation & Confirmation", "Receive a customised quotation detailing the equipment and services. Confirm your booking in accordance with the agreed payment terms."],
+      ["Installation & Testing", "Our crew delivers, installs and tests the equipment ahead of your event."],
+      ["Live Operation & Dismantling", "Our technical team supports the event and manages the post-event dismantling."],
     ],
   },
   reviews: ["Gwendolyn Anne David", "Candy Mak", "Tan Hee Pheng"],
   pricing: {
-    intro: "Our AV rental is tailored to each event's technical requirements, venue and budget. Whether you need a standalone sound system or a full setup with LED walls, staging and lighting, we quote on the equipment and manpower required and recommend a setup that balances performance and cost.",
+    title: "AV Rental Pricing & Customised Packages",
+    intro: "Our audiovisual rental solutions are tailored to each event's technical requirements, venue and budget.",
+    more: [
+      "Whether you require a standalone sound system or an integrated setup with LED walls, staging and lighting, we provide clear, competitive quotations based on the equipment and manpower required.",
+      "Our team can recommend a suitable configuration to help you balance technical performance and cost-effectiveness.",
+    ],
     rows: [
       ["What you need", "One item, like sound or a projector", "Sound, screen, stage and lighting together (still one quotation)"],
       ["Number of guests and room size", "A small room or function room", "A ballroom, hall or outdoor field"],
@@ -89,20 +148,21 @@ export const c: ServiceV2Content = {
     ],
     footer: "Customised quotations with clear, competitive pricing.",
   },
-  quote: { title: "Request an AV Rental Quotation", checklist: ["Event date", "Venue", "Number of guests", "Indoor or outdoor", "Number of rental days", "Your programme (speeches, performances)", "What you think you need", "Photo or video too?"] },
+  quote: {
+    title: "Request an AV Rental Quotation",
+    intro: "Give us a call or drop us a WhatsApp message! Our WhatsApp is available 24/7, and we'll get back to you as soon as we can. For urgent enquiries, feel free to give us a call directly.",
+    checklist: ["Event date", "Venue", "Number of guests", "Indoor or outdoor", "Number of rental days", "Your programme (speeches, performances)", "What you think you need", "Photo or video too?"],
+  },
   faqTitle: "AV rental questions",
   faqs: [
     { q: "How much does AV rental cost?", a: "We quote per event, because the price depends on what you need, your guest count and room, the number of rental days, indoor or outdoor, venue access, and how much crew is needed. Send us your event details and we'll reply with a setup and a quotation." },
-    { q: "What AV equipment can I rent?", a: "We supply sound systems, LED walls, projectors and screens, stages and stage lighting. Packages are tailored to your venue size, programme format and technical requirements.", link: { label: "LED wall rental", href: "/mockup/led-walls-v3" } },
-    { q: "Do you rent sound systems for events in Singapore?", a: "Yes. PixelPro Studios provides professional sound system rental across Singapore, including speakers, mixers, microphones and sound engineers for corporate events, schools, conferences and outdoor programmes.", link: { label: "Sound system rental", href: "/mockup/sound-system-rental" } },
-    { q: "Do you rent stages too?", a: "Yes. Our modular stage platforms come with installation, skirting and access steps, planned around your venue.", link: { label: "Stage rental", href: "/mockup/stage-rental-v3" } },
+    { q: "Do you rent sound systems for events in Singapore?", a: "Yes. PixelPro Studios provides professional sound system rental across Singapore, including speakers, mixers, microphones, and on-site technicians for corporate events, schools, conferences, and outdoor programmes." },
+    { q: "What AV equipment can I rent?", a: "We supply audio systems, LED walls, stages, stage lighting, and projectors. Packages can be tailored to your venue size, programme format, and technical requirements." },
     { q: "I'm not technical. What do I need to do?", a: "Tell us your venue, guest count and programme. We recommend the setup, then plan, build and run it with you, and handle the tear-down." },
-    { q: "How does booking AV rental work?", a: "From enquiry to event execution, in five steps:", list: ["Enquiry: share your event date, venue, audience size and what you need", "Consultation and planning: we check the venue, recommend a setup and flag anything else the event needs", "Quotation and confirmation: you receive a customised quotation and confirm on the agreed payment terms", "Installation and testing: our crew delivers, installs and tests everything ahead of your event", "Live operation and tear-down: our team supports the event as booked, then handles the tear-down"] },
-    { q: "How far in advance should I book AV rental?", a: "We recommend booking at least two to four weeks ahead for standard events. Larger productions, LED walls or peak seasons may need earlier confirmation so we can reserve crew and equipment. For urgent requests, our WhatsApp is available 24/7, or give us a call." },
-    { q: "Do you provide setup and technical support on site?", a: "Yes. Our team handles delivery, setup and testing, and the tear-down after your event. Where on-site technical support is included, our crew also runs the systems during your programme." },
-    { q: "What if something goes wrong in the middle of the event?", a: "We test everything before your guests arrive. Where on-site technical support is included, our crew stays on site to monitor the systems and respond promptly to any technical issue." },
+    { q: "How far in advance should I book AV rental?", a: "We recommend booking at least two to four weeks ahead for standard events. Larger productions, LED walls, or peak seasons may need earlier confirmation so we can reserve crew and equipment. If you need urgent support, feel free to reach out — we respond fast." },
+    { q: "Do you provide setup and technical support on site?", a: "Yes. Our team handles delivery, setup and testing, and the dismantling after your event. Where on-site technical support is included, our crew also runs the systems during your programme." },
     { q: "Can you livestream the event?", a: "Yes, for compact setups: up to four cameras streamed online. Cameras that move around the room need wireless links, so they cost more." },
-    { q: "Are you a GeBIZ registered supplier?", a: "Yes. We are a GeBIZ-registered vendor listed on GeBIZ Mall, and we support purchases through GeBIZ and SAP Ariba, as well as e-invoicing. We regularly work with schools and public agencies." },
-    { q: "Do you cover all of Singapore?", a: "Yes. We provide AV rental island-wide, with crew and equipment sized to your venue and programme." },
+    { q: "Are you a GeBIZ registered supplier?", a: "Yes. PixelPro Studios is a Singapore Government registered supplier on GeBIZ, and we regularly support schools, public agencies, and institutional events." },
+    { q: "Do you cover all of Singapore?", a: "Yes. We provide audio visual rental island-wide, with crew and equipment sized to your venue and run-of-show." },
   ],
 };
