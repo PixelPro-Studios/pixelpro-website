@@ -466,6 +466,16 @@ function Setup({ s, tone, wa }: { s: NonNullable<ServiceV2Content["setup"]>; ton
         </div>
         {p && (
           <div ref={box} className="v3-sizer" data-rv>
+            {/* Indoor | Outdoor first and big, sizes below (Jovin, 25 Nov: "make the indoor/outdoor bigger at the top, then the sizes are below") */}
+            {p.kind === "wall" && (
+              <div className="v3-venue-big" role="radiogroup" aria-label="Indoor or outdoor">
+                {(["Indoor", "Outdoor"] as const).map((v) => (
+                  <button key={v} type="button" role="radio" aria-checked={venue === v} onClick={() => setVenue(v)} className={venue === v ? "is-active" : ""}>
+                    {v}
+                  </button>
+                ))}
+              </div>
+            )}
             <div className="v3-tabs v3-sizer-tabs" role="radiogroup" aria-label={p.caption}>
               {p.options.map(([a, b], i) => (
                 <button key={i} type="button" role="radio" aria-checked={k === i} onClick={() => (setAuto(false), setK(i))} className={`v3-tab ${k === i ? "is-active" : ""}`}>
@@ -473,15 +483,6 @@ function Setup({ s, tone, wa }: { s: NonNullable<ServiceV2Content["setup"]>; ton
                 </button>
               ))}
             </div>
-            {p.kind === "wall" && (
-              <div className="v3-tabs v3-sizer-tabs v3-venue" role="radiogroup" aria-label="Indoor or outdoor">
-                {(["Indoor", "Outdoor"] as const).map((v) => (
-                  <button key={v} type="button" role="radio" aria-checked={venue === v} onClick={() => setVenue(v)} className={`v3-tab ${venue === v ? "is-active" : ""}`}>
-                    {v}
-                  </button>
-                ))}
-              </div>
-            )}
             <div className="v3-scene-box">{p.kind === "wall" ? <WallScene w={w} h={h} venue={venue} /> : <StagePlan w={w} h={h} />}</div>
             <div className="v3-sizer-read">
               <p className="v3-sizer-label" aria-live="polite">

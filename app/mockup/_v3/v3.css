@@ -432,7 +432,12 @@
 @media (prefers-reduced-motion: reduce) { .v3-chat-body > * { opacity: 1; transform: none; transition: none; } .v3-chat-avatar::after { animation: none; } }
 
 /* size scenes (Abhishek, 18 Nov): the wall on a stage, or the stage from above, with an ask-about-this-size link */
-.v3-venue { margin-top: 10px; }
+/* Indoor | Outdoor: the big switch across the top of the size box, the sizes under it (Jovin's sketch, 25 Nov) */
+.v3-venue-big { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.v3-venue-big button { min-height: 56px; font-size: clamp(18px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; color: var(--dim); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 200ms ease, border-color 200ms ease; }
+.v3-venue-big button + button { border-left: 1px solid var(--line); }
+.v3-venue-big button.is-active { color: var(--ink); border-bottom-color: var(--paper); }
+@media (hover: hover) and (pointer: fine) { .v3-venue-big button:not(.is-active):hover { color: var(--mut); } }
 .v3-scene-box { margin-top: 16px; border-radius: 16px; overflow: hidden; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06); }
 .v3-scene { display: block; width: 100%; height: auto; }
 .v3-sizer-read { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; }
