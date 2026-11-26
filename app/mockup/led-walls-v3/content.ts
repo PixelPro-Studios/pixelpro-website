@@ -123,7 +123,7 @@ export const c: ServiceV2Content = {
       "LED walls deliver bright, vibrant visuals and are particularly effective for large stages, high-ambient-light environments and outdoor events. Projectors remain a practical and cost-effective alternative for smaller events and venues with controlled lighting.",
       "As a provider of both solutions, PixelPro Studios can recommend the most suitable display system for your event.",
     ],
-    link: { label: "Projector and screen rental", href: "/mockup/projector-rental" },
+    link: { label: "Projector and screen rental", href: "/mockup/projector-rental-v3" },
   },
   steps: {
     title: "Our Process: From Enquiry to Event Execution",

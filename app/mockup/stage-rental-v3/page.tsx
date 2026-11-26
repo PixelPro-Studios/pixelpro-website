@@ -6,7 +6,7 @@ import { c } from "./content";
 
 export const metadata: Metadata = {
   title: "Stage Platform Rental Singapore | Crew Included",
-  description: "Stage platform rental in Singapore: modular stages 60 to 100 cm high, with skirting and steps, set up and torn down by our crew.",
+  description: "Stage platform rental in Singapore: modular stages 60 to 100 cm high, with skirting and steps, set up and dismantled by our crew.",
   robots: { index: false, follow: false },
 };
 
